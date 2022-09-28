@@ -7,7 +7,7 @@
 ### Install
 
 ```sh
-pnpm add eslint @pengzhanbo/eslint-config @pengzhanbo/prettier-config
+pnpm add eslint prettier @pengzhanbo/eslint-config @pengzhanbo/prettier-config
 ```
 
 ### Config
