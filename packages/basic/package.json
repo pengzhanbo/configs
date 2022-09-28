@@ -1,6 +1,6 @@
 {
   "name": "@pengzhanbo/eslint-config-basic",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "MIT",
   "scripts": {
     "lint": "eslint . --config=index.js"
