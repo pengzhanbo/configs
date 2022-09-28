@@ -1,0 +1,19 @@
+{
+  "name": "@pengzhanbo/prettier-config",
+  "version": "0.1.2",
+  "license": "MIT",
+  "author": "pengzhanbo <q942450674@outlook.com> (https://github/pengzhanbo/)",
+  "homepage": "https://github.com/pengzhanbo/eslint-config",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pengzhanbo/eslint-config",
+    "directory": "packages/prettier"
+  },
+  "main": "index.js",
+  "files": [
+    "*.js"
+  ],
+  "peerDependencies": {
+    "prettier": "^2.7.1"
+  }
+}

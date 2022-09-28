@@ -22,8 +22,7 @@ export default createEslintRule<Options, MessageIds>({
   create: (context) => {
     return {
       ImportDeclaration(node) {
-        if (node.specifiers.length <= 1)
-          return
+        if (node.specifiers.length <= 1) return
 
         const names = new Set<string>()
         node.specifiers.forEach((n) => {
@@ -39,8 +38,7 @@ export default createEslintRule<Options, MessageIds>({
               fix(fixer) {
                 const s = n.range[0]
                 let e = n.range[1]
-                if (context.getSourceCode().text[e] === ',')
-                  e += 1
+                if (context.getSourceCode().text[e] === ',') e += 1
                 return fixer.removeRange([s, e])
               },
             })

@@ -8,6 +8,7 @@ module.exports = {
   extends: [
     './standard',
     'plugin:import/recommended',
+    'plugin:prettier/recommended',
     'plugin:eslint-comments/recommended',
     'plugin:jsonc/recommended-with-jsonc',
     'plugin:yml/standard',
@@ -179,7 +180,24 @@ module.exports = {
   ],
   rules: {
     // import
-    'import/order': 'error',
+    'import/order': [
+      'error',
+      {
+        'groups': [
+          'builtin',
+          'external',
+          'internal',
+          'parent',
+          'sibling',
+          'index',
+        ],
+        'newlines-between': 'never',
+        'alphabetize': {
+          order: 'asc',
+          caseInsensitive: true,
+        },
+      },
+    ],
     'import/first': 'error',
     'import/no-mutable-exports': 'error',
     'import/no-unresolved': 'off',
@@ -257,7 +275,7 @@ module.exports = {
     'prefer-spread': 'error',
     'prefer-template': 'error',
     'template-curly-spacing': 'error',
-    'arrow-parens': ['error', 'as-needed', { requireForBlockBody: true }],
+    'arrow-parens': ['error', 'always'],
     'generator-star-spacing': 'off',
     'spaced-comment': [
       'error',
@@ -291,7 +309,7 @@ module.exports = {
     'vars-on-top': 'error',
     'require-await': 'off',
     'no-return-assign': 'off',
-    'operator-linebreak': ['error', 'before'],
+    'operator-linebreak': ['error', 'after'],
 
     // unicorns
     // Pass error message when throwing errors
@@ -343,7 +361,7 @@ module.exports = {
     'yml/no-empty-document': 'off',
 
     // reco
-    'reco/if-newline': 'error',
+    // 'reco/if-newline': 'error',
     'reco/import-dedupe': 'error',
   },
 }

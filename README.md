@@ -1,13 +1,13 @@
 # @pengzhanbo/eslint-config
 
-一份个人在使用的 **eslint** 配置。
+一份个人在使用的 **eslint** 配置，且适配了 **prettier**
 
 ## Usage
 
 ### Install
 
 ```sh
-pnpm add eslint @pengzhanbo/eslint-config
+pnpm add eslint @pengzhanbo/eslint-config @pengzhanbo/prettier-config
 ```
 
 ### Config
@@ -27,6 +27,7 @@ pnpm add eslint @pengzhanbo/eslint-config
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
-  }
+  },
+  "prettier": "@pengzhanbo/prettier-config"
 }
 ```
