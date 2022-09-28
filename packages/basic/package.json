@@ -9,6 +9,9 @@
     "url": "https://github.com/pengzhanbo/eslint-config",
     "directory": "packages/basic"
   },
+  "files": [
+    "*.js"
+  ],
   "scripts": {
     "lint": "eslint . --config=index.js"
   },
