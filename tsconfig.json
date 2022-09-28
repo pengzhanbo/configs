@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "lib": ["ESNext"],
+    "downlevelIteration": true
+  },
+  "include": [
+    "./packages/**/*.ts"
+  ],
+  "exclude": [
+    "./fixtures/**/*.*"
+  ]
+}

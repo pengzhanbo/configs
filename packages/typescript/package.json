@@ -1,0 +1,25 @@
+{
+  "name": "@pengzhanbo/eslint-config-ts",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": "pengzhanbo <q942450674@outlook.com> (https://github/pengzhanbo/)",
+  "keywords": [
+    "eslint-config"
+  ],
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "peerDependencies": {
+    "eslint": ">=7.4.0",
+    "typescript": ">=3.9"
+  },
+  "devDependencies": {
+    "eslint": "^8.24.0"
+  },
+  "dependencies": {
+    "@pengzhanbo/eslint-config-basic": "workspace:*",
+    "@typescript-eslint/eslint-plugin": "^5.38.1",
+    "@typescript-eslint/parser": "^5.38.1"
+  }
+}
