@@ -89,7 +89,7 @@ module.exports = {
     'brace-style': 'off',
     '@typescript-eslint/brace-style': [
       'error',
-      'stroustrup',
+      '1tbs',
       { allowSingleLine: true },
     ],
     'comma-dangle': 'off',
