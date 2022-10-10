@@ -1,16 +1,18 @@
 {
   "name": "@pengzhanbo/eslint-config-react",
   "version": "0.1.5",
-  "license": "MIT",
   "author": "pengzhanbo <q942450674@outlook.com> (https://github/pengzhanbo/)",
-  "homepage": "https://github.com/pengzhanbo/eslint-config",
+  "license": "MIT",
+  "homepage": "https://github.com/pengzhanbo/configs",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pengzhanbo/eslint-config",
-    "directory": "packages/react"
+    "url": "git@github.com:pengzhanbo/configs.git",
+    "directory": "packages/eslint-config-react"
   },
   "keywords": [
-    "eslint-config"
+    "eslint-config",
+    "react",
+    "typescript"
   ],
   "main": "index.js",
   "files": [

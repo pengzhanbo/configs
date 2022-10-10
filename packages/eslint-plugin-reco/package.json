@@ -1,12 +1,12 @@
 {
   "name": "eslint-plugin-reco",
   "version": "0.1.5",
-  "license": "MIT",
   "author": "pengzhanbo <q942450674@outlook.com> (https://github/pengzhanbo/)",
-  "homepage": "https://github.com/pengzhanbo/eslint-config",
+  "license": "MIT",
+  "homepage": "https://github.com/pengzhanbo/configs",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pengzhanbo/eslint-config",
+    "url": "git@github.com:pengzhanbo/configs.git",
     "directory": "packages/eslint-plugin-reco"
   },
   "main": "./dist/index.cjs",
@@ -24,7 +24,7 @@
     "@typescript-eslint/utils": "^5.38.1"
   },
   "devDependencies": {
-    "unbuild": "^0.8.11",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "unbuild": "^0.8.11"
   }
 }

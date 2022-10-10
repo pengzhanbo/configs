@@ -6,9 +6,8 @@ module.exports = {
   },
   reportUnusedDisableDirectives: true,
   extends: [
-    './standard',
+    'standard',
     'plugin:import/recommended',
-    'plugin:prettier/recommended',
     'plugin:eslint-comments/recommended',
     'plugin:jsonc/recommended-with-jsonc',
     'plugin:yml/standard',
@@ -32,7 +31,7 @@ module.exports = {
     '!.vitepress',
     '!.vscode',
   ],
-  plugins: ['html', 'unicorn', 'reco'],
+  plugins: ['html', 'unicorn'],
   settings: {
     'import/resolver': {
       node: { extensions: ['.js', '.mjs'] },
@@ -363,9 +362,5 @@ module.exports = {
     // yml
     'yml/quotes': ['error', { prefer: 'single', avoidEscape: false }],
     'yml/no-empty-document': 'off',
-
-    // reco
-    // 'reco/if-newline': 'error',
-    'reco/import-dedupe': 'error',
   },
 }

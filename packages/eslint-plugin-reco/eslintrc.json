@@ -1,6 +1,4 @@
 {
-  "extends": "@pengzhanbo",
-  "plugin": [
-    "reco"
-  ]
+  "extends": "@pengzhanbo/eslint-config-ts",
+  "plugin": ["reco"]
 }

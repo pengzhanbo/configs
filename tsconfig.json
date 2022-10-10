@@ -4,10 +4,6 @@
     "lib": ["ESNext"],
     "downlevelIteration": true
   },
-  "include": [
-    "./packages/**/*.ts"
-  ],
-  "exclude": [
-    "./fixtures/**/*.*"
-  ]
+  "include": ["./packages/**/*.ts"],
+  "exclude": ["./fixtures/**/*.*"]
 }
