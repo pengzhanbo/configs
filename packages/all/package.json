@@ -37,5 +37,14 @@
     "eslint-plugin-yml": "^1.2.0",
     "jsonc-eslint-parser": "^2.1.0",
     "yaml-eslint-parser": "^1.1.0"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "typescript",
+        "tsutils",
+        "@typescript-eslint/parser"
+      ]
+    }
   }
 }
