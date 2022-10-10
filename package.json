@@ -13,10 +13,10 @@
   "prettier": "@pengzhanbo/prettier-config",
   "devDependencies": {
     "@pengzhanbo/eslint-config-ts": "workspace:*",
+    "@pengzhanbo/eslint-plugin-reco": "workspace:*",
     "@pengzhanbo/prettier-config": "workspace:*",
     "bumpp": "^8.2.1",
     "eslint": "^8.24.0",
-    "@pengzhanbo/eslint-plugin-reco": "workspace:*",
     "prettier": "^2.7.1",
     "typescript": "^4.8.4"
   },
