@@ -1,6 +1,6 @@
 {
   "name": "@pengzhanbo/config-monorepo",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "private": true,
   "packageManager": "pnpm@7.12.0",
   "author": "pengzhanbo <q942450674@outlook.com> (https://github/pengzhanbo/)",
