@@ -6,5 +6,18 @@ module.exports = {
     'plugin:import/typescript',
     'plugin:@typescript-eslint/recommended',
   ],
+  overrides: [
+    {
+      files: ['*.tsx'],
+      parserOptions: {
+        ecmaVersion: 2020,
+        sourceType: 'module',
+        jsxPragma: 'React',
+        ecmaFeatures: {
+          jsx: true,
+        },
+      },
+    },
+  ],
   ...config,
 }
