@@ -5,6 +5,9 @@ module.exports = {
     node: true,
   },
   reportUnusedDisableDirectives: true,
+  parserOptions: {
+    ecmaVersion: 2021,
+  },
   extends: [
     'standard',
     'plugin:import/recommended',
