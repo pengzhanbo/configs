@@ -8,16 +8,17 @@
   "scripts": {
     "lint": "eslint .",
     "prepare": "pnpm -r run stub",
+    "up": "taze -r major",
     "release": "bumpp package.json packages/*/package.json --commit --push --tag && pnpm -r publish --access public"
   },
   "prettier": "@pengzhanbo/prettier-config",
   "devDependencies": {
-    "@pengzhanbo/eslint-config-ts": "workspace:*",
-    "@pengzhanbo/eslint-plugin-reco": "workspace:*",
-    "@pengzhanbo/prettier-config": "workspace:*",
+    "@pengzhanbo/eslint-config-ts": "workspace:0.2.5",
+    "@pengzhanbo/prettier-config": "workspace:0.2.5",
     "bumpp": "^8.2.1",
-    "eslint": "^8.24.0",
+    "eslint": "^8.25.0",
     "prettier": "^2.7.1",
+    "taze": "^0.8.2",
     "typescript": "^4.8.4"
   },
   "pnpm": {

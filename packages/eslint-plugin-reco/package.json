@@ -21,7 +21,7 @@
     "prepublishOnly": "pnpm run build"
   },
   "dependencies": {
-    "@typescript-eslint/utils": "^5.38.1"
+    "@typescript-eslint/utils": "^5.40.0"
   },
   "devDependencies": {
     "rimraf": "^3.0.2",
