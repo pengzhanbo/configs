@@ -13,8 +13,8 @@
   },
   "prettier": "@pengzhanbo/prettier-config",
   "devDependencies": {
-    "@pengzhanbo/eslint-config-ts": "workspace:0.2.5",
-    "@pengzhanbo/prettier-config": "workspace:0.2.5",
+    "@pengzhanbo/eslint-config-ts": "workspace:*",
+    "@pengzhanbo/prettier-config": "workspace:*",
     "bumpp": "^8.2.1",
     "eslint": "^8.25.0",
     "prettier": "^2.7.1",
