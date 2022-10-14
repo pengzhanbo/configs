@@ -1,11 +1,18 @@
 # @pengzhanbo/configs
 
-一份个人在使用的 **eslint** 配置，且适配了 **prettier**
+**eslint** 配置，且适配了 **prettier**
 
 - javascript
 - typescript
 - vue
 - react
+
+**stylelint** 配置
+
+- css
+- scss
+- TailwindCSS custom Rules
+
 
 ## Usage
 
@@ -165,5 +172,23 @@ pnpm add eslint @pengzhanbo/eslint-config-react
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   }
+}
+```
+
+### stylelint
+
+适用于 css / scss 场景，且适配了 TailwindCSS 的自定义 rules
+
+**Installed**
+
+```sh
+pnpm add eslint @pengzhanbo/stylelint-config
+```
+
+In `.stylelintrc.json`
+
+``` json
+{
+  "extends": "@pengzhanbo/stylelint-config"
 }
 ```
