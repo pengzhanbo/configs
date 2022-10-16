@@ -13,10 +13,33 @@
     "eslint-config",
     "vue"
   ],
-  "main": "index.js",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    },
+    "./package.json": "./package.json"
+  },
   "files": [
-    "index.js"
+    "dist"
   ],
+  "scripts": {
+    "build": "unbuild",
+    "stub": "unbuild --stub",
+    "prepublishOnly": "unbuild"
+  },
+  "unbuild": {
+    "entries": ["./src/index"],
+    "declaration": true,
+    "clean": true,
+    "rollup": {
+      "emitCJS": true
+    }
+  },
   "peerDependencies": {
     "eslint": ">=7.4.0",
     "prettier": ">=2.7.1"
@@ -39,6 +62,7 @@
     "yaml-eslint-parser": "^1.1.0"
   },
   "devDependencies": {
-    "eslint": "^8.25.0"
+    "eslint": "^8.25.0",
+    "unbuild": "^0.8.11"
   }
 }

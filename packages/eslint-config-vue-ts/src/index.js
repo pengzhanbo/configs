@@ -1,5 +1,6 @@
-const config = require('@pengzhanbo/eslint-config-vue')
-module.exports = {
+import config from '@pengzhanbo/eslint-config-vue'
+
+export default {
   overrides: [
     {
       files: ['*.vue'],

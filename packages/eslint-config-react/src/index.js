@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   extends: [
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',

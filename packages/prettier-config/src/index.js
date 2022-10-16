@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   // Maximum line length
   printWidth: 80,
 

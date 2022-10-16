@@ -3,7 +3,7 @@
   "version": "0.2.8",
   "author": "pengzhanbo <q942450674@outlook.com> (https://github/pengzhanbo/)",
   "license": "MIT",
-  "homepage": "https://github.com/pengzhanbo/configs",
+  "homepage": "https://github.com/pengzhanbo/configs#readme",
   "repository": {
     "type": "git",
     "url": "git@github.com:pengzhanbo/configs.git",
@@ -14,12 +14,32 @@
     "react",
     "typescript"
   ],
-  "main": "index.js",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    },
+    "./package.json": "./package.json"
+  },
   "files": [
-    "index.js"
+    "dist"
   ],
   "scripts": {
-    "lint": "eslint . --config=index.js"
+    "build": "unbuild",
+    "stub": "unbuild --stub",
+    "prepublishOnly": "unbuild"
+  },
+  "unbuild": {
+    "entries": ["./src/index"],
+    "declaration": true,
+    "clean": true,
+    "rollup": {
+      "emitCJS": true
+    }
   },
   "peerDependencies": {
     "eslint": ">=7.4.0"
@@ -46,6 +66,7 @@
   "devDependencies": {
     "eslint": "^8.25.0",
     "react": "^18.2.0",
-    "typescript": "^4.8.4"
+    "typescript": "^4.8.4",
+    "unbuild": "^0.8.11"
   }
 }

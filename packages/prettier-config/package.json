@@ -3,7 +3,7 @@
   "version": "0.2.8",
   "author": "pengzhanbo <q942450674@outlook.com> (https://github/pengzhanbo/)",
   "license": "MIT",
-  "homepage": "https://github.com/pengzhanbo/configs",
+  "homepage": "https://github.com/pengzhanbo/configs#readme",
   "repository": {
     "type": "git",
     "url": "git@github.com:pengzhanbo/configs.git",
@@ -12,11 +12,39 @@
   "keywords": [
     "prettier-config"
   ],
-  "main": "index.js",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    },
+    "./package.json": "./package.json"
+  },
   "files": [
-    "*.js"
+    "dist"
   ],
+  "scripts": {
+    "build": "unbuild",
+    "stub": "unbuild --stub",
+    "prepublishOnly": "unbuild"
+  },
+  "unbuild": {
+    "entries": [
+      "./src/index"
+    ],
+    "declaration": true,
+    "clean": true,
+    "rollup": {
+      "emitCJS": true
+    }
+  },
   "peerDependencies": {
     "prettier": "^2.7.1"
+  },
+  "devDependencies": {
+    "unbuild": "^0.8.11"
   }
 }

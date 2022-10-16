@@ -3,7 +3,7 @@
   "version": "0.2.8",
   "author": "pengzhanbo <q942450674@outlook.com> (https://github/pengzhanbo/)",
   "license": "MIT",
-  "homepage": "https://github.com/pengzhanbo/configs",
+  "homepage": "https://github.com/pengzhanbo/configs#readme",
   "repository": {
     "type": "git",
     "url": "git@github.com:pengzhanbo/configs.git",
@@ -12,12 +12,33 @@
   "keywords": [
     "eslint-config"
   ],
-  "main": "index.js",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    },
+    "./package.json": "./package.json"
+  },
   "files": [
-    "*.js"
+    "dist"
   ],
   "scripts": {
-    "lint": "eslint . --config=index.js"
+    "lint": "eslint . --config=dist/index.cjs",
+    "build": "unbuild",
+    "stub": "unbuild --stub",
+    "prepublishOnly": "unbuild"
+  },
+  "unbuild": {
+    "entries": ["./src/index"],
+    "declaration": true,
+    "clean": true,
+    "rollup": {
+      "emitCJS": true
+    }
   },
   "peerDependencies": {
     "eslint": ">=7.4.0"
@@ -38,6 +59,7 @@
     "yaml-eslint-parser": "^1.1.0"
   },
   "devDependencies": {
-    "eslint": "^8.25.0"
+    "eslint": "^8.25.0",
+    "unbuild": "^0.8.11"
   }
 }

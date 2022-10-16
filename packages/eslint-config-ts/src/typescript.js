@@ -1,6 +1,6 @@
-const basic = require('@pengzhanbo/eslint-config-basic')
+import basic from '@pengzhanbo/eslint-config-basic'
 
-module.exports = {
+export default {
   settings: {
     'import/resolver': {
       node: { extensions: ['.js', '.jsx', '.mjs', '.ts', '.tsx', '.d.ts'] },

@@ -4,8 +4,8 @@ importers:
 
   .:
     specifiers:
-      '@pengzhanbo/eslint-config-ts': workspace:0.2.5
-      '@pengzhanbo/prettier-config': workspace:0.2.5
+      '@pengzhanbo/eslint-config-ts': workspace:*
+      '@pengzhanbo/prettier-config': workspace:*
       bumpp: ^8.2.1
       eslint: ^8.25.0
       prettier: ^2.7.1
@@ -31,27 +31,29 @@ importers:
       eslint-plugin-import: ^2.26.0
       eslint-plugin-jsonc: ^2.4.0
       eslint-plugin-n: ^15.3.0
-      eslint-plugin-promise: ^6.0.1
+      eslint-plugin-promise: ^6.1.0
       eslint-plugin-unicorn: ^43.0.2
       eslint-plugin-yml: ^1.2.0
       jsonc-eslint-parser: ^2.1.0
+      unbuild: ^0.8.11
       yaml-eslint-parser: ^1.1.0
     dependencies:
       '@pengzhanbo/eslint-config-basic': link:../eslint-config-basic
       eslint-config-prettier: 8.5.0_eslint@8.25.0
-      eslint-config-standard: 17.0.0_a432y4gghichzqs5hexeiieuzm
+      eslint-config-standard: 17.0.0_qjhcey4ofknbrbveepk4bditci
       eslint-plugin-eslint-comments: 3.2.0_eslint@8.25.0
       eslint-plugin-html: 7.1.0
       eslint-plugin-import: 2.26.0_eslint@8.25.0
       eslint-plugin-jsonc: 2.4.0_eslint@8.25.0
       eslint-plugin-n: 15.3.0_eslint@8.25.0
-      eslint-plugin-promise: 6.0.1_eslint@8.25.0
+      eslint-plugin-promise: 6.1.0_eslint@8.25.0
       eslint-plugin-unicorn: 43.0.2_eslint@8.25.0
       eslint-plugin-yml: 1.2.0_eslint@8.25.0
       jsonc-eslint-parser: 2.1.0
       yaml-eslint-parser: 1.1.0
     devDependencies:
       eslint: 8.25.0
+      unbuild: 0.8.11
 
   packages/eslint-config-basic:
     specifiers:
@@ -64,13 +66,14 @@ importers:
       eslint-plugin-markdown: ^3.0.0
       eslint-plugin-n: ^15.3.0
       eslint-plugin-prettier: ^4.2.1
-      eslint-plugin-promise: ^6.0.1
+      eslint-plugin-promise: ^6.1.0
       eslint-plugin-unicorn: ^43.0.2
       eslint-plugin-yml: ^1.2.0
       jsonc-eslint-parser: ^2.1.0
+      unbuild: ^0.8.11
       yaml-eslint-parser: ^1.1.0
     dependencies:
-      eslint-config-standard: 17.0.0_a432y4gghichzqs5hexeiieuzm
+      eslint-config-standard: 17.0.0_qjhcey4ofknbrbveepk4bditci
       eslint-plugin-eslint-comments: 3.2.0_eslint@8.25.0
       eslint-plugin-html: 7.1.0
       eslint-plugin-import: 2.26.0_eslint@8.25.0
@@ -78,13 +81,14 @@ importers:
       eslint-plugin-markdown: 3.0.0_eslint@8.25.0
       eslint-plugin-n: 15.3.0_eslint@8.25.0
       eslint-plugin-prettier: 4.2.1_eslint@8.25.0
-      eslint-plugin-promise: 6.0.1_eslint@8.25.0
+      eslint-plugin-promise: 6.1.0_eslint@8.25.0
       eslint-plugin-unicorn: 43.0.2_eslint@8.25.0
       eslint-plugin-yml: 1.2.0_eslint@8.25.0
       jsonc-eslint-parser: 2.1.0
       yaml-eslint-parser: 1.1.0
     devDependencies:
       eslint: 8.25.0
+      unbuild: 0.8.11
 
   packages/eslint-config-react:
     specifiers:
@@ -99,7 +103,7 @@ importers:
       eslint-plugin-import: ^2.26.0
       eslint-plugin-jsonc: ^2.4.0
       eslint-plugin-n: ^15.3.0
-      eslint-plugin-promise: ^6.0.1
+      eslint-plugin-promise: ^6.1.0
       eslint-plugin-react: ^7.31.10
       eslint-plugin-react-hooks: ^4.6.0
       eslint-plugin-unicorn: ^43.0.2
@@ -107,19 +111,20 @@ importers:
       jsonc-eslint-parser: ^2.1.0
       react: ^18.2.0
       typescript: ^4.8.4
+      unbuild: ^0.8.11
       yaml-eslint-parser: ^1.1.0
     dependencies:
       '@pengzhanbo/eslint-config-ts': link:../eslint-config-ts
       '@typescript-eslint/eslint-plugin': 5.40.0_25sstg4uu2sk4pm7xcyzuov7xq
       '@typescript-eslint/parser': 5.40.0_z4bbprzjrhnsfa24uvmcbu7f5q
       eslint-config-prettier: 8.5.0_eslint@8.25.0
-      eslint-config-standard: 17.0.0_a432y4gghichzqs5hexeiieuzm
+      eslint-config-standard: 17.0.0_qjhcey4ofknbrbveepk4bditci
       eslint-plugin-eslint-comments: 3.2.0_eslint@8.25.0
       eslint-plugin-html: 7.1.0
       eslint-plugin-import: 2.26.0_zb5prbqp7qzcgafjm73dfpyyvm
       eslint-plugin-jsonc: 2.4.0_eslint@8.25.0
       eslint-plugin-n: 15.3.0_eslint@8.25.0
-      eslint-plugin-promise: 6.0.1_eslint@8.25.0
+      eslint-plugin-promise: 6.1.0_eslint@8.25.0
       eslint-plugin-react: 7.31.10_eslint@8.25.0
       eslint-plugin-react-hooks: 4.6.0_eslint@8.25.0
       eslint-plugin-unicorn: 43.0.2_eslint@8.25.0
@@ -130,6 +135,7 @@ importers:
       eslint: 8.25.0
       react: 18.2.0
       typescript: 4.8.4
+      unbuild: 0.8.11
 
   packages/eslint-config-ts:
     specifiers:
@@ -144,29 +150,31 @@ importers:
       eslint-plugin-import: ^2.26.0
       eslint-plugin-jsonc: ^2.4.0
       eslint-plugin-n: ^15.3.0
-      eslint-plugin-promise: ^6.0.1
+      eslint-plugin-promise: ^6.1.0
       eslint-plugin-unicorn: ^43.0.2
       eslint-plugin-yml: ^1.2.0
       jsonc-eslint-parser: ^2.1.0
+      unbuild: ^0.8.11
       yaml-eslint-parser: ^1.1.0
     dependencies:
       '@pengzhanbo/eslint-config-basic': link:../eslint-config-basic
       '@typescript-eslint/eslint-plugin': 5.40.0_zb5prbqp7qzcgafjm73dfpyyvm
       '@typescript-eslint/parser': 5.40.0_eslint@8.25.0
       eslint-config-prettier: 8.5.0_eslint@8.25.0
-      eslint-config-standard: 17.0.0_a432y4gghichzqs5hexeiieuzm
+      eslint-config-standard: 17.0.0_qjhcey4ofknbrbveepk4bditci
       eslint-plugin-eslint-comments: 3.2.0_eslint@8.25.0
       eslint-plugin-html: 7.1.0
       eslint-plugin-import: 2.26.0_zb5prbqp7qzcgafjm73dfpyyvm
       eslint-plugin-jsonc: 2.4.0_eslint@8.25.0
       eslint-plugin-n: 15.3.0_eslint@8.25.0
-      eslint-plugin-promise: 6.0.1_eslint@8.25.0
+      eslint-plugin-promise: 6.1.0_eslint@8.25.0
       eslint-plugin-unicorn: 43.0.2_eslint@8.25.0
       eslint-plugin-yml: 1.2.0_eslint@8.25.0
       jsonc-eslint-parser: 2.1.0
       yaml-eslint-parser: 1.1.0
     devDependencies:
       eslint: 8.25.0
+      unbuild: 0.8.11
 
   packages/eslint-config-vue:
     specifiers:
@@ -179,23 +187,24 @@ importers:
       eslint-plugin-import: ^2.26.0
       eslint-plugin-jsonc: ^2.4.0
       eslint-plugin-n: ^15.3.0
-      eslint-plugin-promise: ^6.0.1
+      eslint-plugin-promise: ^6.1.0
       eslint-plugin-unicorn: ^43.0.2
       eslint-plugin-vue: ^9.6.0
       eslint-plugin-yml: ^1.2.0
       jsonc-eslint-parser: ^2.1.0
+      unbuild: ^0.8.11
       vue-eslint-parser: ^9.1.0
       yaml-eslint-parser: ^1.1.0
     dependencies:
       '@pengzhanbo/eslint-config': link:../eslint-config
       eslint-config-prettier: 8.5.0_eslint@8.25.0
-      eslint-config-standard: 17.0.0_a432y4gghichzqs5hexeiieuzm
+      eslint-config-standard: 17.0.0_qjhcey4ofknbrbveepk4bditci
       eslint-plugin-eslint-comments: 3.2.0_eslint@8.25.0
       eslint-plugin-html: 7.1.0
       eslint-plugin-import: 2.26.0_eslint@8.25.0
       eslint-plugin-jsonc: 2.4.0_eslint@8.25.0
       eslint-plugin-n: 15.3.0_eslint@8.25.0
-      eslint-plugin-promise: 6.0.1_eslint@8.25.0
+      eslint-plugin-promise: 6.1.0_eslint@8.25.0
       eslint-plugin-unicorn: 43.0.2_eslint@8.25.0
       eslint-plugin-vue: 9.6.0_eslint@8.25.0
       eslint-plugin-yml: 1.2.0_eslint@8.25.0
@@ -204,6 +213,7 @@ importers:
       yaml-eslint-parser: 1.1.0
     devDependencies:
       eslint: 8.25.0
+      unbuild: 0.8.11
 
   packages/eslint-config-vue-ts:
     specifiers:
@@ -219,11 +229,12 @@ importers:
       eslint-plugin-import: ^2.26.0
       eslint-plugin-jsonc: ^2.4.0
       eslint-plugin-n: ^15.3.0
-      eslint-plugin-promise: ^6.0.1
+      eslint-plugin-promise: ^6.1.0
       eslint-plugin-unicorn: ^43.0.2
       eslint-plugin-vue: ^9.6.0
       eslint-plugin-yml: ^1.2.0
       jsonc-eslint-parser: ^2.1.0
+      unbuild: ^0.8.11
       vue-eslint-parser: ^9.1.0
       yaml-eslint-parser: ^1.1.0
     dependencies:
@@ -232,13 +243,13 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.40.0_zb5prbqp7qzcgafjm73dfpyyvm
       '@typescript-eslint/parser': 5.40.0_eslint@8.25.0
       eslint-config-prettier: 8.5.0_eslint@8.25.0
-      eslint-config-standard: 17.0.0_a432y4gghichzqs5hexeiieuzm
+      eslint-config-standard: 17.0.0_qjhcey4ofknbrbveepk4bditci
       eslint-plugin-eslint-comments: 3.2.0_eslint@8.25.0
       eslint-plugin-html: 7.1.0
       eslint-plugin-import: 2.26.0_zb5prbqp7qzcgafjm73dfpyyvm
       eslint-plugin-jsonc: 2.4.0_eslint@8.25.0
       eslint-plugin-n: 15.3.0_eslint@8.25.0
-      eslint-plugin-promise: 6.0.1_eslint@8.25.0
+      eslint-plugin-promise: 6.1.0_eslint@8.25.0
       eslint-plugin-unicorn: 43.0.2_eslint@8.25.0
       eslint-plugin-vue: 9.6.0_eslint@8.25.0
       eslint-plugin-yml: 1.2.0_eslint@8.25.0
@@ -247,6 +258,7 @@ importers:
       yaml-eslint-parser: 1.1.0
     devDependencies:
       eslint: 8.25.0
+      unbuild: 0.8.11
 
   packages/eslint-plugin-reco:
     specifiers:
@@ -260,7 +272,10 @@ importers:
       unbuild: 0.8.11
 
   packages/prettier-config:
-    specifiers: {}
+    specifiers:
+      unbuild: ^0.8.11
+    devDependencies:
+      unbuild: 0.8.11
 
   packages/stylelint-config:
     specifiers:
@@ -273,6 +288,7 @@ importers:
       stylelint-config-recommended-vue: ^1.4.0
       stylelint-config-standard: ^28.0.0
       stylelint-config-standard-scss: ^5.0.0
+      unbuild: ^0.8.11
     dependencies:
       postcss: 8.4.18
       postcss-html: 1.5.0
@@ -283,6 +299,8 @@ importers:
       stylelint-config-recommended-vue: 1.4.0_postcss-html@1.5.0
       stylelint-config-standard: 28.0.0
       stylelint-config-standard-scss: 5.0.0_postcss@8.4.18
+    devDependencies:
+      unbuild: 0.8.11
 
 packages:
 
@@ -2076,7 +2094,7 @@ packages:
       eslint: 8.25.0
     dev: false
 
-  /eslint-config-standard/17.0.0_a432y4gghichzqs5hexeiieuzm:
+  /eslint-config-standard/17.0.0_qjhcey4ofknbrbveepk4bditci:
     resolution: {integrity: sha512-/2ks1GKyqSOkH7JFvXJicu0iMpoojkwB+f5Du/1SC0PtBL+s8v30k9njRZ21pm2drKYm2342jFnGWzttxPmZVg==}
     peerDependencies:
       eslint: ^8.0.1
@@ -2096,7 +2114,7 @@ packages:
       eslint: 8.25.0
       eslint-plugin-import: 2.26.0_eslint@8.25.0
       eslint-plugin-n: 15.3.0_eslint@8.25.0
-      eslint-plugin-promise: 6.0.1_eslint@8.25.0
+      eslint-plugin-promise: 6.1.0_eslint@8.25.0
     dev: false
 
   /eslint-import-resolver-node/0.3.6:
@@ -2333,8 +2351,8 @@ packages:
       prettier-linter-helpers: 1.0.0
     dev: false
 
-  /eslint-plugin-promise/6.0.1_eslint@8.25.0:
-    resolution: {integrity: sha512-uM4Tgo5u3UWQiroOyDEsYcVMOo7re3zmno0IZmB5auxoaQNIceAbXEkSt8RNrKtaYehARHG06pYK6K1JhtP0Zw==}
+  /eslint-plugin-promise/6.1.0_eslint@8.25.0:
+    resolution: {integrity: sha512-NYCfDZF/KHt27p06nFAttgWuFyIDSUMnNaJBIY1FY9GpBFhdT2vMG64HlFguSgcJeyM5by6Yr5csSOuJm60eXQ==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
       eslint: ^7.0.0 || ^8.0.0
