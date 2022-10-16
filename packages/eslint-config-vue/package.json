@@ -1,6 +1,6 @@
 {
   "name": "@pengzhanbo/eslint-config-vue",
-  "version": "0.2.8",
+  "version": "0.2.9",
   "author": "pengzhanbo <q942450674@outlook.com> (https://github/pengzhanbo/)",
   "license": "MIT",
   "homepage": "https://github.com/pengzhanbo/configs",
@@ -33,7 +33,9 @@
     "prepublishOnly": "unbuild"
   },
   "unbuild": {
-    "entries": ["./src/index"],
+    "entries": [
+      "./src/index"
+    ],
     "declaration": true,
     "clean": true,
     "rollup": {
