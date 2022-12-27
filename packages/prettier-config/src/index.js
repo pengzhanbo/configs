@@ -21,7 +21,7 @@ export default {
   jsxSingleQuote: false,
 
   // Print trailing commas wherever possible when multi-line
-  trailingComma: 'none',
+  trailingComma: 'all',
 
   // Print spaces between brackets in object literals.
   bracketSpacing: true,
