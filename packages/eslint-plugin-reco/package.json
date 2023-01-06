@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-reco",
-  "version": "0.2.13",
+  "version": "0.3.0",
   "author": "pengzhanbo <q942450674@outlook.com> (https://github/pengzhanbo/)",
   "license": "MIT",
   "homepage": "https://github.com/pengzhanbo/configs#readme",
@@ -39,7 +39,7 @@
     }
   },
   "dependencies": {
-    "@typescript-eslint/utils": "^5.41.0"
+    "@typescript-eslint/utils": "^5.48.0"
   },
   "devDependencies": {
     "rimraf": "^3.0.2",
