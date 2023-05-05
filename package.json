@@ -2,9 +2,8 @@
   "name": "@pengzhanbo/config-monorepo",
   "version": "0.3.5",
   "private": true,
-  "packageManager": "pnpm@7.12.0",
-  "author": "pengzhanbo <q942450674@outlook.com> (https://github/pengzhanbo/)",
   "license": "MIT",
+  "author": "pengzhanbo <q942450674@outlook.com> (https://github/pengzhanbo/)",
   "scripts": {
     "lint": "eslint .",
     "prepare": "pnpm -r run stub",
@@ -24,6 +23,7 @@
     "taze": "^0.10.1",
     "typescript": "^5.0.4"
   },
+  "packageManager": "pnpm@7.12.0",
   "pnpm": {
     "peerDependencyRules": {
       "ignoreMissing": [

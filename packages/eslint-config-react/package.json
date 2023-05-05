@@ -1,23 +1,20 @@
 {
   "name": "@pengzhanbo/eslint-config-react",
   "version": "0.3.5",
-  "author": "pengzhanbo <q942450674@outlook.com> (https://github/pengzhanbo/)",
-  "license": "MIT",
+  "keywords": [
+    "eslint-config",
+    "react",
+    "typescript"
+  ],
   "homepage": "https://github.com/pengzhanbo/configs#readme",
   "repository": {
     "type": "git",
     "url": "git@github.com:pengzhanbo/configs.git",
     "directory": "packages/eslint-config-react"
   },
-  "keywords": [
-    "eslint-config",
-    "react",
-    "typescript"
-  ],
+  "license": "MIT",
+  "author": "pengzhanbo <q942450674@outlook.com> (https://github/pengzhanbo/)",
   "type": "module",
-  "main": "dist/index.cjs",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
   "exports": {
     ".": {
       "require": "./dist/index.cjs",
@@ -25,6 +22,9 @@
     },
     "./package.json": "./package.json"
   },
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
@@ -42,9 +42,6 @@
     "rollup": {
       "emitCJS": true
     }
-  },
-  "peerDependencies": {
-    "eslint": ">=7.4.0"
   },
   "dependencies": {
     "@pengzhanbo/eslint-config-ts": "workspace:*",
@@ -70,5 +67,8 @@
     "react": "^18.2.0",
     "typescript": "^5.0.4",
     "unbuild": "^1.2.1"
+  },
+  "peerDependencies": {
+    "eslint": ">=7.4.0"
   }
 }

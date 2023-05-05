@@ -50,12 +50,7 @@ export default {
     // force exclude
     '.vitepress/cache',
   ],
-  plugins: [
-    'html',
-    'unicorn',
-    'no-only-tests',
-    'unused-imports'
-  ],
+  plugins: ['html', 'unicorn', 'no-only-tests', 'unused-imports'],
   settings: {
     'import/resolver': {
       node: { extensions: ['.js', '.mjs'] },
@@ -192,7 +187,10 @@ export default {
     'import/no-mutable-exports': 'error',
     'import/no-unresolved': 'off',
     'import/no-absolute-path': 'off',
-    'import/newline-after-import': ['error', { count: 1, considerComments: true }],
+    'import/newline-after-import': [
+      'error',
+      { count: 1, considerComments: true },
+    ],
 
     // Common
     'semi': ['error', 'never'],
@@ -203,7 +201,12 @@ export default {
     'unused-imports/no-unused-imports': 'error',
     'unused-imports/no-unused-vars': [
       'warn',
-      { vars: 'all', varsIgnorePattern: '^_', args: 'after-used', argsIgnorePattern: '^_' },
+      {
+        vars: 'all',
+        varsIgnorePattern: '^_',
+        args: 'after-used',
+        argsIgnorePattern: '^_',
+      },
     ],
 
     'no-param-reassign': 'off',

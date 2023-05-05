@@ -35,7 +35,7 @@ export default createEslintRule<Options, MessageIds>({
             fix(fixer) {
               return fixer.replaceTextRange(
                 [node.consequent.range[0], node.consequent.range[0]],
-                '\n'
+                '\n',
               )
             },
           })

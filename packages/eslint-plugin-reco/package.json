@@ -1,18 +1,15 @@
 {
   "name": "eslint-plugin-reco",
   "version": "0.3.5",
-  "author": "pengzhanbo <q942450674@outlook.com> (https://github/pengzhanbo/)",
-  "license": "MIT",
   "homepage": "https://github.com/pengzhanbo/configs#readme",
   "repository": {
     "type": "git",
     "url": "git@github.com:pengzhanbo/configs.git",
     "directory": "packages/eslint-plugin-reco"
   },
+  "license": "MIT",
+  "author": "pengzhanbo <q942450674@outlook.com> (https://github/pengzhanbo/)",
   "type": "module",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "require": "./dist/index.cjs",
@@ -20,6 +17,9 @@
     },
     "./package.json": "./package.json"
   },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
