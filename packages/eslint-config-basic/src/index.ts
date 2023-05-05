@@ -25,6 +25,7 @@ export default {
     'dist',
     'LICENSE*',
     'output',
+    'out',
     'coverage',
     'public',
     'temp',
@@ -32,11 +33,29 @@ export default {
     'pnpm-lock.yaml',
     'yarn.lock',
     '__snapshots__',
+    // ignore for in lint-staged
+    '*.css',
+    '*.png',
+    '*.ico',
+    '*.toml',
+    '*.patch',
+    '*.txt',
+    '*.crt',
+    '*.key',
+    'Dockerfile',
+    // force include
     '!.github',
     '!.vitepress',
     '!.vscode',
+    // force exclude
+    '.vitepress/cache',
   ],
-  plugins: ['html', 'unicorn'],
+  plugins: [
+    'html',
+    'unicorn',
+    'no-only-tests',
+    'unused-imports'
+  ],
   settings: {
     'import/resolver': {
       node: { extensions: ['.js', '.mjs'] },
@@ -102,9 +121,16 @@ export default {
       },
     },
     {
-      files: ['*.js'],
+      files: ['*.js', '*.cjs', '*.jsx'],
       rules: {
         '@typescript-eslint/no-var-requires': 'off',
+        '@typescript-eslint/no-require-imports': 'off',
+      },
+    },
+    {
+      files: ['*.ts', '*.tsx', '*.mts', '*.cts'],
+      rules: {
+        'no-void': ['error', { allowAsStatement: true }],
       },
     },
     {
@@ -117,6 +143,7 @@ export default {
       files: ['*.test.ts', '*.test.js', '*.spec.ts', '*.spec.js'],
       rules: {
         'no-unused-expressions': 'off',
+        'no-only-tests/no-only-tests': 'error',
       },
     },
     {
@@ -128,7 +155,10 @@ export default {
         '@typescript-eslint/no-use-before-define': 'off',
         '@typescript-eslint/no-var-requires': 'off',
         '@typescript-eslint/comma-dangle': 'off',
+        '@typescript-eslint/consistent-type-imports': 'off',
         'import/no-unresolved': 'off',
+        'unused-imports/no-unused-imports': 'off',
+        'unused-imports/no-unused-vars': 'off',
         'no-alert': 'off',
         'no-console': 'off',
         'no-restricted-imports': 'off',
@@ -162,16 +192,23 @@ export default {
     'import/no-mutable-exports': 'error',
     'import/no-unresolved': 'off',
     'import/no-absolute-path': 'off',
+    'import/newline-after-import': ['error', { count: 1, considerComments: true }],
 
     // Common
     'semi': ['error', 'never'],
     'curly': ['error', 'multi-or-nest', 'consistent'],
     'quotes': ['error', 'single'],
     'quote-props': ['error', 'consistent-as-needed'],
-    'no-unused-vars': 'warn',
+
+    'unused-imports/no-unused-imports': 'error',
+    'unused-imports/no-unused-vars': [
+      'warn',
+      { vars: 'all', varsIgnorePattern: '^_', args: 'after-used', argsIgnorePattern: '^_' },
+    ],
+
     'no-param-reassign': 'off',
     'array-bracket-spacing': ['error', 'never'],
-    'brace-style': ['error', '1tbs', { allowSingleLine: true }],
+    'brace-style': ['error', 'stroustrup', { allowSingleLine: true }],
     'block-spacing': ['error', 'always'],
     'camelcase': 'off',
     'comma-spacing': ['error', { before: false, after: true }],
@@ -199,7 +236,6 @@ export default {
         asyncArrow: 'always',
       },
     ],
-    'no-multiple-empty-lines': ['error', { max: 1, maxBOF: 0, maxEOF: 1 }],
 
     // es6
     'no-var': 'error',
@@ -230,7 +266,7 @@ export default {
     'prefer-spread': 'error',
     'prefer-template': 'error',
     'template-curly-spacing': 'error',
-    'arrow-parens': ['error', 'always'],
+    'arrow-parens': ['error', 'as-needed', { requireForBlockBody: true }],
     'generator-star-spacing': 'off',
     'spaced-comment': [
       'error',
@@ -261,17 +297,19 @@ export default {
     'no-with': 'error',
     'no-void': 'error',
     'no-useless-escape': 'off',
+    'no-invalid-this': 'error',
     'vars-on-top': 'error',
     'require-await': 'off',
     'no-return-assign': 'off',
-    'operator-linebreak': [
-      'error',
-      'after',
-      { overrides: { '?': 'before', ':': 'before' } },
-    ],
+    'operator-linebreak': ['error', 'before'],
+    'max-statements-per-line': ['error', { max: 1 }],
+
+    // node
+    // 'n/prefer-global/process': ['error', 'never'], // Not sure if we need it as we are using `process.env.NODE_ENV` a lot in front-end.
+    'n/prefer-global/buffer': ['error', 'never'],
+    'n/no-callback-literal': 'off',
 
     // unicorns
-    // Pass error message when throwing errors
     'unicorn/error-message': 'error',
     // Uppercase regex escapes
     'unicorn/escape-case': 'error',
@@ -293,6 +331,8 @@ export default {
     'unicorn/prefer-type-error': 'error',
     // Use new when throwing error
     'unicorn/throw-new-error': 'error',
+    // Prefer using the node: protocol
+    'unicorn/prefer-node-protocol': 'error',
 
     'no-use-before-define': [
       'error',
@@ -302,7 +342,6 @@ export default {
     'import/no-named-as-default-member': 'off',
     'import/no-named-as-default': 'off',
     'import/namespace': 'off',
-    'n/no-callback-literal': 'off',
 
     'sort-imports': [
       'error',

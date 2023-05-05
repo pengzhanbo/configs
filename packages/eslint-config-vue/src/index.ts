@@ -2,6 +2,7 @@ export default {
   overrides: [
     {
       files: ['*.vue'],
+      parser: 'vue-eslint-parser',
       rules: {
         'no-unused-vars': 'off',
         'no-undef': 'off',
