@@ -45,6 +45,6 @@
     "prettier": "^2.7.1"
   },
   "devDependencies": {
-    "unbuild": "^1.1.2"
+    "unbuild": "^1.2.1"
   }
 }

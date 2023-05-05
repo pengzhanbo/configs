@@ -2,7 +2,10 @@
   "compilerOptions": {
     "baseUrl": ".",
     "lib": ["ESNext"],
-    "downlevelIteration": true
+    "downlevelIteration": true,
+    "paths": {
+      "@pengzhanbo/*": ["./packages/*/src/index.ts"]
+    }
   },
   "include": ["./packages/**/*.ts"],
   "exclude": ["./fixtures/**/*.*"]
