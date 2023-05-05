@@ -176,7 +176,7 @@ export default {
           'sibling',
           'index',
         ],
-        'newlines-between': 'never',
+        'newlines-between': 'always-and-inside-groups',
         'alphabetize': {
           order: 'asc',
           caseInsensitive: true,
