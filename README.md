@@ -118,7 +118,7 @@ pnpm add eslint @pengzhanbo/eslint-config-react
 
 ### stylelint
 
-适用于 css / scss 场景，且适配了 TailwindCSS 的自定义 rules
+适用于 css / scss 场景，且适配了 TailwindCSS 的自定义 rules， 同时还添加了 `CSS-in-JS` 支持。
 
 **Installed**
 
