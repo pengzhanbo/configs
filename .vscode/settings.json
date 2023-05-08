@@ -1,3 +1,7 @@
 {
-  "cSpell.words": ["bumpp", "reco"]
+  "cSpell.words": ["bumpp", "reco"],
+  "stylelint.packageManager": "pnpm",
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
 }

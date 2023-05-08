@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
+    "moduleResolution": "nodenext",
     "lib": ["ESNext"],
     "downlevelIteration": true,
     "paths": {
@@ -8,5 +9,5 @@
     }
   },
   "include": ["./packages/**/*.ts"],
-  "exclude": ["./fixtures/**/*.*"]
+  "exclude": ["node_modules"]
 }

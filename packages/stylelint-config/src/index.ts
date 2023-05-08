@@ -1,22 +1,60 @@
+import { isPackageExists } from 'local-pkg'
+
+const cssInJs =
+  isPackageExists('styled-components') ||
+  isPackageExists('@emotion/css') ||
+  isPackageExists('@emotion/react') ||
+  isPackageExists('@emotion/styled')
+
+const jsExtension = [
+  '*.js',
+  '*.ts',
+  '*.jsx',
+  '*.tsx',
+  '*.mjs',
+  '*.cjs',
+  '*.mts',
+  '*.cts',
+]
+
+const ignoreJs = !cssInJs ? jsExtension : []
+
+const jsOverrides = cssInJs
+  ? [
+      {
+        files: jsExtension
+          .map((extension) => [extension, `**/${extension}`])
+          .flat(),
+        customSyntax: 'postcss-styled-syntax',
+      },
+    ]
+  : []
+
 export default {
-  extends: [
-    'stylelint-config-standard',
-    'stylelint-config-recess-order',
-    'stylelint-config-prettier',
-  ],
+  extends: ['stylelint-config-standard', 'stylelint-config-recess-order'],
   ignoreFiles: [
     'dist',
     '*.d.ts',
-    '*.js',
-    '*.ts',
     '*.min.*',
     'LICENSE*',
     'public',
+    'output',
+    'out',
     'temp',
     'package-lock.json',
     'pnpm-lock.yaml',
     'yarn.lock',
     '__snapshots__',
+    '*.png',
+    '*.ico',
+    '*.toml',
+    '*.patch',
+    '*.txt',
+    '*.crt',
+    '*.key',
+    '*Dockerfile',
+    '.vitepress/cache',
+    ...ignoreJs,
   ],
   overrides: [
     {
@@ -27,12 +65,23 @@ export default {
     {
       files: ['*.vue', '**/*.vue'],
       customSyntax: 'postcss-html',
-      extends: ['stylelint-config-recommended-vue'],
+      extends: ['stylelint-config-html/vue'],
     },
     {
       files: ['*.html', '**/*.html', '*.htm', '**/*.htm'],
       customSyntax: 'postcss-html',
+      extends: ['stylelint-config-html/html'],
     },
+    {
+      files: ['*.svelte', '**/*.svelte'],
+      customSyntax: 'postcss-html',
+      extends: ['stylelint-config-html/svelte'],
+    },
+    {
+      files: ['*.md', '**/*.md'],
+      customSyntax: 'postcss-markdown',
+    },
+    ...jsOverrides,
   ],
   rules: {
     'at-rule-no-unknown': [
@@ -40,15 +89,11 @@ export default {
       {
         ignoreAtRules: [
           'tailwind',
+          'layer',
           'apply',
+          'config',
           'variants',
-          'responsive',
           'screen',
-          'function',
-          'if',
-          'each',
-          'include',
-          'mixin',
         ],
       },
     ],
