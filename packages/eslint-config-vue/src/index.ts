@@ -1,11 +1,33 @@
+import { isPackageExists } from 'local-pkg'
+
+const TS = isPackageExists('typescript')
+
+const TSRules = TS
+  ? {
+      '@typescript-eslint/no-unused-vars': 'off',
+    }
+  : {}
+
+const TSOptions = TS
+  ? {
+      parserOptions: {
+        parser: '@typescript-eslint/parser',
+        ecmaVersion: 2020,
+        sourceType: 'module',
+      },
+    }
+  : {}
+
 export default {
   overrides: [
     {
       files: ['*.vue'],
       parser: 'vue-eslint-parser',
+      ...TSOptions,
       rules: {
         'no-unused-vars': 'off',
         'no-undef': 'off',
+        ...TSRules,
       },
     },
   ],

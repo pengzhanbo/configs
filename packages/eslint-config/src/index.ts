@@ -1,3 +1,9 @@
+import { isPackageExists } from 'local-pkg'
+
+const TS = isPackageExists('typescript')
+
 export default {
-  extends: ['@pengzhanbo/eslint-config-basic', 'plugin:prettier/recommended'],
+  extends: TS
+    ? ['@pengzhanbo/eslint-config-ts']
+    : ['@pengzhanbo/eslint-config-basic', 'plugin:prettier/recommended'],
 }

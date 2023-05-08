@@ -56,6 +56,7 @@
     "eslint-plugin-vue": "^9.11.0",
     "eslint-plugin-yml": "^1.5.0",
     "jsonc-eslint-parser": "^2.2.0",
+    "local-pkg": "^0.4.3",
     "vue-eslint-parser": "^9.2.0",
     "yaml-eslint-parser": "^1.2.0"
   },
