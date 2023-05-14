@@ -1,6 +1,6 @@
 {
   "name": "@pengzhanbo/eslint-config-ts",
-  "version": "0.3.11",
+  "version": "0.3.12",
   "keywords": [
     "eslint-config",
     "typescript"
