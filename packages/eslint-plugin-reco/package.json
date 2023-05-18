@@ -42,7 +42,7 @@
     "@typescript-eslint/utils": "^5.59.6"
   },
   "devDependencies": {
-    "rimraf": "^5.0.0",
+    "rimraf": "^5.0.1",
     "unbuild": "^1.2.1"
   }
 }
