@@ -63,7 +63,7 @@
     "yaml-eslint-parser": "^1.2.2"
   },
   "devDependencies": {
-    "eslint": "^8.40.0",
+    "eslint": "^8.41.0",
     "react": "^18.2.0",
     "typescript": "^5.0.4",
     "unbuild": "^1.2.1"
