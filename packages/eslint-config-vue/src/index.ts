@@ -1,6 +1,7 @@
 import { isPackageExists } from 'local-pkg'
 
 const TS = isPackageExists('typescript')
+const JSX = isPackageExists('@vitejs/plugin-vue-jsx')
 
 const TSRules = TS
   ? {
@@ -14,6 +15,9 @@ const TSOptions = TS
         parser: '@typescript-eslint/parser',
         ecmaVersion: 2020,
         sourceType: 'module',
+        ecmaFeatures: {
+          jsx: JSX || process.env.ESLINT_JSX === 'enable',
+        },
       },
     }
   : {}
