@@ -50,10 +50,10 @@
     "eslint-plugin-html": "^7.1.0",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-jsonc": "^2.9.0",
-    "eslint-plugin-n": "^16.0.0",
+    "eslint-plugin-n": "^16.0.1",
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-unicorn": "^47.0.0",
-    "eslint-plugin-vue": "^9.15.0",
+    "eslint-plugin-vue": "^9.15.1",
     "eslint-plugin-yml": "^1.8.0",
     "jsonc-eslint-parser": "^2.3.0",
     "local-pkg": "^0.4.3",
@@ -61,7 +61,7 @@
     "yaml-eslint-parser": "^1.2.2"
   },
   "devDependencies": {
-    "eslint": "^8.43.0",
+    "eslint": "^8.44.0",
     "unbuild": "^1.2.1"
   },
   "peerDependencies": {
