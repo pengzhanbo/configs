@@ -43,7 +43,7 @@
   },
   "dependencies": {
     "local-pkg": "^0.4.3",
-    "postcss": "^8.4.25",
+    "postcss": "^8.4.26",
     "postcss-html": "^1.5.0",
     "postcss-markdown": "^1.2.0",
     "postcss-scss": "^4.0.6",
