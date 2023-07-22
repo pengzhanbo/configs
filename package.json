@@ -15,13 +15,13 @@
   "devDependencies": {
     "@pengzhanbo/eslint-config-ts": "workspace:*",
     "@pengzhanbo/prettier-config": "workspace:*",
-    "@types/node": "^20.4.2",
+    "@types/node": "^20.4.4",
     "bumpp": "^9.1.1",
     "eslint": "^8.45.0",
     "prettier": "^3.0.0",
     "typescript": "^5.1.6"
   },
-  "packageManager": "pnpm@8.6.7",
+  "packageManager": "pnpm@8.6.9",
   "pnpm": {
     "peerDependencyRules": {
       "ignoreMissing": [
