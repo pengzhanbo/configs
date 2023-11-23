@@ -1,0 +1,54 @@
+{
+  "name": "@pengzhanbo/eslint-config-solid",
+  "type": "module",
+  "version": "0.4.3",
+  "author": "pengzhanbo <q942450674@outlook.com> (https://github/pengzhanbo/)",
+  "license": "MIT",
+  "homepage": "https://github.com/pengzhanbo/configs#readme",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:pengzhanbo/configs.git",
+    "directory": "packages/eslint-config-solid"
+  },
+  "keywords": [
+    "eslint-config",
+    "solid-js"
+  ],
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "tsup src/index.ts --format esm --watch & eslint-flat-config-viewer",
+    "build": "tsup src/index.ts --format esm,cjs --clean --dts --shims",
+    "stub": "tsup src/index.ts --format esm",
+    "prepublishOnly": "pnpm build"
+  },
+  "peerDependencies": {
+    "eslint": ">=8.40.0"
+  },
+  "dependencies": {
+    "@pengzhanbo/eslint-config": "workspace:*",
+    "@typescript-eslint/parser": "^6.12.0",
+    "eslint-plugin-solid": "^0.13.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.54.0",
+    "eslint-flat-config-viewer": "^0.1.3",
+    "tsup": "^8.0.1"
+  }
+}
