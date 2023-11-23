@@ -1,10 +1,10 @@
 import { isPackageExists } from 'local-pkg'
 
-const cssInJs =
-  isPackageExists('styled-components') ||
-  isPackageExists('@emotion/css') ||
-  isPackageExists('@emotion/react') ||
-  isPackageExists('@emotion/styled')
+const cssInJs
+  = isPackageExists('styled-components')
+  || isPackageExists('@emotion/css')
+  || isPackageExists('@emotion/react')
+  || isPackageExists('@emotion/styled')
 
 const jsExtension = [
   '*.js',
@@ -23,7 +23,7 @@ const jsOverrides = cssInJs
   ? [
       {
         files: jsExtension
-          .map((extension) => [extension, `**/${extension}`])
+          .map(extension => [extension, `**/${extension}`])
           .flat(),
         customSyntax: 'postcss-styled-syntax',
       },
@@ -33,6 +33,7 @@ const jsOverrides = cssInJs
 export default {
   extends: ['stylelint-config-standard', 'stylelint-config-recess-order'],
   ignoreFiles: [
+    '**/node_modules/**',
     'dist',
     '*.d.ts',
     '*.min.*',
