@@ -1,7 +1,14 @@
 {
-  "cSpell.words": ["bumpp", "reco"],
-  "stylelint.packageManager": "pnpm",
+  "cSpell.words": ["bumpp", "antfu"],
   "css.validate": false,
   "less.validate": false,
-  "scss.validate": false
+  "scss.validate": false,
+  "stylelint.validate": [
+    "css",
+    "scss",
+    "postcss"
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.stylelint": "explicit"
+  }
 }
