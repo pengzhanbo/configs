@@ -1,16 +1,7 @@
-export default {
-  extends: [
-    'plugin:react/recommended',
-    'plugin:react-hooks/recommended',
-    '@pengzhanbo/eslint-config',
-  ],
-  settings: {
-    react: {
-      version: '17.0',
-    },
-  },
-  rules: {
-    'jsx-quotes': ['error', 'prefer-double'],
-    'react/react-in-jsx-scope': 'off',
-  },
-}
+import { eslintReactConfig } from './factory'
+
+export * from '@pengzhanbo/eslint-config'
+export * from './react'
+export * from './preset'
+
+export default eslintReactConfig

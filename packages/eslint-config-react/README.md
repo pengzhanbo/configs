@@ -1,28 +1,22 @@
 # @pengzhanbo/eslint-config-react
 
+## Documentation
+
+[Document](https://github.com/pengzhanbo/configs/tree/main/docs/eslint.md)
+
+## Usage
+
 ## Install
 
-```sh
-pnpm add eslint @pengzhanbo/eslint-config-react
+```bash
+pnpm add @pengzhanbo/eslint-config-react
 ```
 
-## Config
+## Configuration
 
-`.eslintrc`/`.eslintrc.json`
+`eslint.config.js`
+```js
+import eslintConfig from '@pengzhanbo/eslint-config-react'
 
-```json
-{
-  "extends": "@pengzhanbo"
-}
-```
-
-**package.json**
-
-```json
-{
-  "scripts": {
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
-  }
-}
+export default eslintConfig()
 ```
