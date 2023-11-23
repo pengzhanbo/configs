@@ -1,29 +1,22 @@
 # @pengzhanbo/eslint-config-vue
 
+## Documentation
+
+[Document](https://github.com/pengzhanbo/configs/tree/main/docs/eslint.md)
+
+## Usage
+
 ## Install
 
-```sh
-pnpm add eslint prettier @pengzhanbo/eslint-config-vue @pengzhanbo/prettier-config
+```bash
+pnpm add @pengzhanbo/eslint-config
 ```
 
-## Config
+## Configuration
 
-`.eslintrc`/`.eslintrc.json`
+`eslint.config.js`
+```js
+import eslintConfig from '@pengzhanbo/eslint-config'
 
-```json
-{
-  "extends": "@pengzhanbo/eslint-config-vue"
-}
-```
-
-**package.json**
-
-```json
-{
-  "scripts": {
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
-  },
-  "prettier": "@pengzhanbo/prettier-config"
-}
+export default eslintConfig()
 ```
