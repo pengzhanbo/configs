@@ -36,6 +36,7 @@ export async function solid(
 
         'solid/components-return-once': 'error',
         'solid/style-prop': 'error',
+        'solid/prefer-for': 'off',
 
         ...overrides,
       },
