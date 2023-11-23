@@ -1,9 +1,11 @@
-import { isPackageExists } from 'local-pkg'
+import { eslintFlatConfig } from './factory'
 
-const TS = isPackageExists('typescript')
+export * from './types'
+export * from './plugins'
+export * from './utils'
+export * from './globs'
+export * from './configs'
+export * from './preset'
+export { createConfig } from './factory'
 
-export default {
-  extends: TS
-    ? ['@pengzhanbo/eslint-config-ts']
-    : ['@pengzhanbo/eslint-config-basic', 'plugin:prettier/recommended'],
-}
+export default eslintFlatConfig

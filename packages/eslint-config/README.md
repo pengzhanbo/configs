@@ -1,29 +1,30 @@
 # @pengzhanbo/eslint-config
 
+Fork for [@antfu/eslint-config](https://github.com/antfu/eslint-config).
+
+与 [@antfu/eslint-config](https://github.com/antfu/eslint-config) 不同的是， 
+将 framework 相关的配置划分为独立的 eslint 配置包。 
+
+包括 `vue` 、 `react` 等都移动到其他的 package 中，只保留 通用的配置，
+再根据项目的需求引入对应的 package。 并添加了 `solid-js` , `svelte` 等的配置支持。
+
+## Documentation
+
+[Document](https://github.com/pengzhanbo/configs/tree/main/docs/eslint.md)
+
+## Usage
+
 ## Install
 
-```sh
-pnpm add eslint prettier @pengzhanbo/eslint-config @pengzhanbo/prettier-config
+```bash
+pnpm add @pengzhanbo/eslint-config
 ```
 
-## Config
+## Configuration
 
-`.eslintrc`/`.eslintrc.json`
+`eslint.config.js`
+```js
+import eslintConfig from '@pengzhanbo/eslint-config'
 
-```json
-{
-  "extends": "@pengzhanbo"
-}
-```
-
-**package.json**
-
-```json
-{
-  "scripts": {
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
-  },
-  "prettier": "@pengzhanbo/prettier-config"
-}
+export default eslintConfig()
 ```
