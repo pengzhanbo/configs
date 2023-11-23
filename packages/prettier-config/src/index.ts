@@ -34,7 +34,7 @@ export default {
 
   // Format only a segment of a file.
   rangeStart: 0,
-  rangeEnd: Infinity,
+  rangeEnd: Number.POSITIVE_INFINITY,
 
   // Specify which parser to use.
   // parser: undefined,

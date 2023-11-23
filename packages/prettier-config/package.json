@@ -1,50 +1,45 @@
 {
   "name": "@pengzhanbo/prettier-config",
+  "type": "module",
   "version": "0.4.3",
-  "keywords": [
-    "prettier-config"
-  ],
+  "author": "pengzhanbo <q942450674@outlook.com> (https://github/pengzhanbo/)",
+  "license": "MIT",
   "homepage": "https://github.com/pengzhanbo/configs#readme",
   "repository": {
     "type": "git",
     "url": "git@github.com:pengzhanbo/configs.git",
     "directory": "packages/prettier-config"
   },
-  "license": "MIT",
-  "author": "pengzhanbo <q942450674@outlook.com> (https://github/pengzhanbo/)",
-  "type": "module",
+  "keywords": [
+    "prettier-config"
+  ],
   "exports": {
     ".": {
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.mjs"
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
     },
     "./package.json": "./package.json"
   },
-  "main": "dist/index.cjs",
-  "module": "dist/index.mjs",
+  "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "unbuild",
-    "stub": "unbuild --stub",
-    "prepublishOnly": "unbuild"
-  },
-  "unbuild": {
-    "entries": [
-      "./src/index"
-    ],
-    "declaration": true,
-    "clean": true,
-    "rollup": {
-      "emitCJS": true
-    }
-  },
-  "devDependencies": {
-    "unbuild": "^2.0.0"
+    "build": "tsup src/index.ts --format esm,cjs --clean --dts --shims",
+    "stub": "tsup src/index.ts --format esm",
+    "prepublishOnly": "pnpm build"
   },
   "peerDependencies": {
-    "prettier": ">=2.7.1 || ^3.0.0"
+    "prettier": "^3.0.0"
+  },
+  "devDependencies": {
+    "tsup": "^8.0.1"
   }
 }
