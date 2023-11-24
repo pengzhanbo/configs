@@ -1,6 +1,17 @@
 > 以下文档，适用于 `eslint-config`、`eslint-config-vue`、`eslint-config-react` 等。
 > 为便于理解，采用 `eslint-config` 进行举例说明。
 
+## 相关资源
+- [@pengzhanbo/eslint-config](https://github.com/pengzhanbo/configs/tree/main/packages/eslint-config)
+- [@pengzhanbo/eslint-config-vue](https://github.com/pengzhanbo/configs/tree/main/packages/eslint-config-vue)
+- [@pengzhanbo/eslint-config-react](https://github.com/pengzhanbo/configs/tree/main/packages/eslint-config-react)
+- [@pengzhanbo/eslint-config-svelte](https://github.com/pengzhanbo/configs/tree/main/packages/eslint-config-svelte)
+- [@pengzhanbo/eslint-config-solid](https://github.com/pengzhanbo/configs/tree/main/packages/eslint-config-solid)
+- [@pengzhanbo/eslint-config-astro](https://github.com/pengzhanbo/configs/tree/main/packages/eslint-config-astro)
+- [@pengzhanbo/prettier-config](https://github.com/pengzhanbo/configs/tree/main/packages/prettier-config)
+- [@pengzhanbo/stylelint-config](https://github.com/pengzhanbo/configs/tree/main/packages/stylelint-config)
+
+
 ## VS Code 支持 (auto fix)
 
 安装 [VS Code ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)

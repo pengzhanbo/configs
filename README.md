@@ -32,6 +32,8 @@
   - [react-hooks](https://github.com/facebook/react/tree/main/packages/eslint-plugin-react-hooks)
   - [react-refresh](https://github.com/ArnaudBarre/eslint-plugin-react-refresh#readme)
 - [solid](https://github.com/solidjs-community/eslint-plugin-solid#readme)
+- [astro](https://github.com/ota-meshi/eslint-plugin-astro)
+- [svelte](https://github.com/sveltejs/eslint-plugin-svelte)
 
 ### Breaking Changes
 
