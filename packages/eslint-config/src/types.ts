@@ -216,5 +216,6 @@ export interface OptionsConfig extends OptionsComponentExts {
     react?: FlatConfigItem['rules']
     solid?: FlatConfigItem['rules']
     svelte?: FlatConfigItem['rules']
+    astro?: FlatConfigItem['rules']
   }
 }
