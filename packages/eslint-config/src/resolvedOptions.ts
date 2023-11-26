@@ -24,18 +24,22 @@ export function resolveOptions(options: OptionsConfig & FlatConfigItem = {}): Re
     markdown = true,
   } = options
 
-  const stylisticOptions = options.stylistic === false
+  const stylistic = options.stylistic === false
     ? false
     : typeof options.stylistic === 'object'
       ? options.stylistic
       : {}
-  if (stylisticOptions && !('jsx' in stylisticOptions))
-    stylisticOptions.jsx = options.jsx ?? true
+  if (stylistic && !('jsx' in stylistic))
+    stylistic.jsx = options.jsx ?? true
 
-  const enableVue = VuePackages.some(i => isPackageExists(i))
-
-  if (enableVue)
+  if (VuePackages.some(i => isPackageExists(i)))
     componentExts.push('vue')
+
+  if (isPackageExists('astro'))
+    componentExts.push('astro')
+
+  if (isPackageExists('svelte'))
+    componentExts.push('svelte')
 
   return {
     ...options,
@@ -45,7 +49,7 @@ export function resolveOptions(options: OptionsConfig & FlatConfigItem = {}): Re
     isInEditor,
     overrides,
     typescript,
-    stylistic: stylisticOptions,
+    stylistic,
     jsx,
     test,
     jsonc,

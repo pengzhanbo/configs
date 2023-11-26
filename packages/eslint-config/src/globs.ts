@@ -43,6 +43,7 @@ export const GLOB_ALL_SRC = [
   GLOB_YAML,
   GLOB_HTML,
   GLOB_ASTRO,
+  GLOB_SVELTE,
 ]
 
 export const GLOB_EXCLUDE = [
