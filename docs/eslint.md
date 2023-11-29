@@ -143,6 +143,13 @@ export default await eslintConfig(
 )
 ```
 
+## Optional Plugins
+
+### unocss
+
+如果有使用 [unocss](https://github.com/unocss/unocss)，需要手动安装
+[@unocss/eslint-plugin](https://github.com/unocss/unocss/tree/main/packages/esling-plugin#readme) 包, 配置会自动加载该插件。
+
 ## Optional Rules
 
 该配置还为扩展用法提供了一些可选的插件/规则。
