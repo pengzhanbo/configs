@@ -1,6 +1,6 @@
 import process from 'node:process'
 import { isPackageExists } from 'local-pkg'
-import type { FlatConfigItem, OptionsConfig, StylisticConfig } from './types'
+import type { FlatConfigItem, OptionsConfig, OptionsUnoCSS, StylisticConfig } from './types'
 
 const VuePackages = [
   'vue',
@@ -9,7 +9,12 @@ const VuePackages = [
   '@slidev/cli',
 ]
 
-export function resolveOptions(options: OptionsConfig & FlatConfigItem = {}): Required<OptionsConfig> & FlatConfigItem & { stylistic: false | StylisticConfig } {
+type ResolvedOptions = Required<OptionsConfig> & FlatConfigItem & {
+  stylistic: false | StylisticConfig
+  unocss: false | OptionsUnoCSS
+}
+
+export function resolveOptions(options: OptionsConfig & FlatConfigItem = {}): ResolvedOptions {
   const {
     componentExts = [],
     preset = [],
@@ -31,6 +36,12 @@ export function resolveOptions(options: OptionsConfig & FlatConfigItem = {}): Re
       : {}
   if (stylistic && !('jsx' in stylistic))
     stylistic.jsx = options.jsx ?? true
+
+  const unocss = options.unocss === false
+    ? false
+    : typeof options.unocss === 'object'
+      ? options.unocss
+      : {}
 
   if (VuePackages.some(i => isPackageExists(i)))
     componentExts.push('vue')
@@ -55,5 +66,6 @@ export function resolveOptions(options: OptionsConfig & FlatConfigItem = {}): Re
     jsonc,
     yaml,
     markdown,
+    unocss,
   }
 }

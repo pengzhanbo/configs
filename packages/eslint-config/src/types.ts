@@ -121,6 +121,19 @@ export interface OptionsIsInEditor {
   isInEditor?: boolean
 }
 
+export interface OptionsUnoCSS {
+  /**
+   * Enable attributify support.
+   * @default true
+   */
+  attributify?: boolean
+  /**
+   * Enable strict mode by throwing errors about blocklisted classes.
+   * @default false
+   */
+  strict?: boolean
+}
+
 export type PresetItem = (options: Required<Omit<OptionsConfig, 'preset'>> & { stylistic: false | StylisticConfig }) => Awaitable<FlatConfigItem[]>[]
 
 export interface OptionsConfig extends OptionsComponentExts {
@@ -197,6 +210,16 @@ export interface OptionsConfig extends OptionsComponentExts {
   stylistic?: boolean | StylisticConfig
 
   /**
+   * Enable unocss rules.
+   *
+   * Requires installing:
+   * - `@unocss/eslint-plugin`
+   *
+   * @default false
+   */
+  unocss?: boolean | OptionsUnoCSS
+
+  /**
    * Control to disable some rules in editors.
    * @default auto-detect based on the process.env
    */
@@ -214,6 +237,7 @@ export interface OptionsConfig extends OptionsComponentExts {
     yaml?: FlatConfigItem['rules']
     vue?: FlatConfigItem['rules']
     react?: FlatConfigItem['rules']
+    nextjs?: FlatConfigItem['rules']
     solid?: FlatConfigItem['rules']
     svelte?: FlatConfigItem['rules']
     astro?: FlatConfigItem['rules']

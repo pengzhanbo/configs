@@ -17,6 +17,7 @@ import {
   test,
   typescript,
   unicorn,
+  unocss,
   yaml,
 } from './configs'
 
@@ -114,6 +115,9 @@ export const defaultPreset: PresetItem = (options) => {
       overrides: overrides.markdown,
     }))
   }
+
+  if (options.unocss)
+    configs.push(unocss(options.unocss === true ? {} : options.unocss))
 
   return configs
 }
