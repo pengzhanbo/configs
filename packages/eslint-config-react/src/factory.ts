@@ -1,4 +1,4 @@
 import { createConfig } from '@pengzhanbo/eslint-config'
-import { reactPreset } from './preset'
+import { nextPreset, reactPreset } from './preset'
 
-export const eslintReactConfig = createConfig(reactPreset)
+export const eslintReactConfig = createConfig([reactPreset, nextPreset])
