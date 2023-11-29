@@ -35,15 +35,14 @@
   "scripts": {
     "dev": "tsup src/index.ts --format esm --watch & eslint-flat-config-viewer",
     "build": "tsup src/index.ts --format esm,cjs --clean --dts --shims",
-    "stub": "tsup src/index.ts --format esm",
-    "prepublishOnly": "pnpm build"
+    "stub": "tsup src/index.ts --format esm"
   },
   "peerDependencies": {
     "eslint": ">=8.40.0"
   },
   "dependencies": {
     "@pengzhanbo/eslint-config": "workspace:*",
-    "@typescript-eslint/parser": "^6.12.0",
+    "@typescript-eslint/parser": "^6.13.1",
     "eslint-plugin-solid": "^0.13.0"
   },
   "devDependencies": {
