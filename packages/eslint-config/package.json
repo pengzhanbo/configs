@@ -34,7 +34,8 @@
   "scripts": {
     "dev": "tsup src/index.ts --format esm --watch & eslint-flat-config-viewer",
     "build": "tsup src/index.ts --format esm,cjs --clean --dts --shims",
-    "stub": "tsup src/index.ts --format esm"
+    "stub": "tsup src/index.ts --format esm",
+    "prepublishOnly": "pnpm run build"
   },
   "peerDependencies": {
     "@unocss/eslint-plugin": ">=0.50.0",

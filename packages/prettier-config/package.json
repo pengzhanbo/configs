@@ -33,7 +33,8 @@
   ],
   "scripts": {
     "build": "tsup src/index.ts --format esm,cjs --clean --dts --shims",
-    "stub": "tsup src/index.ts --format esm"
+    "stub": "tsup src/index.ts --format esm",
+    "prepublishOnly": "pnpm run build"
   },
   "peerDependencies": {
     "prettier": "^3.0.0"
