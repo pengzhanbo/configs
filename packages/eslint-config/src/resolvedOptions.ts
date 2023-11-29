@@ -27,6 +27,7 @@ export function resolveOptions(options: OptionsConfig & FlatConfigItem = {}): Re
     jsonc = true,
     yaml = true,
     markdown = true,
+    unocss: enableUnocss = false,
   } = options
 
   const stylistic = options.stylistic === false
@@ -37,7 +38,7 @@ export function resolveOptions(options: OptionsConfig & FlatConfigItem = {}): Re
   if (stylistic && !('jsx' in stylistic))
     stylistic.jsx = options.jsx ?? true
 
-  const unocss = options.unocss === false
+  const unocss = enableUnocss === false
     ? false
     : typeof options.unocss === 'object'
       ? options.unocss
