@@ -15,8 +15,7 @@ export async function unocss(
   const unInstalled = unocssPackages.filter(i => !isPackageExists(i))
 
   if (unInstalled.length > 0) {
-    const installed = unInstalled.join(', ')
-    console.warn(`${installed} is not installed, please install it first.`)
+    console.warn(`${unInstalled.join(', ')} is not installed, please install it first.\n Run \`npm install -D ${unInstalled.join(' ')}\``)
     return []
   }
 
