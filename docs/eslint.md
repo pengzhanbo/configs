@@ -85,6 +85,10 @@ export default await eslintConfig({
   jsonc: false,
   yaml: false,
 
+  // 启用 unocss 或者 tailwindcss
+  unocss: true, // 需安装 @unocss/eslint-plugin
+  tailwindcss: true, // 需安装 eslint-plugin-tailwindcss
+
   // 在Flat配置中不再支持 `.eslintignore`，请使用 `ignore` 代替
   ignores: [
     './fixtures',
@@ -147,8 +151,13 @@ export default await eslintConfig(
 
 ### unocss
 
-如果有使用 [unocss](https://github.com/unocss/unocss)，需要手动安装
-[@unocss/eslint-plugin](https://github.com/unocss/unocss/tree/main/packages/esling-plugin#readme) 包, 配置会自动加载该插件。
+如果有使用 [unocss](https://github.com/unocss/unocss)，
+需要手动安装[@unocss/eslint-plugin](https://github.com/unocss/unocss/tree/main/packages/esling-plugin#readme) 包, 并在配置中启用 `unocss`。
+
+### tailwindcss
+
+如果有使用 [tailwindcss](https://github.com/tailwindlabs/tailwindcss)，需要手动安装
+[eslint-plugin-tailwindcss](https://github.com/francoismassart/eslint-plugin-tailwindcss) 包, 并在配置中启用 `tailwindcss`。
 
 ## Optional Rules
 

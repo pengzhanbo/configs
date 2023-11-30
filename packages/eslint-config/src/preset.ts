@@ -14,6 +14,7 @@ import {
   sortPackageJson,
   sortTsconfig,
   stylistic,
+  tailwindcss,
   test,
   typescript,
   unicorn,
@@ -109,15 +110,18 @@ export const defaultPreset: PresetItem = (options) => {
     }))
   }
 
+  if (options.unocss)
+    configs.push(unocss(options.unocss === true ? {} : options.unocss))
+
+  if (options.tailwindcss)
+    configs.push(tailwindcss(options.tailwindcss === true ? {} : options.tailwindcss))
+
   if (options.markdown) {
     configs.push(markdown({
       componentExts,
       overrides: overrides.markdown,
     }))
   }
-
-  if (options.unocss)
-    configs.push(unocss(options.unocss === true ? {} : options.unocss))
 
   return configs
 }

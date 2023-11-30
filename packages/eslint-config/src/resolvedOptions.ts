@@ -1,6 +1,6 @@
 import process from 'node:process'
 import { isPackageExists } from 'local-pkg'
-import type { FlatConfigItem, OptionsConfig, OptionsUnoCSS, StylisticConfig } from './types'
+import type { FlatConfigItem, OptionsConfig, OptionsTailwindCSS, OptionsUnoCSS, StylisticConfig } from './types'
 
 const VuePackages = [
   'vue',
@@ -12,6 +12,7 @@ const VuePackages = [
 type ResolvedOptions = Required<OptionsConfig> & FlatConfigItem & {
   stylistic: false | StylisticConfig
   unocss: false | OptionsUnoCSS
+  tailwindcss: false | OptionsTailwindCSS
 }
 
 export function resolveOptions(options: OptionsConfig & FlatConfigItem = {}): ResolvedOptions {
@@ -28,6 +29,7 @@ export function resolveOptions(options: OptionsConfig & FlatConfigItem = {}): Re
     yaml = true,
     markdown = true,
     unocss: enableUnocss = false,
+    tailwindcss: enableTailwindcss = false,
   } = options
 
   const stylistic = options.stylistic === false
@@ -40,8 +42,14 @@ export function resolveOptions(options: OptionsConfig & FlatConfigItem = {}): Re
 
   const unocss = enableUnocss === false
     ? false
-    : typeof options.unocss === 'object'
-      ? options.unocss
+    : typeof enableUnocss === 'object'
+      ? enableUnocss
+      : {}
+
+  const tailwindcss = enableTailwindcss === false
+    ? false
+    : typeof enableTailwindcss === 'object'
+      ? enableTailwindcss
       : {}
 
   if (VuePackages.some(i => isPackageExists(i)))
@@ -68,5 +76,6 @@ export function resolveOptions(options: OptionsConfig & FlatConfigItem = {}): Re
     yaml,
     markdown,
     unocss,
+    tailwindcss,
   }
 }

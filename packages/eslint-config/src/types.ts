@@ -134,6 +134,27 @@ export interface OptionsUnoCSS {
   strict?: boolean
 }
 
+export interface OptionsTailwindCSS {
+  /**
+   * Read CSS files
+   */
+  cssFiles?: string[]
+  /**
+   * List of whitelisted classes. when `no-custom-classname` is enabled,
+   * only allow classnames from Tailwind CSS and the values from the whitelist option.
+   * @default []
+   */
+  whitelist?: string[]
+  /**
+   * Enable custom class names.
+   *
+   * If it is false, only allow classnames from Tailwind CSS and the values
+   * from the `whitelist` option
+   * @default true
+   */
+  customClassNames?: boolean
+}
+
 export type PresetItem = (options: Required<Omit<OptionsConfig, 'preset'>> & { stylistic: false | StylisticConfig }) => Awaitable<FlatConfigItem[]>[]
 
 export interface OptionsConfig extends OptionsComponentExts {
@@ -218,6 +239,14 @@ export interface OptionsConfig extends OptionsComponentExts {
    * @default false
    */
   unocss?: boolean | OptionsUnoCSS
+
+  /**
+   * Enable TailwindCSS rules.
+   *
+   * Requires installing:
+   * - `eslint-plugin-tailwindcss`
+   */
+  tailwindcss?: boolean | OptionsTailwindCSS
 
   /**
    * Control to disable some rules in editors.
