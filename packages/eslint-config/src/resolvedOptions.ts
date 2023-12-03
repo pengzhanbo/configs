@@ -28,6 +28,7 @@ export function resolveOptions(options: OptionsConfig & FlatConfigItem = {}): Re
     jsonc = true,
     yaml = true,
     markdown = true,
+    html = true,
     unocss: enableUnocss = false,
     tailwindcss: enableTailwindcss = false,
   } = options
@@ -77,5 +78,6 @@ export function resolveOptions(options: OptionsConfig & FlatConfigItem = {}): Re
     markdown,
     unocss,
     tailwindcss,
+    html,
   }
 }

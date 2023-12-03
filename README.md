@@ -29,6 +29,7 @@
   - [yaml](https://ota-meshi.github.io/eslint-plugin-yml/)
   - [unocss](https://github.com/unocss/unocss/tree/main/packages/esling-plugin#readme)
   - [tailwindcss](https://github.com/francoismassart/eslint-plugin-tailwindcss)
+- [html](https://html-eslint.org/)
 - [vue](https://eslint.vuejs.org)
 - [react](https://github.com/jsx-eslint/eslint-plugin-react)
   - [react-hooks](https://github.com/facebook/react/tree/main/packages/eslint-plugin-react-hooks)

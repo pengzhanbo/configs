@@ -3,6 +3,7 @@ import type { Awaitable, FlatConfigItem, PresetItem } from './types'
 import { interopDefault } from './utils'
 import {
   comments,
+  html,
   ignores,
   imports,
   javascript,
@@ -101,6 +102,13 @@ export const defaultPreset: PresetItem = (options) => {
       sortPackageJson(),
       sortTsconfig(),
     )
+  }
+
+  if (options.html) {
+    configs.push(html({
+      overrides: overrides.html,
+      stylistic: stylisticOptions,
+    }))
   }
 
   if (options.yaml) {

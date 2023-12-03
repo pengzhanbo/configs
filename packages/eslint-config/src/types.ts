@@ -187,6 +187,11 @@ export interface OptionsConfig extends OptionsComponentExts {
   typescript?: boolean | OptionsTypeScriptWithTypes | OptionsTypeScriptParserOptions
 
   /**
+   * Enable HTML support.
+   */
+  html?: boolean
+
+  /**
    * Enable JSX related rules.
    *
    * Currently only stylistic rules are included.
@@ -258,6 +263,7 @@ export interface OptionsConfig extends OptionsComponentExts {
    * Provide overrides for rules for each integration.
    */
   overrides?: {
+    html?: FlatConfigItem['rules']
     javascript?: FlatConfigItem['rules']
     typescript?: FlatConfigItem['rules']
     test?: FlatConfigItem['rules']
