@@ -68,7 +68,7 @@
 // eslint.config.js
 import eslintConfig from '@pengzhanbo/eslint-config'
 
-export default await eslintConfig({
+export default eslintConfig({
   // 启用 stylistic 格式规则
   // stylistic: true,
 
@@ -103,7 +103,7 @@ export default await eslintConfig({
 // eslint.config.js
 import eslintConfig from '@pengzhanbo/eslint-config'
 
-export default await eslintConfig(
+export default eslintConfig(
   {
     // Configures for eslintConfig's config
   },
@@ -129,7 +129,7 @@ export default await eslintConfig(
 // eslint.config.js
 import eslintConfig from '@pengzhanbo/eslint-config-vue'
 
-export default await eslintConfig(
+export default eslintConfig(
   { typescript: true },
   {
     // 记住在这里指定文件glob，否则它可能会导致vue插件处理非vue文件
