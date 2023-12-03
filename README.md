@@ -57,7 +57,7 @@
 
 ### Javascript / Typescript 项目
 
-适用于 通用的 JavaScript 项目。即不依赖 `vue/react` 等库的项目。
+适用于 通用的 JavaScript/TypeScript 项目。
 
 **Install**
 
@@ -96,7 +96,7 @@ export default eslintConfig()
 
 ### React项目
 
-适用于 大多数的 React 项目。
+适用于 React 项目。
 
 **Install**
 
@@ -116,7 +116,7 @@ export default eslintConfig()
 
 ### Solid-js 项目
 
-适用于 大多数的 React 项目。
+适用于 大多数的 Solid 项目。
 
 **Install**
 
@@ -175,7 +175,7 @@ In `.stylelintrc.json`
 
 ## Thanks
 
-[eslint](https://eslint.org/)
-[stylelint](https://stylelint.io/)
-[prettier](https://prettier.io/)
-[@antfu/eslint-config](https://github.com/antfu/eslint-config)
+- [eslint](https://eslint.org/)
+- [stylelint](https://stylelint.io/)
+- [prettier](https://prettier.io/)
+- [@antfu/eslint-config](https://github.com/antfu/eslint-config)
