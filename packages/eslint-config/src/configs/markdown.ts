@@ -38,7 +38,6 @@ export async function markdown(
       },
       name: 'config:markdown:rules',
       rules: {
-        'antfu/no-ts-export-equal': 'off',
 
         'import/newline-after-import': 'off',
 
