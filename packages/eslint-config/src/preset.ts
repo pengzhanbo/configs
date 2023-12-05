@@ -3,7 +3,7 @@ import type { Awaitable, FlatConfigItem, PresetItem } from './types'
 import { interopDefault } from './utils'
 import {
   comments,
-  html,
+  formatters,
   ignores,
   imports,
   javascript,
@@ -104,13 +104,6 @@ export const defaultPreset: PresetItem = (options) => {
     )
   }
 
-  if (options.html) {
-    configs.push(html({
-      overrides: overrides.html,
-      stylistic: stylisticOptions,
-    }))
-  }
-
   if (options.yaml) {
     configs.push(yaml({
       overrides: overrides.yaml,
@@ -128,7 +121,15 @@ export const defaultPreset: PresetItem = (options) => {
     configs.push(markdown({
       componentExts,
       overrides: overrides.markdown,
-    }))
+    }, options.formatters === true || !!(options.formatters || {})?.markdown))
+  }
+
+  if (options.formatters) {
+    configs.push(formatters(
+      options.formatters,
+      typeof stylisticOptions === 'boolean' ? {} : stylisticOptions,
+      options.markdown !== false,
+    ))
   }
 
   return configs
