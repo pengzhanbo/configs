@@ -1,9 +1,11 @@
+import type { Linter } from 'eslint'
 import type { FlatConfigItem, OptionsComponentExts, OptionsFiles, OptionsOverrides } from '../types'
-import { GLOB_MARKDOWN, GLOB_MARKDOWN_CODE } from '../globs'
+import { GLOB_MARKDOWN, GLOB_MARKDOWN_CODE, GLOB_MARKDOWN_IN_MARKDOWN } from '../globs'
 import { interopDefault } from '../utils'
 
 export async function markdown(
   options: OptionsFiles & OptionsComponentExts & OptionsOverrides = {},
+  formatMarkdown: boolean = false,
 ): Promise<FlatConfigItem[]> {
   const {
     componentExts = [],
@@ -11,18 +13,58 @@ export async function markdown(
     overrides = {},
   } = options
 
+  // @ts-expect-error missing types
+  const markdown = await interopDefault(import('eslint-plugin-markdown'))
+  const baseProcessor = markdown.processors.markdown
+
+  // `eslint-plugin-markdown` only creates virtual files for code blocks,
+  // but not the markdown file itself. In order to format the whole markdown file,
+  // we need to create another virtual file for the markdown file itself.
+  const processor: Linter.Processor = !formatMarkdown
+    ? {
+        meta: {
+          name: 'markdown-processor',
+        },
+        supportsAutofix: true,
+        ...baseProcessor,
+      }
+    : {
+        meta: {
+          name: 'markdown-processor-with-content',
+        },
+        postprocess(messages, filename) {
+          const markdownContent = messages.pop()
+          const codeSnippets = baseProcessor.postprocess(messages, filename)
+          return [
+            ...markdownContent || [],
+            ...codeSnippets || [],
+          ]
+        },
+        preprocess(text, filename) {
+          const result = baseProcessor.preprocess(text, filename)
+          return [
+            ...result,
+            {
+              filename: '.__markdown_content__',
+              text,
+            },
+          ]
+        },
+        supportsAutofix: true,
+      }
+
   return [
     {
       name: 'config:markdown:setup',
       plugins: {
-        // @ts-expect-error missing types
-        markdown: await interopDefault(import('eslint-plugin-markdown')),
+        markdown,
       },
     },
     {
       files,
+      ignores: [GLOB_MARKDOWN_IN_MARKDOWN],
       name: 'config:markdown:processor',
-      processor: 'markdown/markdown',
+      processor,
     },
     {
       files: [
@@ -36,7 +78,7 @@ export async function markdown(
           },
         },
       },
-      name: 'config:markdown:rules',
+      name: 'config:markdown:disables',
       rules: {
 
         'import/newline-after-import': 'off',
