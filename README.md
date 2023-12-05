@@ -7,8 +7,7 @@
 ## eslint 预设配置
 
 - Basic
-  - javascript
-  - typescript
+  - javascript / typescript
   - [node](https://github.com/eslint-community/eslint-plugin-n#readme)
   - [comments](https://github.com/mysticatea/eslint-plugin-eslint-comments#readme)
   - [ignores](https://github.com/antfu/eslint-config-flat-gitignore#readme)
@@ -19,22 +18,22 @@
   - [markdown](https://github.com/eslint/eslint-plugin-markdown#readme)
   - [perfectionist](https://eslint-plugin-perfectionist.azat.io)
   - sort
-    - `package.json`
-    - `tsconfig.**.json`
+    - `package.json` / `tsconfig.json`
   - [stylistic](https://github.com/eslint-stylistic/eslint-stylistic#readme)
   - test
     - [vitest](eslint-plugin-vitest)
     - [no-only-tests](https://github.com/levibuzolic/no-only-tests#readme)
   - [unicorn](https://github.com/sindresorhus/eslint-plugin-unicorn#readme)
   - [yaml](https://ota-meshi.github.io/eslint-plugin-yml/)
-  - [unocss](https://github.com/unocss/unocss/tree/main/packages/esling-plugin#readme)
-  - [tailwindcss](https://github.com/francoismassart/eslint-plugin-tailwindcss)
-- [html](https://html-eslint.org/)
+  - [unocss](https://github.com/unocss/unocss/tree/main/packages/esling-plugin#readme)  - _optional, peer deps, manual install_
+  - [tailwindcss](https://github.com/francoismassart/eslint-plugin-tailwindcss)  - _optional, peer deps, manual install_
+- [formatters](https://github.com/antfu/eslint-plugin-format#readme) - _optional, peer deps, manual install_
+  - html / css / less / scss / postcss / graphql / toml
 - [vue](https://eslint.vuejs.org)
 - [react](https://github.com/jsx-eslint/eslint-plugin-react)
   - [react-hooks](https://github.com/facebook/react/tree/main/packages/eslint-plugin-react-hooks)
   - [react-refresh](https://github.com/ArnaudBarre/eslint-plugin-react-refresh#readme)
-  - [nextjs](https://github.com/vercel/next.js#readme)
+  - [nextjs](https://github.com/vercel/next.js#readme) - _optional, auto check deps_
 - [solid](https://github.com/solidjs-community/eslint-plugin-solid#readme)
 - [astro](https://github.com/ota-meshi/eslint-plugin-astro)
 - [svelte](https://github.com/sveltejs/eslint-plugin-svelte)
