@@ -210,6 +210,11 @@ export interface OptionsConfig extends OptionsComponentExts {
   jsonc?: boolean
 
   /**
+   * Enable TOML support.
+   */
+  toml?: boolean
+
+  /**
    * Enable YAML support.
    *
    * @default true
@@ -271,6 +276,7 @@ export interface OptionsConfig extends OptionsComponentExts {
     jsonc?: FlatConfigItem['rules']
     markdown?: FlatConfigItem['rules']
     yaml?: FlatConfigItem['rules']
+    toml?: FlatConfigItem['rules']
     vue?: FlatConfigItem['rules']
     react?: FlatConfigItem['rules']
     nextjs?: FlatConfigItem['rules']

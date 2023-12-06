@@ -17,6 +17,7 @@ import {
   stylistic,
   tailwindcss,
   test,
+  toml,
   typescript,
   unicorn,
   unocss,
@@ -107,6 +108,13 @@ export const defaultPreset: PresetItem = (options) => {
   if (options.yaml) {
     configs.push(yaml({
       overrides: overrides.yaml,
+      stylistic: stylisticOptions,
+    }))
+  }
+
+  if (options.toml) {
+    configs.push(toml({
+      overrides: overrides.toml,
       stylistic: stylisticOptions,
     }))
   }
