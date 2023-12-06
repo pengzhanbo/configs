@@ -23,7 +23,6 @@ import type { RuleOptions as TypeScriptRules } from '@eslint-types/typescript-es
 import type { RuleOptions as UnicornRules } from '@eslint-types/unicorn/types'
 import type { Rules as AntfuRules } from 'eslint-plugin-antfu'
 import type { StylisticCustomizeOptions, UnprefixedRuleOptions as StylisticRules } from '@stylistic/eslint-plugin'
-import type { VendoredPrettierOptions } from './vender/prettier-types'
 
 export type WrapRuleConfig<T extends { [key: string]: any }> = {
   [K in keyof T]: T[K] extends RuleConfig ? T[K] : RuleConfig<T[K]>
@@ -76,57 +75,6 @@ export interface OptionsFiles {
    * Override the `files` option to provide custom globs.
    */
   files?: string[]
-}
-
-export interface OptionsFormatters {
-  /**
-   * Enable formatting support for CSS, Less, Sass, and SCSS.
-   *
-   * Currently only support Prettier.
-   */
-  css?: 'prettier' | boolean
-
-  /**
-   * Enable formatting support for HTML.
-   *
-   * Currently only support Prettier.
-   */
-  html?: 'prettier' | boolean
-
-  /**
-   * Enable formatting support for TOML.
-   *
-   * Currently only support dprint.
-   */
-  toml?: 'dprint' | boolean
-
-  /**
-   * Enable formatting support for Markdown.
-   *
-   * Support both Prettier and dprint.
-   *
-   * When set to `true`, it will use Prettier.
-   */
-  markdown?: 'prettier' | 'dprint' | boolean
-
-  /**
-   * Enable formatting support for GraphQL.
-   */
-  graphql?: 'prettier' | boolean
-
-  /**
-   * Custom options for Prettier.
-   *
-   * By default it's controlled by our own config.
-   */
-  prettierOptions?: VendoredPrettierOptions
-
-  /**
-   * Custom options for dprint.
-   *
-   * By default it's controlled by our own config.
-   */
-  dprintOptions?: boolean
 }
 
 export interface OptionsComponentExts {
@@ -269,13 +217,17 @@ export interface OptionsConfig extends OptionsComponentExts {
   yaml?: boolean
 
   /**
-   * Enable linting for **code snippets** in Markdown.
+   * Enable Markdown support.
    *
-   * For formatting Markdown content, enable also `formatters.markdown`.
    *
    * @default true
    */
   markdown?: boolean
+
+  /**
+   * Enable HTML support.
+   */
+  html?: boolean
 
   /**
    * Enable stylistic rules.
@@ -303,18 +255,6 @@ export interface OptionsConfig extends OptionsComponentExts {
   tailwindcss?: boolean | OptionsTailwindCSS
 
   /**
-   * Use external formatters to format files.
-   *
-   * Requires installing:
-   * - `eslint-plugin-format`
-   *
-   * When set to `true`, it will enable all formatters.
-   *
-   * @default false
-   */
-  formatters?: boolean | OptionsFormatters
-
-  /**
    * Control to disable some rules in editors.
    * @default auto-detect based on the process.env
    */
@@ -324,6 +264,7 @@ export interface OptionsConfig extends OptionsComponentExts {
    * Provide overrides for rules for each integration.
    */
   overrides?: {
+    html?: FlatConfigItem['rules']
     javascript?: FlatConfigItem['rules']
     typescript?: FlatConfigItem['rules']
     test?: FlatConfigItem['rules']

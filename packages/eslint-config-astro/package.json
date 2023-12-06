@@ -50,9 +50,6 @@
     },
     "eslint-plugin-tailwindcss": {
       "optional": true
-    },
-    "eslint-plugin-format": {
-      "optional": true
     }
   },
   "dependencies": {
