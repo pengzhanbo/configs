@@ -161,7 +161,7 @@ export async function formatters(
   }
 
   if (options.markdown) {
-    const formater = options.markdown === true
+    const formatter = options.markdown === true
       ? 'prettier'
       : options.markdown
 
@@ -174,9 +174,9 @@ export async function formatters(
       },
       name: 'config:formatter:markdown',
       rules: {
-        [`format/${formater}`]: [
+        [`format/${formatter}`]: [
           'error',
-          formater === 'prettier'
+          formatter === 'prettier'
             ? {
                 ...prettierOptions,
                 embeddedLanguageFormatting: 'off',
