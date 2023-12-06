@@ -24,6 +24,7 @@
     - [vitest](eslint-plugin-vitest)
     - [no-only-tests](https://github.com/levibuzolic/no-only-tests#readme)
   - [unicorn](https://github.com/sindresorhus/eslint-plugin-unicorn#readme)
+  - [toml](https://ota-meshi.github.io/eslint-plugin-toml/)
   - [yaml](https://ota-meshi.github.io/eslint-plugin-yml/)
   - [unocss](https://github.com/unocss/unocss/tree/main/packages/esling-plugin#readme)  - _optional, peer deps, manual install_
   - [tailwindcss](https://github.com/francoismassart/eslint-plugin-tailwindcss)  - _optional, peer deps, manual install_
