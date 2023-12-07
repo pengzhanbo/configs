@@ -71,9 +71,6 @@ importers:
       eslint-plugin-eslint-comments:
         specifier: ^3.2.0
         version: 3.2.0(eslint@8.55.0)
-      eslint-plugin-format:
-        specifier: ^0.1.0
-        version: 0.1.0(eslint@8.55.0)
       eslint-plugin-i:
         specifier: ^2.29.0
         version: 2.29.0(@typescript-eslint/parser@6.13.2)(eslint@8.55.0)
@@ -162,9 +159,6 @@ importers:
       eslint-plugin-astro:
         specifier: ^0.30.0
         version: 0.30.0(eslint@8.55.0)
-      eslint-plugin-format:
-        specifier: '>=0.1.0'
-        version: 0.1.0(eslint@8.55.0)
       eslint-plugin-tailwindcss:
         specifier: '>=3.10.0'
         version: 3.13.0(tailwindcss@3.3.5)
@@ -190,9 +184,6 @@ importers:
       '@unocss/eslint-plugin':
         specifier: '>=0.50.0'
         version: 0.58.0(eslint@8.55.0)(typescript@5.3.2)
-      eslint-plugin-format:
-        specifier: '>=0.1.0'
-        version: 0.1.0(eslint@8.55.0)
       eslint-plugin-react:
         specifier: ^7.33.2
         version: 7.33.2(eslint@8.55.0)
@@ -230,9 +221,6 @@ importers:
       '@unocss/eslint-plugin':
         specifier: '>=0.50.0'
         version: 0.58.0(eslint@8.55.0)(typescript@5.3.2)
-      eslint-plugin-format:
-        specifier: '>=0.1.0'
-        version: 0.1.0(eslint@8.55.0)
       eslint-plugin-solid:
         specifier: ^0.13.0
         version: 0.13.0(eslint@8.55.0)(typescript@5.3.2)
@@ -261,9 +249,6 @@ importers:
       '@unocss/eslint-plugin':
         specifier: '>=0.50.0'
         version: 0.58.0(eslint@8.55.0)(typescript@5.3.2)
-      eslint-plugin-format:
-        specifier: '>=0.1.0'
-        version: 0.1.0(eslint@8.55.0)
       eslint-plugin-svelte:
         specifier: ^2.35.1
         version: 2.35.1(eslint@8.55.0)(svelte@4.2.8)
@@ -298,9 +283,6 @@ importers:
       '@unocss/eslint-plugin':
         specifier: '>=0.50.0'
         version: 0.58.0(eslint@8.55.0)(typescript@5.3.2)
-      eslint-plugin-format:
-        specifier: '>=0.1.0'
-        version: 0.1.0(eslint@8.55.0)
       eslint-plugin-tailwindcss:
         specifier: '>=3.10.0'
         version: 3.13.0(tailwindcss@3.3.5)
@@ -451,18 +433,6 @@ packages:
       postcss-selector-parser: ^6.0.13
     dependencies:
       postcss-selector-parser: 6.0.13
-
-  /@dprint/formatter@0.2.0:
-    resolution: {integrity: sha512-E1q1JaOPeEUBhG//IUayqJQvNpqprZ0OCF8B/bIhUqSsMIp0Y74PgF8JPvDCrOdq43qiGUYAavVO8iCBHOoU/A==}
-    dev: false
-
-  /@dprint/markdown@0.16.3:
-    resolution: {integrity: sha512-KvwUrCdHR1spFk0EcdW33KEGFLfkcdx6hJN8mwipGBw0b40sl5oPtVUTgRiH70eV7VUhPfycDfIsDutWNHb17w==}
-    dev: false
-
-  /@dprint/toml@0.5.4:
-    resolution: {integrity: sha512-d+5GwwzztZD0QixmOBhaO6nWVLsAeYsJ1HJYNxDoDRbASFCpza9BBVshG5ctBRXCkkIHhD9BO1SnbOoRQltUQw==}
-    dev: false
 
   /@es-joy/jsdoccomment@0.41.0:
     resolution: {integrity: sha512-aKUhyn1QI5Ksbqcr3fFJj16p99QdjUxXAEuFst1Z47DRyoiMwivIH9MV/ARcJOCXVjPfjITciej8ZD2O/6qUmw==}
@@ -2192,15 +2162,6 @@ packages:
       - utf-8-validate
     dev: true
 
-  /eslint-formatting-reporter@0.0.0(eslint@8.55.0):
-    resolution: {integrity: sha512-k9RdyTqxqN/wNYVaTk/ds5B5rA8lgoAmvceYN7bcZMBwU7TuXx5ntewJv81eF3pIL/CiJE+pJZm36llG8yhyyw==}
-    peerDependencies:
-      eslint: '>=8.40.0'
-    dependencies:
-      eslint: 8.55.0
-      prettier-linter-helpers: 1.0.0
-    dev: false
-
   /eslint-import-resolver-node@0.3.9:
     resolution: {integrity: sha512-WFj2isz22JahUv+B788TlO3N6zL3nNJGU8CcZbPZvVEkBPaJdCV4vy5wyghty5ROFbCRnm132v8BScu5/1BQ8g==}
     dependencies:
@@ -2238,10 +2199,6 @@ packages:
       eslint-import-resolver-node: 0.3.9
     transitivePeerDependencies:
       - supports-color
-    dev: false
-
-  /eslint-parser-plain@0.1.0:
-    resolution: {integrity: sha512-oOeA6FWU0UJT/Rxc3XF5Cq0nbIZbylm7j8+plqq0CZoE6m4u32OXJrR+9iy4srGMmF6v6pmgvP1zPxSRIGh3sg==}
     dev: false
 
   /eslint-plugin-antfu@2.0.0(eslint@8.55.0):
@@ -2291,21 +2248,6 @@ packages:
       escape-string-regexp: 1.0.5
       eslint: 8.55.0
       ignore: 5.2.4
-    dev: false
-
-  /eslint-plugin-format@0.1.0(eslint@8.55.0):
-    resolution: {integrity: sha512-IgOu+GEH+PdKnpuPrFzY8q8QgnzAUijDZsNLhpp5jx0Lbu9u968/STcmEZGnIMVBw3zeTNN/FsU6d2Rdgcy6Aw==}
-    peerDependencies:
-      eslint: ^8.40.0
-    dependencies:
-      '@dprint/formatter': 0.2.0
-      '@dprint/markdown': 0.16.3
-      '@dprint/toml': 0.5.4
-      eslint: 8.55.0
-      eslint-formatting-reporter: 0.0.0(eslint@8.55.0)
-      eslint-parser-plain: 0.1.0
-      prettier: 3.1.0
-      synckit: 0.8.6
     dev: false
 
   /eslint-plugin-i@2.29.0(@typescript-eslint/parser@6.13.2)(eslint@8.55.0):
@@ -2782,10 +2724,6 @@ packages:
 
   /fast-deep-equal@3.1.3:
     resolution: {integrity: sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==}
-
-  /fast-diff@1.3.0:
-    resolution: {integrity: sha512-VxPP4NqbUjj6MaAOafWeUn2cXWLcCtljklUtZf0Ind4XQ+QPtmA0b18zZy0jIQx+ExRVCR/ZQpBmik5lXshNsw==}
-    dev: false
 
   /fast-glob@3.3.1:
     resolution: {integrity: sha512-kNFPyjhh5cKjrUltxs+wFx+ZkbRaxxmZ+X0ZU31SOsxCEtP9VPgtq2teZw1DebupL5GmDaNQ6yKMMVcM41iqDg==}
@@ -4366,21 +4304,8 @@ packages:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
 
-  /prettier-linter-helpers@1.0.0:
-    resolution: {integrity: sha512-GbK2cP9nraSSUF9N2XwUwqfzlAFlMNYYl+ShE/V+H8a9uNl/oUqB1w2EL54Jh0OlyRSd8RfWYJ3coVS4TROP2w==}
-    engines: {node: '>=6.0.0'}
-    dependencies:
-      fast-diff: 1.3.0
-    dev: false
-
   /prettier@3.0.3:
     resolution: {integrity: sha512-L/4pUDMxcNa8R/EthV08Zt42WBO4h1rarVtK0K+QJG0X187OLo7l699jWw0GKuwzkPQ//jMFA/8Xm6Fh3J/DAg==}
-    engines: {node: '>=14'}
-    hasBin: true
-    dev: false
-
-  /prettier@3.1.0:
-    resolution: {integrity: sha512-TQLvXjq5IAibjh8EpBIkNKxO749UEWABoiIZehEPiY4GNpVdhaFKqSTu+QrlU6D2dPAfubRmtJTi4K4YkQ5eXw==}
     engines: {node: '>=14'}
     hasBin: true
     dev: false
