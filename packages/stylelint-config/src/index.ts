@@ -1,28 +1,18 @@
 import { isPackageExists } from 'local-pkg'
+import { GLOB_EXCLUDE, JS_EXT } from './globs'
 
-const cssInJs
+const CSS_IN_JS
   = isPackageExists('styled-components')
   || isPackageExists('@emotion/css')
   || isPackageExists('@emotion/react')
   || isPackageExists('@emotion/styled')
 
-const jsExtension = [
-  '*.js',
-  '*.ts',
-  '*.jsx',
-  '*.tsx',
-  '*.mjs',
-  '*.cjs',
-  '*.mts',
-  '*.cts',
-]
+const IGNORES = !CSS_IN_JS ? JS_EXT : []
 
-const ignoreJs = !cssInJs ? jsExtension : []
-
-const jsOverrides = cssInJs
+const overrides = CSS_IN_JS
   ? [
       {
-        files: jsExtension
+        files: JS_EXT
           .map(extension => [extension, `**/${extension}`])
           .flat(),
         customSyntax: 'postcss-styled-syntax',
@@ -31,31 +21,12 @@ const jsOverrides = cssInJs
   : []
 
 export default {
+  cache: true,
+  fix: true,
   extends: ['stylelint-config-standard', 'stylelint-config-recess-order'],
   ignoreFiles: [
-    '**/node_modules/**',
-    'dist',
-    '*.d.ts',
-    '*.min.*',
-    'LICENSE*',
-    'public',
-    'output',
-    'out',
-    'temp',
-    'package-lock.json',
-    'pnpm-lock.yaml',
-    'yarn.lock',
-    '__snapshots__',
-    '*.png',
-    '*.ico',
-    '*.toml',
-    '*.patch',
-    '*.txt',
-    '*.crt',
-    '*.key',
-    '*Dockerfile',
-    '.vitepress/cache',
-    ...ignoreJs,
+    ...GLOB_EXCLUDE,
+    ...IGNORES,
   ],
   overrides: [
     {
@@ -82,7 +53,7 @@ export default {
       files: ['*.md', '**/*.md'],
       customSyntax: 'postcss-markdown',
     },
-    ...jsOverrides,
+    ...overrides,
   ],
   rules: {
     'at-rule-no-unknown': [
