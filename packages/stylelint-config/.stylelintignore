@@ -1,4 +1,2 @@
-*.{ts,js,tsx,jsx,cjs,mjs,md}
-
 node_modules/
 dist
