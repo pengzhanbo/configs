@@ -1,90 +1,33 @@
 import { isPackageExists } from 'local-pkg'
+import type { StylelintConfig } from 'stylelint-define-config'
+import { GLOB_EXCLUDE, JS_EXT } from './globs'
+import orderRules from './config/order'
 
-const cssInJs
-  = isPackageExists('styled-components')
-  || isPackageExists('@emotion/css')
-  || isPackageExists('@emotion/react')
-  || isPackageExists('@emotion/styled')
+// stylelint-stylistic 作者考虑弃用该包，
+// 考虑与 stylelint-codeguide 合并，
+// 持续关注社区进度
 
-const jsExtension = [
-  '*.js',
-  '*.ts',
-  '*.jsx',
-  '*.tsx',
-  '*.mjs',
-  '*.cjs',
-  '*.mts',
-  '*.cts',
-]
+// 待实现
+const CSS_IN_JS = false
 
-const ignoreJs = !cssInJs ? jsExtension : []
-
-const jsOverrides = cssInJs
-  ? [
-      {
-        files: jsExtension
-          .map(extension => [extension, `**/${extension}`])
-          .flat(),
-        customSyntax: 'postcss-styled-syntax',
-      },
-    ]
-  : []
+const IGNORES = !CSS_IN_JS ? JS_EXT.map(ext => `**/${ext}`) : []
 
 export default {
-  extends: ['stylelint-config-standard', 'stylelint-config-recess-order'],
+  extends: ['stylelint-config-standard', 'stylelint-config-html'],
+  plugins: ['stylelint-order'],
   ignoreFiles: [
-    '**/node_modules/**',
-    'dist',
-    '*.d.ts',
-    '*.min.*',
-    'LICENSE*',
-    'public',
-    'output',
-    'out',
-    'temp',
-    'package-lock.json',
-    'pnpm-lock.yaml',
-    'yarn.lock',
-    '__snapshots__',
-    '*.png',
-    '*.ico',
-    '*.toml',
-    '*.patch',
-    '*.txt',
-    '*.crt',
-    '*.key',
-    '*Dockerfile',
-    '.vitepress/cache',
-    ...ignoreJs,
+    ...GLOB_EXCLUDE,
+    ...IGNORES,
   ],
-  overrides: [
-    {
+  overrides: ([
+    isPackageExists('sass') && {
       files: ['*.scss', '**/*.scss'],
-      customSyntax: 'postcss-scss',
       extends: ['stylelint-config-standard-scss'],
     },
-    {
-      files: ['*.vue', '**/*.vue'],
-      customSyntax: 'postcss-html',
-      extends: ['stylelint-config-html/vue'],
-    },
-    {
-      files: ['*.html', '**/*.html', '*.htm', '**/*.htm'],
-      customSyntax: 'postcss-html',
-      extends: ['stylelint-config-html/html'],
-    },
-    {
-      files: ['*.svelte', '**/*.svelte'],
-      customSyntax: 'postcss-html',
-      extends: ['stylelint-config-html/svelte'],
-    },
-    {
-      files: ['*.md', '**/*.md'],
-      customSyntax: 'postcss-markdown',
-    },
-    ...jsOverrides,
-  ],
+  ] as NonNullable<StylelintConfig['overrides']>).filter(Boolean),
   rules: {
+    ...orderRules,
+
     'at-rule-no-unknown': [
       true,
       {
@@ -93,7 +36,7 @@ export default {
           'layer',
           'apply',
           'config',
-          'variants',
+          'theme',
           'screen',
         ],
       },
@@ -108,5 +51,6 @@ export default {
         ignorePseudoClasses: ['deep', 'global'],
       },
     ],
+
   },
-}
+} as StylelintConfig
