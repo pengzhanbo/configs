@@ -2,10 +2,7 @@ import { isPackageExists } from 'local-pkg'
 import type { StylelintConfig } from 'stylelint-define-config'
 import { GLOB_EXCLUDE, JS_EXT } from './globs'
 import orderRules from './config/order'
-
-// stylelint-stylistic 作者考虑弃用该包，
-// 考虑与 stylelint-codeguide 合并，
-// 持续关注社区进度
+import codeguideRules from './config/codeguide'
 
 // 待实现
 const CSS_IN_JS = false
@@ -14,7 +11,7 @@ const IGNORES = !CSS_IN_JS ? JS_EXT.map(ext => `**/${ext}`) : []
 
 export default {
   extends: ['stylelint-config-standard', 'stylelint-config-html'],
-  plugins: ['stylelint-order'],
+  plugins: ['stylelint-order', 'stylelint-codeguide'],
   ignoreFiles: [
     ...GLOB_EXCLUDE,
     ...IGNORES,
@@ -26,7 +23,6 @@ export default {
     },
   ] as NonNullable<StylelintConfig['overrides']>).filter(Boolean),
   rules: {
-    ...orderRules,
 
     'at-rule-no-unknown': [
       true,
@@ -51,6 +47,8 @@ export default {
         ignorePseudoClasses: ['deep', 'global'],
       },
     ],
+    ...orderRules,
+    ...codeguideRules,
 
   },
 } as StylelintConfig
