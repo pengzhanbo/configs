@@ -33,13 +33,7 @@ In `.stylelintrc.json`
     "scss",
     "postcss",
     // optional
-    "vue",
-    "markdown",
-    // when use  css-in-js
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact"
+    "vue"
   ],
   "editor.codeActionsOnSave": {
     "source.fixAll.stylelint": "explicit"
