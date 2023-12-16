@@ -47,6 +47,8 @@ export default {
         ignorePseudoClasses: ['deep', 'global'],
       },
     ],
+    'no-duplicate-selectors': null,
+
     ...orderRules,
     ...codeguideRules,
 
