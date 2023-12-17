@@ -1,6 +1,24 @@
 import type { RuleOptions } from '@stylelint-types/stylelint-order/types'
 
-export default {
+export const orderRules = {
+  'order/order': [
+    [
+      'dollar-variables',
+      'custom-properties',
+      'at-rules',
+      'declarations',
+      {
+        type: 'at-rule',
+        name: 'supports',
+      },
+      {
+        type: 'at-rule',
+        name: 'media',
+      },
+      'rules',
+    ],
+    { severity: 'warning' },
+  ],
   'order/properties-order': [
     {
       /**

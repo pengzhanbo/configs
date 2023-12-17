@@ -1,6 +1,6 @@
 import type { RuleOptions } from '@stylelint-types/stylelint-codeguide/types'
 
-export default {
+export const codeguideRules = {
   'codeguide/at-rule-name-case': 'lower',
   'codeguide/at-rule-name-newline-after': 'always-multi-line',
   'codeguide/at-rule-semicolon-newline-after': 'always',
