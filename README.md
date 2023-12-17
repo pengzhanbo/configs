@@ -49,7 +49,6 @@
 
 - css
 - scss
-- css-in-js
 
 
 ## Usage
