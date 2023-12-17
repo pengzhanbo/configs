@@ -73,7 +73,7 @@
     "eslint-plugin-toml": "^0.8.0",
     "eslint-plugin-unicorn": "^49.0.0",
     "eslint-plugin-unused-imports": "^3.0.0",
-    "eslint-plugin-vitest": "^0.3.17",
+    "eslint-plugin-vitest": "^0.3.18",
     "eslint-plugin-yml": "^1.11.0",
     "globals": "^13.24.0",
     "jsonc-eslint-parser": "^2.4.0",
