@@ -5,4 +5,5 @@ export default eslintConfig({
   unocss: true,
   tailwindcss: true,
   html: true,
+  formatters: true,
 })

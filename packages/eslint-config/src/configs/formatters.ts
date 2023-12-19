@@ -60,7 +60,7 @@ export async function formatters(
 
   const configs: FlatConfigItem[] = [
     {
-      name: 'antfu:formatters:setup',
+      name: 'config:formatters:setup',
       plugins: {
         format: pluginFormat,
       },
@@ -74,7 +74,7 @@ export async function formatters(
         languageOptions: {
           parser: parserPlain,
         },
-        name: 'antfu:formatter:css',
+        name: 'config:formatter:css',
         rules: {
           'format/prettier': [
             'error',
@@ -90,7 +90,7 @@ export async function formatters(
         languageOptions: {
           parser: parserPlain,
         },
-        name: 'antfu:formatter:scss',
+        name: 'config:formatter:scss',
         rules: {
           'format/prettier': [
             'error',
@@ -106,7 +106,7 @@ export async function formatters(
         languageOptions: {
           parser: parserPlain,
         },
-        name: 'antfu:formatter:less',
+        name: 'config:formatter:less',
         rules: {
           'format/prettier': [
             'error',
@@ -126,7 +126,7 @@ export async function formatters(
       languageOptions: {
         parser: parserPlain,
       },
-      name: 'antfu:formatter:html',
+      name: 'config:formatter:html',
       rules: {
         'format/prettier': [
           'error',
@@ -149,7 +149,7 @@ export async function formatters(
       languageOptions: {
         parser: parserPlain,
       },
-      name: 'antfu:formatter:markdown',
+      name: 'config:formatter:markdown',
       rules: {
         [`format/${formater}`]: [
           'error',
@@ -174,7 +174,7 @@ export async function formatters(
       languageOptions: {
         parser: parserPlain,
       },
-      name: 'antfu:formatter:graphql',
+      name: 'config:formatter:graphql',
       rules: {
         'format/prettier': [
           'error',
