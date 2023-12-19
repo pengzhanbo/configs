@@ -1,7 +1,7 @@
-import type { Linter } from 'eslint'
+import { mergeProcessors, processorPassThrough } from 'eslint-merge-processors'
 import type { FlatConfigItem, OptionsComponentExts, OptionsFiles, OptionsOverrides } from '../types'
 import { GLOB_MARKDOWN, GLOB_MARKDOWN_CODE } from '../globs'
-import { interopDefault } from '../utils'
+import { interopDefault, parserPlain } from '../utils'
 
 export async function markdown(
   options: OptionsFiles & OptionsComponentExts & OptionsOverrides = {},
@@ -25,7 +25,20 @@ export async function markdown(
     {
       files,
       name: 'config:markdown:processor',
-      processor: 'markdown/markdown',
+      // `eslint-plugin-markdown` only creates virtual files for code blocks,
+      // but not the markdown file itself. We use `eslint-merge-processors` to
+      // add a pass-through processor for the markdown file itself.
+      processor: mergeProcessors([
+        markdown.processors.markdown,
+        processorPassThrough,
+      ]),
+    },
+    {
+      files,
+      languageOptions: {
+        parser: parserPlain,
+      },
+      name: 'config:markdown:parser',
     },
     {
       files: [

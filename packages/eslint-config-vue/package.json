@@ -53,8 +53,10 @@
   },
   "dependencies": {
     "@pengzhanbo/eslint-config": "workspace:*",
-    "@typescript-eslint/parser": "^6.14.0",
+    "@typescript-eslint/parser": "^6.15.0",
+    "eslint-merge-processors": "^0.1.0",
     "eslint-plugin-vue": "^9.19.2",
+    "eslint-processor-vue-blocks": "^0.1.1",
     "vue-eslint-parser": "^9.3.2"
   },
   "devDependencies": {
