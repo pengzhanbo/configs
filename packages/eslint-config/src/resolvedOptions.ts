@@ -30,6 +30,7 @@ export function resolveOptions(options: OptionsConfig & FlatConfigItem = {}): Re
     toml = true,
     markdown = true,
     html = true,
+    formatters = false,
     unocss: enableUnocss = false,
     tailwindcss: enableTailwindcss = false,
   } = options
@@ -81,5 +82,6 @@ export function resolveOptions(options: OptionsConfig & FlatConfigItem = {}): Re
     unocss,
     tailwindcss,
     html,
-  }
+    formatters,
+  } as ResolvedOptions
 }

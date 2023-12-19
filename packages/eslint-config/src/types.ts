@@ -23,6 +23,7 @@ import type { RuleOptions as TypeScriptRules } from '@eslint-types/typescript-es
 import type { RuleOptions as UnicornRules } from '@eslint-types/unicorn/types'
 import type { Rules as AntfuRules } from 'eslint-plugin-antfu'
 import type { StylisticCustomizeOptions, UnprefixedRuleOptions as StylisticRules } from '@stylistic/eslint-plugin'
+import type { VendoredPrettierOptions } from './vender/prettier-types'
 
 export type WrapRuleConfig<T extends { [key: string]: any }> = {
   [K in keyof T]: T[K] extends RuleConfig ? T[K] : RuleConfig<T[K]>
@@ -75,6 +76,50 @@ export interface OptionsFiles {
    * Override the `files` option to provide custom globs.
    */
   files?: string[]
+}
+
+export interface OptionsFormatters {
+  /**
+   * Enable formatting support for CSS, Less, Sass, and SCSS.
+   *
+   * Currently only support Prettier.
+   */
+  css?: 'prettier' | boolean
+
+  /**
+   * Enable formatting support for HTML.
+   *
+   * Currently only support Prettier.
+   */
+  html?: 'prettier' | boolean
+
+  /**
+   * Enable formatting support for Markdown.
+   *
+   * Support both Prettier and dprint.
+   *
+   * When set to `true`, it will use Prettier.
+   */
+  markdown?: 'prettier' | 'dprint' | boolean
+
+  /**
+   * Enable formatting support for GraphQL.
+   */
+  graphql?: 'prettier' | boolean
+
+  /**
+   * Custom options for Prettier.
+   *
+   * By default it's controlled by our own config.
+   */
+  prettierOptions?: VendoredPrettierOptions
+
+  /**
+   * Custom options for dprint.
+   *
+   * By default it's controlled by our own config.
+   */
+  dprintOptions?: boolean
 }
 
 export interface OptionsComponentExts {
@@ -242,6 +287,18 @@ export interface OptionsConfig extends OptionsComponentExts, OptionsFrameworkExt
    * @default true
    */
   stylistic?: boolean | StylisticConfig
+
+  /**
+   * Use external formatters to format files.
+   *
+   * Requires installing:
+   * - `eslint-plugin-format`
+   *
+   * When set to`true`, it will enable all formatters.
+   *
+   * @default false
+   */
+  formatters?: boolean | OptionsFormatters
 
   /**
    * Enable unocss rules.
