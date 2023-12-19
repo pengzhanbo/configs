@@ -87,6 +87,8 @@ export interface OptionsComponentExts {
   componentExts?: string[]
 }
 
+export interface OptionsFrameworkExtract {}
+
 export interface OptionsTypeScriptParserOptions {
   /**
    * Additional parser options for TypeScript.
@@ -157,7 +159,7 @@ export interface OptionsTailwindCSS {
 
 export type PresetItem = (options: Required<Omit<OptionsConfig, 'preset'>> & { stylistic: false | StylisticConfig }) => Awaitable<FlatConfigItem[]>[]
 
-export interface OptionsConfig extends OptionsComponentExts {
+export interface OptionsConfig extends OptionsComponentExts, OptionsFrameworkExtract {
   /**
    * Enable gitignore support.
    *
