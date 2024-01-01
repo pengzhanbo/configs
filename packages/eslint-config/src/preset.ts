@@ -24,13 +24,13 @@ import {
   unocss,
   yaml,
 } from './configs'
+import { getOverrides, resolveSubOptions } from './factory'
 
 export const defaultPreset: PresetItem = (options) => {
   const {
     componentExts,
     gitignore: enableGitignore,
     isInEditor,
-    overrides,
     typescript: enableTypeScript,
     stylistic: stylisticOptions,
   } = options
@@ -59,7 +59,7 @@ export const defaultPreset: PresetItem = (options) => {
     ignores(),
     javascript({
       isInEditor,
-      overrides: overrides.javascript,
+      overrides: getOverrides(options, 'javascript'),
     }),
     comments(),
     node(),
@@ -77,28 +77,29 @@ export const defaultPreset: PresetItem = (options) => {
 
   if (enableTypeScript) {
     configs.push(typescript({
-      ...typeof enableTypeScript !== 'boolean'
-        ? enableTypeScript
-        : {},
+      ...resolveSubOptions(options, 'typescript'),
       componentExts,
-      overrides: overrides.typescript,
     }))
   }
 
-  if (stylisticOptions)
-    configs.push(stylistic(stylisticOptions))
+  if (stylisticOptions) {
+    configs.push(stylistic({
+      ...(typeof stylisticOptions === 'boolean' ? {} : stylisticOptions),
+      overrides: getOverrides(options, 'stylistic'),
+    }))
+  }
 
   if (options.test) {
     configs.push(test({
       isInEditor,
-      overrides: overrides.test,
+      overrides: getOverrides(options, 'test'),
     }))
   }
 
   if (options.jsonc) {
     configs.push(
       jsonc({
-        overrides: overrides.jsonc,
+        overrides: getOverrides(options, 'jsonc'),
         stylistic: stylisticOptions,
       }),
       sortPackageJson(),
@@ -108,36 +109,44 @@ export const defaultPreset: PresetItem = (options) => {
 
   if (options.yaml) {
     configs.push(yaml({
-      overrides: overrides.yaml,
+      overrides: getOverrides(options, 'yaml'),
       stylistic: stylisticOptions,
     }))
   }
 
   if (options.toml) {
     configs.push(toml({
-      overrides: overrides.toml,
+      overrides: getOverrides(options, 'toml'),
       stylistic: stylisticOptions,
     }))
   }
 
   if (options.html) {
     configs.push(html({
-      overrides: overrides.html,
+      overrides: getOverrides(options, 'html'),
       stylistic: stylisticOptions,
     }))
   }
 
-  if (options.unocss)
-    configs.push(unocss(options.unocss === true ? {} : options.unocss))
+  if (options.unocss) {
+    configs.push(unocss({
+      ...resolveSubOptions(options, 'unocss'),
+      overrides: getOverrides(options, 'unocss'),
+    }))
+  }
 
-  if (options.tailwindcss)
-    configs.push(tailwindcss(options.tailwindcss === true ? {} : options.tailwindcss))
+  if (options.tailwindcss) {
+    configs.push(tailwindcss({
+      ...resolveSubOptions(options, 'tailwindcss'),
+      overrides: getOverrides(options, 'tailwindcss'),
+    }))
+  }
 
   if (options.markdown) {
     configs.push(
       markdown({
         componentExts,
-        overrides: overrides.markdown,
+        overrides: getOverrides(options, 'markdown'),
       }),
     )
   }
