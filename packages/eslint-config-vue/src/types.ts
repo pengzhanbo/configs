@@ -1,6 +1,7 @@
 import type { Options as VueBlocksOptions } from 'eslint-processor-vue-blocks'
+import type { OptionsOverrides } from '@pengzhanbo/eslint-config'
 
-export interface OptionsVue {
+export interface OptionsVue extends OptionsOverrides {
   /**
    * Create virtual files for Vue SFC blocks to enable linting.
    *
