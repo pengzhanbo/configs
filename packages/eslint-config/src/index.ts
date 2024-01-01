@@ -6,6 +6,6 @@ export * from './utils'
 export * from './globs'
 export * from './configs'
 export * from './preset'
-export { createConfig } from './factory'
+export { createConfig, resolveSubOptions, getOverrides } from './factory'
 
 export default eslintFlatConfig

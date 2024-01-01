@@ -139,7 +139,16 @@ export interface OptionsTypeScriptParserOptions {
    * Additional parser options for TypeScript.
    */
   parserOptions?: Partial<ParserOptions>
+  /**
+   * Glob patterns for files that should be type aware.
+   * @default ['**\/*.{ts,tsx}']
+   */
+  filesTypeAware?: string[]
 }
+
+export type OptionsTypescript =
+  (OptionsTypeScriptWithTypes & OptionsOverrides)
+  | (OptionsTypeScriptParserOptions & OptionsOverrides)
 
 export interface OptionsTypeScriptWithTypes {
   /**
@@ -168,7 +177,7 @@ export interface OptionsIsInEditor {
   isInEditor?: boolean
 }
 
-export interface OptionsUnoCSS {
+export interface OptionsUnoCSS extends OptionsOverrides {
   /**
    * Enable attributify support.
    * @default true
@@ -181,7 +190,7 @@ export interface OptionsUnoCSS {
   strict?: boolean
 }
 
-export interface OptionsTailwindCSS {
+export interface OptionsTailwindCSS extends OptionsOverrides {
   /**
    * Read CSS files
    */
@@ -202,7 +211,7 @@ export interface OptionsTailwindCSS {
   customClassNames?: boolean
 }
 
-export type PresetItem = (options: Required<Omit<OptionsConfig, 'preset'>> & { stylistic: false | StylisticConfig }) => Awaitable<FlatConfigItem[]>[]
+export type PresetItem = (options: Required<Omit<OptionsConfig, 'preset'>>) => Awaitable<FlatConfigItem[]>[]
 
 export interface OptionsConfig extends OptionsComponentExts, OptionsFrameworkExtract {
   /**
@@ -225,13 +234,18 @@ export interface OptionsConfig extends OptionsComponentExts, OptionsFrameworkExt
   preset?: PresetItem[]
 
   /**
+   * Core rules. Can't be disabled.
+   */
+  javascript?: OptionsOverrides
+
+  /**
    * Enable TypeScript support.
    *
    * Passing an object to enable TypeScript Language Server support.
    *
    * @default auto-detect based on the dependencies
    */
-  typescript?: boolean | OptionsTypeScriptWithTypes | OptionsTypeScriptParserOptions
+  typescript?: boolean | OptionsTypescript
 
   /**
    * Enable JSX related rules.
@@ -247,26 +261,26 @@ export interface OptionsConfig extends OptionsComponentExts, OptionsFrameworkExt
    *
    * @default true
    */
-  test?: boolean
+  test?: boolean | OptionsOverrides
 
   /**
    * Enable JSONC support.
    *
    * @default true
    */
-  jsonc?: boolean
+  jsonc?: boolean | OptionsOverrides
 
   /**
    * Enable TOML support.
    */
-  toml?: boolean
+  toml?: boolean | OptionsOverrides
 
   /**
    * Enable YAML support.
    *
    * @default true
    */
-  yaml?: boolean
+  yaml?: boolean | OptionsOverrides
 
   /**
    * Enable Markdown support.
@@ -279,7 +293,7 @@ export interface OptionsConfig extends OptionsComponentExts, OptionsFrameworkExt
   /**
    * Enable HTML support.
    */
-  html?: boolean
+  html?: boolean | OptionsOverrides
 
   /**
    * Enable stylistic rules.
@@ -326,6 +340,8 @@ export interface OptionsConfig extends OptionsComponentExts, OptionsFrameworkExt
 
   /**
    * Provide overrides for rules for each integration.
+   *
+   * @deprecated use `overrides` option in each integration key instead
    */
   overrides?: {
     html?: FlatConfigItem['rules']

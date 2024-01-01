@@ -54,3 +54,29 @@ export function createConfig(preset: PresetItem | PresetItem[]): typeof eslintFl
     return eslintFlatConfig(options, ...userConfigs)
   }
 }
+
+export type ResolvedOptions<T> = T extends boolean
+  ? never
+  : NonNullable<T>
+
+export function resolveSubOptions<K extends keyof OptionsConfig>(
+  options: OptionsConfig,
+  key: K,
+): ResolvedOptions<OptionsConfig[K]> {
+  return typeof options[key] === 'boolean'
+    ? {} as any
+    : options[key] || {}
+}
+
+export function getOverrides<K extends keyof OptionsConfig>(
+  options: OptionsConfig,
+  key: K,
+) {
+  const sub = resolveSubOptions(options, key)
+  return {
+    ...(options.overrides as any)?.[key],
+    ...'overrides' in sub
+      ? (sub.overrides || {})
+      : {},
+  }
+}

@@ -15,13 +15,12 @@ type ResolvedOptions = Required<OptionsConfig> & FlatConfigItem & {
   tailwindcss: false | OptionsTailwindCSS
 }
 
-export function resolveOptions(options: OptionsConfig & FlatConfigItem = {}): ResolvedOptions {
+export function resolveOptions(options: OptionsConfig & FlatConfigItem = {}) {
   const {
     componentExts = [],
     preset = [],
     gitignore = true,
-    isInEditor = !!((process.env.VSCODE_PID || process.env.JETBRAINS_IDE) && !process.env.CI),
-    overrides = {},
+    isInEditor = !!((process.env.VSCODE_PID || process.env.JETBRAINS_IDE || process.env.VIM) && !process.env.CI),
     typescript = isPackageExists('typescript'),
     jsx = true,
     test = true,
@@ -70,7 +69,6 @@ export function resolveOptions(options: OptionsConfig & FlatConfigItem = {}): Re
     preset,
     gitignore,
     isInEditor,
-    overrides,
     typescript,
     stylistic,
     jsx,
