@@ -50,7 +50,6 @@
 - css
 - scss
 
-
 ## Usage
 
 ### Javascript / Typescript 项目
@@ -90,7 +89,6 @@ import eslintConfig from '@pengzhanbo/eslint-config-vue'
 
 export default eslintConfig()
 ```
-
 
 ### React项目
 

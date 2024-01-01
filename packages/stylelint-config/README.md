@@ -20,7 +20,6 @@ In `.stylelintrc.json`
 }
 ```
 
-
 ## vs Code support (auto fix)
 
 ```json

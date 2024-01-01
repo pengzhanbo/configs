@@ -11,7 +11,6 @@
 - [@pengzhanbo/prettier-config](https://github.com/pengzhanbo/configs/tree/main/packages/prettier-config)
 - [@pengzhanbo/stylelint-config](https://github.com/pengzhanbo/configs/tree/main/packages/stylelint-config)
 
-
 ## VS Code 支持 (auto fix)
 
 安装 [VS Code ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
@@ -89,7 +88,7 @@ export default eslintConfig({
   unocss: true, // 需安装 @unocss/eslint-plugin
   tailwindcss: true, // 需安装 eslint-plugin-tailwindcss
 
-  // 在Flat配置中不再支持 `.eslintignore`，请使用 `ignore` 代替
+  // 在Flat配置中不再支持 `.eslintignore`，请使用 `ignores` 代替
   ignores: [
     './fixtures',
     // ...globs

@@ -2,8 +2,8 @@
 
 Fork for [@antfu/eslint-config](https://github.com/antfu/eslint-config).
 
-与 [@antfu/eslint-config](https://github.com/antfu/eslint-config) 不同的是， 
-将 framework 相关的配置划分为独立的 eslint 配置包。 
+与 [@antfu/eslint-config](https://github.com/antfu/eslint-config) 不同的是，
+将 framework 相关的配置划分为独立的 eslint 配置包。
 
 包括 `vue` 、 `react` 等都移动到其他的 package 中，只保留 通用的配置，
 再根据项目的需求引入对应的 package。 并添加了 `solid-js` , `svelte` 等的配置支持。
