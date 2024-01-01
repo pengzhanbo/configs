@@ -291,11 +291,6 @@ export interface OptionsConfig extends OptionsComponentExts, OptionsFrameworkExt
   markdown?: boolean
 
   /**
-   * Enable HTML support.
-   */
-  html?: boolean | OptionsOverrides
-
-  /**
    * Enable stylistic rules.
    *
    * @default true
@@ -344,7 +339,6 @@ export interface OptionsConfig extends OptionsComponentExts, OptionsFrameworkExt
    * @deprecated use `overrides` option in each integration key instead
    */
   overrides?: {
-    html?: FlatConfigItem['rules']
     javascript?: FlatConfigItem['rules']
     typescript?: FlatConfigItem['rules']
     test?: FlatConfigItem['rules']

@@ -4,7 +4,6 @@ import { interopDefault } from './utils'
 import {
   comments,
   formatters,
-  html,
   ignores,
   imports,
   javascript,
@@ -117,13 +116,6 @@ export const defaultPreset: PresetItem = (options) => {
   if (options.toml) {
     configs.push(toml({
       overrides: getOverrides(options, 'toml'),
-      stylistic: stylisticOptions,
-    }))
-  }
-
-  if (options.html) {
-    configs.push(html({
-      overrides: getOverrides(options, 'html'),
       stylistic: stylisticOptions,
     }))
   }

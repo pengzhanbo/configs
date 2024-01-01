@@ -28,7 +28,6 @@ export function resolveOptions(options: OptionsConfig & FlatConfigItem = {}) {
     yaml = true,
     toml = true,
     markdown = true,
-    html = true,
     formatters = false,
     unocss: enableUnocss = false,
     tailwindcss: enableTailwindcss = false,
@@ -79,7 +78,6 @@ export function resolveOptions(options: OptionsConfig & FlatConfigItem = {}) {
     markdown,
     unocss,
     tailwindcss,
-    html,
     formatters,
   } as ResolvedOptions
 }
