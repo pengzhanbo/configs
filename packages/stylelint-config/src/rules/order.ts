@@ -1,6 +1,28 @@
 import type { RuleOptions } from '@stylelint-types/stylelint-order/types'
+import type { Rules } from 'stylelint-define-config'
 
 export const orderRules = {
+  'declaration-empty-line-before': [
+    'always',
+    {
+      except: ['first-nested'],
+      ignore: [
+        'after-declaration',
+        'after-comment',
+        'inside-single-line-block',
+      ],
+    },
+  ],
+  'at-rule-empty-line-before': [
+    'always',
+    {
+      ignore: [
+        'first-nested',
+        'blockless-after-same-name-blockless',
+        'after-comment',
+      ],
+    },
+  ],
   'order/order': [
     [
       { type: 'at-rule', name: 'import' },
@@ -465,4 +487,4 @@ export const orderRules = {
       emptyLineMinimumPropertyThreshold: 5,
     },
   ],
-} as Partial<RuleOptions>
+} as Partial<RuleOptions & Rules>

@@ -45,14 +45,19 @@ export function eslintFlatConfig(
   return merged
 }
 
-export function createConfig(preset: PresetItem | PresetItem[]): typeof eslintFlatConfig {
-  return (options = {}, ...userConfigs) => {
+export function createConfig(preset: PresetItem | PresetItem[]) {
+  function eslintConfig(
+    options: any = {},
+    ...userConfigs: any[]
+  ) {
     const userPreset = options.preset || []
     const presetList = Array.isArray(preset) ? preset : [preset]
     presetList.push(...userPreset)
     options.preset = presetList
     return eslintFlatConfig(options, ...userConfigs)
   }
+
+  return eslintConfig as typeof eslintFlatConfig
 }
 
 export type ResolvedOptions<T> = T extends boolean
