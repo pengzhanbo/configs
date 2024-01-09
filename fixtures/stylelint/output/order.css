@@ -1,0 +1,28 @@
+@import url("foo.css");
+
+@media (width >= 768px) {
+  .a {
+    width: 100%;
+  }
+}
+
+.a {
+  width: 100%;
+}
+
+@media (width >= 419px) {
+  .a {
+    width: 100%;
+  }
+}
+
+@supports (--foo: green) {
+  .a {
+    width: 100%;
+  }
+}
+
+.b {
+  width: 100%;
+  transition: all 0.1s ease;
+}
