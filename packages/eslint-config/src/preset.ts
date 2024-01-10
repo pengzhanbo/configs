@@ -23,7 +23,7 @@ import {
   unocss,
   yaml,
 } from './configs'
-import { getOverrides, resolveSubOptions } from './factory'
+import { getOverrides, resolveSubOptions } from './resolveSubOptions'
 
 export const defaultPreset: PresetItem = (options) => {
   const {

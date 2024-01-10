@@ -1,4 +1,4 @@
-import type { Awaitable, FlatConfigItem, OptionsConfig, PresetItem, UserConfigItem } from './types'
+import type { Awaitable, FlatConfigItem, OptionsConfig, UserConfigItem } from './types'
 import { combine } from './utils'
 import { defaultPreset } from './preset'
 import { resolveOptions } from './resolvedOptions'
@@ -43,45 +43,4 @@ export function eslintFlatConfig(
   )
 
   return merged
-}
-
-export function createConfig(preset: PresetItem | PresetItem[]) {
-  function eslintConfig(
-    options: any = {},
-    ...userConfigs: any[]
-  ) {
-    const userPreset = options.preset || []
-    const presetList = Array.isArray(preset) ? preset : [preset]
-    presetList.push(...userPreset)
-    options.preset = presetList
-    return eslintFlatConfig(options, ...userConfigs)
-  }
-
-  return eslintConfig as typeof eslintFlatConfig
-}
-
-export type ResolvedOptions<T> = T extends boolean
-  ? never
-  : NonNullable<T>
-
-export function resolveSubOptions<K extends keyof OptionsConfig>(
-  options: OptionsConfig,
-  key: K,
-): ResolvedOptions<OptionsConfig[K]> {
-  return typeof options[key] === 'boolean'
-    ? {} as any
-    : options[key] || {}
-}
-
-export function getOverrides<K extends keyof OptionsConfig>(
-  options: OptionsConfig,
-  key: K,
-) {
-  const sub = resolveSubOptions(options, key)
-  return {
-    ...(options.overrides as any)?.[key],
-    ...'overrides' in sub
-      ? (sub.overrides || {})
-      : {},
-  }
 }

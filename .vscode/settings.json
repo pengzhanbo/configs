@@ -7,7 +7,8 @@
     "codeguide",
     "nextjs",
     "tailwindcss",
-    "unocss"
+    "unocss",
+    "Unprefixed"
   ],
   "css.validate": false,
   "less.validate": false,

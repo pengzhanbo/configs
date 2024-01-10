@@ -132,8 +132,6 @@ export interface OptionsComponentExts {
   componentExts?: string[]
 }
 
-export interface OptionsFrameworkExtract {}
-
 export interface OptionsTypeScriptParserOptions {
   /**
    * Additional parser options for TypeScript.
@@ -166,8 +164,10 @@ export interface OptionsStylistic {
   stylistic?: boolean | StylisticConfig
 }
 
-export interface StylisticConfig extends Pick<StylisticCustomizeOptions, 'indent' | 'quotes' | 'jsx' | 'semi'> {
-}
+export interface StylisticConfig extends Pick<
+  StylisticCustomizeOptions,
+  'indent' | 'quotes' | 'jsx' | 'semi'
+> {}
 
 export interface OptionsOverrides {
   overrides?: FlatConfigItem['rules']
@@ -211,7 +211,11 @@ export interface OptionsTailwindCSS extends OptionsOverrides {
   customClassNames?: boolean
 }
 
-export type PresetItem = (options: Required<Omit<OptionsConfig, 'preset'>>) => Awaitable<FlatConfigItem[]>[]
+export type PresetItem = (
+  options: Required<Omit<OptionsConfig, 'preset'>>
+) => Awaitable<FlatConfigItem[]>[]
+
+export interface OptionsFrameworkExtract {}
 
 export interface OptionsConfig extends OptionsComponentExts, OptionsFrameworkExtract {
   /**
@@ -332,25 +336,4 @@ export interface OptionsConfig extends OptionsComponentExts, OptionsFrameworkExt
    * @default auto-detect based on the process.env
    */
   isInEditor?: boolean
-
-  /**
-   * Provide overrides for rules for each integration.
-   *
-   * @deprecated use `overrides` option in each integration key instead
-   */
-  overrides?: {
-    javascript?: FlatConfigItem['rules']
-    typescript?: FlatConfigItem['rules']
-    test?: FlatConfigItem['rules']
-    jsonc?: FlatConfigItem['rules']
-    markdown?: FlatConfigItem['rules']
-    yaml?: FlatConfigItem['rules']
-    toml?: FlatConfigItem['rules']
-    vue?: FlatConfigItem['rules']
-    react?: FlatConfigItem['rules']
-    nextjs?: FlatConfigItem['rules']
-    solid?: FlatConfigItem['rules']
-    svelte?: FlatConfigItem['rules']
-    astro?: FlatConfigItem['rules']
-  }
 }
