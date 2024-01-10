@@ -17,7 +17,7 @@ export interface EslintFlatConfigFunction {
 export function createConfig(
   preset: PresetItem | PresetItem[],
 ): EslintFlatConfigFunction {
-  return function eslintFlatConfig(
+  return function (
     options = {},
     ...userConfigs
   ) {
