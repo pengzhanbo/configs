@@ -1,5 +1,5 @@
 import { isPackageExists } from 'local-pkg'
-import { toArray } from '@pengzhanbo/utils'
+import { toArray, uniq } from '@pengzhanbo/utils'
 import { GLOB_EXCLUDE, JS_EXT } from './globs'
 import { codeguideRules, normalRules, orderRules } from './rules'
 import type { SCSSRuleOptions, StylelintConfig, StylelintRules } from './define-config'
@@ -26,11 +26,26 @@ function stylelintConfig(
   const { order = true, codeguide = true, scss = true, overrides = {}, rules = {} } = options
   const config = { ...userConfig }
 
-  config.extends = ['stylelint-config-standard', 'stylelint-config-html', ...toArray(config.extends)]
-  config.plugins = ['stylelint-order', 'stylelint-codeguide', ...toArray(config.plugins)]
-  config.ignoreFiles = [...GLOB_EXCLUDE, ...IGNORES, ...toArray(config.ignoreFiles)]
+  config.extends = uniq([
+    'stylelint-config-standard',
+    'stylelint-config-html',
+    ...toArray(config.extends),
+  ])
+  config.plugins = uniq([
+    'stylelint-order',
+    'stylelint-codeguide',
+    ...toArray(config.plugins),
+  ])
+  config.ignoreFiles = uniq([
+    ...GLOB_EXCLUDE,
+    ...IGNORES,
+    ...toArray(config.ignoreFiles),
+  ])
   config.overrides = config.overrides ?? []
-  config.rules = { ...normalRules, ...(config.rules || {}) }
+  config.rules = {
+    ...normalRules,
+    ...(config.rules || {}),
+  }
 
   if (order) {
     ; (config.plugins as string[]).push('stylelint-order')
