@@ -299,7 +299,7 @@ export interface OptionsConfig extends OptionsComponentExts, OptionsFrameworkExt
    *
    * @default true
    */
-  stylistic?: boolean | StylisticConfig
+  stylistic?: boolean | (StylisticConfig & OptionsOverrides)
 
   /**
    * Use external formatters to format files.

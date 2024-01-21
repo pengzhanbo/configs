@@ -78,6 +78,7 @@ export const defaultPreset: PresetItem = (options) => {
     configs.push(typescript({
       ...resolveSubOptions(options, 'typescript'),
       componentExts,
+      overrides: getOverrides(options, 'typescript'),
     }))
   }
 
