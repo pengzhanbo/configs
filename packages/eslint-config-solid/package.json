@@ -53,12 +53,12 @@
   },
   "dependencies": {
     "@pengzhanbo/eslint-config": "workspace:*",
-    "@typescript-eslint/parser": "^6.18.0",
+    "@typescript-eslint/parser": "^6.19.0",
     "eslint-plugin-solid": "^0.13.1"
   },
   "devDependencies": {
     "eslint": "^8.56.0",
-    "eslint-flat-config-viewer": "^0.1.4",
+    "eslint-flat-config-viewer": "^0.1.11",
     "tsup": "^8.0.1"
   }
 }
