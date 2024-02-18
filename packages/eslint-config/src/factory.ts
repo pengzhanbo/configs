@@ -4,6 +4,7 @@ import { defaultPreset } from './preset'
 import { resolveOptions } from './resolvedOptions'
 
 const flatConfigProps: (keyof FlatConfigItem)[] = [
+  'name',
   'files',
   'ignores',
   'languageOptions',

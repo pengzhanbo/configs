@@ -117,6 +117,8 @@ export async function typescript(
         'ts/ban-types': ['error', { types: { Function: false } }],
         'ts/consistent-type-definitions': ['error', 'interface'],
         'ts/consistent-type-imports': ['error', { disallowTypeAnnotations: false, prefer: 'type-imports' }],
+        // https://www.totaltypescript.com/method-shorthand-syntax-considered-harmful
+        'ts/method-signature-style': ['error', 'property'],
         'ts/no-dupe-class-members': 'error',
         'ts/no-dynamic-delete': 'off',
         'ts/no-explicit-any': 'off',
