@@ -62,6 +62,6 @@
   "devDependencies": {
     "eslint": "^8.56.0",
     "eslint-flat-config-viewer": "^0.1.11",
-    "tsup": "^8.0.1"
+    "tsup": "^8.0.2"
   }
 }
