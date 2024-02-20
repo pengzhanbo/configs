@@ -1,6 +1,6 @@
 # @pengzhanbo/stylelint-config
 
-The prettier config preset.
+The stylelint config preset.
 
 ## Usage
 

@@ -1,7 +1,7 @@
 import { isPackageExists } from 'local-pkg'
 import { toArray, uniq } from '@pengzhanbo/utils'
 import { GLOB_EXCLUDE, JS_EXT } from './globs'
-import { codeguideRules, normalRules, orderRules } from './rules'
+import { normalRules, orderRules, stylisticRules } from './rules'
 import type { SCSSRuleOptions, StylelintConfig, StylelintRules } from './define-config'
 
 // 待实现
@@ -11,7 +11,7 @@ const IGNORES = !CSS_IN_JS ? JS_EXT.map(ext => `**/${ext}`) : []
 
 interface Options {
   order?: boolean
-  codeguide?: boolean
+  stylistic?: boolean
   scss?: boolean
   overrides?: {
     scss?: Partial<SCSSRuleOptions>
@@ -23,7 +23,7 @@ function stylelintConfig(
   options: Options = {},
   userConfig: StylelintConfig = {},
 ): StylelintConfig {
-  const { order = true, codeguide = true, scss = true, overrides = {}, rules = {} } = options
+  const { order = true, stylistic = true, scss = true, overrides = {}, rules = {} } = options
   const config = { ...userConfig }
 
   config.extends = uniq([
@@ -55,11 +55,11 @@ function stylelintConfig(
     }
   }
 
-  if (codeguide) {
+  if (stylistic) {
     ; (config.plugins as string[]).push('stylelint-codeguide')
     config.rules = {
       ...config.rules,
-      ...codeguideRules,
+      ...stylisticRules,
     }
   }
 
