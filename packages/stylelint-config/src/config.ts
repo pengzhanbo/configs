@@ -33,7 +33,7 @@ function stylelintConfig(
   ])
   config.plugins = uniq([
     'stylelint-order',
-    'stylelint-codeguide',
+    '@stylistic/stylelint-plugin',
     ...toArray(config.plugins),
   ])
   config.ignoreFiles = uniq([
@@ -56,7 +56,7 @@ function stylelintConfig(
   }
 
   if (stylistic) {
-    ; (config.plugins as string[]).push('stylelint-codeguide')
+    ; (config.plugins as string[]).push('@stylistic/stylelint-plugin')
     config.rules = {
       ...config.rules,
       ...stylisticRules,
