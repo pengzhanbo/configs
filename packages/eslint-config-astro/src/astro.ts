@@ -10,13 +10,10 @@ export async function astro(
     stylistic = true,
   } = options
 
-  const {
-    semi = false,
-  } = typeof stylistic === 'boolean' ? {} : stylistic
-
-  const [pluginAstro, parserAstro] = await Promise.all([
+  const [pluginAstro, parserAstro, parserTs] = await Promise.all([
     interopDefault(import('eslint-plugin-astro')),
     interopDefault(import('astro-eslint-parser')),
+    interopDefault(import('@typescript-eslint/parser')),
   ] as const)
 
   return [
@@ -27,36 +24,28 @@ export async function astro(
       },
     },
     {
-      // Define the configuration for `<script>` tag.
-      // Script in `<script>` is assigned a virtual file name with the `.js` extension.
-      files: [`${GLOB_ASTRO}/*.js`],
-      name: 'config:astro:script',
-      languageOptions: {
-        parser: await interopDefault(import('@typescript-eslint/parser')) as any,
-      },
-    },
-    {
       files,
       languageOptions: {
         parser: parserAstro,
         parserOptions: {
-          ecmaFeatures: {
-            jsx: true,
-          },
           extraFileExtensions: ['.astro'],
-          parser: options.typescript
-            ? await interopDefault(import('@typescript-eslint/parser')) as any
-            : null,
-          sourceType: 'module',
+          parser: parserTs as any,
         },
       },
       name: 'config:astro:rules',
-      processor: pluginAstro.processors['.astro'],
       rules: {
-        ...pluginAstro.configs.all.rules as any,
-        ...pluginAstro.configs.recommended.rules as any,
+        'astro/no-set-html-directive': 'off',
+        'astro/semi': 'off',
 
-        'astro/semi': ['error', semi ? 'always' : 'never'],
+        ...stylistic
+          ? {
+              'style/indent': 'off',
+              'style/jsx-closing-tag-location': 'off',
+              'style/jsx-indent': 'off',
+              'style/jsx-one-expression-per-line': 'off',
+              'style/no-multiple-empty-lines': 'off',
+            }
+          : {},
 
         ...overrides,
       },

@@ -42,7 +42,7 @@
     "stylelint": ">=16.0.0"
   },
   "dependencies": {
-    "@pengzhanbo/utils": "^1.1.1",
+    "@pengzhanbo/utils": "^1.1.2",
     "@stylelint-types/stylelint-order": "^6.0.4",
     "@stylelint-types/stylelint-scss": "^6.1.0",
     "@stylelint-types/stylelint-stylistic": "^2.1.0",
