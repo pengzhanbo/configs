@@ -120,6 +120,13 @@ export interface OptionsFormatters {
    * By default it's controlled by our own config.
    */
   dprintOptions?: boolean
+
+  /**
+   * Enable formatting support for Astro.
+   *
+   * Currently only support Prettier.
+   */
+  astro?: boolean
 }
 
 export interface OptionsComponentExts {

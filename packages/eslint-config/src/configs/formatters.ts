@@ -1,5 +1,5 @@
 import { isPackageExists } from 'local-pkg'
-import { GLOB_CSS, GLOB_LESS, GLOB_MARKDOWN, GLOB_POSTCSS, GLOB_SCSS } from '../globs'
+import { GLOB_ASTRO, GLOB_CSS, GLOB_LESS, GLOB_MARKDOWN, GLOB_POSTCSS, GLOB_SCSS } from '../globs'
 import type { VendoredPrettierOptions } from '../vender/prettier-types'
 import { interopDefault, parserPlain } from '../utils'
 import type { FlatConfigItem, OptionsFormatters, StylisticConfig } from '../types'
@@ -19,6 +19,7 @@ export async function formatters(
 
   if (options === true) {
     options = {
+      astro: isPackageExists('astro'),
       css: true,
       graphql: true,
       html: true,
@@ -182,6 +183,28 @@ export async function formatters(
           {
             ...prettierOptions,
             parser: 'graphql',
+          },
+        ],
+      },
+    })
+  }
+
+  if (options.astro) {
+    configs.push({
+      files: [GLOB_ASTRO],
+      languageOptions: {
+        parser: parserPlain,
+      },
+      name: 'config:formatter:astro',
+      rules: {
+        'format/prettier': [
+          'error',
+          {
+            ...prettierOptions,
+            parser: 'astro',
+            plugins: [
+              'prettier-plugin-astro',
+            ],
           },
         ],
       },
