@@ -53,14 +53,14 @@
   },
   "dependencies": {
     "@pengzhanbo/eslint-config": "workspace:*",
-    "@typescript-eslint/parser": "^7.2.0",
+    "@typescript-eslint/parser": "^7.4.0",
     "astro-eslint-parser": "^0.16.3",
-    "eslint-plugin-astro": "^0.31.4",
+    "eslint-plugin-astro": "^0.33.1",
     "prettier-plugin-astro": "^0.13.0"
   },
   "devDependencies": {
     "eslint": "^8.57.0",
-    "eslint-flat-config-viewer": "^0.1.11",
+    "eslint-flat-config-viewer": "^0.1.20",
     "tsup": "^8.0.2"
   }
 }

@@ -53,13 +53,13 @@
   },
   "dependencies": {
     "@pengzhanbo/eslint-config": "workspace:*",
-    "@typescript-eslint/parser": "^7.2.0",
+    "@typescript-eslint/parser": "^7.4.0",
     "eslint-plugin-svelte": "^2.35.1",
     "svelte-eslint-parser": "^0.33.1"
   },
   "devDependencies": {
     "eslint": "^8.57.0",
-    "eslint-flat-config-viewer": "^0.1.11",
+    "eslint-flat-config-viewer": "^0.1.20",
     "svelte": "^4.2.12",
     "tsup": "^8.0.2"
   }
