@@ -6,7 +6,7 @@ The stylelint config preset.
 
 ### Install
 
-```
+```sh
 pnpm add -D @pengzhanbo/stylelint-config
 ```
 
@@ -41,6 +41,7 @@ In `.stylelintrc.json`
 ```
 
 ## 相关资源
+
 - [@pengzhanbo/eslint-config](https://github.com/pengzhanbo/configs/tree/main/packages/eslint-config)
 - [@pengzhanbo/eslint-config-vue](https://github.com/pengzhanbo/configs/tree/main/packages/eslint-config-vue)
 - [@pengzhanbo/eslint-config-react](https://github.com/pengzhanbo/configs/tree/main/packages/eslint-config-react)

@@ -1,3 +1,5 @@
+# Stylelint
+
 ## vs Code support (auto fix)
 
 ```json

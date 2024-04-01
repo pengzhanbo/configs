@@ -19,5 +19,8 @@
   ],
   "editor.codeActionsOnSave": {
     "source.fixAll.stylelint": "explicit"
+  },
+  "markdownlint.config": {
+    "no-duplicate-heading": false
   }
 }

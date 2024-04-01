@@ -56,15 +56,16 @@
 
 适用于 通用的 JavaScript/TypeScript 项目。
 
-**Install**
+#### Install
 
 ```sh
 pnpm add -D eslint @pengzhanbo/eslint-config
 ```
 
-**Config**
+#### Config
 
 `eslint.config.js`
+
 ```js
 import eslintConfig from '@pengzhanbo/eslint-config'
 
@@ -75,15 +76,16 @@ export default eslintConfig()
 
 适用于 Vue 项目。
 
-**Install**
+#### Install
 
 ```sh
 pnpm add -D eslint @pengzhanbo/eslint-config-vue
 ```
 
-**Config**
+#### Config
 
 `.eslint.config.js`
+
 ```js
 import eslintConfig from '@pengzhanbo/eslint-config-vue'
 
@@ -94,13 +96,13 @@ export default eslintConfig()
 
 适用于 React 项目。
 
-**Install**
+#### Install
 
 ```sh
 pnpm add -D eslint @pengzhanbo/eslint-config-react
 ```
 
-**Config**
+#### Config
 
 `eslint.config.js`
 
@@ -114,13 +116,13 @@ export default eslintConfig()
 
 适用于 大多数的 Solid 项目。
 
-**Install**
+#### Install
 
 ```sh
 pnpm add -D eslint @pengzhanbo/eslint-config-solid
 ```
 
-**Config**
+#### Config
 
 `eslint.config.js`
 
@@ -137,14 +139,16 @@ export default eslintConfig()
 
 除非是不想使用 `eslint` ，只想使用 `prettier`。
 
-**Install**
+#### Install
 
 ```sh
 pnpm add -D eslint @pengzhanbo/prettier-config
 ```
 
-**Config**
+#### Config
+
 `package.json`
+
 ```json
 {
   "prettier": "@pengzhanbo/prettier-config"
@@ -155,7 +159,7 @@ pnpm add -D eslint @pengzhanbo/prettier-config
 
 适用于 css / scss 场景，且适配了 TailwindCSS 的自定义 at-rule。
 
-**Install**
+#### Install
 
 ```sh
 pnpm add -D eslint @pengzhanbo/stylelint-config
