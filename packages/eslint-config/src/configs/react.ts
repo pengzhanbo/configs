@@ -1,6 +1,7 @@
 import { isPackageExists } from 'local-pkg'
-import { GLOB_JSX, GLOB_TSX, interopDefault } from '@pengzhanbo/eslint-config'
-import type { FlatConfigItem, OptionsFiles, OptionsHasTypeScript, OptionsOverrides } from '@pengzhanbo/eslint-config'
+import type { OptionsFiles, OptionsHasTypeScript, OptionsOverrides, TypedFlatConfigItem } from '../types'
+import { GLOB_JSX, GLOB_TSX } from '../globs'
+import { ensurePackages, interopDefault } from '../utils'
 
 // react refresh
 const ReactRefreshAllowConstantExportPackages = [
@@ -9,12 +10,18 @@ const ReactRefreshAllowConstantExportPackages = [
 
 export async function react(
   options: OptionsHasTypeScript & OptionsOverrides & OptionsFiles = {},
-): Promise<FlatConfigItem[]> {
+): Promise<TypedFlatConfigItem[]> {
   const {
     files = [GLOB_JSX, GLOB_TSX],
     overrides = {},
     typescript = true,
   } = options
+
+  await ensurePackages([
+    'eslint-plugin-react',
+    'eslint-plugin-react-hooks',
+    'eslint-plugin-react-refresh',
+  ])
 
   const [
     pluginReact,
@@ -32,7 +39,7 @@ export async function react(
 
   return [
     {
-      name: 'antfu:react:setup',
+      name: 'config/react/setup',
       plugins: {
         'react': pluginReact,
         'react-hooks': pluginReactHooks,
@@ -53,7 +60,7 @@ export async function react(
           },
         },
       },
-      name: 'antfu:react:rules',
+      name: 'config/react/rules',
       rules: {
         // recommended rules react-hooks
         'react-hooks/exhaustive-deps': 'warn',

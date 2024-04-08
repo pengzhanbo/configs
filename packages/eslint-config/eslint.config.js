@@ -6,4 +6,10 @@ export default eslintConfig({
   tailwindcss: true,
   html: true,
   formatters: true,
+  vue: true,
+  svelte: true,
+  react: true,
+  nextjs: true,
+  astro: true,
+  solid: true,
 })

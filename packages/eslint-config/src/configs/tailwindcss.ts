@@ -1,12 +1,12 @@
 import { isPackageExists } from 'local-pkg'
 import { interopDefault } from '../utils'
-import type { FlatConfigItem, OptionsTailwindCSS } from '../types'
+import type { OptionsTailwindCSS, TypedFlatConfigItem } from '../types'
 
 const tailwindPackages = ['eslint-plugin-tailwindcss']
 
 export async function tailwindcss(
   options: OptionsTailwindCSS = {},
-): Promise<FlatConfigItem[]> {
+): Promise<TypedFlatConfigItem[]> {
   const { whitelist, cssFiles: cssFilesFilter, customClassNames = true } = options
   const unInstalled = tailwindPackages.filter(i => !isPackageExists(i))
 
@@ -34,7 +34,7 @@ export async function tailwindcss(
 
   return [
     {
-      name: 'config:tailwindcss:setup',
+      name: 'config/tailwindcss/setup',
       plugins: {
         tailwindcss: pluginTailwindcss,
       },
@@ -46,7 +46,7 @@ export async function tailwindcss(
       },
     },
     {
-      name: 'config:tailwindcss:rules',
+      name: 'config/tailwindcss/rules',
       rules: {
         ...pluginTailwindcss.configs.recommended.rules as any,
 

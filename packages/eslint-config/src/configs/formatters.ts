@@ -1,22 +1,15 @@
 import { isPackageExists } from 'local-pkg'
-import { GLOB_ASTRO, GLOB_CSS, GLOB_LESS, GLOB_MARKDOWN, GLOB_POSTCSS, GLOB_SCSS } from '../globs'
+import { GLOB_ASTRO, GLOB_CSS, GLOB_GRAPHQL, GLOB_LESS, GLOB_MARKDOWN, GLOB_POSTCSS, GLOB_SCSS } from '../globs'
 import type { VendoredPrettierOptions } from '../vender/prettier-types'
-import { interopDefault, parserPlain } from '../utils'
-import type { FlatConfigItem, OptionsFormatters, StylisticConfig } from '../types'
+import { ensurePackages, interopDefault, parserPlain } from '../utils'
+import type { OptionsFormatters, StylisticConfig, TypedFlatConfigItem } from '../types'
 import { StylisticConfigDefaults } from './stylistic'
 
 const formatPackages = ['eslint-plugin-format']
 export async function formatters(
   options: OptionsFormatters | true = {},
   stylistic: StylisticConfig = {},
-): Promise<FlatConfigItem[]> {
-  const unInstalled = formatPackages.filter(i => !isPackageExists(i))
-
-  if (unInstalled.length > 0) {
-    console.warn(`${unInstalled.join(', ')} is not installed, please install it first.\n Run \`npm install -D ${unInstalled.join(' ')}\``)
-    return []
-  }
-
+): Promise<TypedFlatConfigItem[]> {
   if (options === true) {
     options = {
       astro: isPackageExists('astro'),
@@ -26,6 +19,11 @@ export async function formatters(
       markdown: true,
     }
   }
+
+  if (options.astro)
+    formatPackages.push('prettier-plugin-astro')
+
+  await ensurePackages(formatPackages)
 
   const {
     indent,
@@ -59,9 +57,9 @@ export async function formatters(
 
   const pluginFormat = await interopDefault(import('eslint-plugin-format'))
 
-  const configs: FlatConfigItem[] = [
+  const configs: TypedFlatConfigItem[] = [
     {
-      name: 'config:formatters:setup',
+      name: 'config/formatters/setup',
       plugins: {
         format: pluginFormat,
       },
@@ -75,7 +73,7 @@ export async function formatters(
         languageOptions: {
           parser: parserPlain,
         },
-        name: 'config:formatter:css',
+        name: 'config/formatter/css',
         rules: {
           'format/prettier': [
             'error',
@@ -91,7 +89,7 @@ export async function formatters(
         languageOptions: {
           parser: parserPlain,
         },
-        name: 'config:formatter:scss',
+        name: 'config/formatter/scss',
         rules: {
           'format/prettier': [
             'error',
@@ -107,7 +105,7 @@ export async function formatters(
         languageOptions: {
           parser: parserPlain,
         },
-        name: 'config:formatter:less',
+        name: 'config/formatter/less',
         rules: {
           'format/prettier': [
             'error',
@@ -127,7 +125,7 @@ export async function formatters(
       languageOptions: {
         parser: parserPlain,
       },
-      name: 'config:formatter:html',
+      name: 'config/formatter/html',
       rules: {
         'format/prettier': [
           'error',
@@ -150,7 +148,7 @@ export async function formatters(
       languageOptions: {
         parser: parserPlain,
       },
-      name: 'config:formatter:markdown',
+      name: 'config/formatter/markdown',
       rules: {
         [`format/${formater}`]: [
           'error',
@@ -172,11 +170,11 @@ export async function formatters(
 
   if (options.graphql) {
     configs.push({
-      files: ['**/*.graphql'],
+      files: [GLOB_GRAPHQL],
       languageOptions: {
         parser: parserPlain,
       },
-      name: 'config:formatter:graphql',
+      name: 'config/formatter/graphql',
       rules: {
         'format/prettier': [
           'error',
@@ -195,7 +193,7 @@ export async function formatters(
       languageOptions: {
         parser: parserPlain,
       },
-      name: 'config:formatter:astro',
+      name: 'config/formatter/astro',
       rules: {
         'format/prettier': [
           'error',

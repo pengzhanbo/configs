@@ -1,27 +1,25 @@
-import { interopDefault } from '@pengzhanbo/eslint-config'
-import type { FlatConfigItem, OptionsFiles, OptionsHasTypeScript, OptionsOverrides } from '@pengzhanbo/eslint-config'
-import { isPackageExists } from 'local-pkg'
+import type { OptionsOverrides, TypedFlatConfigItem } from '../types'
+import { ensurePackages, interopDefault } from '../utils'
 
-export async function next(
-  options: OptionsHasTypeScript & OptionsOverrides & OptionsFiles = {},
-): Promise<FlatConfigItem[]> {
-  if (!isPackageExists('next'))
-    return []
-
+export async function nextjs(
+  options: OptionsOverrides = {},
+): Promise<TypedFlatConfigItem[]> {
   const { overrides = {} } = options
+
+  await ensurePackages(['@next/eslint-plugin-next'])
 
   const nextPlugin = await interopDefault(import('@next/eslint-plugin-next'))
 
   return [
 
     {
-      name: 'config:next:setup',
+      name: 'config/nextjs/setup',
       plugins: {
         '@next/next': nextPlugin,
       },
     },
     {
-      name: 'config:next:rules',
+      name: 'config/nextjs/rules',
       rules: {
         ...nextPlugin.configs.recommended.rules,
         ...nextPlugin.configs['core-web-vitals'].rules,
