@@ -1,9 +1,10 @@
-import { GLOB_ASTRO, interopDefault } from '@pengzhanbo/eslint-config'
-import type { FlatConfigItem, OptionsFiles, OptionsHasTypeScript, OptionsOverrides, OptionsStylistic } from '@pengzhanbo/eslint-config'
+import { GLOB_ASTRO } from '../globs'
+import { interopDefault } from '../utils'
+import type { OptionsFiles, OptionsOverrides, OptionsStylistic, TypedFlatConfigItem } from '../types'
 
 export async function astro(
-  options: OptionsHasTypeScript & OptionsOverrides & OptionsStylistic & OptionsFiles = {},
-): Promise<FlatConfigItem[]> {
+  options: OptionsOverrides & OptionsStylistic & OptionsFiles = {},
+): Promise<TypedFlatConfigItem[]> {
   const {
     files = [GLOB_ASTRO],
     overrides = {},
@@ -18,7 +19,7 @@ export async function astro(
 
   return [
     {
-      name: 'config:astro:setup',
+      name: 'config/astro/setup',
       plugins: {
         astro: pluginAstro,
       },
@@ -32,7 +33,7 @@ export async function astro(
           parser: parserTs as any,
         },
       },
-      name: 'config:astro:rules',
+      name: 'config/astro/rules',
       rules: {
         'astro/no-set-html-directive': 'off',
         'astro/semi': 'off',

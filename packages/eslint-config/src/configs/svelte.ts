@@ -1,9 +1,10 @@
-import { GLOB_SVELTE, interopDefault } from '@pengzhanbo/eslint-config'
-import type { FlatConfigItem, OptionsFiles, OptionsHasTypeScript, OptionsOverrides, OptionsStylistic } from '@pengzhanbo/eslint-config'
+import { ensurePackages, interopDefault } from '../utils'
+import type { OptionsFiles, OptionsHasTypeScript, OptionsOverrides, OptionsStylistic, TypedFlatConfigItem } from '../types'
+import { GLOB_SVELTE } from '../globs'
 
 export async function svelte(
   options: OptionsHasTypeScript & OptionsOverrides & OptionsStylistic & OptionsFiles = {},
-): Promise<FlatConfigItem[]> {
+): Promise<TypedFlatConfigItem[]> {
   const {
     files = [GLOB_SVELTE],
     overrides = {},
@@ -15,14 +16,21 @@ export async function svelte(
     quotes = 'single',
   } = typeof stylistic === 'boolean' ? {} : stylistic
 
-  const [pluginSvelte, parserSvelte] = await Promise.all([
+  await ensurePackages([
+    'eslint-plugin-svelte',
+  ])
+
+  const [
+    pluginSvelte,
+    parserSvelte,
+  ] = await Promise.all([
     interopDefault(import('eslint-plugin-svelte')),
     interopDefault(import('svelte-eslint-parser')),
   ] as const)
 
   return [
     {
-      name: 'config:svelte:setup',
+      name: 'config/svelte/setup',
       plugins: {
         svelte: pluginSvelte,
       },
@@ -38,10 +46,9 @@ export async function svelte(
             : null,
         },
       },
-      name: 'config:svelte:rules',
+      name: 'config/svelte/rules',
       processor: pluginSvelte.processors['.svelte'],
       rules: {
-
         'import/no-mutable-exports': 'off',
         'no-undef': 'off', // incompatible with most recent (attribute-form) generic types RFC
         'no-unused-vars': ['error', {

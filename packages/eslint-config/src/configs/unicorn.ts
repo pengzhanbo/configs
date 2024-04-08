@@ -1,10 +1,10 @@
-import type { FlatConfigItem } from '../types'
+import type { TypedFlatConfigItem } from '../types'
 import { pluginUnicorn } from '../plugins'
 
-export async function unicorn(): Promise<FlatConfigItem[]> {
+export async function unicorn(): Promise<TypedFlatConfigItem[]> {
   return [
     {
-      name: 'config:unicorn',
+      name: 'config/unicorn',
       plugins: {
         unicorn: pluginUnicorn,
       },

@@ -1,4 +1,5 @@
-import type { Awaitable, UserConfigItem } from './types'
+import { isPackageExists } from 'local-pkg'
+import type { Awaitable, TypedFlatConfigItem } from './types'
 
 export const parserPlain = {
   meta: {
@@ -24,7 +25,7 @@ export const parserPlain = {
 /**
  * Combine array and non-array configs into a single array.
  */
-export async function combine(...configs: Awaitable<UserConfigItem | UserConfigItem[]>[]): Promise<UserConfigItem[]> {
+export async function combine(...configs: Awaitable<TypedFlatConfigItem | TypedFlatConfigItem[]>[]): Promise<TypedFlatConfigItem[]> {
   const resolved = await Promise.all(configs)
   return resolved.flat()
 }
@@ -74,7 +75,7 @@ export function renameRules(rules: Record<string, any>, map: Record<string, stri
  * })
  * ```
  */
-export function renamePluginInConfigs(configs: UserConfigItem[], map: Record<string, string>): UserConfigItem[] {
+export function renamePluginInConfigs(configs: TypedFlatConfigItem[], map: Record<string, string>): TypedFlatConfigItem[] {
   return configs.map((i) => {
     const clone = { ...i }
     if (clone.rules)
@@ -100,4 +101,16 @@ export function toArray<T>(value: T | T[]): T[] {
 export async function interopDefault<T>(m: Awaitable<T>): Promise<T extends { default: infer U } ? U : T> {
   const resolved = await m
   return (resolved as any).default || resolved
+}
+
+export async function ensurePackages(packages: string | string[]) {
+  const list = toArray(packages)
+  const nonExistingPackages = list.filter(i => i && !isPackageExists(i)) as string[]
+  if (nonExistingPackages.length === 0)
+    return
+
+  if (nonExistingPackages.length > 0)
+    console.warn(`${nonExistingPackages.join(', ')} is not installed, please install it first.\n Run \`npm install -D ${nonExistingPackages.join(' ')}\``)
+
+  await import('@antfu/install-pkg').then(i => i.installPackage(nonExistingPackages, { dev: true }))
 }

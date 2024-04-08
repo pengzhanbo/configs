@@ -1,23 +1,18 @@
 import { isPackageExists } from 'local-pkg'
-import { interopDefault } from '../utils'
-import type { FlatConfigItem, OptionsUnoCSS } from '../types'
-
-const unocssPackages = ['@unocss/eslint-plugin']
+import { ensurePackages, interopDefault } from '../utils'
+import type { OptionsUnoCSS, TypedFlatConfigItem } from '../types'
 
 export async function unocss(
   options: OptionsUnoCSS = {},
-): Promise<FlatConfigItem[]> {
+): Promise<TypedFlatConfigItem[]> {
   const {
     attributify = true,
     strict = false,
   } = options
 
-  const unInstalled = unocssPackages.filter(i => !isPackageExists(i))
-
-  if (unInstalled.length > 0) {
-    console.warn(`${unInstalled.join(', ')} is not installed, please install it first.\n Run \`npm install -D ${unInstalled.join(' ')}\``)
-    return []
-  }
+  await ensurePackages([
+    '@unocss/eslint-plugin',
+  ])
 
   const [
     pluginUnoCSS,
@@ -27,7 +22,7 @@ export async function unocss(
 
   return [
     {
-      name: 'config:unocss',
+      name: 'config/unocss/rules',
       plugins: {
         unocss: pluginUnoCSS,
       },

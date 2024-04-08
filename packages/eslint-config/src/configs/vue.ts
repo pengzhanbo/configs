@@ -1,17 +1,23 @@
 import { mergeProcessors } from 'eslint-merge-processors'
-import { GLOB_VUE, interopDefault } from '@pengzhanbo/eslint-config'
-import type { FlatConfigItem, OptionsFiles, OptionsHasTypeScript, OptionsOverrides, OptionsStylistic } from '@pengzhanbo/eslint-config'
-import type { OptionsVue } from './types'
+import { GLOB_VUE } from '../globs'
+import { ensurePackages, interopDefault } from '../utils'
+import type { OptionsFiles, OptionsHasTypeScript, OptionsOverrides, OptionsStylistic, OptionsVue, TypedFlatConfigItem } from '../types'
 
 export async function vue(
   options: OptionsVue & OptionsHasTypeScript & OptionsOverrides & OptionsStylistic & OptionsFiles = {},
-): Promise<FlatConfigItem[]> {
+): Promise<TypedFlatConfigItem[]> {
   const {
     files = [GLOB_VUE],
     overrides = {},
     stylistic = true,
     vueVersion = 3,
   } = options
+
+  await ensurePackages([
+    'vue-eslint-parser',
+    'eslint-plugin-vue',
+    'eslint-processor-vue-blocks',
+  ])
 
   const sfcBlocks = options.sfcBlocks === true
     ? {}
@@ -54,7 +60,7 @@ export async function vue(
           watchEffect: 'readonly',
         },
       },
-      name: 'config:vue:setup',
+      name: 'config/vue/setup',
       plugins: {
         vue: pluginVue,
       },
@@ -74,7 +80,7 @@ export async function vue(
           sourceType: 'module',
         },
       },
-      name: 'config:vue:rules',
+      name: 'config/vue/rules',
       processor: sfcBlocks === false
         ? pluginVue.processors['.vue']
         : mergeProcessors([
