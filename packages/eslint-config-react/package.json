@@ -19,10 +19,6 @@
       "import": {
         "types": "./dist/index.d.ts",
         "default": "./dist/index.js"
-      },
-      "require": {
-        "types": "./dist/index.d.cts",
-        "default": "./dist/index.cjs"
       }
     },
     "./package.json": "./package.json"
@@ -33,18 +29,21 @@
     "dist"
   ],
   "scripts": {
-    "dev": "tsup src/index.ts --format esm --watch & eslint-flat-config-viewer",
-    "build": "tsup src/index.ts --format esm,cjs --clean --dts --shims",
+    "build": "tsup src/index.ts --format esm --clean --dts --shims",
     "stub": "tsup src/index.ts --format esm",
     "prepublishOnly": "pnpm build"
   },
   "peerDependencies": {
     "@unocss/eslint-plugin": ">=0.50.0",
     "eslint": ">=8.40.0",
+    "eslint-plugin-format": ">=0.1.0",
     "eslint-plugin-tailwindcss": ">=3.10.0"
   },
   "peerDependenciesMeta": {
     "@unocss/eslint-plugin": {
+      "optional": true
+    },
+    "eslint-plugin-format": {
       "optional": true
     },
     "eslint-plugin-tailwindcss": {
@@ -58,10 +57,5 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.6",
     "local-pkg": "^0.5.0"
-  },
-  "devDependencies": {
-    "eslint": "^8.57.0",
-    "eslint-flat-config-viewer": "^0.1.20",
-    "tsup": "^8.0.2"
   }
 }

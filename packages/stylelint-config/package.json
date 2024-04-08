@@ -33,7 +33,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsup src/index.ts --format esm,cjs --clean --dts --shims",
+    "build": "tsup src/index.ts --format esm --clean --dts --shims",
     "stub": "tsup src/index.ts --format esm",
     "prepublishOnly": "pnpm run build",
     "lint": "stylelint **/*.{css,scss} -c ./stylelint.config.js"
@@ -52,12 +52,11 @@
     "postcss-html": "^1.6.0",
     "stylelint-config-html": "^1.1.0",
     "stylelint-config-standard": "^36.0.0",
-    "stylelint-config-standard-scss": "^13.0.0",
+    "stylelint-config-standard-scss": "^13.1.0",
     "stylelint-define-config": "^1.2.0",
     "stylelint-order": "^6.0.4"
   },
   "devDependencies": {
-    "stylelint": "^16.3.1",
-    "tsup": "^8.0.2"
+    "stylelint": "^16.3.1"
   }
 }

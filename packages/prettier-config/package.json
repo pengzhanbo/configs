@@ -26,7 +26,8 @@
     },
     "./package.json": "./package.json"
   },
-  "main": "dist/index.js",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
@@ -38,8 +39,5 @@
   },
   "peerDependencies": {
     "prettier": "^3.0.0"
-  },
-  "devDependencies": {
-    "tsup": "^8.0.2"
   }
 }
