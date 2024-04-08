@@ -1,3 +1,6 @@
+/* @ts-nocheck */
+
+// eslint-disable-next-line antfu/no-import-dist
 import eslintConfig from './dist/index.js'
 
 export default eslintConfig({

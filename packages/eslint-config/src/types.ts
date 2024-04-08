@@ -54,6 +54,17 @@ export interface OptionsVue extends OptionsOverrides {
   vueVersion?: 2 | 3
 }
 
+export interface OptionsNextjs extends OptionsOverrides {
+  /**
+   * normally locate your pages directory aut
+   *
+   * @see https://nextjs.org/docs/messages/no-html-link-for-pages#pagesdir
+   * @default ''
+   */
+  pagesDir?: string
+
+}
+
 export type OptionsTypescript =
   (OptionsTypeScriptWithTypes & OptionsOverrides)
   | (OptionsTypeScriptParserOptions & OptionsOverrides)
@@ -309,7 +320,7 @@ export interface OptionsConfig extends OptionsComponentExts {
    * Requires installing:
    * - `@next/eslint-plugin-next`
    */
-  nextjs?: boolean | OptionsOverrides
+  nextjs?: boolean | OptionsNextjs
 
   /**
    * Enable svelte rules.
