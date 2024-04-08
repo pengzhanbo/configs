@@ -178,7 +178,6 @@ const objectWantedToSort = {
   b: 1,
   c: 3,
 }
-/* eslint perfectionist/sort-objects: "off" */
 ```
 
 ## Type Aware Rules

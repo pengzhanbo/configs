@@ -1,4 +1,3 @@
-import { isPackageExists } from 'local-pkg'
 import { ensurePackages, interopDefault } from '../utils'
 import type { OptionsUnoCSS, TypedFlatConfigItem } from '../types'
 
