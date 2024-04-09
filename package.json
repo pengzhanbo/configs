@@ -1,7 +1,7 @@
 {
   "name": "@pengzhanbo/config-monorepo",
   "type": "module",
-  "version": "1.8.0",
+  "version": "1.8.1",
   "private": true,
   "author": "pengzhanbo <q942450674@outlook.com> (https://github/pengzhanbo/)",
   "license": "MIT",
