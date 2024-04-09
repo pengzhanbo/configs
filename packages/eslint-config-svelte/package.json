@@ -53,6 +53,6 @@
   "dependencies": {
     "@pengzhanbo/eslint-config": "workspace:*",
     "eslint-plugin-svelte": "^2.36.0",
-    "svelte-eslint-parser": "^0.34.0"
+    "svelte-eslint-parser": "^0.34.1"
   }
 }
