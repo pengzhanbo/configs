@@ -4,110 +4,6 @@ import type { Linter } from 'eslint'
 
 export interface RuleOptions {
   /**
-   * Enforce font-display behavior with Google Fonts.
-   * @see https://nextjs.org/docs/messages/google-font-display
-   */
-  '@next/next/google-font-display'?: Linter.RuleEntry<[]>
-  /**
-   * Ensure `preconnect` is used with Google Fonts.
-   * @see https://nextjs.org/docs/messages/google-font-preconnect
-   */
-  '@next/next/google-font-preconnect'?: Linter.RuleEntry<[]>
-  /**
-   * Enforce `id` attribute on `next/script` components with inline content.
-   * @see https://nextjs.org/docs/messages/inline-script-id
-   */
-  '@next/next/inline-script-id'?: Linter.RuleEntry<[]>
-  /**
-   * Prefer `next/script` component when using the inline script for Google Analytics.
-   * @see https://nextjs.org/docs/messages/next-script-for-ga
-   */
-  '@next/next/next-script-for-ga'?: Linter.RuleEntry<[]>
-  /**
-   * Prevent assignment to the `module` variable.
-   * @see https://nextjs.org/docs/messages/no-assign-module-variable
-   */
-  '@next/next/no-assign-module-variable'?: Linter.RuleEntry<[]>
-  /**
-   * Prevent client components from being async functions.
-   * @see https://nextjs.org/docs/messages/no-async-client-component
-   */
-  '@next/next/no-async-client-component'?: Linter.RuleEntry<[]>
-  /**
-   * Prevent usage of `next/script`'s `beforeInteractive` strategy outside of `pages/_document.js`.
-   * @see https://nextjs.org/docs/messages/no-before-interactive-script-outside-document
-   */
-  '@next/next/no-before-interactive-script-outside-document'?: Linter.RuleEntry<[]>
-  /**
-   * Prevent manual stylesheet tags.
-   * @see https://nextjs.org/docs/messages/no-css-tags
-   */
-  '@next/next/no-css-tags'?: Linter.RuleEntry<[]>
-  /**
-   * Prevent importing `next/document` outside of `pages/_document.js`.
-   * @see https://nextjs.org/docs/messages/no-document-import-in-page
-   */
-  '@next/next/no-document-import-in-page'?: Linter.RuleEntry<[]>
-  /**
-   * Prevent duplicate usage of `<Head>` in `pages/_document.js`.
-   * @see https://nextjs.org/docs/messages/no-duplicate-head
-   */
-  '@next/next/no-duplicate-head'?: Linter.RuleEntry<[]>
-  /**
-   * Prevent usage of `<head>` element.
-   * @see https://nextjs.org/docs/messages/no-head-element
-   */
-  '@next/next/no-head-element'?: Linter.RuleEntry<[]>
-  /**
-   * Prevent usage of `next/head` in `pages/_document.js`.
-   * @see https://nextjs.org/docs/messages/no-head-import-in-document
-   */
-  '@next/next/no-head-import-in-document'?: Linter.RuleEntry<[]>
-  /**
-   * Prevent usage of `<a>` elements to navigate to internal Next.js pages.
-   * @see https://nextjs.org/docs/messages/no-html-link-for-pages
-   */
-  '@next/next/no-html-link-for-pages'?: Linter.RuleEntry<NextNextNoHtmlLinkForPages>
-  /**
-   * Prevent usage of `<img>` element due to slower LCP and higher bandwidth.
-   * @see https://nextjs.org/docs/messages/no-img-element
-   */
-  '@next/next/no-img-element'?: Linter.RuleEntry<[]>
-  /**
-   * Prevent page-only custom fonts.
-   * @see https://nextjs.org/docs/messages/no-page-custom-font
-   */
-  '@next/next/no-page-custom-font'?: Linter.RuleEntry<[]>
-  /**
-   * Prevent usage of `next/script` in `next/head` component.
-   * @see https://nextjs.org/docs/messages/no-script-component-in-head
-   */
-  '@next/next/no-script-component-in-head'?: Linter.RuleEntry<[]>
-  /**
-   * Prevent usage of `styled-jsx` in `pages/_document.js`.
-   * @see https://nextjs.org/docs/messages/no-styled-jsx-in-document
-   */
-  '@next/next/no-styled-jsx-in-document'?: Linter.RuleEntry<[]>
-  /**
-   * Prevent synchronous scripts.
-   * @see https://nextjs.org/docs/messages/no-sync-scripts
-   */
-  '@next/next/no-sync-scripts'?: Linter.RuleEntry<[]>
-  /**
-   * Prevent usage of `<title>` with `Head` component from `next/document`.
-   * @see https://nextjs.org/docs/messages/no-title-in-document-head
-   */
-  '@next/next/no-title-in-document-head'?: Linter.RuleEntry<[]>
-  /**
-   * Prevent common typos in Next.js data fetching functions.
-   */
-  '@next/next/no-typos'?: Linter.RuleEntry<[]>
-  /**
-   * Prevent duplicate polyfills from Polyfill.io.
-   * @see https://nextjs.org/docs/messages/no-unwanted-polyfillio
-   */
-  '@next/next/no-unwanted-polyfillio'?: Linter.RuleEntry<[]>
-  /**
    * Enforce getter and setter pairs in objects and classes
    * @see https://eslint.org/docs/latest/rules/accessor-pairs
    */
@@ -1582,6 +1478,110 @@ export interface RuleOptions {
    * @deprecated
    */
   'newline-per-chained-call'?: Linter.RuleEntry<NewlinePerChainedCall>
+  /**
+   * Enforce font-display behavior with Google Fonts.
+   * @see https://nextjs.org/docs/messages/google-font-display
+   */
+  'nextjs/google-font-display'?: Linter.RuleEntry<[]>
+  /**
+   * Ensure `preconnect` is used with Google Fonts.
+   * @see https://nextjs.org/docs/messages/google-font-preconnect
+   */
+  'nextjs/google-font-preconnect'?: Linter.RuleEntry<[]>
+  /**
+   * Enforce `id` attribute on `next/script` components with inline content.
+   * @see https://nextjs.org/docs/messages/inline-script-id
+   */
+  'nextjs/inline-script-id'?: Linter.RuleEntry<[]>
+  /**
+   * Prefer `next/script` component when using the inline script for Google Analytics.
+   * @see https://nextjs.org/docs/messages/next-script-for-ga
+   */
+  'nextjs/next-script-for-ga'?: Linter.RuleEntry<[]>
+  /**
+   * Prevent assignment to the `module` variable.
+   * @see https://nextjs.org/docs/messages/no-assign-module-variable
+   */
+  'nextjs/no-assign-module-variable'?: Linter.RuleEntry<[]>
+  /**
+   * Prevent client components from being async functions.
+   * @see https://nextjs.org/docs/messages/no-async-client-component
+   */
+  'nextjs/no-async-client-component'?: Linter.RuleEntry<[]>
+  /**
+   * Prevent usage of `next/script`'s `beforeInteractive` strategy outside of `pages/_document.js`.
+   * @see https://nextjs.org/docs/messages/no-before-interactive-script-outside-document
+   */
+  'nextjs/no-before-interactive-script-outside-document'?: Linter.RuleEntry<[]>
+  /**
+   * Prevent manual stylesheet tags.
+   * @see https://nextjs.org/docs/messages/no-css-tags
+   */
+  'nextjs/no-css-tags'?: Linter.RuleEntry<[]>
+  /**
+   * Prevent importing `next/document` outside of `pages/_document.js`.
+   * @see https://nextjs.org/docs/messages/no-document-import-in-page
+   */
+  'nextjs/no-document-import-in-page'?: Linter.RuleEntry<[]>
+  /**
+   * Prevent duplicate usage of `<Head>` in `pages/_document.js`.
+   * @see https://nextjs.org/docs/messages/no-duplicate-head
+   */
+  'nextjs/no-duplicate-head'?: Linter.RuleEntry<[]>
+  /**
+   * Prevent usage of `<head>` element.
+   * @see https://nextjs.org/docs/messages/no-head-element
+   */
+  'nextjs/no-head-element'?: Linter.RuleEntry<[]>
+  /**
+   * Prevent usage of `next/head` in `pages/_document.js`.
+   * @see https://nextjs.org/docs/messages/no-head-import-in-document
+   */
+  'nextjs/no-head-import-in-document'?: Linter.RuleEntry<[]>
+  /**
+   * Prevent usage of `<a>` elements to navigate to internal Next.js pages.
+   * @see https://nextjs.org/docs/messages/no-html-link-for-pages
+   */
+  'nextjs/no-html-link-for-pages'?: Linter.RuleEntry<NextjsNoHtmlLinkForPages>
+  /**
+   * Prevent usage of `<img>` element due to slower LCP and higher bandwidth.
+   * @see https://nextjs.org/docs/messages/no-img-element
+   */
+  'nextjs/no-img-element'?: Linter.RuleEntry<[]>
+  /**
+   * Prevent page-only custom fonts.
+   * @see https://nextjs.org/docs/messages/no-page-custom-font
+   */
+  'nextjs/no-page-custom-font'?: Linter.RuleEntry<[]>
+  /**
+   * Prevent usage of `next/script` in `next/head` component.
+   * @see https://nextjs.org/docs/messages/no-script-component-in-head
+   */
+  'nextjs/no-script-component-in-head'?: Linter.RuleEntry<[]>
+  /**
+   * Prevent usage of `styled-jsx` in `pages/_document.js`.
+   * @see https://nextjs.org/docs/messages/no-styled-jsx-in-document
+   */
+  'nextjs/no-styled-jsx-in-document'?: Linter.RuleEntry<[]>
+  /**
+   * Prevent synchronous scripts.
+   * @see https://nextjs.org/docs/messages/no-sync-scripts
+   */
+  'nextjs/no-sync-scripts'?: Linter.RuleEntry<[]>
+  /**
+   * Prevent usage of `<title>` with `Head` component from `next/document`.
+   * @see https://nextjs.org/docs/messages/no-title-in-document-head
+   */
+  'nextjs/no-title-in-document-head'?: Linter.RuleEntry<[]>
+  /**
+   * Prevent common typos in Next.js data fetching functions.
+   */
+  'nextjs/no-typos'?: Linter.RuleEntry<[]>
+  /**
+   * Prevent duplicate polyfills from Polyfill.io.
+   * @see https://nextjs.org/docs/messages/no-unwanted-polyfillio
+   */
+  'nextjs/no-unwanted-polyfillio'?: Linter.RuleEntry<[]>
   /**
    * Disallow the use of `alert`, `confirm`, and `prompt`
    * @see https://eslint.org/docs/latest/rules/no-alert
@@ -4370,103 +4370,103 @@ export interface RuleOptions {
    */
   'template-tag-spacing'?: Linter.RuleEntry<TemplateTagSpacing>
   /**
-   * forbidden .spec test file pattern
+   * require .spec test file pattern
    * @see https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/consistent-test-filename.md
    */
   'test/consistent-test-filename'?: Linter.RuleEntry<TestConsistentTestFilename>
   /**
-   * Prefer test or it but not both
+   * enforce using test or it but not both
    * @see https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/consistent-test-it.md
    */
   'test/consistent-test-it'?: Linter.RuleEntry<TestConsistentTestIt>
   /**
-   * Enforce having expectation in test body
+   * enforce having expectation in test body
    * @see https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/expect-expect.md
    */
   'test/expect-expect'?: Linter.RuleEntry<TestExpectExpect>
   /**
-   * Enforce a maximum number of expect per test
+   * enforce a maximum number of expect per test
    * @see https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/max-expects.md
    */
   'test/max-expects'?: Linter.RuleEntry<TestMaxExpects>
   /**
-   * Nested describe block should be less than set max value or default value
+   * require describe block to be less than set max value or default value
    * @see https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/max-nested-describe.md
    */
   'test/max-nested-describe'?: Linter.RuleEntry<TestMaxNestedDescribe>
   /**
-   * Disallow alias methods
+   * disallow alias methods
    * @see https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/no-alias-methods.md
    */
   'test/no-alias-methods'?: Linter.RuleEntry<[]>
   /**
-   * Disallow commented out tests
+   * disallow commented out tests
    * @see https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/no-commented-out-tests.md
    */
   'test/no-commented-out-tests'?: Linter.RuleEntry<[]>
   /**
-   * Disallow conditional expects
+   * disallow conditional expects
    * @see https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/no-conditional-expect.md
    */
   'test/no-conditional-expect'?: Linter.RuleEntry<[]>
   /**
-   * Disallow conditional tests
+   * disallow conditional tests
    * @see https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/no-conditional-in-test.md
    */
   'test/no-conditional-in-test'?: Linter.RuleEntry<[]>
   /**
-   * Disallow conditional tests
+   * disallow conditional tests
    * @see https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/no-conditional-tests.md
    */
   'test/no-conditional-tests'?: Linter.RuleEntry<[]>
   /**
-   * Disallow disabled tests
+   * disallow disabled tests
    * @see https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/no-disabled-tests.md
    */
   'test/no-disabled-tests'?: Linter.RuleEntry<[]>
   /**
-   * Disallow using a callback in asynchronous tests and hooks
+   * disallow using a callback in asynchronous tests and hooks
    * @see https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/no-done-callback.md
    * @deprecated
    */
   'test/no-done-callback'?: Linter.RuleEntry<[]>
   /**
-   * Disallow duplicate hooks and teardown hooks
+   * disallow duplicate hooks and teardown hooks
    * @see https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/no-duplicate-hooks.md
    */
   'test/no-duplicate-hooks'?: Linter.RuleEntry<[]>
   /**
-   * Disallow focused tests
+   * disallow focused tests
    * @see https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/no-focused-tests.md
    */
   'test/no-focused-tests'?: Linter.RuleEntry<[]>
   /**
-   * Disallow setup and teardown hooks
+   * disallow setup and teardown hooks
    * @see https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/no-hooks.md
    */
   'test/no-hooks'?: Linter.RuleEntry<TestNoHooks>
   /**
-   * Disallow identical titles
+   * disallow identical titles
    * @see https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/no-identical-title.md
    */
   'test/no-identical-title'?: Linter.RuleEntry<[]>
   /**
-   * Disallow importing `node:test`
+   * disallow importing `node:test`
    * @see https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/no-import-node-test.md
    */
   'test/no-import-node-test'?: Linter.RuleEntry<[]>
   /**
-   * Disallow string interpolation in snapshots
+   * disallow string interpolation in snapshots
    * @see https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/no-interpolation-in-snapshots.md
    */
   'test/no-interpolation-in-snapshots'?: Linter.RuleEntry<[]>
   /**
-   * Disallow large snapshots
+   * disallow large snapshots
    * @see https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/no-large-snapshots.md
    */
   'test/no-large-snapshots'?: Linter.RuleEntry<TestNoLargeSnapshots>
   /**
-   * Disallow importing from __mocks__ directory
+   * disallow importing from __mocks__ directory
    * @see https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/no-mocks-import.md
    */
   'test/no-mocks-import'?: Linter.RuleEntry<[]>
@@ -4476,162 +4476,162 @@ export interface RuleOptions {
    */
   'test/no-only-tests'?: Linter.RuleEntry<TestNoOnlyTests>
   /**
-   * Disallow the use of certain matchers
+   * disallow the use of certain matchers
    * @see https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/no-restricted-matchers.md
    */
   'test/no-restricted-matchers'?: Linter.RuleEntry<TestNoRestrictedMatchers>
   /**
-   * Disallow specific `vi.` methods
+   * disallow specific `vi.` methods
    * @see https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/no-restricted-vi-methods.md
    */
   'test/no-restricted-vi-methods'?: Linter.RuleEntry<TestNoRestrictedViMethods>
   /**
-   * Disallow using `expect` outside of `it` or `test` blocks
+   * disallow using `expect` outside of `it` or `test` blocks
    * @see https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/no-standalone-expect.md
    */
   'test/no-standalone-expect'?: Linter.RuleEntry<TestNoStandaloneExpect>
   /**
-   * Disallow using `test` as a prefix
+   * disallow using `test` as a prefix
    * @see https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/no-test-prefixes.md
    */
   'test/no-test-prefixes'?: Linter.RuleEntry<[]>
   /**
-   * Disallow return statements in tests
+   * disallow return statements in tests
    * @see https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/no-test-return-statement.md
    */
   'test/no-test-return-statement'?: Linter.RuleEntry<[]>
   /**
-   * Suggest using `toBeCalledWith()` or `toHaveBeenCalledWith()`
+   * enforce using `toBeCalledWith()` or `toHaveBeenCalledWith()`
    * @see https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/prefer-called-with.md
    */
   'test/prefer-called-with'?: Linter.RuleEntry<[]>
   /**
-   * Suggest using the built-in comparison matchers
+   * enforce using the built-in comparison matchers
    * @see https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/prefer-comparison-matcher.md
    */
   'test/prefer-comparison-matcher'?: Linter.RuleEntry<[]>
   /**
-   * Prefer `each` rather than manual loops
+   * enforce using `each` rather than manual loops
    * @see https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/prefer-each.md
    */
   'test/prefer-each'?: Linter.RuleEntry<[]>
   /**
-   * Suggest using the built-in quality matchers
+   * enforce using the built-in quality matchers
    * @see https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/prefer-equality-matcher.md
    */
   'test/prefer-equality-matcher'?: Linter.RuleEntry<[]>
   /**
-   * Suggest using expect assertions instead of callbacks
+   * enforce using expect assertions instead of callbacks
    * @see https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/prefer-expect-assertions.md
    */
   'test/prefer-expect-assertions'?: Linter.RuleEntry<TestPreferExpectAssertions>
   /**
-   * Suggest using `expect().resolves` over `expect(await ...)` syntax
+   * enforce using `expect().resolves` over `expect(await ...)` syntax
    * @see https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/prefer-expect-resolves.md
    */
   'test/prefer-expect-resolves'?: Linter.RuleEntry<[]>
   /**
-   * Prefer having hooks in consistent order
+   * enforce having hooks in consistent order
    * @see https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/prefer-hooks-in-order.md
    */
   'test/prefer-hooks-in-order'?: Linter.RuleEntry<[]>
   /**
-   * Suggest having hooks before any test cases
+   * enforce having hooks before any test cases
    * @see https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/prefer-hooks-on-top.md
    */
   'test/prefer-hooks-on-top'?: Linter.RuleEntry<[]>
   /**
-   * Enforce lowercase titles
+   * enforce lowercase titles
    * @see https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/prefer-lowercase-title.md
    */
   'test/prefer-lowercase-title'?: Linter.RuleEntry<TestPreferLowercaseTitle>
   /**
-   * Prefer mock resolved/rejected shorthands for promises
+   * enforce mock resolved/rejected shorthands for promises
    * @see https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/prefer-mock-promise-shorthand.md
    */
   'test/prefer-mock-promise-shorthand'?: Linter.RuleEntry<[]>
   /**
-   * Prefer including a hint with external snapshots
+   * enforce including a hint with external snapshots
    * @see https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/prefer-snapshot-hint.md
    */
   'test/prefer-snapshot-hint'?: Linter.RuleEntry<TestPreferSnapshotHint>
   /**
-   * Suggest using `vi.spyOn`
+   * enforce using `vi.spyOn`
    * @see https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/prefer-spy-on.md
    */
   'test/prefer-spy-on'?: Linter.RuleEntry<[]>
   /**
-   * Prefer strict equal over equal
+   * enforce strict equal over equal
    * @see https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/prefer-strict-equal.md
    */
   'test/prefer-strict-equal'?: Linter.RuleEntry<[]>
   /**
-   * Suggest using toBe()
+   * enforce using toBe()
    * @see https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/prefer-to-be.md
    */
   'test/prefer-to-be'?: Linter.RuleEntry<[]>
   /**
-   * Suggest using toBeFalsy()
+   * enforce using toBeFalsy()
    * @see https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/prefer-to-be-falsy.md
    */
   'test/prefer-to-be-falsy'?: Linter.RuleEntry<[]>
   /**
-   * Prefer toBeObject()
+   * enforce using toBeObject()
    * @see https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/prefer-to-be-object.md
    */
   'test/prefer-to-be-object'?: Linter.RuleEntry<[]>
   /**
-   * Suggest using `toBeTruthy`
+   * enforce using `toBeTruthy`
    * @see https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/prefer-to-be-truthy.md
    */
   'test/prefer-to-be-truthy'?: Linter.RuleEntry<[]>
   /**
-   * Prefer using toContain()
+   * enforce using toContain()
    * @see https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/prefer-to-contain.md
    */
   'test/prefer-to-contain'?: Linter.RuleEntry<[]>
   /**
-   * Suggest using toHaveLength()
+   * enforce using toHaveLength()
    * @see https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/prefer-to-have-length.md
    */
   'test/prefer-to-have-length'?: Linter.RuleEntry<[]>
   /**
-   * Suggest using `test.todo`
+   * enforce using `test.todo`
    * @see https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/prefer-todo.md
    */
   'test/prefer-todo'?: Linter.RuleEntry<[]>
   /**
-   * Require setup and teardown to be within a hook
+   * require setup and teardown to be within a hook
    * @see https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/require-hook.md
    */
   'test/require-hook'?: Linter.RuleEntry<TestRequireHook>
   /**
-   * Require local Test Context for concurrent snapshot tests
+   * require local Test Context for concurrent snapshot tests
    * @see https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/require-local-test-context-for-concurrent-snapshots.md
    */
   'test/require-local-test-context-for-concurrent-snapshots'?: Linter.RuleEntry<[]>
   /**
-   * Require toThrow() to be called with an error message
+   * require toThrow() to be called with an error message
    * @see https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/require-to-throw-message.md
    */
   'test/require-to-throw-message'?: Linter.RuleEntry<[]>
   /**
-   * Enforce that all tests are in a top-level describe
+   * enforce that all tests are in a top-level describe
    * @see https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/require-top-level-describe.md
    */
   'test/require-top-level-describe'?: Linter.RuleEntry<TestRequireTopLevelDescribe>
   /**
-   * Enforce valid describe callback
+   * enforce valid describe callback
    * @see https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/valid-describe-callback.md
    */
   'test/valid-describe-callback'?: Linter.RuleEntry<[]>
   /**
-   * Enforce valid `expect()` usage
+   * enforce valid `expect()` usage
    * @see https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/valid-expect.md
    */
   'test/valid-expect'?: Linter.RuleEntry<TestValidExpect>
   /**
-   * Enforce valid titles
+   * enforce valid titles
    * @see https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/valid-title.md
    */
   'test/valid-title'?: Linter.RuleEntry<TestValidTitle>
@@ -7571,8 +7571,6 @@ export interface RuleOptions {
 }
 
 /* ======= Declarations ======= */
-// ----- @next/next/no-html-link-for-pages -----
-type NextNextNoHtmlLinkForPages = []|[(string | string[])]
 // ----- accessor-pairs -----
 type AccessorPairs = []|[{
   getWithoutSet?: boolean
@@ -9348,6 +9346,8 @@ type NewlineAfterVar = []|[("never" | "always")]
 type NewlinePerChainedCall = []|[{
   ignoreChainWithDepth?: number
 }]
+// ----- nextjs/no-html-link-for-pages -----
+type NextjsNoHtmlLinkForPages = []|[(string | string[])]
 // ----- no-bitwise -----
 type NoBitwise = []|[{
   allow?: ("^" | "|" | "&" | "<<" | ">>" | ">>>" | "^=" | "|=" | "&=" | "<<=" | ">>=" | ">>>=" | "~")[]

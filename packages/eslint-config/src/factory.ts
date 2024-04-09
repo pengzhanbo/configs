@@ -60,6 +60,7 @@ export const defaultPluginRenaming = {
   'n': 'node',
   'vitest': 'test',
   'yml': 'yaml',
+  '@next/next': 'nextjs',
 }
 
 export type EslintConfigOptions = OptionsConfig & TypedFlatConfigItem
