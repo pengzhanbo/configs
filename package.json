@@ -17,9 +17,9 @@
   "devDependencies": {
     "@pengzhanbo/eslint-config": "workspace:*",
     "@pengzhanbo/stylelint-config": "workspace:*",
-    "@types/eslint": "^8.56.7",
+    "@types/eslint": "^8.56.9",
     "@types/fs-extra": "^11.0.4",
-    "@types/node": "^20.12.6",
+    "@types/node": "^20.12.7",
     "bumpp": "^9.4.0",
     "eslint": "^9.0.0",
     "esno": "^4.7.0",
@@ -27,12 +27,12 @@
     "fast-glob": "^3.3.2",
     "fs-extra": "^11.2.0",
     "lint-staged": "^15.2.2",
-    "sass": "^1.74.1",
+    "sass": "^1.75.0",
     "simple-git-hooks": "^2.11.1",
     "stylelint": "^16.3.1",
     "tsup": "^8.0.2",
-    "typescript": "^5.4.4",
-    "vitest": "^1.4.0"
+    "typescript": "^5.4.5",
+    "vitest": "^1.5.0"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged"
