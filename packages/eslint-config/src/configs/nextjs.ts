@@ -47,11 +47,6 @@ export async function nextjs(
         'nextjs/no-sync-scripts': 'warn',
 
         'import/no-anonymous-default-export': 'warn',
-        'react/no-unknown-property': 'off',
-        'react/react-in-jsx-scope': 'off',
-        'react/prop-types': 'off',
-        'react/jsx-no-target-blank': 'off',
-        'react-refresh/only-export-components': 'off',
 
         ...overrides,
       },
