@@ -3,7 +3,7 @@ import fs from 'node:fs'
 import { isPackageExists } from 'local-pkg'
 import { FlatConfigComposer } from 'eslint-flat-config-utils'
 import type { Linter } from 'eslint'
-import type { Awaitable, OptionsConfig, TypedFlatConfigItem } from './types'
+import type { Awaitable, ConfigNames, OptionsConfig, TypedFlatConfigItem } from './types'
 import {
   astro,
   comments,
@@ -65,9 +65,9 @@ export const defaultPluginRenaming = {
 
 export type EslintConfigOptions = OptionsConfig & TypedFlatConfigItem
 
-export type UserConfig = Awaitable<TypedFlatConfigItem | TypedFlatConfigItem[] | FlatConfigComposer<any> | Linter.FlatConfig[]>
+export type UserConfig = Awaitable<TypedFlatConfigItem | TypedFlatConfigItem[] | FlatConfigComposer<any, any> | Linter.FlatConfig[]>[]
 
-export type EslintConfigReturn = FlatConfigComposer<TypedFlatConfigItem>
+export type EslintConfigReturn = FlatConfigComposer<TypedFlatConfigItem, ConfigNames>
 
 /**
  * Construct an array of ESLint flat config items.
@@ -155,6 +155,7 @@ export function eslintFlatConfig(
   if (stylisticOptions) {
     configs.push(stylistic({
       ...stylisticOptions,
+      lessOpinionated: options.lessOpinionated,
       overrides: getOverrides(options, 'stylistic'),
     }))
   }
@@ -278,20 +279,20 @@ export function eslintFlatConfig(
   if (Object.keys(fusedConfig).length)
     configs.push([fusedConfig])
 
-  let pipeline = new FlatConfigComposer<TypedFlatConfigItem>()
+  let composer = new FlatConfigComposer<TypedFlatConfigItem, ConfigNames>()
 
-  pipeline = pipeline
+  composer = composer
     .append(
       ...configs,
       ...userConfigs as any,
     )
 
   if (autoRenamePlugins) {
-    pipeline = pipeline
+    composer = composer
       .renamePlugins(defaultPluginRenaming)
   }
 
-  return pipeline
+  return composer
 }
 
 export type ResolvedOptions<T> = T extends boolean
