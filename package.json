@@ -3,7 +3,7 @@
   "type": "module",
   "version": "1.9.0",
   "private": true,
-  "packageManager": "pnpm@9.0.2",
+  "packageManager": "pnpm@9.0.5",
   "author": "pengzhanbo <q942450674@outlook.com> (https://github/pengzhanbo/)",
   "license": "MIT",
   "scripts": {
@@ -18,11 +18,11 @@
   "devDependencies": {
     "@pengzhanbo/eslint-config": "workspace:*",
     "@pengzhanbo/stylelint-config": "workspace:*",
-    "@types/eslint": "^8.56.9",
+    "@types/eslint": "^8.56.10",
     "@types/fs-extra": "^11.0.4",
     "@types/node": "^20.12.7",
     "bumpp": "^9.4.0",
-    "eslint": "^9.0.0",
+    "eslint": "^9.1.1",
     "esno": "^4.7.0",
     "execa": "^8.0.1",
     "fast-glob": "^3.3.2",
