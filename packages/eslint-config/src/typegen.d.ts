@@ -1479,110 +1479,6 @@ export interface RuleOptions {
    */
   'newline-per-chained-call'?: Linter.RuleEntry<NewlinePerChainedCall>
   /**
-   * Enforce font-display behavior with Google Fonts.
-   * @see https://nextjs.org/docs/messages/google-font-display
-   */
-  'nextjs/google-font-display'?: Linter.RuleEntry<[]>
-  /**
-   * Ensure `preconnect` is used with Google Fonts.
-   * @see https://nextjs.org/docs/messages/google-font-preconnect
-   */
-  'nextjs/google-font-preconnect'?: Linter.RuleEntry<[]>
-  /**
-   * Enforce `id` attribute on `next/script` components with inline content.
-   * @see https://nextjs.org/docs/messages/inline-script-id
-   */
-  'nextjs/inline-script-id'?: Linter.RuleEntry<[]>
-  /**
-   * Prefer `next/script` component when using the inline script for Google Analytics.
-   * @see https://nextjs.org/docs/messages/next-script-for-ga
-   */
-  'nextjs/next-script-for-ga'?: Linter.RuleEntry<[]>
-  /**
-   * Prevent assignment to the `module` variable.
-   * @see https://nextjs.org/docs/messages/no-assign-module-variable
-   */
-  'nextjs/no-assign-module-variable'?: Linter.RuleEntry<[]>
-  /**
-   * Prevent client components from being async functions.
-   * @see https://nextjs.org/docs/messages/no-async-client-component
-   */
-  'nextjs/no-async-client-component'?: Linter.RuleEntry<[]>
-  /**
-   * Prevent usage of `next/script`'s `beforeInteractive` strategy outside of `pages/_document.js`.
-   * @see https://nextjs.org/docs/messages/no-before-interactive-script-outside-document
-   */
-  'nextjs/no-before-interactive-script-outside-document'?: Linter.RuleEntry<[]>
-  /**
-   * Prevent manual stylesheet tags.
-   * @see https://nextjs.org/docs/messages/no-css-tags
-   */
-  'nextjs/no-css-tags'?: Linter.RuleEntry<[]>
-  /**
-   * Prevent importing `next/document` outside of `pages/_document.js`.
-   * @see https://nextjs.org/docs/messages/no-document-import-in-page
-   */
-  'nextjs/no-document-import-in-page'?: Linter.RuleEntry<[]>
-  /**
-   * Prevent duplicate usage of `<Head>` in `pages/_document.js`.
-   * @see https://nextjs.org/docs/messages/no-duplicate-head
-   */
-  'nextjs/no-duplicate-head'?: Linter.RuleEntry<[]>
-  /**
-   * Prevent usage of `<head>` element.
-   * @see https://nextjs.org/docs/messages/no-head-element
-   */
-  'nextjs/no-head-element'?: Linter.RuleEntry<[]>
-  /**
-   * Prevent usage of `next/head` in `pages/_document.js`.
-   * @see https://nextjs.org/docs/messages/no-head-import-in-document
-   */
-  'nextjs/no-head-import-in-document'?: Linter.RuleEntry<[]>
-  /**
-   * Prevent usage of `<a>` elements to navigate to internal Next.js pages.
-   * @see https://nextjs.org/docs/messages/no-html-link-for-pages
-   */
-  'nextjs/no-html-link-for-pages'?: Linter.RuleEntry<NextjsNoHtmlLinkForPages>
-  /**
-   * Prevent usage of `<img>` element due to slower LCP and higher bandwidth.
-   * @see https://nextjs.org/docs/messages/no-img-element
-   */
-  'nextjs/no-img-element'?: Linter.RuleEntry<[]>
-  /**
-   * Prevent page-only custom fonts.
-   * @see https://nextjs.org/docs/messages/no-page-custom-font
-   */
-  'nextjs/no-page-custom-font'?: Linter.RuleEntry<[]>
-  /**
-   * Prevent usage of `next/script` in `next/head` component.
-   * @see https://nextjs.org/docs/messages/no-script-component-in-head
-   */
-  'nextjs/no-script-component-in-head'?: Linter.RuleEntry<[]>
-  /**
-   * Prevent usage of `styled-jsx` in `pages/_document.js`.
-   * @see https://nextjs.org/docs/messages/no-styled-jsx-in-document
-   */
-  'nextjs/no-styled-jsx-in-document'?: Linter.RuleEntry<[]>
-  /**
-   * Prevent synchronous scripts.
-   * @see https://nextjs.org/docs/messages/no-sync-scripts
-   */
-  'nextjs/no-sync-scripts'?: Linter.RuleEntry<[]>
-  /**
-   * Prevent usage of `<title>` with `Head` component from `next/document`.
-   * @see https://nextjs.org/docs/messages/no-title-in-document-head
-   */
-  'nextjs/no-title-in-document-head'?: Linter.RuleEntry<[]>
-  /**
-   * Prevent common typos in Next.js data fetching functions.
-   */
-  'nextjs/no-typos'?: Linter.RuleEntry<[]>
-  /**
-   * Prevent duplicate polyfills from Polyfill.io.
-   * @see https://nextjs.org/docs/messages/no-unwanted-polyfillio
-   */
-  'nextjs/no-unwanted-polyfillio'?: Linter.RuleEntry<[]>
-  /**
    * Disallow the use of `alert`, `confirm`, and `prompt`
    * @see https://eslint.org/docs/latest/rules/no-alert
    */
@@ -9139,8 +9035,6 @@ type NewlineAfterVar = []|[("never" | "always")]
 type NewlinePerChainedCall = []|[{
   ignoreChainWithDepth?: number
 }]
-// ----- nextjs/no-html-link-for-pages -----
-type NextjsNoHtmlLinkForPages = []|[(string | string[])]
 // ----- no-bitwise -----
 type NoBitwise = []|[{
   allow?: ("^" | "|" | "&" | "<<" | ">>" | ">>>" | "^=" | "|=" | "&=" | "<<=" | ">>=" | ">>>=" | "~")[]
@@ -9160,7 +9054,7 @@ type NoConsole = []|[{
 }]
 // ----- no-constant-condition -----
 type NoConstantCondition = []|[{
-  checkLoops?: boolean
+  checkLoops?: ("all" | "allExceptWhileTrue" | "none" | true | false)
 }]
 // ----- no-duplicate-imports -----
 type NoDuplicateImports = []|[{
@@ -14105,7 +13999,7 @@ type VueNoConsole = []|[{
 }]
 // ----- vue/no-constant-condition -----
 type VueNoConstantCondition = []|[{
-  checkLoops?: boolean
+  checkLoops?: ("all" | "allExceptWhileTrue" | "none" | true | false)
 }]
 // ----- vue/no-deprecated-model-definition -----
 type VueNoDeprecatedModelDefinition = []|[{
@@ -14772,4 +14666,4 @@ type Yoda = []|[("always" | "never")]|[("always" | "never"), {
   onlyEquality?: boolean
 }]
 // Names of all the configs
-export type ConfigNames = 'config/astro/setup' | 'config/astro/rules' | 'config/eslint-comments/rules' | 'config/formatters/setup' | 'config/imports/rules' | 'config/imports/disables/bin' | 'config/javascript/rules' | 'config/javascript/disables/cli' | 'config/jsdoc/rules' | 'config/jsonc/setup' | 'config/jsonc/rules' | 'config/markdown/setup' | 'config/markdown/processor' | 'config/markdown/parser' | 'config/markdown/disables' | 'config/node/rules' | 'config/perfectionist/setup' | 'config/react/setup' | 'config/react/rules' | 'config/sort/package-json' | 'config/stylistic/rules' | 'config/svelte/setup' | 'config/svelte/rules' | 'config/test/setup' | 'config/test/rules' | 'config/toml/setup' | 'config/toml/rules' | 'config/typescript/setup' | 'config/typescript/parser' | 'config/typescript/rules' | 'config/typescript/rules-type-aware' | 'config/typescript/disables/dts' | 'config/typescript/disables/tests' | 'config/typescript/disables/cjs' | 'config/unicorn' | 'config/unocss/rules' | 'config/tailwindcss/setup' | 'config/tailwindcss/rules' | 'config/vue/setup' | 'config/vue/rules' | 'config/yaml/setup' | 'config/yaml/rules' | 'config/nextjs/setup' | 'config/nextjs/rules' | 'antfu/solid/setup' | 'antfu/solid/rules'
+export type ConfigNames = 'config/astro/setup' | 'config/astro/rules' | 'config/eslint-comments/rules' | 'config/formatters/setup' | 'config/imports/rules' | 'config/imports/disables/bin' | 'config/javascript/rules' | 'config/javascript/disables/cli' | 'config/jsdoc/rules' | 'config/jsonc/setup' | 'config/jsonc/rules' | 'config/markdown/setup' | 'config/markdown/processor' | 'config/markdown/parser' | 'config/markdown/disables' | 'config/node/rules' | 'config/perfectionist/setup' | 'config/react/setup' | 'config/react/rules' | 'config/sort/package-json' | 'config/stylistic/rules' | 'config/svelte/setup' | 'config/svelte/rules' | 'config/test/setup' | 'config/test/rules' | 'config/toml/setup' | 'config/toml/rules' | 'config/typescript/setup' | 'config/typescript/parser' | 'config/typescript/rules' | 'config/typescript/rules-type-aware' | 'config/typescript/disables/dts' | 'config/typescript/disables/tests' | 'config/typescript/disables/cjs' | 'config/unicorn' | 'config/unocss/rules' | 'config/tailwindcss/setup' | 'config/tailwindcss/rules' | 'config/vue/setup' | 'config/vue/rules' | 'config/yaml/setup' | 'config/yaml/rules' | 'antfu/solid/setup' | 'antfu/solid/rules'
