@@ -13,7 +13,6 @@ import {
   jsdoc,
   jsonc,
   markdown,
-  nextjs,
   node,
   perfectionist,
   react,
@@ -65,7 +64,6 @@ export const defaultPluginRenaming = {
   'n': 'node',
   'vitest': 'test',
   'yml': 'yaml',
-  '@next/next': 'nextjs',
 }
 
 export type EslintConfigOptions = OptionsConfig & TypedFlatConfigItem
@@ -95,7 +93,6 @@ export function eslintFlatConfig(
     gitignore: enableGitignore = true,
     isInEditor = !!((process.env.VSCODE_PID || process.env.VSCODE_CWD || process.env.JETBRAINS_IDE || process.env.VIM) && !process.env.CI),
     react: enableReact = false,
-    nextjs: enableNextJS = false,
     svelte: enableSvelte = false,
     solid: enableSolid = false,
     typescript: enableTypeScript = isPackageExists('typescript'),
@@ -185,12 +182,6 @@ export function eslintFlatConfig(
     configs.push(react({
       overrides: getOverrides(options, 'react'),
       tsconfigPath: getOverrides(options, 'typescript').tsconfigPath as string[],
-    }))
-  }
-
-  if (enableNextJS) {
-    configs.push(nextjs({
-      overrides: getOverrides(options, 'nextjs'),
     }))
   }
 

@@ -4,7 +4,6 @@ import {
   type UserConfig,
   eslintFlatConfig as basicConfig,
 } from '@pengzhanbo/eslint-config'
-import { isPackageExists } from 'local-pkg'
 
 export function reactEslintFlatConfig(
   options: EslintConfigOptions,
@@ -12,7 +11,6 @@ export function reactEslintFlatConfig(
 ): EslintConfigReturn {
   return basicConfig({
     react: true,
-    nextjs: isPackageExists('next'),
     ...options,
   }, ...userConfigs)
 }
