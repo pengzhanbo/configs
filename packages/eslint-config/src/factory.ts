@@ -16,6 +16,7 @@ import {
   node,
   perfectionist,
   react,
+  regexp,
   solid,
   sortPackageJson,
   sortTsconfig,
@@ -93,6 +94,7 @@ export function eslintFlatConfig(
     gitignore: enableGitignore = true,
     isInEditor = !!((process.env.VSCODE_PID || process.env.VSCODE_CWD || process.env.JETBRAINS_IDE || process.env.VIM) && !process.env.CI),
     react: enableReact = false,
+    regexp: enableRegexp = true,
     svelte: enableSvelte = false,
     solid: enableSolid = false,
     typescript: enableTypeScript = isPackageExists('typescript'),
@@ -161,6 +163,9 @@ export function eslintFlatConfig(
       overrides: getOverrides(options, 'stylistic'),
     }))
   }
+
+  if (enableRegexp)
+    configs.push(regexp(typeof enableRegexp === 'boolean' ? {} : enableRegexp))
 
   if (options.test ?? true) {
     configs.push(test({

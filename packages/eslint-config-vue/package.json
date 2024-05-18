@@ -52,7 +52,7 @@
   },
   "dependencies": {
     "@pengzhanbo/eslint-config": "workspace:*",
-    "eslint-plugin-vue": "^9.25.0",
+    "eslint-plugin-vue": "^9.26.0",
     "eslint-processor-vue-blocks": "^0.1.2",
     "vue-eslint-parser": "^9.4.2"
   }
