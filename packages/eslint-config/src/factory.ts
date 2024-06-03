@@ -124,6 +124,9 @@ export function eslintFlatConfig(
     }
   }
 
+  const typescriptOptions = resolveSubOptions(options, 'typescript')
+  const tsconfigPath = 'tsconfigPath' in typescriptOptions ? typescriptOptions.tsconfigPath : undefined
+
   // Base configs
   configs.push(
     ignores(),
@@ -145,12 +148,13 @@ export function eslintFlatConfig(
     perfectionist(),
   )
 
-  if (enableVue)
+  if (enableVue) {
     componentExts.push('vue')
+  }
 
   if (enableTypeScript) {
     configs.push(typescript({
-      ...resolveSubOptions(options, 'typescript'),
+      ...typescriptOptions,
       componentExts,
       overrides: getOverrides(options, 'typescript'),
     }))
@@ -164,8 +168,9 @@ export function eslintFlatConfig(
     }))
   }
 
-  if (enableRegexp)
+  if (enableRegexp) {
     configs.push(regexp(typeof enableRegexp === 'boolean' ? {} : enableRegexp))
+  }
 
   if (options.test ?? true) {
     configs.push(test({
@@ -186,7 +191,7 @@ export function eslintFlatConfig(
   if (enableReact) {
     configs.push(react({
       overrides: getOverrides(options, 'react'),
-      tsconfigPath: getOverrides(options, 'typescript').tsconfigPath as string[],
+      tsconfigPath,
     }))
   }
 
@@ -201,7 +206,7 @@ export function eslintFlatConfig(
   if (enableSolid) {
     configs.push(solid({
       overrides: getOverrides(options, 'solid'),
-      tsconfigPath: getOverrides(options, 'typescript').tsconfigPath as string[],
+      tsconfigPath,
       typescript: !!enableTypeScript,
     }))
   }
