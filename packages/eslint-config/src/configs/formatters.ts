@@ -1,5 +1,5 @@
 import { isPackageExists } from 'local-pkg'
-import { GLOB_ASTRO, GLOB_CSS, GLOB_GRAPHQL, GLOB_HTML, GLOB_LESS, GLOB_MARKDOWN, GLOB_POSTCSS, GLOB_SCSS } from '../globs'
+import { GLOB_ASTRO, GLOB_ASTRO_TS, GLOB_CSS, GLOB_GRAPHQL, GLOB_HTML, GLOB_LESS, GLOB_MARKDOWN, GLOB_POSTCSS, GLOB_SCSS } from '../globs'
 import type { VendoredPrettierOptions } from '../vender/prettier-types'
 import { ensurePackages, interopDefault, parserPlain } from '../utils'
 import type { OptionsFormatters, StylisticConfig, TypedFlatConfigItem } from '../types'
@@ -12,7 +12,7 @@ export async function formatters(
 ): Promise<TypedFlatConfigItem[]> {
   if (options === true) {
     options = {
-      astro: isPackageExists('astro'),
+      astro: isPackageExists('prettier-plugin-astro'),
       css: true,
       graphql: true,
       html: true,
@@ -205,6 +205,20 @@ export async function formatters(
             ],
           },
         ],
+      },
+    })
+
+    configs.push({
+      files: [GLOB_ASTRO, GLOB_ASTRO_TS],
+      name: 'antfu/formatter/astro/disables',
+      rules: {
+        'style/arrow-parens': 'off',
+        'style/block-spacing': 'off',
+        'style/comma-dangle': 'off',
+        'style/indent': 'off',
+        'style/no-multi-spaces': 'off',
+        'style/quotes': 'off',
+        'style/semi': 'off',
       },
     })
   }

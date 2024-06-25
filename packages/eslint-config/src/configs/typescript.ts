@@ -1,6 +1,6 @@
 import process from 'node:process'
 import type { OptionsComponentExts, OptionsFiles, OptionsOverrides, OptionsTypeScriptParserOptions, OptionsTypeScriptWithTypes, TypedFlatConfigItem } from '../types'
-import { GLOB_SRC, GLOB_TS, GLOB_TSX } from '../globs'
+import { GLOB_ASTRO_TS, GLOB_MARKDOWN, GLOB_TS, GLOB_TSX } from '../globs'
 import { pluginAntfu } from '../plugins'
 import { interopDefault, renameRules, toArray } from '../utils'
 
@@ -14,12 +14,16 @@ export async function typescript(
   } = options
 
   const files = options.files ?? [
-    GLOB_SRC,
+    GLOB_TS,
+    GLOB_TSX,
     ...componentExts.map(ext => `**/*.${ext}`),
   ]
 
   const filesTypeAware = options.filesTypeAware ?? [GLOB_TS, GLOB_TSX]
-
+  const ignoresTypeAware = options.ignoresTypeAware ?? [
+    `${GLOB_MARKDOWN}/**`,
+    GLOB_ASTRO_TS,
+  ]
   const tsconfigPath = options?.tsconfigPath
     ? toArray(options.tsconfigPath)
     : undefined
@@ -90,10 +94,12 @@ export async function typescript(
     // assign type-aware parser for type-aware files and type-unaware parser for the rest
     ...isTypeAware
       ? [
-          makeParser(true, filesTypeAware),
+          makeParser(true, filesTypeAware, ignoresTypeAware),
           makeParser(false, files, filesTypeAware),
         ]
-      : [makeParser(false, files)],
+      : [
+          makeParser(false, files),
+        ],
     {
       files,
       name: 'config/typescript/rules',
@@ -116,8 +122,7 @@ export async function typescript(
         'ts/ban-types': ['error', { types: { Function: false } }],
         'ts/consistent-type-definitions': ['error', 'interface'],
         'ts/consistent-type-imports': ['error', { disallowTypeAnnotations: false, prefer: 'type-imports' }],
-        // https://www.totaltypescript.com/method-shorthand-syntax-considered-harmful
-        'ts/method-signature-style': ['error', 'property'],
+        'ts/method-signature-style': ['error', 'property'], // https://www.totaltypescript.com/method-shorthand-syntax-considered-harmful
         'ts/no-dupe-class-members': 'error',
         'ts/no-dynamic-delete': 'off',
         'ts/no-explicit-any': 'off',
@@ -138,16 +143,19 @@ export async function typescript(
         ...overrides,
       },
     },
+    ...isTypeAware
+      ? [{
+          files: filesTypeAware,
+          ignores: ignoresTypeAware,
+          name: 'config/typescript/rules-type-aware',
+          rules: {
+            ...tsconfigPath ? typeAwareRules : {},
+            ...overrides,
+          },
+        }]
+      : [],
     {
-      files: filesTypeAware,
-      name: 'config/typescript/rules-type-aware',
-      rules: {
-        ...tsconfigPath ? typeAwareRules : {},
-        ...overrides,
-      },
-    },
-    {
-      files: ['**/*.d.ts'],
+      files: ['**/*.d.?([cm])ts'],
       name: 'config/typescript/disables/dts',
       rules: {
         'eslint-comments/no-unlimited-disable': 'off',
