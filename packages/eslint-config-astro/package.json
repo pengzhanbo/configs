@@ -53,7 +53,7 @@
   "dependencies": {
     "@pengzhanbo/eslint-config": "workspace:*",
     "astro-eslint-parser": "^1.0.2",
-    "eslint-plugin-astro": "^1.2.0",
+    "eslint-plugin-astro": "^1.2.2",
     "prettier-plugin-astro": "^0.14.0"
   }
 }

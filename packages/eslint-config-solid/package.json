@@ -52,6 +52,6 @@
   },
   "dependencies": {
     "@pengzhanbo/eslint-config": "workspace:*",
-    "eslint-plugin-solid": "^0.14.0"
+    "eslint-plugin-solid": "^0.14.1"
   }
 }
