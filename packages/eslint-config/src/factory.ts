@@ -1,5 +1,3 @@
-import process from 'node:process'
-import fs from 'node:fs'
 import { isPackageExists } from 'local-pkg'
 import { FlatConfigComposer } from 'eslint-flat-config-utils'
 import type { Linter } from 'eslint'
@@ -33,8 +31,9 @@ import {
   vue,
   yaml,
 } from './configs'
-import { interopDefault } from './utils'
+import { interopDefault, isInEditorEnv } from './utils'
 import { formatters } from './configs/formatters'
+import type { RuleOptions } from './typegen'
 
 const flatConfigProps: (keyof TypedFlatConfigItem)[] = [
   'name',
@@ -71,7 +70,7 @@ export const defaultPluginRenaming = {
 
 export type EslintConfigOptions = OptionsConfig & TypedFlatConfigItem
 
-export type UserConfig = Awaitable<TypedFlatConfigItem | TypedFlatConfigItem[] | FlatConfigComposer<any, any> | Linter.FlatConfig[]>[]
+export type UserConfig = Awaitable<TypedFlatConfigItem | TypedFlatConfigItem[] | FlatConfigComposer<any, any> | Linter.Config[]>[]
 
 export type EslintConfigReturn = FlatConfigComposer<TypedFlatConfigItem, ConfigNames>
 
@@ -94,7 +93,7 @@ export function eslintFlatConfig(
     autoRenamePlugins = true,
     componentExts = [],
     gitignore: enableGitignore = true,
-    isInEditor = !!((process.env.VSCODE_PID || process.env.VSCODE_CWD || process.env.JETBRAINS_IDE || process.env.VIM || process.env.NVIM) && !process.env.CI),
+    isInEditor = isInEditorEnv(),
     jsx: enableJsx = true,
     react: enableReact = false,
     regexp: enableRegexp = true,
@@ -122,8 +121,7 @@ export function eslintFlatConfig(
       configs.push(interopDefault(import('eslint-config-flat-gitignore')).then(r => [r(enableGitignore)]))
     }
     else {
-      if (fs.existsSync('.gitignore'))
-        configs.push(interopDefault(import('eslint-config-flat-gitignore')).then(r => [r()]))
+      configs.push(interopDefault(import('eslint-config-flat-gitignore')).then(r => [r({ strict: false })]))
     }
   }
 
@@ -165,6 +163,7 @@ export function eslintFlatConfig(
       ...typescriptOptions,
       componentExts,
       overrides: getOverrides(options, 'typescript'),
+      type: options.type,
     }))
   }
 
@@ -325,7 +324,7 @@ export function resolveSubOptions<K extends keyof OptionsConfig>(
 export function getOverrides<K extends keyof OptionsConfig>(
   options: OptionsConfig,
   key: K,
-) {
+): Partial<Linter.RulesRecord & RuleOptions> {
   const sub = resolveSubOptions(options, key)
   return {
     ...'overrides' in sub
