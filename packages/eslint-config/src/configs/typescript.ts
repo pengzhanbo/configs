@@ -1,16 +1,17 @@
 import process from 'node:process'
-import type { OptionsComponentExts, OptionsFiles, OptionsOverrides, OptionsTypeScriptParserOptions, OptionsTypeScriptWithTypes, TypedFlatConfigItem } from '../types'
+import type { OptionsComponentExts, OptionsFiles, OptionsOverrides, OptionsProjectType, OptionsTypeScriptParserOptions, OptionsTypeScriptWithTypes, TypedFlatConfigItem } from '../types'
 import { GLOB_ASTRO_TS, GLOB_MARKDOWN, GLOB_TS, GLOB_TSX } from '../globs'
 import { pluginAntfu } from '../plugins'
 import { interopDefault, renameRules } from '../utils'
 
 export async function typescript(
-  options: OptionsFiles & OptionsComponentExts & OptionsOverrides & OptionsTypeScriptWithTypes & OptionsTypeScriptParserOptions = {},
+  options: OptionsFiles & OptionsComponentExts & OptionsOverrides & OptionsTypeScriptWithTypes & OptionsTypeScriptParserOptions & OptionsProjectType = {},
 ): Promise<TypedFlatConfigItem[]> {
   const {
     componentExts = [],
     overrides = {},
     parserOptions = {},
+    type = 'app',
   } = options
 
   const files = options.files ?? [
@@ -32,20 +33,19 @@ export async function typescript(
   const typeAwareRules: TypedFlatConfigItem['rules'] = {
     'dot-notation': 'off',
     'no-implied-eval': 'off',
-    'no-throw-literal': 'off',
     'ts/await-thenable': 'error',
     'ts/dot-notation': ['error', { allowKeywords: true }],
     'ts/no-floating-promises': 'error',
     'ts/no-for-in-array': 'error',
     'ts/no-implied-eval': 'error',
     'ts/no-misused-promises': 'error',
-    'ts/no-throw-literal': 'error',
     'ts/no-unnecessary-type-assertion': 'error',
     'ts/no-unsafe-argument': 'error',
     'ts/no-unsafe-assignment': 'error',
     'ts/no-unsafe-call': 'error',
     'ts/no-unsafe-member-access': 'error',
     'ts/no-unsafe-return': 'error',
+    'ts/promise-function-async': 'error',
     'ts/restrict-plus-operands': 'error',
     'ts/restrict-template-expressions': 'error',
     'ts/return-await': ['error', 'in-try-catch'],
@@ -99,8 +99,8 @@ export async function typescript(
     // assign type-aware parser for type-aware files and type-unaware parser for the rest
     ...isTypeAware
       ? [
+          makeParser(false, files),
           makeParser(true, filesTypeAware, ignoresTypeAware),
-          makeParser(false, files, filesTypeAware),
         ]
       : [
           makeParser(false, files),
@@ -125,7 +125,10 @@ export async function typescript(
         'no-useless-constructor': 'off',
         'ts/ban-ts-comment': ['error', { 'ts-expect-error': 'allow-with-description' }],
         'ts/consistent-type-definitions': ['error', 'interface'],
-        'ts/consistent-type-imports': ['error', { disallowTypeAnnotations: false, prefer: 'type-imports' }],
+        'ts/consistent-type-imports': ['error', {
+          disallowTypeAnnotations: false,
+          prefer: 'type-imports',
+        }],
         'ts/method-signature-style': ['error', 'property'], // https://www.totaltypescript.com/method-shorthand-syntax-considered-harmful
         'ts/no-dupe-class-members': 'error',
         'ts/no-dynamic-delete': 'off',
@@ -141,10 +144,20 @@ export async function typescript(
         'ts/no-unused-vars': 'off',
         'ts/no-use-before-define': ['error', { classes: false, functions: false, variables: true }],
         'ts/no-useless-constructor': 'off',
-        'ts/prefer-ts-expect-error': 'error',
+        'ts/no-wrapper-object-types': 'error',
         'ts/triple-slash-reference': 'off',
         'ts/unified-signatures': 'off',
 
+        ...(type === 'lib'
+          ? {
+              'ts/explicit-function-return-type': ['error', {
+                allowExpressions: true,
+                allowHigherOrderFunctions: true,
+                allowIIFEs: true,
+              }],
+            }
+          : {}
+        ),
         ...overrides,
       },
     },
