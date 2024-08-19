@@ -2,6 +2,9 @@ import { interopDefault } from '../utils'
 import type { OptionsFiles, OptionsIsInEditor, OptionsOverrides, TypedFlatConfigItem } from '../types'
 import { GLOB_TESTS } from '../globs'
 
+// Hold the reference so we don't redeclare the plugin on each call
+let _pluginTest: any
+
 export async function test(
   options: OptionsFiles & OptionsIsInEditor & OptionsOverrides = {},
 ): Promise<TypedFlatConfigItem[]> {
@@ -15,23 +18,25 @@ export async function test(
     pluginVitest,
     pluginNoOnlyTests,
   ] = await Promise.all([
-    interopDefault(import('eslint-plugin-vitest')),
+    interopDefault(import('@vitest/eslint-plugin')),
     // @ts-expect-error missing types
     interopDefault(import('eslint-plugin-no-only-tests')),
   ] as const)
+
+  _pluginTest = _pluginTest || {
+    ...pluginVitest,
+    rules: {
+      ...pluginVitest.rules,
+      // extend `test/no-only-tests` rule
+      ...pluginNoOnlyTests.rules,
+    },
+  }
 
   return [
     {
       name: 'config/test/setup',
       plugins: {
-        test: {
-          ...pluginVitest,
-          rules: {
-            ...pluginVitest.rules,
-            // extend `test/no-only-tests` rule
-            ...pluginNoOnlyTests.rules,
-          },
-        },
+        test: _pluginTest,
       },
     },
     {
@@ -46,6 +51,8 @@ export async function test(
         'test/no-only-tests': isInEditor ? 'off' : 'error',
         'test/prefer-hooks-in-order': 'error',
         'test/prefer-lowercase-title': 'error',
+
+        'ts/explicit-function-return-type': 'off',
 
         ...overrides,
       },
