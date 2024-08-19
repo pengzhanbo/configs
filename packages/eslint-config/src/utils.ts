@@ -1,5 +1,10 @@
+import { fileURLToPath } from 'node:url'
+import process from 'node:process'
 import { isPackageExists } from 'local-pkg'
 import type { Awaitable, TypedFlatConfigItem } from './types'
+
+const scopeUrl = fileURLToPath(new URL('.', import.meta.url))
+const isCwdInScope = isPackageExists('@antfu/eslint-config')
 
 export const parserPlain = {
   meta: {
@@ -48,7 +53,10 @@ export async function combine(...configs: Awaitable<TypedFlatConfigItem | TypedF
  * }]
  * ```
  */
-export function renameRules(rules: Record<string, any>, map: Record<string, string>) {
+export function renameRules(
+  rules: Record<string, any>,
+  map: Record<string, string>,
+): Record<string, any> {
   return Object.fromEntries(
     Object.entries(rules)
       .map(([key, value]) => {
@@ -103,9 +111,16 @@ export async function interopDefault<T>(m: Awaitable<T>): Promise<T extends { de
   return (resolved as any).default || resolved
 }
 
-export async function ensurePackages(packages: string | string[]) {
+export function isPackageInScope(name: string): boolean {
+  return isPackageExists(name, { paths: [scopeUrl] })
+}
+
+export async function ensurePackages(packages: string | undefined | (string | undefined)[]) {
+  if (process.env.CI || process.stdout.isTTY === false || isCwdInScope === false)
+    return
+
   const list = toArray(packages)
-  const nonExistingPackages = list.filter(i => i && !isPackageExists(i)) as string[]
+  const nonExistingPackages = list.filter(i => i && !isPackageInScope(i)) as string[]
   if (nonExistingPackages.length === 0)
     return
 
@@ -113,4 +128,8 @@ export async function ensurePackages(packages: string | string[]) {
     console.warn(`${nonExistingPackages.join(', ')} is not installed, please install it first.\n Run \`npm install -D ${nonExistingPackages.join(' ')}\``)
 
   await import('@antfu/install-pkg').then(i => i.installPackage(nonExistingPackages, { dev: true }))
+}
+
+export function isInEditorEnv(): boolean {
+  return !!((process.env.VSCODE_PID || process.env.VSCODE_CWD || process.env.JETBRAINS_IDE || process.env.VIM || process.env.NVIM) && !process.env.CI)
 }

@@ -1,7 +1,6 @@
-import { isPackageExists } from 'local-pkg'
 import { GLOB_ASTRO, GLOB_ASTRO_TS, GLOB_CSS, GLOB_GRAPHQL, GLOB_HTML, GLOB_LESS, GLOB_MARKDOWN, GLOB_POSTCSS, GLOB_SCSS } from '../globs'
 import type { VendoredPrettierOptions } from '../vender/prettier-types'
-import { ensurePackages, interopDefault, parserPlain } from '../utils'
+import { ensurePackages, interopDefault, isPackageInScope, parserPlain } from '../utils'
 import type { OptionsFormatters, StylisticConfig, TypedFlatConfigItem } from '../types'
 import { StylisticConfigDefaults } from './stylistic'
 
@@ -12,7 +11,7 @@ export async function formatters(
 ): Promise<TypedFlatConfigItem[]> {
   if (options === true) {
     options = {
-      astro: isPackageExists('prettier-plugin-astro'),
+      astro: isPackageInScope('prettier-plugin-astro'),
       css: true,
       graphql: true,
       html: true,
@@ -37,6 +36,7 @@ export async function formatters(
   const prettierOptions: VendoredPrettierOptions = Object.assign(
     {
       endOfLine: 'auto',
+      printWidth: 120,
       semi,
       singleQuote: quotes === 'single',
       tabWidth: typeof indent === 'number' ? indent : 2,
@@ -154,7 +154,6 @@ export async function formatters(
           'error',
           formater === 'prettier'
             ? {
-                printWidth: 120,
                 ...prettierOptions,
                 embeddedLanguageFormatting: 'off',
                 parser: 'markdown',
