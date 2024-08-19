@@ -9,7 +9,7 @@
 - Basic
   - javascript / typescript
   - [node](https://github.com/eslint-community/eslint-plugin-n#readme)
-  - [comments](https://github.com/mysticatea/eslint-plugin-eslint-comments#readme)
+  - [comments](https://github.com/eslint-community/eslint-plugin-eslint-comments#readme)
   - [ignores](https://github.com/antfu/eslint-config-flat-gitignore#readme)
   - [imports](https://github.com/un-es/eslint-plugin-i#readme)
     - [unused-imports](https://github.com/sweepline/eslint-plugin-unused-imports)
@@ -21,7 +21,7 @@
     - `package.json` / `tsconfig.json`
   - [stylistic](https://github.com/eslint-stylistic/eslint-stylistic#readme)
   - test
-    - [vitest](eslint-plugin-vitest)
+    - [vitest](https://github.com/vitest-dev/eslint-plugin-vitest#readme)
     - [no-only-tests](https://github.com/levibuzolic/no-only-tests#readme)
   - [unicorn](https://github.com/sindresorhus/eslint-plugin-unicorn#readme)
   - [toml](https://ota-meshi.github.io/eslint-plugin-toml/)
@@ -30,7 +30,7 @@
   - [tailwindcss](https://github.com/francoismassart/eslint-plugin-tailwindcss)  - _optional, peer deps, manual install_
 - [html](https://html-eslint.org/)
 - [vue](https://eslint.vuejs.org)
-- [react](https://github.com/jsx-eslint/eslint-plugin-react)
+- [react](https://github.com/rel1cx/eslint-react)
   - [react-hooks](https://github.com/facebook/react/tree/main/packages/eslint-plugin-react-hooks)
   - [react-refresh](https://github.com/ArnaudBarre/eslint-plugin-react-refresh#readme)
   - [nextjs](https://github.com/vercel/next.js#readme) - _optional, auto check deps_
@@ -41,7 +41,6 @@
 ### Breaking Changes
 
 - 从 `v1.0.0` 开始， 完全迁移至 [ESLint Flat config](https://eslint.org/docs/latest/use/configure/configuration-files-new)， 即只支持 `eslint.config.js` 配置文件。
-- `eslint` 未来从 `9.x` 版本开始即将发生重大更新，当前仓库从`1.0.0` 开始为这些重大变更做准备。
 - 抛弃了过去的所有配置进行重写。从 `1.0.0` 开始，fork 自 `@antfu/eslint-config`， 并在其基础上进行了重写，通过 `preset` 的方式来实现对通用场景、不同库/框架（vue/react/solid-js/svelte等）的支持。
   与之不同的是，`@antfu/eslint-config` 内置了包括 `vue/react`以及通用配置，通过 cli 和依赖检查来启用对 `vue/react` 的支持；而本仓库则是根据项目场景，直接安装对应的包。
 
