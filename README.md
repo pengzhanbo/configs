@@ -179,3 +179,5 @@ In `.stylelintrc.json`
 - [stylelint](https://stylelint.io/)
 - [prettier](https://prettier.io/)
 - [@antfu/eslint-config](https://github.com/antfu/eslint-config)
+
+<!-- 2.26.0 -->
