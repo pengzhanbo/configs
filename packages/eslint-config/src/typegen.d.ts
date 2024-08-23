@@ -2881,12 +2881,12 @@ export interface RuleOptions {
   'react-naming-convention/use-state'?: Linter.RuleEntry<[]>
   'react-refresh/only-export-components'?: Linter.RuleEntry<ReactRefreshOnlyExportComponents>
   /**
-   * avoid using shorthand boolean attribute
+   * disallow using shorthand boolean attributes
    * @see https://eslint-react.xyz/docs/rules/avoid-shorthand-boolean
    */
   'react/avoid-shorthand-boolean'?: Linter.RuleEntry<[]>
   /**
-   * avoid using shorthand fragment syntax
+   * disallow using shorthand fragment syntax
    * @see https://eslint-react.xyz/docs/rules/avoid-shorthand-fragment
    */
   'react/avoid-shorthand-fragment'?: Linter.RuleEntry<[]>
@@ -7710,24 +7710,25 @@ type AccessorPairs = []|[{
 // ----- antfu/consistent-list-newline -----
 type AntfuConsistentListNewline = []|[{
   ArrayExpression?: boolean
+  ArrayPattern?: boolean
   ArrowFunctionExpression?: boolean
   CallExpression?: boolean
   ExportNamedDeclaration?: boolean
   FunctionDeclaration?: boolean
   FunctionExpression?: boolean
   ImportDeclaration?: boolean
+  JSONArrayExpression?: boolean
+  JSONObjectExpression?: boolean
+  JSXOpeningElement?: boolean
   NewExpression?: boolean
   ObjectExpression?: boolean
+  ObjectPattern?: boolean
+  TSFunctionType?: boolean
   TSInterfaceDeclaration?: boolean
   TSTupleType?: boolean
   TSTypeLiteral?: boolean
   TSTypeParameterDeclaration?: boolean
   TSTypeParameterInstantiation?: boolean
-  ObjectPattern?: boolean
-  ArrayPattern?: boolean
-  JSXOpeningElement?: boolean
-  JSONArrayExpression?: boolean
-  JSONObjectExpression?: boolean
 }]
 // ----- antfu/indent-unindent -----
 type AntfuIndentUnindent = []|[{
@@ -10581,6 +10582,9 @@ type ReactHooksExhaustiveDeps = []|[{
 }]
 // ----- react-naming-convention/component-name -----
 type ReactNamingConventionComponentName = []|[(("PascalCase" | "CONSTANT_CASE") | {
+  allowAllCaps?: boolean
+  allowLeadingUnderscore?: boolean
+  allowNamespace?: boolean
   excepts?: string[]
   rule?: ("PascalCase" | "CONSTANT_CASE")
 })]
