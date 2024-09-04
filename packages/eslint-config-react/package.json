@@ -34,12 +34,16 @@
     "prepublishOnly": "pnpm build"
   },
   "peerDependencies": {
+    "@prettier/plugin-xml": "^3.4.1",
     "@unocss/eslint-plugin": ">=0.60.0",
-    "eslint": ">=9.0.0",
+    "eslint": ">=9.5.0",
     "eslint-plugin-format": ">=0.1.0",
     "eslint-plugin-tailwindcss": ">=3.10.0"
   },
   "peerDependenciesMeta": {
+    "@prettier/plugin-xml": {
+      "optional": true
+    },
     "@unocss/eslint-plugin": {
       "optional": true
     },
@@ -51,14 +55,14 @@
     }
   },
   "dependencies": {
-    "@eslint-react/eslint-plugin": "^1.12.1",
+    "@eslint-react/eslint-plugin": "^1.13.0",
     "@pengzhanbo/eslint-config": "workspace:*",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.11"
   },
   "devDependencies": {
-    "@unocss/eslint-plugin": "^0.62.2",
-    "eslint": "^9.9.0",
+    "@unocss/eslint-plugin": "^0.62.3",
+    "eslint": "^9.9.1",
     "eslint-plugin-format": "^0.1.2",
     "eslint-plugin-tailwindcss": "^3.17.4"
   }

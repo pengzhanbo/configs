@@ -48,7 +48,7 @@
     "@stylelint-types/stylelint-stylistic": "^3.0.1",
     "@stylistic/stylelint-plugin": "^3.0.1",
     "local-pkg": "^0.5.0",
-    "postcss": "^8.4.41",
+    "postcss": "^8.4.44",
     "postcss-html": "^1.7.0",
     "stylelint-config-html": "^1.1.0",
     "stylelint-config-standard": "^36.0.1",
@@ -57,6 +57,6 @@
     "stylelint-order": "^6.0.4"
   },
   "devDependencies": {
-    "stylelint": "^16.8.2"
+    "stylelint": "^16.9.0"
   }
 }
