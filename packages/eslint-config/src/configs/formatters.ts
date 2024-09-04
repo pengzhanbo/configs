@@ -1,4 +1,4 @@
-import { GLOB_ASTRO, GLOB_ASTRO_TS, GLOB_CSS, GLOB_GRAPHQL, GLOB_HTML, GLOB_LESS, GLOB_MARKDOWN, GLOB_POSTCSS, GLOB_SCSS } from '../globs'
+import { GLOB_ASTRO, GLOB_ASTRO_TS, GLOB_CSS, GLOB_GRAPHQL, GLOB_HTML, GLOB_LESS, GLOB_MARKDOWN, GLOB_POSTCSS, GLOB_SCSS, GLOB_SVG, GLOB_XML } from '../globs'
 import type { VendoredPrettierOptions } from '../vender/prettier-types'
 import { ensurePackages, interopDefault, isPackageInScope, parserPlain } from '../utils'
 import type { OptionsFormatters, StylisticConfig, TypedFlatConfigItem } from '../types'
@@ -10,17 +10,23 @@ export async function formatters(
   stylistic: StylisticConfig = {},
 ): Promise<TypedFlatConfigItem[]> {
   if (options === true) {
+    const isPrettierPluginXmlInScope = isPackageInScope('@prettier/plugin-xml')
     options = {
       astro: isPackageInScope('prettier-plugin-astro'),
       css: true,
       graphql: true,
       html: true,
       markdown: true,
+      svg: isPrettierPluginXmlInScope,
+      xml: isPrettierPluginXmlInScope,
     }
   }
 
   if (options.astro)
     formatPackages.push('prettier-plugin-astro')
+
+  if (options.svg || options.xml)
+    formatPackages.push('@prettier/plugin-xml')
 
   await ensurePackages(formatPackages)
 
@@ -45,6 +51,13 @@ export async function formatters(
     } satisfies VendoredPrettierOptions,
     options.prettierOptions || {},
   )
+
+  const prettierXmlOptions = {
+    xmlQuoteAttributes: 'double',
+    xmlSelfClosingSpace: true,
+    xmlSortAttributesByKey: false,
+    xmlWhitespaceSensitivity: 'ignore',
+  }
 
   const dprintOptions = Object.assign(
     {
@@ -138,6 +151,51 @@ export async function formatters(
     })
   }
 
+  if (options.xml) {
+    configs.push({
+      files: [GLOB_XML],
+      languageOptions: {
+        parser: parserPlain,
+      },
+      name: 'config/formatter/xml',
+      rules: {
+        'format/prettier': [
+          'error',
+          {
+            ...prettierXmlOptions,
+            ...prettierOptions,
+            parser: 'xml',
+            plugins: [
+              '@prettier/plugin-xml',
+            ],
+          },
+        ],
+      },
+    })
+  }
+  if (options.svg) {
+    configs.push({
+      files: [GLOB_SVG],
+      languageOptions: {
+        parser: parserPlain,
+      },
+      name: 'config/formatter/svg',
+      rules: {
+        'format/prettier': [
+          'error',
+          {
+            ...prettierXmlOptions,
+            ...prettierOptions,
+            parser: 'xml',
+            plugins: [
+              '@prettier/plugin-xml',
+            ],
+          },
+        ],
+      },
+    })
+  }
+
   if (options.markdown) {
     const formater = options.markdown === true
       ? 'prettier'
@@ -218,6 +276,25 @@ export async function formatters(
         'style/no-multi-spaces': 'off',
         'style/quotes': 'off',
         'style/semi': 'off',
+      },
+    })
+  }
+
+  if (options.graphql) {
+    configs.push({
+      files: [GLOB_GRAPHQL],
+      languageOptions: {
+        parser: parserPlain,
+      },
+      name: 'config/formatter/graphql',
+      rules: {
+        'format/prettier': [
+          'error',
+          {
+            ...prettierOptions,
+            parser: 'graphql',
+          },
+        ],
       },
     })
   }

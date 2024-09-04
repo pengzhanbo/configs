@@ -77,6 +77,20 @@ export interface OptionsFormatters {
   html?: 'prettier' | boolean
 
   /**
+   * Enable formatting support for XML.
+   *
+   * Currently only support Prettier.
+   */
+  xml?: 'prettier' | boolean
+
+  /**
+   * Enable formatting support for SVG.
+   *
+   * Currently only support Prettier.
+   */
+  svg?: 'prettier' | boolean
+
+  /**
    * Enable formatting support for Markdown.
    *
    * Support both Prettier and dprint.
@@ -120,6 +134,15 @@ export interface OptionsComponentExts {
    * @default []
    */
   componentExts?: string[]
+}
+
+export interface OptionsUnicorn {
+  /**
+   * Include all rules recommended by `eslint-plugin-unicorn`, instead of only ones picked by Anthony.
+   *
+   * @default false
+   */
+  allRecommended?: boolean
 }
 
 export interface OptionsTypeScriptParserOptions {
@@ -270,6 +293,13 @@ export interface OptionsConfig extends OptionsComponentExts, OptionsProjectType 
    * @default true
    */
   jsx?: boolean
+
+  /**
+   * Options for eslint-plugin-unicorn.
+   *
+   * @default true
+   */
+  unicorn?: boolean | OptionsUnicorn
 
   /**
    * Enable test support.

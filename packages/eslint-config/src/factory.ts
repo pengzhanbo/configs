@@ -35,17 +35,15 @@ import { interopDefault, isInEditorEnv } from './utils'
 import { formatters } from './configs/formatters'
 import type { RuleOptions } from './typegen'
 
-const flatConfigProps: (keyof TypedFlatConfigItem)[] = [
+const flatConfigProps = [
   'name',
-  'files',
-  'ignores',
   'languageOptions',
   'linterOptions',
   'processor',
   'plugins',
   'rules',
   'settings',
-]
+] satisfies (keyof TypedFlatConfigItem)[]
 
 const VuePackages = [
   'vue',
@@ -68,7 +66,7 @@ export const defaultPluginRenaming = {
   'yml': 'yaml',
 }
 
-export type EslintConfigOptions = OptionsConfig & TypedFlatConfigItem
+export type EslintConfigOptions = OptionsConfig & Omit<TypedFlatConfigItem, 'files'>
 
 export type UserConfig = Awaitable<TypedFlatConfigItem | TypedFlatConfigItem[] | FlatConfigComposer<any, any> | Linter.Config[]>[]
 
@@ -99,6 +97,7 @@ export function eslintFlatConfig(
     svelte: enableSvelte = false,
     solid: enableSolid = false,
     typescript: enableTypeScript = isPackageExists('typescript'),
+    unicorn: enableUnicorn = true,
     unocss: enableUnoCSS = false,
     tailwindcss: enableTailwindcss = false,
     vue: enableVue = VuePackages.some(i => isPackageExists(i)),
@@ -125,10 +124,16 @@ export function eslintFlatConfig(
 
   if (enableGitignore) {
     if (typeof enableGitignore !== 'boolean') {
-      configs.push(interopDefault(import('eslint-config-flat-gitignore')).then(r => [r(enableGitignore)]))
+      configs.push(interopDefault(import('eslint-config-flat-gitignore')).then(r => [r({
+        name: 'config/gitignore',
+        ...enableGitignore,
+      })]))
     }
     else {
-      configs.push(interopDefault(import('eslint-config-flat-gitignore')).then(r => [r({ strict: false })]))
+      configs.push(interopDefault(import('eslint-config-flat-gitignore')).then(r => [r({
+        name: 'config/gitignore',
+        strict: false,
+      })]))
     }
   }
 
@@ -137,7 +142,7 @@ export function eslintFlatConfig(
 
   // Base configs
   configs.push(
-    ignores(),
+    ignores(options.ignores),
     javascript({
       isInEditor,
       overrides: getOverrides(options, 'javascript'),
@@ -150,12 +155,15 @@ export function eslintFlatConfig(
     imports({
       stylistic: stylisticOptions,
     }),
-    unicorn(),
     command(),
 
     // Optional plugins (installed but not enabled by default)
     perfectionist(),
   )
+
+  if (enableUnicorn) {
+    configs.push(unicorn(enableUnicorn === true ? {} : enableUnicorn))
+  }
 
   if (enableVue) {
     componentExts.push('vue')
@@ -287,6 +295,10 @@ export function eslintFlatConfig(
       options.formatters,
       typeof stylisticOptions === 'boolean' ? {} : stylisticOptions,
     ))
+  }
+
+  if ('files' in options) {
+    throw new Error('[@pengzhanbo/eslint-config] The first argument should not contain the "files" property as the options are supposed to be global. Place it in the second or later config instead.')
   }
 
   // User can optionally pass a flat config item to the first argument
