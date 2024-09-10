@@ -1,11 +1,11 @@
-import { isPackageExists } from 'local-pkg'
 import { FlatConfigComposer } from 'eslint-flat-config-utils'
+import { isPackageExists } from 'local-pkg'
 import type { Linter } from 'eslint'
-import type { Awaitable, ConfigNames, OptionsConfig, TypedFlatConfigItem } from './types'
 import {
   astro,
   command,
   comments,
+  disables,
   ignores,
   imports,
   javascript,
@@ -31,9 +31,10 @@ import {
   vue,
   yaml,
 } from './configs'
-import { interopDefault, isInEditorEnv } from './utils'
 import { formatters } from './configs/formatters'
+import { interopDefault, isInEditorEnv } from './utils'
 import type { RuleOptions } from './typegen'
+import type { Awaitable, ConfigNames, OptionsConfig, TypedFlatConfigItem } from './types'
 
 const flatConfigProps = [
   'name',
@@ -296,6 +297,10 @@ export function eslintFlatConfig(
       typeof stylisticOptions === 'boolean' ? {} : stylisticOptions,
     ))
   }
+
+  configs.push(
+    disables(),
+  )
 
   if ('files' in options) {
     throw new Error('[@pengzhanbo/eslint-config] The first argument should not contain the "files" property as the options are supposed to be global. Place it in the second or later config instead.')

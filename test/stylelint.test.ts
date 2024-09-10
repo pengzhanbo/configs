@@ -1,8 +1,8 @@
 import { join, resolve } from 'node:path'
-import { afterAll, beforeAll, it } from 'vitest'
-import fs from 'fs-extra'
 import { execa } from 'execa'
 import fg from 'fast-glob'
+import fs from 'fs-extra'
+import { afterAll, beforeAll, it } from 'vitest'
 
 const FIXTURES = 'fixtures/stylelint'
 const _FIXTURES = '_fixtures/stylelint'

@@ -1,8 +1,8 @@
 import process from 'node:process'
-import type { OptionsComponentExts, OptionsFiles, OptionsOverrides, OptionsProjectType, OptionsTypeScriptParserOptions, OptionsTypeScriptWithTypes, TypedFlatConfigItem } from '../types'
 import { GLOB_ASTRO_TS, GLOB_MARKDOWN, GLOB_TS, GLOB_TSX } from '../globs'
 import { pluginAntfu } from '../plugins'
 import { interopDefault, renameRules } from '../utils'
+import type { OptionsComponentExts, OptionsFiles, OptionsOverrides, OptionsProjectType, OptionsTypeScriptParserOptions, OptionsTypeScriptWithTypes, TypedFlatConfigItem } from '../types'
 
 export async function typescript(
   options: OptionsFiles & OptionsComponentExts & OptionsOverrides & OptionsTypeScriptWithTypes & OptionsTypeScriptParserOptions & OptionsProjectType = {},
@@ -118,9 +118,7 @@ export async function typescript(
           pluginTs.configs.strict.rules!,
           { '@typescript-eslint': 'ts' },
         ),
-
         'no-dupe-class-members': 'off',
-        'no-loss-of-precision': 'off',
         'no-redeclare': 'off',
         'no-use-before-define': 'off',
         'no-useless-constructor': 'off',
@@ -138,7 +136,6 @@ export async function typescript(
         'ts/no-extraneous-class': 'off',
         'ts/no-import-type-side-effects': 'error',
         'ts/no-invalid-void-type': 'off',
-        'ts/no-loss-of-precision': 'error',
         'ts/no-non-null-assertion': 'off',
         'ts/no-redeclare': 'error',
         'ts/no-require-imports': 'error',
@@ -173,30 +170,5 @@ export async function typescript(
           },
         }]
       : [],
-    {
-      files: ['**/*.d.?([cm])ts'],
-      name: 'config/typescript/disables/dts',
-      rules: {
-        'eslint-comments/no-unlimited-disable': 'off',
-        'import/no-duplicates': 'off',
-        'no-restricted-syntax': 'off',
-        'unused-imports/no-unused-vars': 'off',
-      },
-    },
-    {
-      files: ['**/*.{test,spec}.ts?(x)'],
-      name: 'config/typescript/disables/tests',
-      rules: {
-        'no-unused-expressions': 'off',
-      },
-    },
-    {
-      files: ['**/*.js', '**/*.cjs'],
-      name: 'config/typescript/disables/cjs',
-      rules: {
-        'ts/no-require-imports': 'off',
-        'ts/no-var-requires': 'off',
-      },
-    },
   ]
 }

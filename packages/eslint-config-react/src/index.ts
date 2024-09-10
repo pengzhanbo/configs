@@ -1,8 +1,8 @@
 import {
+  eslintFlatConfig as basicConfig,
   type EslintConfigOptions,
   type EslintConfigReturn,
   type UserConfig,
-  eslintFlatConfig as basicConfig,
 } from '@pengzhanbo/eslint-config'
 
 export function reactEslintFlatConfig(

@@ -1,6 +1,6 @@
+import { pluginAntfu } from '../plugins'
 import { interopDefault } from '../utils'
 import type { OptionsOverrides, StylisticConfig, TypedFlatConfigItem } from '../types'
-import { pluginAntfu } from '../plugins'
 
 export const StylisticConfigDefaults: StylisticConfig = {
   indent: 2,
@@ -49,6 +49,7 @@ export async function stylistic(
       rules: {
         ...config.rules,
 
+        'antfu/consistent-chaining': 'error',
         'antfu/consistent-list-newline': 'error',
         ...(lessOpinionated
           ? {
