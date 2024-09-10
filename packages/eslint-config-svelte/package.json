@@ -61,7 +61,7 @@
   },
   "devDependencies": {
     "@unocss/eslint-plugin": "^0.62.3",
-    "eslint": "^9.9.1",
+    "eslint": "^9.10.0",
     "eslint-plugin-format": "^0.1.2",
     "eslint-plugin-tailwindcss": "^3.17.4"
   }
