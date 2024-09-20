@@ -1,4 +1,3 @@
-import defineConfig from 'stylelint-define-config'
 import type {
   Extends as OrderExtends,
   Plugins as OrderPlugins,
@@ -15,6 +14,7 @@ import type {
   RuleOptions as StylisticRuleOptions,
 } from '@stylelint-types/stylelint-stylistic/types'
 import type { Rules, StylelintConfig } from 'stylelint-define-config'
+import defineConfig from 'stylelint-define-config'
 
 declare module 'stylelint-define-config' {
   export interface CustomRuleOptions extends StylisticRuleOptions, OrderRuleOptions, SCSSRuleOptions {}

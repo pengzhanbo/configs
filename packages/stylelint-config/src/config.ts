@@ -1,8 +1,8 @@
+import type { SCSSRuleOptions, StylelintConfig, StylelintRules } from './define-config'
 import { toArray, uniq } from '@pengzhanbo/utils'
 import { isPackageExists } from 'local-pkg'
 import { GLOB_EXCLUDE, JS_EXT } from './globs'
 import { normalRules, orderRules, stylisticRules } from './rules'
-import type { SCSSRuleOptions, StylelintConfig, StylelintRules } from './define-config'
 
 // 待实现
 const CSS_IN_JS = false

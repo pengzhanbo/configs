@@ -1,7 +1,7 @@
+import type { OptionsComponentExts, OptionsFiles, OptionsOverrides, TypedFlatConfigItem } from '../types'
 import { mergeProcessors, processorPassThrough } from 'eslint-merge-processors'
 import { GLOB_MARKDOWN, GLOB_MARKDOWN_CODE } from '../globs'
 import { interopDefault, parserPlain } from '../utils'
-import type { OptionsComponentExts, OptionsFiles, OptionsOverrides, TypedFlatConfigItem } from '../types'
 
 export async function markdown(
   options: OptionsFiles & OptionsComponentExts & OptionsOverrides = {},
@@ -74,6 +74,7 @@ export async function markdown(
         'ts/no-namespace': 'off',
         'ts/no-redeclare': 'off',
         'ts/no-require-imports': 'off',
+        'ts/explicit-function-return-type': 'off',
         'ts/no-unused-expressions': 'off',
         'ts/no-unused-vars': 'off',
         'ts/no-use-before-define': 'off',

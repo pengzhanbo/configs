@@ -1,6 +1,6 @@
+import type { OptionsTailwindCSS, TypedFlatConfigItem } from '../types'
 import { isPackageExists } from 'local-pkg'
 import { interopDefault } from '../utils'
-import type { OptionsTailwindCSS, TypedFlatConfigItem } from '../types'
 
 const tailwindPackages = ['eslint-plugin-tailwindcss']
 

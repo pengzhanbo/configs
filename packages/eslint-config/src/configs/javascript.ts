@@ -1,6 +1,6 @@
+import type { OptionsIsInEditor, OptionsOverrides, TypedFlatConfigItem } from '../types'
 import globals from 'globals'
 import { pluginAntfu, pluginUnusedImports } from '../plugins'
-import type { OptionsIsInEditor, OptionsOverrides, TypedFlatConfigItem } from '../types'
 
 export async function javascript(
   options: OptionsIsInEditor & OptionsOverrides = {},
@@ -44,6 +44,7 @@ export async function javascript(
       },
       rules: {
         'accessor-pairs': ['error', { enforceForClassMembers: true, setWithoutGet: true }],
+        'antfu/no-top-level-await': 'error',
 
         'array-callback-return': 'error',
         'block-scoped-var': 'error',
