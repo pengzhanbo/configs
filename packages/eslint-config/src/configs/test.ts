@@ -43,8 +43,6 @@ export async function test(
       files,
       name: 'config/test/rules',
       rules: {
-        'node/prefer-global/process': 'off',
-
         'test/consistent-test-it': ['error', { fn: 'it', withinDescribe: 'it' }],
         'test/no-identical-title': 'error',
         'test/no-import-node-test': 'error',
@@ -52,7 +50,13 @@ export async function test(
         'test/prefer-hooks-in-order': 'error',
         'test/prefer-lowercase-title': 'error',
 
-        'ts/explicit-function-return-type': 'off',
+        // Disables
+        ...{
+          'antfu/no-top-level-await': 'off',
+          'no-unused-expressions': 'off',
+          'node/prefer-global/process': 'off',
+          'ts/explicit-function-return-type': 'off',
+        },
 
         ...overrides,
       },

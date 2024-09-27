@@ -39,14 +39,6 @@ export async function disables(): Promise<TypedFlatConfigItem[]> {
       },
     },
     {
-      files: ['**/*.{test,spec}.([tj])s?(x)'],
-      name: 'config/disables/test',
-      rules: {
-        'antfu/no-top-level-await': 'off',
-        'no-unused-expressions': 'off',
-      },
-    },
-    {
       files: ['**/*.js', '**/*.cjs'],
       name: 'config/disables/cjs',
       rules: {

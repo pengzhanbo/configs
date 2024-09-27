@@ -1,10 +1,25 @@
 import type { OptionsFormatters, StylisticConfig, TypedFlatConfigItem } from '../types'
-import type { VendoredPrettierOptions } from '../vender/prettier-types'
+import type { VendoredPrettierOptions, VendoredPrettierRuleOptions } from '../vender/prettier-types'
 import { GLOB_ASTRO, GLOB_ASTRO_TS, GLOB_CSS, GLOB_GRAPHQL, GLOB_HTML, GLOB_LESS, GLOB_MARKDOWN, GLOB_POSTCSS, GLOB_SCSS, GLOB_SVG, GLOB_XML } from '../globs'
 import { ensurePackages, interopDefault, isPackageInScope, parserPlain } from '../utils'
 import { StylisticConfigDefaults } from './stylistic'
 
 const formatPackages = ['eslint-plugin-format']
+
+function mergePrettierOptions(
+  options: VendoredPrettierOptions,
+  overrides: VendoredPrettierRuleOptions = {},
+): VendoredPrettierRuleOptions {
+  return {
+    ...options,
+    ...overrides,
+    plugins: [
+      ...(overrides.plugins || []),
+      ...(options.plugins || []),
+    ],
+  }
+}
+
 export async function formatters(
   options: OptionsFormatters | true = {},
   stylistic: StylisticConfig = {},
@@ -52,7 +67,7 @@ export async function formatters(
     options.prettierOptions || {},
   )
 
-  const prettierXmlOptions = {
+  const prettierXmlOptions: VendoredPrettierOptions = {
     xmlQuoteAttributes: 'double',
     xmlSelfClosingSpace: true,
     xmlSortAttributesByKey: false,
@@ -90,10 +105,9 @@ export async function formatters(
         rules: {
           'format/prettier': [
             'error',
-            {
-              ...prettierOptions,
+            mergePrettierOptions(prettierOptions, {
               parser: 'css',
-            },
+            }),
           ],
         },
       },
@@ -106,10 +120,9 @@ export async function formatters(
         rules: {
           'format/prettier': [
             'error',
-            {
-              ...prettierOptions,
+            mergePrettierOptions(prettierOptions, {
               parser: 'scss',
-            },
+            }),
           ],
         },
       },
@@ -122,10 +135,9 @@ export async function formatters(
         rules: {
           'format/prettier': [
             'error',
-            {
-              ...prettierOptions,
+            mergePrettierOptions(prettierOptions, {
               parser: 'less',
-            },
+            }),
           ],
         },
       },
@@ -142,10 +154,9 @@ export async function formatters(
       rules: {
         'format/prettier': [
           'error',
-          {
-            ...prettierOptions,
+          mergePrettierOptions(prettierOptions, {
             parser: 'html',
-          },
+          }),
         ],
       },
     })
@@ -161,14 +172,12 @@ export async function formatters(
       rules: {
         'format/prettier': [
           'error',
-          {
-            ...prettierXmlOptions,
-            ...prettierOptions,
+          mergePrettierOptions({ ...prettierXmlOptions, ...prettierOptions }, {
             parser: 'xml',
             plugins: [
               '@prettier/plugin-xml',
             ],
-          },
+          }),
         ],
       },
     })
@@ -183,14 +192,12 @@ export async function formatters(
       rules: {
         'format/prettier': [
           'error',
-          {
-            ...prettierXmlOptions,
-            ...prettierOptions,
+          mergePrettierOptions({ ...prettierXmlOptions, ...prettierOptions }, {
             parser: 'xml',
             plugins: [
               '@prettier/plugin-xml',
             ],
-          },
+          }),
         ],
       },
     })
@@ -211,34 +218,14 @@ export async function formatters(
         [`format/${formater}`]: [
           'error',
           formater === 'prettier'
-            ? {
-                ...prettierOptions,
-                embeddedLanguageFormatting: 'off',
-                parser: 'markdown',
-              }
+            ? mergePrettierOptions(prettierOptions, {
+              embeddedLanguageFormatting: 'off',
+              parser: 'markdown',
+            })
             : {
                 ...dprintOptions,
                 language: 'markdown',
               },
-        ],
-      },
-    })
-  }
-
-  if (options.graphql) {
-    configs.push({
-      files: [GLOB_GRAPHQL],
-      languageOptions: {
-        parser: parserPlain,
-      },
-      name: 'config/formatter/graphql',
-      rules: {
-        'format/prettier': [
-          'error',
-          {
-            ...prettierOptions,
-            parser: 'graphql',
-          },
         ],
       },
     })
@@ -254,13 +241,12 @@ export async function formatters(
       rules: {
         'format/prettier': [
           'error',
-          {
-            ...prettierOptions,
+          mergePrettierOptions(prettierOptions, {
             parser: 'astro',
             plugins: [
               'prettier-plugin-astro',
             ],
-          },
+          }),
         ],
       },
     })
@@ -290,10 +276,9 @@ export async function formatters(
       rules: {
         'format/prettier': [
           'error',
-          {
-            ...prettierOptions,
+          mergePrettierOptions(prettierOptions, {
             parser: 'graphql',
-          },
+          }),
         ],
       },
     })
