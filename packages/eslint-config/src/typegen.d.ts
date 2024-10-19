@@ -359,6 +359,11 @@ export interface RuleOptions {
    */
   'astro/semi'?: Linter.RuleEntry<AstroSemi>
   /**
+   * enforce sorting of attributes
+   * @see https://ota-meshi.github.io/eslint-plugin-astro/rules/sort-attributes/
+   */
+  'astro/sort-attributes'?: Linter.RuleEntry<AstroSortAttributes>
+  /**
    * disallow warnings when compiling.
    * @see https://ota-meshi.github.io/eslint-plugin-astro/rules/valid-compile/
    */
@@ -1017,6 +1022,7 @@ export interface RuleOptions {
    */
   'jsdoc/no-missing-syntax'?: Linter.RuleEntry<JsdocNoMissingSyntax>
   /**
+   * Prevents use of multiple asterisks at the beginning of lines.
    * @see https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/no-multi-asterisks.md#repos-sticky-header
    */
   'jsdoc/no-multi-asterisks'?: Linter.RuleEntry<JsdocNoMultiAsterisks>
@@ -1161,6 +1167,7 @@ export interface RuleOptions {
    */
   'jsdoc/tag-lines'?: Linter.RuleEntry<JsdocTagLines>
   /**
+   * Auto-escape certain characters that are input within block and tag descriptions.
    * @see https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/text-escaping.md#repos-sticky-header
    */
   'jsdoc/text-escaping'?: Linter.RuleEntry<JsdocTextEscaping>
@@ -2632,6 +2639,7 @@ export interface RuleOptions {
   /**
    * Enforce sorted Astro attributes.
    * @see https://perfectionist.dev/rules/sort-astro-attributes
+   * @deprecated
    */
   'perfectionist/sort-astro-attributes'?: Linter.RuleEntry<PerfectionistSortAstroAttributes>
   /**
@@ -2702,6 +2710,7 @@ export interface RuleOptions {
   /**
    * Enforce sorted Svelte attributes.
    * @see https://perfectionist.dev/rules/sort-svelte-attributes
+   * @deprecated
    */
   'perfectionist/sort-svelte-attributes'?: Linter.RuleEntry<PerfectionistSortSvelteAttributes>
   /**
@@ -2722,6 +2731,7 @@ export interface RuleOptions {
   /**
    * Enforce sorted Vue attributes.
    * @see https://perfectionist.dev/rules/sort-vue-attributes
+   * @deprecated
    */
   'perfectionist/sort-vue-attributes'?: Linter.RuleEntry<PerfectionistSortVueAttributes>
   /**
@@ -2883,8 +2893,8 @@ export interface RuleOptions {
    */
   'react-hooks-extra/no-direct-set-state-in-use-effect'?: Linter.RuleEntry<[]>
   /**
-   * disallow direct calls to the 'set' function of 'useState' in 'useEffect'
-   * @see https://eslint-react.xyz/docs/rules/hooks-extra-no-direct-set-state-in-use-effect
+   * disallow direct calls to the 'set' function of 'useState' in 'useLayoutEffect'
+   * @see https://eslint-react.xyz/docs/rules/hooks-extra-no-direct-set-state-in-use-layout-effect
    */
   'react-hooks-extra/no-direct-set-state-in-use-layout-effect'?: Linter.RuleEntry<[]>
   /**
@@ -3147,12 +3157,17 @@ export interface RuleOptions {
    * disallow unnecessary fragments
    * @see https://eslint-react.xyz/docs/rules/no-useless-fragment
    */
-  'react/no-useless-fragment'?: Linter.RuleEntry<[]>
+  'react/no-useless-fragment'?: Linter.RuleEntry<ReactNoUselessFragment>
   /**
    * enforce using destructuring assignment in component props and context
    * @see https://eslint-react.xyz/docs/rules/prefer-destructuring-assignment
    */
   'react/prefer-destructuring-assignment'?: Linter.RuleEntry<[]>
+  /**
+   * enforce React is imported via a namespace import
+   * @see https://eslint-react.xyz/docs/rules/prefer-react-namespace-import
+   */
+  'react/prefer-react-namespace-import'?: Linter.RuleEntry<[]>
   /**
    * enforce read-only props in components
    * @see https://eslint-react.xyz/docs/rules/prefer-read-only-props
@@ -4302,6 +4317,11 @@ export interface RuleOptions {
    */
   'svelte/first-attribute-linebreak'?: Linter.RuleEntry<SvelteFirstAttributeLinebreak>
   /**
+   * Require or disallow a line break before tag's closing brackets
+   * @see https://sveltejs.github.io/eslint-plugin-svelte/rules/html-closing-bracket-new-line/
+   */
+  'svelte/html-closing-bracket-new-line'?: Linter.RuleEntry<SvelteHtmlClosingBracketNewLine>
+  /**
    * require or disallow a space before tag's closing brackets
    * @see https://sveltejs.github.io/eslint-plugin-svelte/rules/html-closing-bracket-spacing/
    */
@@ -4411,6 +4431,11 @@ export interface RuleOptions {
    * @see https://sveltejs.github.io/eslint-plugin-svelte/rules/no-inner-declarations/
    */
   'svelte/no-inner-declarations'?: Linter.RuleEntry<SvelteNoInnerDeclarations>
+  /**
+   * Warns against the use of `$inspect` directive
+   * @see https://sveltejs.github.io/eslint-plugin-svelte/rules/no-inspect/
+   */
+  'svelte/no-inspect'?: Linter.RuleEntry<[]>
   /**
    * disallow use of not function in event handler
    * @see https://sveltejs.github.io/eslint-plugin-svelte/rules/no-not-function-handler/
@@ -6779,6 +6804,11 @@ export interface RuleOptions {
    */
   'vue/no-deprecated-data-object-declaration'?: Linter.RuleEntry<[]>
   /**
+   * disallow using deprecated `$delete` and `$set` (in Vue.js 3.0.0+)
+   * @see https://eslint.vuejs.org/rules/no-deprecated-delete-set.html
+   */
+  'vue/no-deprecated-delete-set'?: Linter.RuleEntry<[]>
+  /**
    * disallow using deprecated `destroyed` and `beforeDestroy` lifecycle hooks (in Vue.js 3.0.0+)
    * @see https://eslint.vuejs.org/rules/no-deprecated-destroyed-lifecycle.html
    */
@@ -7923,6 +7953,12 @@ type AstroSemi = ([]|["never"]|["never", {
   omitLastInOneLineBlock?: boolean
   omitLastInOneLineClassBody?: boolean
 }])
+// ----- astro/sort-attributes -----
+type AstroSortAttributes = []|[{
+  type?: ("alphabetical" | "line-length")
+  ignoreCase?: boolean
+  order?: ("asc" | "desc")
+}]
 // ----- block-spacing -----
 type BlockSpacing = []|[("always" | "never")]
 // ----- brace-style -----
@@ -10394,6 +10430,8 @@ type PerfectionistSortArrayIncludes = []|[{
   
   ignoreCase?: boolean
   
+  specialCharacters?: ("remove" | "trim" | "keep")
+  
   groupKind?: ("mixed" | "literals-first" | "spreads-first")
   
   partitionByComment?: (string[] | boolean | string)
@@ -10411,6 +10449,8 @@ type PerfectionistSortAstroAttributes = []|[{
   
   ignoreCase?: boolean
   
+  specialCharacters?: ("remove" | "trim" | "keep")
+  
   groups?: (string | string[])[]
   
   customGroups?: {
@@ -10427,6 +10467,8 @@ type PerfectionistSortClasses = []|[{
   matcher?: ("minimatch" | "regex")
   
   ignoreCase?: boolean
+  
+  specialCharacters?: ("remove" | "trim" | "keep")
   
   partitionByComment?: (string[] | boolean | string)
   
@@ -10449,6 +10491,8 @@ type PerfectionistSortClasses = []|[{
       
       elementNamePattern?: string
       
+      elementValuePattern?: string
+      
       decoratorNamePattern?: string
     }[]
   } | {
@@ -10465,6 +10509,8 @@ type PerfectionistSortClasses = []|[{
     
     elementNamePattern?: string
     
+    elementValuePattern?: string
+    
     decoratorNamePattern?: string
   })[])
 }]
@@ -10478,6 +10524,8 @@ type PerfectionistSortEnums = []|[{
   matcher?: ("minimatch" | "regex")
   
   ignoreCase?: boolean
+  
+  specialCharacters?: ("remove" | "trim" | "keep")
   
   sortByValue?: boolean
   
@@ -10498,6 +10546,8 @@ type PerfectionistSortExports = []|[{
   
   ignoreCase?: boolean
   
+  specialCharacters?: ("remove" | "trim" | "keep")
+  
   partitionByComment?: (string[] | boolean | string)
   
   partitionByNewLine?: boolean
@@ -10515,6 +10565,8 @@ type _PerfectionistSortImportsSortImports = (_PerfectionistSortImportsMaxLineLen
   matcher?: ("minimatch" | "regex")
   
   ignoreCase?: boolean
+  
+  specialCharacters?: ("remove" | "trim" | "keep")
   
   internalPattern?: string[]
   
@@ -10555,6 +10607,8 @@ type PerfectionistSortInterfaces = []|[{
   
   ignoreCase?: boolean
   
+  specialCharacters?: ("remove" | "trim" | "keep")
+  
   ignorePattern?: string[]
   
   partitionByComment?: (boolean | string | string[])
@@ -10580,6 +10634,8 @@ type PerfectionistSortIntersectionTypes = []|[{
   
   ignoreCase?: boolean
   
+  specialCharacters?: ("remove" | "trim" | "keep")
+  
   groups?: (string | string[])[]
   
   partitionByComment?: (string[] | boolean | string)
@@ -10596,6 +10652,8 @@ type PerfectionistSortJsxProps = []|[{
   matcher?: ("minimatch" | "regex")
   
   ignoreCase?: boolean
+  
+  specialCharacters?: ("remove" | "trim" | "keep")
   
   ignorePattern?: string[]
   
@@ -10616,6 +10674,8 @@ type PerfectionistSortMaps = []|[{
   
   ignoreCase?: boolean
   
+  specialCharacters?: ("remove" | "trim" | "keep")
+  
   partitionByComment?: (string[] | boolean | string)
   
   partitionByNewLine?: boolean
@@ -10630,6 +10690,8 @@ type PerfectionistSortNamedExports = []|[{
   matcher?: ("minimatch" | "regex")
   
   ignoreCase?: boolean
+  
+  specialCharacters?: ("remove" | "trim" | "keep")
   
   groupKind?: ("mixed" | "values-first" | "types-first")
   
@@ -10647,6 +10709,8 @@ type PerfectionistSortNamedImports = []|[{
   matcher?: ("minimatch" | "regex")
   
   ignoreCase?: boolean
+  
+  specialCharacters?: ("remove" | "trim" | "keep")
   
   ignoreAlias?: boolean
   
@@ -10666,6 +10730,8 @@ type PerfectionistSortObjectTypes = []|[{
   matcher?: ("minimatch" | "regex")
   
   ignoreCase?: boolean
+  
+  specialCharacters?: ("remove" | "trim" | "keep")
   
   partitionByComment?: (string[] | boolean | string)
   
@@ -10689,6 +10755,8 @@ type PerfectionistSortObjects = []|[{
   matcher?: ("minimatch" | "regex")
   
   ignoreCase?: boolean
+  
+  specialCharacters?: ("remove" | "trim" | "keep")
   
   partitionByComment?: (string[] | boolean | string)
   
@@ -10717,6 +10785,8 @@ type PerfectionistSortSets = []|[{
   
   ignoreCase?: boolean
   
+  specialCharacters?: ("remove" | "trim" | "keep")
+  
   groupKind?: ("mixed" | "literals-first" | "spreads-first")
   
   partitionByComment?: (string[] | boolean | string)
@@ -10734,6 +10804,8 @@ type PerfectionistSortSvelteAttributes = []|[{
   
   ignoreCase?: boolean
   
+  specialCharacters?: ("remove" | "trim" | "keep")
+  
   groups?: (string | string[])[]
   
   customGroups?: {
@@ -10748,6 +10820,8 @@ type PerfectionistSortSwitchCase = []|[{
   order?: ("asc" | "desc")
   
   ignoreCase?: boolean
+  
+  specialCharacters?: ("remove" | "trim" | "keep")
 }]
 // ----- perfectionist/sort-union-types -----
 type PerfectionistSortUnionTypes = []|[{
@@ -10759,6 +10833,8 @@ type PerfectionistSortUnionTypes = []|[{
   matcher?: ("minimatch" | "regex")
   
   ignoreCase?: boolean
+  
+  specialCharacters?: ("remove" | "trim" | "keep")
   
   groups?: (string | string[])[]
   
@@ -10777,6 +10853,8 @@ type PerfectionistSortVariableDeclarations = []|[{
   
   ignoreCase?: boolean
   
+  specialCharacters?: ("remove" | "trim" | "keep")
+  
   partitionByComment?: (string[] | boolean | string)
   
   partitionByNewLine?: boolean
@@ -10791,6 +10869,8 @@ type PerfectionistSortVueAttributes = []|[{
   matcher?: ("minimatch" | "regex")
   
   ignoreCase?: boolean
+  
+  specialCharacters?: ("remove" | "trim" | "keep")
   
   groups?: (string | string[])[]
   
@@ -10890,6 +10970,10 @@ type ReactRefreshOnlyExportComponents = []|[{
   allowConstantExport?: boolean
   checkJS?: boolean
   allowExportNames?: string[]
+}]
+// ----- react/no-useless-fragment -----
+type ReactNoUselessFragment = []|[{
+  allowExpressions?: boolean
 }]
 // ----- regexp/hexadecimal-escape -----
 type RegexpHexadecimalEscape = []|[("always" | "never")]
@@ -12310,6 +12394,15 @@ type SvelteCommentDirective = []|[{
 type SvelteFirstAttributeLinebreak = []|[{
   multiline?: ("below" | "beside")
   singleline?: ("below" | "beside")
+}]
+// ----- svelte/html-closing-bracket-new-line -----
+type SvelteHtmlClosingBracketNewLine = []|[{
+  singleline?: ("always" | "never")
+  multiline?: ("always" | "never")
+  selfClosingTag?: {
+    singleline?: ("always" | "never")
+    multiline?: ("always" | "never")
+  }
 }]
 // ----- svelte/html-closing-bracket-spacing -----
 type SvelteHtmlClosingBracketSpacing = []|[{
