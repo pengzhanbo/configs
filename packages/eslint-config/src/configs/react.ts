@@ -1,7 +1,7 @@
-import type { OptionsFiles, OptionsOverrides, OptionsTypeScriptWithTypes, TypedFlatConfigItem } from '../types'
+import type { OptionsFiles, OptionsOverrides, OptionsTypeScriptParserOptions, OptionsTypeScriptWithTypes, TypedFlatConfigItem } from '../types'
 import { isPackageExists } from 'local-pkg'
-import { GLOB_SRC } from '../globs'
-import { ensurePackages, interopDefault, toArray } from '../utils'
+import { GLOB_ASTRO_TS, GLOB_MARKDOWN, GLOB_SRC, GLOB_TS, GLOB_TSX } from '../globs'
+import { ensurePackages, interopDefault } from '../utils'
 
 // react refresh
 const ReactRefreshAllowConstantExportPackages = [
@@ -16,11 +16,17 @@ const RemixPackages = [
 ]
 
 export async function react(
-  options: OptionsTypeScriptWithTypes & OptionsOverrides & OptionsFiles = {},
+  options: OptionsTypeScriptParserOptions & OptionsTypeScriptWithTypes & OptionsOverrides & OptionsFiles = {},
 ): Promise<TypedFlatConfigItem[]> {
   const {
     files = [GLOB_SRC],
+    filesTypeAware = [GLOB_TS, GLOB_TSX],
+    ignoresTypeAware = [
+      `${GLOB_MARKDOWN}/**`,
+      GLOB_ASTRO_TS,
+    ],
     overrides = {},
+    tsconfigPath,
   } = options
 
   await ensurePackages([
@@ -29,21 +35,20 @@ export async function react(
     'eslint-plugin-react-refresh',
   ])
 
-  const tsconfigPath = options?.tsconfigPath
-    ? toArray(options.tsconfigPath)
-    : undefined
   const isTypeAware = !!tsconfigPath
+
+  const typeAwareRules: TypedFlatConfigItem['rules'] = {
+    'react/no-leaked-conditional-rendering': 'warn',
+  }
 
   const [
     pluginReact,
     pluginReactHooks,
     pluginReactRefresh,
-    parserTs,
   ] = await Promise.all([
     interopDefault(import('@eslint-react/eslint-plugin')),
     interopDefault(import('eslint-plugin-react-hooks')),
     interopDefault(import('eslint-plugin-react-refresh')),
-    interopDefault(import('@typescript-eslint/parser')),
   ] as const)
 
   const isAllowConstantExport = ReactRefreshAllowConstantExportPackages.some(
@@ -70,12 +75,10 @@ export async function react(
     {
       files,
       languageOptions: {
-        parser: parserTs,
         parserOptions: {
           ecmaFeatures: {
             jsx: true,
           },
-          ...isTypeAware ? { project: tsconfigPath } : {},
         },
         sourceType: 'module',
       },
@@ -169,15 +172,19 @@ export async function react(
         'react/prefer-shorthand-boolean': 'warn',
         'react/prefer-shorthand-fragment': 'warn',
 
-        ...isTypeAware
-          ? {
-              'react/no-leaked-conditional-rendering': 'warn',
-            }
-          : {},
-
         // overrides
         ...overrides,
       },
     },
+    ...isTypeAware
+      ? [{
+          files: filesTypeAware,
+          ignores: ignoresTypeAware,
+          name: 'antfu/react/type-aware-rules',
+          rules: {
+            ...typeAwareRules,
+          },
+        }]
+      : [],
   ]
 }
