@@ -4878,7 +4878,7 @@ export interface RuleOptions {
    */
   'test/padding-around-expect-groups'?: Linter.RuleEntry<[]>
   /**
-   * Enforce padding around afterAll blocks
+   * Enforce padding around `test` blocks
    * @see https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/padding-around-test-blocks.md
    */
   'test/padding-around-test-blocks'?: Linter.RuleEntry<[]>
@@ -13034,8 +13034,7 @@ type TestNoRestrictedViMethods = []|[{
 }]
 // ----- test/no-standalone-expect -----
 type TestNoStandaloneExpect = []|[{
-  additionaltestblockfunctions?: string[]
-  [k: string]: unknown | undefined
+  additionalTestBlockFunctions?: string[]
 }]
 // ----- test/prefer-expect-assertions -----
 type TestPreferExpectAssertions = []|[{
