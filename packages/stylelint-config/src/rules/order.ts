@@ -226,6 +226,7 @@ export const orderRules = {
           '-webkit-font-smoothing',
           '-moz-osx-font-smoothing',
           'font-smooth',
+          'font-named-instance',
           'hyphens',
           'line-height',
           'color',
@@ -417,6 +418,13 @@ export const orderRules = {
           'mask-composite',
         ],
       },
+      // replaced element
+      {
+        properties: [
+          'object-fit',
+          'object-position',
+        ],
+      },
       {
       // SVG Presentation Attributes.
         properties: [
@@ -430,6 +438,7 @@ export const orderRules = {
           'fill',
           'fill-opacity',
           'fill-rule',
+          'r',
           'stroke',
           'stroke-dasharray',
           'stroke-dashoffset',
@@ -477,6 +486,16 @@ export const orderRules = {
           'animation-iteration-count',
           'animation-direction',
           'will-change',
+        ],
+      },
+      // offset
+      {
+        properties: [
+          'offset',
+          'offset-anchor',
+          'offset-distance',
+          'offset-path',
+          'offset-rotate',
         ],
       },
     ],

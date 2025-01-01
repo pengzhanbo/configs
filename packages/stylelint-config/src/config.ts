@@ -48,7 +48,7 @@ function stylelintConfig(
   }
 
   if (order) {
-    ; (config.plugins as string[]).push('stylelint-order')
+    ;(config.plugins as string[]).push('stylelint-order')
     config.rules = {
       ...config.rules,
       ...orderRules,
@@ -56,14 +56,14 @@ function stylelintConfig(
   }
 
   if (stylistic) {
-    ; (config.plugins as string[]).push('@stylistic/stylelint-plugin')
+    ;(config.plugins as string[]).push('@stylistic/stylelint-plugin')
     config.rules = {
       ...config.rules,
       ...stylisticRules,
     }
   }
 
-  if (isPackageExists('sass') && scss) {
+  if ((isPackageExists('sass') || isPackageExists('sass-embedded')) && scss) {
     config.overrides?.push({
       files: ['*.scss', '**/*.scss'],
       extends: ['stylelint-config-standard-scss'],
