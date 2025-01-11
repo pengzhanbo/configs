@@ -15,6 +15,16 @@ const RemixPackages = [
   '@remix-run/dev',
 ]
 
+const ReactRouterPackages = [
+  '@react-router/node',
+  '@react-router/react',
+  '@react-router/serve',
+  '@react-router/dev',
+]
+const NextJsPackages = [
+  'next',
+]
+
 export async function react(
   options: OptionsTypeScriptParserOptions & OptionsTypeScriptWithTypes & OptionsOverrides & OptionsFiles = {},
 ): Promise<TypedFlatConfigItem[]> {
@@ -56,7 +66,8 @@ export async function react(
   )
 
   const isUsingRemix = RemixPackages.some(i => isPackageExists(i))
-  const isUsingNext = isPackageExists('next')
+  const isUsingReactRouter = ReactRouterPackages.some(i => isPackageExists(i))
+  const isUsingNext = NextJsPackages.some(i => isPackageExists(i))
 
   const plugins = pluginReact.configs.all.plugins
 
@@ -106,23 +117,25 @@ export async function react(
           'warn',
           {
             allowConstantExport: isAllowConstantExport,
-            allowExportNames: isUsingNext
-              ? [
-                  'dynamic',
-                  'dynamicParams',
-                  'revalidate',
-                  'fetchCache',
-                  'runtime',
-                  'preferredRegion',
-                  'maxDuration',
-                  'config',
-                  'generateStaticParams',
-                  'metadata',
-                  'generateMetadata',
-                  'viewport',
-                  'generateViewport',
-                ]
-              : isUsingRemix
+            allowExportNames: [
+              ...(isUsingNext
+                ? [
+                    'dynamic',
+                    'dynamicParams',
+                    'revalidate',
+                    'fetchCache',
+                    'runtime',
+                    'preferredRegion',
+                    'maxDuration',
+                    'config',
+                    'generateStaticParams',
+                    'metadata',
+                    'generateMetadata',
+                    'viewport',
+                    'generateViewport',
+                  ]
+                : []),
+              ...(isUsingRemix || isUsingReactRouter
                 ? [
                     'meta',
                     'links',
@@ -130,7 +143,8 @@ export async function react(
                     'loader',
                     'action',
                   ]
-                : undefined,
+                : []),
+            ],
           },
         ],
 
