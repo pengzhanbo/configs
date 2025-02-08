@@ -3,7 +3,7 @@
   "type": "module",
   "version": "1.24.0",
   "private": true,
-  "packageManager": "pnpm@9.15.4",
+  "packageManager": "pnpm@10.2.1",
   "author": "pengzhanbo <q942450674@outlook.com> (https://github/pengzhanbo/)",
   "license": "MIT",
   "scripts": {
@@ -19,24 +19,24 @@
     "@pengzhanbo/eslint-config": "workspace:*",
     "@pengzhanbo/stylelint-config": "workspace:*",
     "@types/fs-extra": "^11.0.4",
-    "@types/node": "^22.10.10",
-    "bumpp": "^10.0.1",
-    "eslint": "^9.19.0",
+    "@types/node": "^22.13.1",
+    "bumpp": "^10.0.2",
+    "eslint": "^9.20.0",
     "execa": "^9.5.2",
     "fast-glob": "^3.3.3",
     "fs-extra": "^11.3.0",
-    "lint-staged": "^15.4.2",
-    "sass": "^1.83.4",
+    "lint-staged": "^15.4.3",
+    "sass": "^1.84.0",
     "simple-git-hooks": "^2.11.1",
-    "stylelint": "^16.13.2",
-    "tsup": "^8.3.5",
+    "stylelint": "^16.14.1",
+    "tsup": "^8.3.6",
     "tsx": "^4.19.2",
     "typescript": "^5.7.3",
-    "vitest": "^3.0.4"
+    "vitest": "^3.0.5"
   },
   "resolutions": {
     "@eslint-community/eslint-utils": "^4.4.1",
-    "@typescript-eslint/utils": "^8.21.0"
+    "@typescript-eslint/utils": "^8.23.0"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged"

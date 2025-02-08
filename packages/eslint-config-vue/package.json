@@ -57,12 +57,12 @@
   "dependencies": {
     "@pengzhanbo/eslint-config": "workspace:*",
     "eslint-plugin-vue": "^9.32.0",
-    "eslint-processor-vue-blocks": "^1.0.0",
+    "eslint-processor-vue-blocks": "^2.0.0",
     "vue-eslint-parser": "^9.4.3"
   },
   "devDependencies": {
     "@unocss/eslint-plugin": "^65.4.3",
-    "eslint": "^9.19.0",
+    "eslint": "^9.20.0",
     "eslint-plugin-format": "^1.0.1",
     "eslint-plugin-tailwindcss": "^3.18.0"
   }
