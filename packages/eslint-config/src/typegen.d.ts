@@ -3216,6 +3216,11 @@ export interface RuleOptions {
    */
   'react/no-unused-state'?: Linter.RuleEntry<[]>
   /**
+   * disallow the use of 'useContext'
+   * @see https://eslint-react.xyz/docs/rules/no-use-context
+   */
+  'react/no-use-context'?: Linter.RuleEntry<[]>
+  /**
    * disallow unnecessary fragments
    * @see https://eslint-react.xyz/docs/rules/no-useless-fragment
    */
@@ -4962,6 +4967,11 @@ export interface RuleOptions {
    * @see https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-spy-on.md
    */
   'test/prefer-spy-on'?: Linter.RuleEntry<[]>
+  /**
+   * enforce using `toBe(true)` and `toBe(false)` over matchers that coerce types to boolean
+   * @see https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-strict-boolean-matchers.md
+   */
+  'test/prefer-strict-boolean-matchers'?: Linter.RuleEntry<[]>
   /**
    * enforce strict equal over equal
    * @see https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-strict-equal.md
@@ -10724,6 +10734,37 @@ type PerfectionistSortEnums = []|[{
   order?: ("asc" | "desc")
   
   forceNumericSort?: boolean
+  customGroups?: ({
+    [k: string]: (string | string[]) | undefined
+  } | ({
+    
+    groupName?: string
+    
+    type?: ("alphabetical" | "line-length" | "natural" | "unsorted")
+    
+    order?: ("desc" | "asc")
+    
+    newlinesInside?: ("always" | "never")
+    anyOf?: {
+      
+      elementValuePattern?: string
+      
+      elementNamePattern?: string
+    }[]
+  } | {
+    
+    groupName?: string
+    
+    type?: ("alphabetical" | "line-length" | "natural" | "unsorted")
+    
+    order?: ("desc" | "asc")
+    
+    newlinesInside?: ("always" | "never")
+    
+    elementValuePattern?: string
+    
+    elementNamePattern?: string
+  })[])
   
   sortByValue?: boolean
   
@@ -10735,7 +10776,15 @@ type PerfectionistSortEnums = []|[{
   
   partitionByNewLine?: boolean
   
+  newlinesBetween?: ("ignore" | "always" | "never")
+  
   type?: ("alphabetical" | "natural" | "line-length" | "custom")
+  
+  groups?: (string | string[] | {
+    
+    newlinesBetween?: ("ignore" | "always" | "never")
+    [k: string]: unknown | undefined
+  })[]
 }]
 // ----- perfectionist/sort-exports -----
 type PerfectionistSortExports = []|[{
@@ -11126,6 +11175,8 @@ type PerfectionistSortNamedExports = []|[{
   order?: ("asc" | "desc")
   
   groupKind?: ("mixed" | "values-first" | "types-first")
+  
+  ignoreAlias?: boolean
   
   partitionByComment?: (string[] | boolean | string | {
     block?: (string[] | boolean | string)
