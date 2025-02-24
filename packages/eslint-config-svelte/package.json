@@ -60,8 +60,8 @@
     "svelte-eslint-parser": "^0.43.0"
   },
   "devDependencies": {
-    "@unocss/eslint-plugin": "^65.4.3",
-    "eslint": "^9.20.0",
+    "@unocss/eslint-plugin": "^66.0.0",
+    "eslint": "^9.21.0",
     "eslint-plugin-format": "^1.0.1",
     "eslint-plugin-tailwindcss": "^3.18.0"
   }
