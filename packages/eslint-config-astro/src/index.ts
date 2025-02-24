@@ -1,9 +1,5 @@
-import {
-  eslintFlatConfig as basicConfig,
-  type EslintConfigOptions,
-  type EslintConfigReturn,
-  type UserConfig,
-} from '@pengzhanbo/eslint-config'
+import type { EslintConfigOptions, EslintConfigReturn, UserConfig } from '@pengzhanbo/eslint-config'
+import { eslintFlatConfig as basicConfig } from '@pengzhanbo/eslint-config'
 
 export function astroEslintFlatConfig(
   options: EslintConfigOptions,
