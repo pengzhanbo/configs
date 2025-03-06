@@ -2840,6 +2840,11 @@ export interface RuleOptions {
    */
   'react-dom/no-find-dom-node'?: Linter.RuleEntry<[]>
   /**
+   * warns against using `flushSync`
+   * @see https://eslint-react.xyz/docs/rules/dom-no-flush-sync
+   */
+  'react-dom/no-flush-sync'?: Linter.RuleEntry<[]>
+  /**
    * enforce that button component have an explicit 'type' attribute
    * @see https://eslint-react.xyz/docs/rules/dom-no-missing-button-type
    */
@@ -2945,10 +2950,15 @@ export interface RuleOptions {
    */
   'react-hooks/rules-of-hooks'?: Linter.RuleEntry<[]>
   /**
-   * enforce component naming convention to 'PascalCase' or 'CONSTANT_CASE'
+   * enforce naming convention for components
    * @see https://eslint-react.xyz/docs/rules/naming-convention-component-name
    */
   'react-naming-convention/component-name'?: Linter.RuleEntry<ReactNamingConventionComponentName>
+  /**
+   * enforce context name to be a valid component name with the suffix 'Context'
+   * @see https://eslint-react.xyz/docs/rules/naming-convention-context-name
+   */
+  'react-naming-convention/context-name'?: Linter.RuleEntry<[]>
   /**
    * enforce naming convention for JSX filenames
    * @see https://eslint-react.xyz/docs/rules/naming-convention-filename
@@ -3016,7 +3026,7 @@ export interface RuleOptions {
    */
   'react/no-access-state-in-setstate'?: Linter.RuleEntry<[]>
   /**
-   * disallow using Array index as 'key'
+   * disallow using an item's index in the array as its key
    * @see https://eslint-react.xyz/docs/rules/no-array-index-key
    */
   'react/no-array-index-key'?: Linter.RuleEntry<[]>
@@ -4374,6 +4384,11 @@ export interface RuleOptions {
    */
   'svelte/comment-directive'?: Linter.RuleEntry<SvelteCommentDirective>
   /**
+   * enforce a consistent style for CSS selectors
+   * @see https://sveltejs.github.io/eslint-plugin-svelte/rules/consistent-selector-style/
+   */
+  'svelte/consistent-selector-style'?: Linter.RuleEntry<SvelteConsistentSelectorStyle>
+  /**
    * derived store should use same variable names between values and callback
    * @see https://sveltejs.github.io/eslint-plugin-svelte/rules/derived-has-same-inputs-outputs/
    */
@@ -4471,6 +4486,7 @@ export interface RuleOptions {
   /**
    * disallow dynamic slot name
    * @see https://sveltejs.github.io/eslint-plugin-svelte/rules/no-dynamic-slot-name/
+   * @deprecated
    */
   'svelte/no-dynamic-slot-name'?: Linter.RuleEntry<[]>
   /**
@@ -4486,6 +4502,7 @@ export interface RuleOptions {
   /**
    * disallow using goto() without the base path
    * @see https://sveltejs.github.io/eslint-plugin-svelte/rules/no-goto-without-base/
+   * @deprecated
    */
   'svelte/no-goto-without-base'?: Linter.RuleEntry<[]>
   /**
@@ -4514,6 +4531,11 @@ export interface RuleOptions {
    */
   'svelte/no-inspect'?: Linter.RuleEntry<[]>
   /**
+   * disallow using navigation (links, goto, pushState, replaceState) without the base path
+   * @see https://sveltejs.github.io/eslint-plugin-svelte/rules/no-navigation-without-base/
+   */
+  'svelte/no-navigation-without-base'?: Linter.RuleEntry<SvelteNoNavigationWithoutBase>
+  /**
    * disallow use of not function in event handler
    * @see https://sveltejs.github.io/eslint-plugin-svelte/rules/no-not-function-handler/
    */
@@ -4523,6 +4545,11 @@ export interface RuleOptions {
    * @see https://sveltejs.github.io/eslint-plugin-svelte/rules/no-object-in-text-mustaches/
    */
   'svelte/no-object-in-text-mustaches'?: Linter.RuleEntry<[]>
+  /**
+   * Checks for invalid raw HTML elements
+   * @see https://sveltejs.github.io/eslint-plugin-svelte/rules/no-raw-special-elements/
+   */
+  'svelte/no-raw-special-elements'?: Linter.RuleEntry<[]>
   /**
    * it's not necessary to define functions in reactive statements
    * @see https://sveltejs.github.io/eslint-plugin-svelte/rules/no-reactive-functions/
@@ -4589,6 +4616,11 @@ export interface RuleOptions {
    */
   'svelte/no-unused-svelte-ignore'?: Linter.RuleEntry<[]>
   /**
+   * disallow explicit children snippet where it's not needed
+   * @see https://sveltejs.github.io/eslint-plugin-svelte/rules/no-useless-children-snippet/
+   */
+  'svelte/no-useless-children-snippet'?: Linter.RuleEntry<[]>
+  /**
    * disallow unnecessary mustache interpolations
    * @see https://sveltejs.github.io/eslint-plugin-svelte/rules/no-useless-mustaches/
    */
@@ -4598,6 +4630,11 @@ export interface RuleOptions {
    * @see https://sveltejs.github.io/eslint-plugin-svelte/rules/prefer-class-directive/
    */
   'svelte/prefer-class-directive'?: Linter.RuleEntry<SveltePreferClassDirective>
+  /**
+   * Require `const` declarations for variables that are never reassigned after declared
+   * @see https://sveltejs.github.io/eslint-plugin-svelte/rules/prefer-const/
+   */
+  'svelte/prefer-const'?: Linter.RuleEntry<SveltePreferConst>
   /**
    * destructure values from object stores for better change tracking & fewer redraws
    * @see https://sveltejs.github.io/eslint-plugin-svelte/rules/prefer-destructured-store-props/
@@ -4678,6 +4715,11 @@ export interface RuleOptions {
    * @see https://sveltejs.github.io/eslint-plugin-svelte/rules/valid-prop-names-in-kit-pages/
    */
   'svelte/valid-prop-names-in-kit-pages'?: Linter.RuleEntry<[]>
+  /**
+   * require valid style element parsing
+   * @see https://sveltejs.github.io/eslint-plugin-svelte/rules/valid-style-parse/
+   */
+  'svelte/valid-style-parse'?: Linter.RuleEntry<[]>
   /**
    * Enforce spacing around colons of switch statements
    * @see https://eslint.org/docs/latest/rules/switch-colon-spacing
@@ -6625,12 +6667,6 @@ export interface RuleOptions {
    */
   'vue/component-options-name-casing'?: Linter.RuleEntry<VueComponentOptionsNameCasing>
   /**
-   * enforce order of component top-level elements
-   * @see https://eslint.vuejs.org/rules/component-tags-order.html
-   * @deprecated
-   */
-  'vue/component-tags-order'?: Linter.RuleEntry<VueComponentTagsOrder>
-  /**
    * enforce specific casing for custom event name
    * @see https://eslint.vuejs.org/rules/custom-event-name-casing.html
    */
@@ -6696,7 +6732,7 @@ export interface RuleOptions {
    */
   'vue/html-closing-bracket-spacing'?: Linter.RuleEntry<VueHtmlClosingBracketSpacing>
   /**
-   * enforce unified line brake in HTML comments
+   * enforce unified line break in HTML comments
    * @see https://eslint.vuejs.org/rules/html-comment-content-newline.html
    */
   'vue/html-comment-content-newline'?: Linter.RuleEntry<VueHtmlCommentContentNewline>
@@ -7006,11 +7042,15 @@ export interface RuleOptions {
    */
   'vue/no-extra-parens'?: Linter.RuleEntry<VueNoExtraParens>
   /**
-   * require valid keys in model option
-   * @see https://eslint.vuejs.org/rules/no-invalid-model-keys.html
-   * @deprecated
+   * Disallow shorthand type conversions in `<template>`
+   * @see https://eslint.vuejs.org/rules/no-implicit-coercion.html
    */
-  'vue/no-invalid-model-keys'?: Linter.RuleEntry<[]>
+  'vue/no-implicit-coercion'?: Linter.RuleEntry<VueNoImplicitCoercion>
+  /**
+   * disallow importing Vue compiler macros
+   * @see https://eslint.vuejs.org/rules/no-import-compiler-macros.html
+   */
+  'vue/no-import-compiler-macros'?: Linter.RuleEntry<[]>
   /**
    * disallow irregular whitespace in `.vue` files
    * @see https://eslint.vuejs.org/rules/no-irregular-whitespace.html
@@ -7037,12 +7077,12 @@ export interface RuleOptions {
    */
   'vue/no-multi-spaces'?: Linter.RuleEntry<VueNoMultiSpaces>
   /**
-   * disallow to pass multiple objects into array to class
+   * disallow passing multiple objects in an array to class
    * @see https://eslint.vuejs.org/rules/no-multiple-objects-in-class.html
    */
   'vue/no-multiple-objects-in-class'?: Linter.RuleEntry<[]>
   /**
-   * disallow to pass multiple arguments to scoped slots
+   * disallow passing multiple arguments to scoped slots
    * @see https://eslint.vuejs.org/rules/no-multiple-slot-args.html
    */
   'vue/no-multiple-slot-args'?: Linter.RuleEntry<[]>
@@ -7071,12 +7111,6 @@ export interface RuleOptions {
    * @see https://eslint.vuejs.org/rules/no-ref-as-operand.html
    */
   'vue/no-ref-as-operand'?: Linter.RuleEntry<[]>
-  /**
-   * disallow usages of ref objects that can lead to loss of reactivity
-   * @see https://eslint.vuejs.org/rules/no-ref-object-destructure.html
-   * @deprecated
-   */
-  'vue/no-ref-object-destructure'?: Linter.RuleEntry<[]>
   /**
    * disallow usages of ref objects that can lead to loss of reactivity
    * @see https://eslint.vuejs.org/rules/no-ref-object-reactivity-loss.html
@@ -7167,12 +7201,6 @@ export interface RuleOptions {
    * @see https://eslint.vuejs.org/rules/no-root-v-if.html
    */
   'vue/no-root-v-if'?: Linter.RuleEntry<[]>
-  /**
-   * disallow usages that lose the reactivity of `props` passed to `setup`
-   * @see https://eslint.vuejs.org/rules/no-setup-props-destructure.html
-   * @deprecated
-   */
-  'vue/no-setup-props-destructure'?: Linter.RuleEntry<[]>
   /**
    * disallow usages that lose the reactivity of `props` passed to `setup`
    * @see https://eslint.vuejs.org/rules/no-setup-props-reactivity-loss.html
@@ -7306,6 +7334,7 @@ export interface RuleOptions {
   /**
    * disallow `key` attribute on `<template v-for>`
    * @see https://eslint.vuejs.org/rules/no-v-for-template-key.html
+   * @deprecated
    */
   'vue/no-v-for-template-key'?: Linter.RuleEntry<[]>
   /**
@@ -7321,6 +7350,7 @@ export interface RuleOptions {
   /**
    * disallow adding an argument to `v-model` used in custom component
    * @see https://eslint.vuejs.org/rules/no-v-model-argument.html
+   * @deprecated
    */
   'vue/no-v-model-argument'?: Linter.RuleEntry<[]>
   /**
@@ -7554,12 +7584,6 @@ export interface RuleOptions {
    */
   'vue/script-indent'?: Linter.RuleEntry<VueScriptIndent>
   /**
-   * prevent `<script setup>` variables used in `<template>` to be marked as unused
-   * @see https://eslint.vuejs.org/rules/script-setup-uses-vars.html
-   * @deprecated
-   */
-  'vue/script-setup-uses-vars'?: Linter.RuleEntry<[]>
-  /**
    * require a line break before and after the contents of a singleline element
    * @see https://eslint.vuejs.org/rules/singleline-html-element-content-newline.html
    */
@@ -7630,12 +7654,6 @@ export interface RuleOptions {
    */
   'vue/v-on-event-hyphenation'?: Linter.RuleEntry<VueVOnEventHyphenation>
   /**
-   * enforce or forbid parentheses after method calls without arguments in `v-on` directives
-   * @see https://eslint.vuejs.org/rules/v-on-function-call.html
-   * @deprecated
-   */
-  'vue/v-on-function-call'?: Linter.RuleEntry<VueVOnFunctionCall>
-  /**
    * enforce writing style for handlers in `v-on` directives
    * @see https://eslint.vuejs.org/rules/v-on-handler-style.html
    */
@@ -7673,6 +7691,7 @@ export interface RuleOptions {
   /**
    * require valid keys in model option
    * @see https://eslint.vuejs.org/rules/valid-model-definition.html
+   * @deprecated
    */
   'vue/valid-model-definition'?: Linter.RuleEntry<[]>
   /**
@@ -7693,6 +7712,7 @@ export interface RuleOptions {
   /**
    * enforce valid `.sync` modifier on `v-bind` directives
    * @see https://eslint.vuejs.org/rules/valid-v-bind-sync.html
+   * @deprecated
    */
   'vue/valid-v-bind-sync'?: Linter.RuleEntry<[]>
   /**
@@ -13741,6 +13761,12 @@ type SvelteButtonHasType = []|[{
 type SvelteCommentDirective = []|[{
   reportUnusedDisableDirectives?: boolean
 }]
+// ----- svelte/consistent-selector-style -----
+type SvelteConsistentSelectorStyle = []|[{
+  checkGlobal?: boolean
+  
+  style?: []|[("class" | "id" | "type")]|[("class" | "id" | "type"), ("class" | "id" | "type")]|[("class" | "id" | "type"), ("class" | "id" | "type"), ("class" | "id" | "type")]
+}]
 // ----- svelte/first-attribute-linebreak -----
 type SvelteFirstAttributeLinebreak = []|[{
   multiline?: ("below" | "beside")
@@ -13773,7 +13799,8 @@ type SvelteHtmlQuotes = []|[{
 type SvelteHtmlSelfClosing = []|[({
   void?: ("never" | "always" | "ignore")
   normal?: ("never" | "always" | "ignore")
-  foreign?: ("never" | "always" | "ignore")
+  svg?: ("never" | "always" | "ignore")
+  math?: ("never" | "always" | "ignore")
   component?: ("never" | "always" | "ignore")
   svelte?: ("never" | "always" | "ignore")
 } | ("all" | "html" | "none"))]
@@ -13811,6 +13838,13 @@ type SvelteNoInlineStyles = []|[{
 // ----- svelte/no-inner-declarations -----
 type SvelteNoInnerDeclarations = []|[("functions" | "both")]|[("functions" | "both"), {
   blockScopedFunctions?: ("allow" | "disallow")
+}]
+// ----- svelte/no-navigation-without-base -----
+type SvelteNoNavigationWithoutBase = []|[{
+  ignoreGoto?: boolean
+  ignoreLinks?: boolean
+  ignorePushState?: boolean
+  ignoreReplaceState?: boolean
 }]
 // ----- svelte/no-reactive-reassign -----
 type SvelteNoReactiveReassign = []|[{
@@ -13854,6 +13888,11 @@ type SvelteNoUselessMustaches = []|[{
 // ----- svelte/prefer-class-directive -----
 type SveltePreferClassDirective = []|[{
   prefer?: ("always" | "empty")
+}]
+// ----- svelte/prefer-const -----
+type SveltePreferConst = []|[{
+  destructuring?: ("any" | "all")
+  ignoreReadBeforeAssign?: boolean
 }]
 // ----- svelte/shorthand-attribute -----
 type SvelteShorthandAttribute = []|[{
@@ -14325,6 +14364,8 @@ type TsExplicitModuleBoundaryTypes = []|[{
   allowedNames?: string[]
   
   allowHigherOrderFunctions?: boolean
+  
+  allowOverloadFunctions?: boolean
   
   allowTypedFunctionExpressions?: boolean
 }]
@@ -15357,6 +15398,8 @@ type TsUnboundMethod = []|[{
 type TsUnifiedSignatures = []|[{
   
   ignoreDifferentlyNamedParameters?: boolean
+  
+  ignoreOverloadsWithDifferentJSDoc?: boolean
 }]
 // ----- unicode-bom -----
 type UnicodeBom = []|[("always" | "never")]
@@ -15740,16 +15783,10 @@ type VueComponentNameInTemplateCasing = []|[("PascalCase" | "kebab-case")]|[("Pa
 }]
 // ----- vue/component-options-name-casing -----
 type VueComponentOptionsNameCasing = []|[("camelCase" | "kebab-case" | "PascalCase")]
-// ----- vue/component-tags-order -----
-type VueComponentTagsOrder = []|[{
-  order?: (string | string[])[]
-}]
 // ----- vue/custom-event-name-casing -----
-type VueCustomEventNameCasing = ([]|[("kebab-case" | "camelCase")]|[("kebab-case" | "camelCase"), {
+type VueCustomEventNameCasing = []|[("kebab-case" | "camelCase")]|[("kebab-case" | "camelCase"), {
   ignores?: string[]
-}] | []|[{
-  ignores?: string[]
-}])
+}]
 // ----- vue/define-emits-declaration -----
 type VueDefineEmitsDeclaration = []|[("type-based" | "type-literal" | "runtime")]
 // ----- vue/define-macros-order -----
@@ -16380,6 +16417,14 @@ type VueNoExtraParens = ([]|["functions"] | []|["all"]|["all", {
   enforceForFunctionPrototypeMethods?: boolean
   allowParensAfterCommentPattern?: string
 }])
+// ----- vue/no-implicit-coercion -----
+type VueNoImplicitCoercion = []|[{
+  boolean?: boolean
+  number?: boolean
+  string?: boolean
+  disallowTemplateShorthand?: boolean
+  allow?: ("~" | "!!" | "+" | "- -" | "-" | "*")[]
+}]
 // ----- vue/no-irregular-whitespace -----
 type VueNoIrregularWhitespace = []|[{
   skipComments?: boolean
@@ -16671,9 +16716,13 @@ type VuePaddingLinesInComponentDefinition = []|[(("always" | "never") | {
   groupSingleLineProperties?: boolean
 })]
 // ----- vue/prefer-true-attribute-shorthand -----
-type VuePreferTrueAttributeShorthand = []|[("always" | "never")]
+type VuePreferTrueAttributeShorthand = []|[("always" | "never")]|[("always" | "never"), {
+  except?: string[]
+}]
 // ----- vue/prop-name-casing -----
-type VuePropNameCasing = []|[("camelCase" | "snake_case")]
+type VuePropNameCasing = []|[("camelCase" | "snake_case")]|[("camelCase" | "snake_case"), {
+  ignoreProps?: string[]
+}]
 // ----- vue/quote-props -----
 type VueQuoteProps = ([]|[("always" | "as-needed" | "consistent" | "consistent-as-needed")] | []|[("always" | "as-needed" | "consistent" | "consistent-as-needed")]|[("always" | "as-needed" | "consistent" | "consistent-as-needed"), {
   keywords?: boolean
@@ -16738,7 +16787,6 @@ type VueSortKeys = []|[("asc" | "desc")]|[("asc" | "desc"), {
   ignoreGrandchildrenOf?: unknown[]
   minKeys?: number
   natural?: boolean
-  runOutsideVue?: boolean
 }]
 // ----- vue/space-in-parens -----
 type VueSpaceInParens = []|[("always" | "never")]|[("always" | "never"), {
@@ -16775,10 +16823,6 @@ type VueVOnEventHyphenation = []|[("always" | "never")]|[("always" | "never"), {
     [k: string]: unknown | undefined
   })[]
   ignoreTags?: string[]
-}]
-// ----- vue/v-on-function-call -----
-type VueVOnFunctionCall = []|[("always" | "never")]|[("always" | "never"), {
-  ignoreIncludesComment?: boolean
 }]
 // ----- vue/v-on-handler-style -----
 type VueVOnHandlerStyle = []|[(("inline" | "inline-function") | ["method", ("inline" | "inline-function")])]|[(("inline" | "inline-function") | ["method", ("inline" | "inline-function")]), {
