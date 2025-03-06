@@ -47,16 +47,16 @@
     "@stylelint-types/stylelint-scss": "^6.5.0",
     "@stylelint-types/stylelint-stylistic": "^3.1.1",
     "@stylistic/stylelint-plugin": "^3.1.2",
-    "local-pkg": "^1.0.0",
+    "local-pkg": "^1.1.1",
     "postcss": "^8.5.3",
     "postcss-html": "^1.8.0",
     "stylelint-config-html": "^1.1.0",
     "stylelint-config-standard": "^37.0.0",
     "stylelint-config-standard-scss": "^14.0.0",
-    "stylelint-define-config": "^16.14.1",
+    "stylelint-define-config": "^16.15.0",
     "stylelint-order": "^6.0.4"
   },
   "devDependencies": {
-    "stylelint": "^16.14.1"
+    "stylelint": "^16.15.0"
   }
 }

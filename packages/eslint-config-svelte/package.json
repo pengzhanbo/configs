@@ -35,8 +35,8 @@
   },
   "peerDependencies": {
     "@prettier/plugin-xml": "^3.4.1",
-    "@unocss/eslint-plugin": ">=65.4.0",
-    "eslint": ">=9.18.0",
+    "@unocss/eslint-plugin": ">=66.0.0",
+    "eslint": ">=9.20.0",
     "eslint-plugin-format": ">=1.0.0",
     "eslint-plugin-tailwindcss": ">=3.18.0"
   },
@@ -56,8 +56,8 @@
   },
   "dependencies": {
     "@pengzhanbo/eslint-config": "workspace:*",
-    "eslint-plugin-svelte": "^2.46.1",
-    "svelte-eslint-parser": "^0.43.0"
+    "eslint-plugin-svelte": "^3.0.3",
+    "svelte-eslint-parser": "^1.0.1"
   },
   "devDependencies": {
     "@unocss/eslint-plugin": "^66.0.0",
