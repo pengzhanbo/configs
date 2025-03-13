@@ -39,24 +39,24 @@
     "lint": "stylelint **/*.{css,scss} -c ./stylelint.config.js"
   },
   "peerDependencies": {
-    "stylelint": ">=16.0.0"
+    "stylelint": "catalog:peer"
   },
   "dependencies": {
-    "@pengzhanbo/utils": "^1.2.0",
-    "@stylelint-types/stylelint-order": "^6.0.4",
-    "@stylelint-types/stylelint-scss": "^6.5.0",
-    "@stylelint-types/stylelint-stylistic": "^3.1.1",
-    "@stylistic/stylelint-plugin": "^3.1.2",
-    "local-pkg": "^1.1.1",
-    "postcss": "^8.5.3",
-    "postcss-html": "^1.8.0",
-    "stylelint-config-html": "^1.1.0",
-    "stylelint-config-standard": "^37.0.0",
-    "stylelint-config-standard-scss": "^14.0.0",
-    "stylelint-define-config": "^16.15.0",
-    "stylelint-order": "^6.0.4"
+    "@pengzhanbo/utils": "catalog:prod",
+    "@stylelint-types/stylelint-order": "catalog:prod",
+    "@stylelint-types/stylelint-scss": "catalog:prod",
+    "@stylelint-types/stylelint-stylistic": "catalog:prod",
+    "@stylistic/stylelint-plugin": "catalog:prod",
+    "local-pkg": "catalog:prod",
+    "postcss": "catalog:prod",
+    "postcss-html": "catalog:prod",
+    "stylelint-config-html": "catalog:prod",
+    "stylelint-config-standard": "catalog:prod",
+    "stylelint-config-standard-scss": "catalog:prod",
+    "stylelint-define-config": "catalog:prod",
+    "stylelint-order": "catalog:prod"
   },
   "devDependencies": {
-    "stylelint": "^16.15.0"
+    "stylelint": "catalog:peer"
   }
 }

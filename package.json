@@ -3,7 +3,7 @@
   "type": "module",
   "version": "1.27.0",
   "private": true,
-  "packageManager": "pnpm@10.5.2",
+  "packageManager": "pnpm@10.6.2",
   "author": "pengzhanbo <q942450674@outlook.com> (https://github/pengzhanbo/)",
   "license": "MIT",
   "engines": {
@@ -22,30 +22,18 @@
   "devDependencies": {
     "@pengzhanbo/eslint-config": "workspace:*",
     "@pengzhanbo/stylelint-config": "workspace:*",
-    "@types/fs-extra": "^11.0.4",
-    "@types/node": "^22.13.9",
-    "bumpp": "^10.0.3",
-    "eslint": "^9.21.0",
-    "execa": "^9.5.2",
-    "fast-glob": "^3.3.3",
-    "fs-extra": "^11.3.0",
-    "lint-staged": "^15.4.3",
-    "sass": "^1.85.1",
-    "simple-git-hooks": "^2.11.1",
-    "stylelint": "^16.15.0",
-    "tsup": "^8.4.0",
-    "tsx": "^4.19.3",
-    "typescript": "^5.8.2",
-    "vitest": "^3.0.7"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "esbuild"
-    ]
-  },
-  "resolutions": {
-    "@eslint-community/eslint-utils": "^4.4.1",
-    "@typescript-eslint/utils": "^8.26.0"
+    "@types/node": "catalog:dev",
+    "bumpp": "catalog:dev",
+    "execa": "catalog:dev",
+    "fast-glob": "catalog:dev",
+    "lint-staged": "catalog:dev",
+    "sass": "catalog:dev",
+    "simple-git-hooks": "catalog:dev",
+    "stylelint": "catalog:peer",
+    "tsup": "catalog:dev",
+    "tsx": "catalog:dev",
+    "typescript": "catalog:dev",
+    "vitest": "catalog:dev"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged"

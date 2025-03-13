@@ -34,11 +34,11 @@
     "prepublishOnly": "pnpm build"
   },
   "peerDependencies": {
-    "@prettier/plugin-xml": "^3.4.1",
-    "@unocss/eslint-plugin": ">=66.0.0",
-    "eslint": ">=9.20.0",
-    "eslint-plugin-format": ">=1.0.0",
-    "eslint-plugin-tailwindcss": ">=3.18.0"
+    "@prettier/plugin-xml": "catalog:peer",
+    "@unocss/eslint-plugin": "catalog:peer",
+    "eslint": "catalog:peer",
+    "eslint-plugin-format": "catalog:peer",
+    "eslint-plugin-tailwindcss": "catalog:peer"
   },
   "peerDependenciesMeta": {
     "@prettier/plugin-xml": {
@@ -55,15 +55,15 @@
     }
   },
   "dependencies": {
-    "@eslint-react/eslint-plugin": "^1.30.2",
+    "@eslint-react/eslint-plugin": "catalog:peer",
     "@pengzhanbo/eslint-config": "workspace:*",
-    "eslint-plugin-react-hooks": "^5.2.0",
-    "eslint-plugin-react-refresh": "^0.4.19"
+    "eslint-plugin-react-hooks": "catalog:peer",
+    "eslint-plugin-react-refresh": "catalog:peer"
   },
   "devDependencies": {
-    "@unocss/eslint-plugin": "^66.0.0",
-    "eslint": "^9.21.0",
-    "eslint-plugin-format": "^1.0.1",
-    "eslint-plugin-tailwindcss": "^3.18.0"
+    "@unocss/eslint-plugin": "catalog:peer",
+    "eslint": "catalog:peer",
+    "eslint-plugin-format": "catalog:peer",
+    "eslint-plugin-tailwindcss": "catalog:peer"
   }
 }
