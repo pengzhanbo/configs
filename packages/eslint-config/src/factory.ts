@@ -17,6 +17,7 @@ import {
   markdown,
   node,
   perfectionist,
+  pnpm,
   react,
   regexp,
   solid,
@@ -93,6 +94,7 @@ export function eslintFlatConfig(
     componentExts = [],
     gitignore: enableGitignore = true,
     jsx: enableJsx = true,
+    pnpm: enableCatalogs = false,
     react: enableReact = false,
     regexp: enableRegexp = true,
     svelte: enableSvelte = false,
@@ -264,6 +266,12 @@ export function eslintFlatConfig(
       }),
       sortPackageJson(),
       sortTsconfig(),
+    )
+  }
+
+  if (enableCatalogs) {
+    configs.push(
+      pnpm(),
     )
   }
 

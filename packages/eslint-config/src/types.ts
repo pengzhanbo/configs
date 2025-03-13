@@ -434,6 +434,18 @@ export interface OptionsConfig extends OptionsComponentExts, OptionsProjectType 
   tailwindcss?: boolean | OptionsTailwindCSS
 
   /**
+   * Enable pnpm (workspace/catalogs) support.
+   *
+   * Currently it's disabled by default, as it's still experimental.
+   * In the future it will be smartly enabled based on the project usage.
+   *
+   * @see https://github.com/antfu/pnpm-workspace-utils
+   * @experimental
+   * @default false
+   */
+  pnpm?: boolean
+
+  /**
    * Control to disable some rules in editors.
    * @default auto-detect based on the process.env
    */

@@ -15,4 +15,5 @@ export default eslintConfig({
   nextjs: true,
   astro: true,
   solid: true,
+  pnpm: true,
 })

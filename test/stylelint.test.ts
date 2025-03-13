@@ -1,7 +1,7 @@
+import fs from 'node:fs/promises'
 import { join, resolve } from 'node:path'
 import { execa } from 'execa'
 import fg from 'fast-glob'
-import fs from 'fs-extra'
 import { afterAll, beforeAll, it } from 'vitest'
 
 const FIXTURES = 'fixtures/stylelint'
@@ -19,7 +19,7 @@ it.concurrent('stylelint', async ({ expect }) => {
   const output = resolve(FIXTURES, 'output')
   const target = resolve(_FIXTURES)
 
-  await fs.copy(from, target, {
+  await fs.cp(from, target, {
     filter: (src) => {
       return !src.includes('node_modules')
     },
@@ -51,8 +51,7 @@ export default config
     const source = await fs.readFile(join(from, file), 'utf-8')
     const outputPath = join(output, file)
     if (content === source) {
-      if (fs.existsSync(outputPath))
-        fs.remove(outputPath)
+      fs.rm(outputPath)
       return
     }
     await expect.soft(content).toMatchFileSnapshot(join(output, file))
