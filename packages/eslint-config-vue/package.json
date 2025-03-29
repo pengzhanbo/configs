@@ -57,6 +57,7 @@
   "dependencies": {
     "@pengzhanbo/eslint-config": "workspace:*",
     "eslint-plugin-vue": "catalog:peer",
+    "eslint-plugin-vuejs-accessibility": "catalog:peer",
     "eslint-processor-vue-blocks": "catalog:peer",
     "vue-eslint-parser": "catalog:peer"
   },
