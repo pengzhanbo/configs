@@ -18,7 +18,7 @@
   - [markdown](https://github.com/eslint/eslint-plugin-markdown#readme)
   - [perfectionist](https://eslint-plugin-perfectionist.azat.io)
   - sort
-    - `package.json` / `tsconfig.json`
+    - `package.json` / `tsconfig.json` / `pnpm-workspace.yaml`
   - [stylistic](https://github.com/eslint-stylistic/eslint-stylistic#readme)
   - test
     - [vitest](https://github.com/vitest-dev/eslint-plugin-vitest#readme)
@@ -179,4 +179,4 @@ In `.stylelintrc.json`
 - [prettier](https://prettier.io/)
 - [@antfu/eslint-config](https://github.com/antfu/eslint-config)
 
-<!-- 4.10.1 -->
+<!-- 4.12.0 -->
