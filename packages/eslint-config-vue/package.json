@@ -1,7 +1,7 @@
 {
   "name": "@pengzhanbo/eslint-config-vue",
   "type": "module",
-  "version": "1.29.0",
+  "version": "1.30.0",
   "author": "pengzhanbo <q942450674@outlook.com> (https://github/pengzhanbo/)",
   "license": "MIT",
   "homepage": "https://github.com/pengzhanbo/configs#readme",
