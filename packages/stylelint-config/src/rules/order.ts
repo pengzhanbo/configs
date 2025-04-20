@@ -1,4 +1,4 @@
-import type { RuleOptions } from '@stylelint-types/stylelint-order/types'
+import type { RuleOptions } from '@stylelint-types/stylelint-order'
 import type { Rules } from 'stylelint-define-config'
 
 export const orderRules = {

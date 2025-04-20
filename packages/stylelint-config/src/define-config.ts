@@ -2,17 +2,17 @@ import type {
   Extends as OrderExtends,
   Plugins as OrderPlugins,
   RuleOptions as OrderRuleOptions,
-} from '@stylelint-types/stylelint-order/types'
+} from '@stylelint-types/stylelint-order'
 import type {
   Extends as SCSSExtends,
   Plugins as SCSSPlugins,
   RuleOptions as SCSSRuleOptions,
   Syntax as SCSSSyntax,
-} from '@stylelint-types/stylelint-scss/types'
+} from '@stylelint-types/stylelint-scss'
 import type {
   Plugins as StylisticPlugins,
   RuleOptions as StylisticRuleOptions,
-} from '@stylelint-types/stylelint-stylistic/types'
+} from '@stylelint-types/stylelint-stylistic'
 import type { Rules, StylelintConfig } from 'stylelint-define-config'
 import defineConfig from 'stylelint-define-config'
 

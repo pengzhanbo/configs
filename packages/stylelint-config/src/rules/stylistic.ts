@@ -1,4 +1,4 @@
-import type { RuleOptions } from '@stylelint-types/stylelint-stylistic/types'
+import type { RuleOptions } from '@stylelint-types/stylelint-stylistic'
 
 export const stylisticRules = {
   '@stylistic/at-rule-name-case': 'lower',
