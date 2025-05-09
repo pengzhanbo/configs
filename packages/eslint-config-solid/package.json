@@ -1,7 +1,7 @@
 {
   "name": "@pengzhanbo/eslint-config-solid",
   "type": "module",
-  "version": "1.30.0",
+  "version": "1.31.0",
   "author": "pengzhanbo <q942450674@outlook.com> (https://github/pengzhanbo/)",
   "license": "MIT",
   "homepage": "https://github.com/pengzhanbo/configs#readme",
