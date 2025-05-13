@@ -30,7 +30,7 @@
     "sass": "catalog:dev",
     "simple-git-hooks": "catalog:dev",
     "stylelint": "catalog:peer",
-    "tsup": "catalog:dev",
+    "tsdown": "catalog:dev",
     "tsx": "catalog:dev",
     "typescript": "catalog:dev",
     "vitest": "catalog:dev"

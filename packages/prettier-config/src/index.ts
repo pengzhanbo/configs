@@ -34,7 +34,7 @@ export default {
 
   // Format only a segment of a file.
   rangeStart: 0,
-  rangeEnd: Number.POSITIVE_INFINITY,
+  rangeEnd: Number.POSITIVE_INFINITY as number,
 
   // Specify which parser to use.
   // parser: undefined,
@@ -65,4 +65,4 @@ export default {
 
   // Enforce single attribute per line in HTML, Vue and JSX
   singleAttributePerLine: false,
-}
+} as const

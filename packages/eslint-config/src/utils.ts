@@ -1,3 +1,4 @@
+import type { Linter } from 'eslint'
 import type { Awaitable, TypedFlatConfigItem } from './types'
 import process from 'node:process'
 import { fileURLToPath } from 'node:url'
@@ -6,7 +7,7 @@ import { isPackageExists } from 'local-pkg'
 const scopeUrl = fileURLToPath(new URL('.', import.meta.url))
 const isCwdInScope = isPackageExists('@antfu/eslint-config')
 
-export const parserPlain = {
+export const parserPlain: Linter.Parser = {
   meta: {
     name: 'parser-plain',
   },
@@ -115,7 +116,7 @@ export function isPackageInScope(name: string): boolean {
   return isPackageExists(name, { paths: [scopeUrl] })
 }
 
-export async function ensurePackages(packages: string | undefined | (string | undefined)[]) {
+export async function ensurePackages(packages: string | undefined | (string | undefined)[]): Promise<void> {
   if (process.env.CI || process.stdout.isTTY === false || isCwdInScope === false)
     return
 

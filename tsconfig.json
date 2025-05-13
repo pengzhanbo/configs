@@ -4,11 +4,10 @@
     "baseUrl": ".",
     "module": "ESNext",
     "moduleResolution": "Bundler",
-    "paths": {
-      "@pengzhanbo/*": ["./packages/*/src/index.ts"]
-    },
     "strict": true,
+    "declaration": true,
     "esModuleInterop": true,
+    "isolatedDeclarations": true,
     "skipLibCheck": true
   },
   "include": ["./packages/**/*.ts"],

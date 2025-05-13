@@ -28,10 +28,10 @@
     "dist"
   ],
   "scripts": {
-    "dev": "tsup src/index.ts --shims --format esm --watch & npx @eslint/config-inspector",
-    "build": "pnpm typegen && tsup src/index.ts --format esm --clean --dts --shims",
+    "dev": "tsdown src/index.ts --shims --format esm --watch & npx @eslint/config-inspector",
+    "build": "pnpm typegen && tsdown src/index.ts --format esm --dts",
     "build:inspector": "pnpm build && npx @eslint/config-inspector build",
-    "stub": "tsup src/index.ts --format esm",
+    "stub": "tsdown src/index.ts --format esm",
     "typegen": "tsx scripts/typegen.ts",
     "prepublishOnly": "pnpm run build"
   },

@@ -29,8 +29,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsup src/index.ts --format esm --clean --dts --shims",
-    "stub": "tsup src/index.ts --format esm",
+    "build": "tsdown src/index.ts --format esm --dts",
+    "stub": "tsdown src/index.ts --format esm",
     "prepublishOnly": "pnpm run build"
   },
   "peerDependencies": {

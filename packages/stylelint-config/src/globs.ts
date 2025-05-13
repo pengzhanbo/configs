@@ -1,4 +1,4 @@
-export const JS_EXT = [
+export const JS_EXT: string[] = [
   '*.js',
   '*.ts',
   '*.jsx',
@@ -9,7 +9,7 @@ export const JS_EXT = [
   '*.cts',
 ]
 
-export const GLOB_EXCLUDE = [
+export const GLOB_EXCLUDE: string[] = [
   '**/node_modules',
   '**/dist',
   '**/package-lock.json',

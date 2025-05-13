@@ -1,25 +1,23 @@
 packages:
   - packages/*
-
 overrides:
   '@eslint-community/eslint-utils': ^4.7.0
   '@typescript-eslint/utils': ^8.32.0
   eslint: ^9.26.0
   tsx: ^4.19.4
-
 catalogs:
   dev:
     '@eslint/config-inspector': ^1.0.2
     '@types/node': ^22.15.17
     bumpp: ^10.1.0
-    eslint-typegen: ^2.1.0
+    eslint-typegen: ^2.2.0
     execa: ^9.5.3
     fast-glob: ^3.3.3
-    lint-staged: ^15.5.2
-    sass: ^1.87.0
+    lint-staged: ^16.0.0
+    sass: ^1.88.0
     simple-git-hooks: ^2.13.0
     svelte: ^5.28.2
-    tsup: ^8.4.0
+    tsdown: ^0.11.5
     tsx: ^4.19.4
     typescript: ^5.8.3
     vitest: ^3.1.3
@@ -64,7 +62,7 @@ catalogs:
     eslint-plugin-antfu: ^3.1.1
     eslint-plugin-command: ^3.2.0
     eslint-plugin-import-x: ^4.11.1
-    eslint-plugin-jsdoc: ^50.6.11
+    eslint-plugin-jsdoc: ^50.6.14
     eslint-plugin-jsonc: ^2.20.0
     eslint-plugin-n: ^17.18.0
     eslint-plugin-no-only-tests: ^3.3.0
@@ -83,13 +81,13 @@ catalogs:
     postcss-html: ^1.8.0
     stylelint-config-html: ^1.1.0
     stylelint-config-standard: ^38.0.0
-    stylelint-config-standard-scss: ^14.0.0
+    stylelint-config-standard-scss: ^15.0.0
     stylelint-define-config: ^16.19.0
     stylelint-order: ^7.0.0
     toml-eslint-parser: ^0.10.0
     yaml-eslint-parser: ^1.3.0
-
 onlyBuiltDependencies:
+  - '@parcel/watcher'
   - esbuild
   - simple-git-hooks
   - unrs-resolver
