@@ -55,8 +55,6 @@ export async function markdown(
       rules: {
         'antfu/no-top-level-await': 'off',
 
-        'import/newline-after-import': 'off',
-
         'no-alert': 'off',
         'no-console': 'off',
         'no-labels': 'off',
@@ -68,9 +66,11 @@ export async function markdown(
 
         'no-unused-vars': 'off',
         'node/prefer-global/process': 'off',
-        'style/comma-dangle': 'off',
 
+        'style/comma-dangle': 'off',
         'style/eol-last': 'off',
+        'style/padding-line-between-statements': 'off',
+
         'ts/consistent-type-imports': 'off',
         'ts/no-namespace': 'off',
         'ts/no-redeclare': 'off',

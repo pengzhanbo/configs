@@ -62,7 +62,6 @@ export const defaultPluginRenaming = {
 
   '@stylistic': 'style',
   '@typescript-eslint': 'ts',
-  'import-x': 'import',
   'n': 'node',
   'vitest': 'test',
   'yml': 'yaml',
@@ -93,6 +92,7 @@ export function eslintFlatConfig(
     autoRenamePlugins = true,
     componentExts = [],
     gitignore: enableGitignore = true,
+    imports: enableImports = true,
     jsx: enableJsx = true,
     pnpm: enableCatalogs = false,
     react: enableReact = false,
@@ -163,6 +163,19 @@ export function eslintFlatConfig(
     // Optional plugins (installed but not enabled by default)
     perfectionist(),
   )
+
+  if (enableImports) {
+    configs.push(
+      imports(enableImports === true
+        ? {
+            stylistic: stylisticOptions,
+          }
+        : {
+            stylistic: stylisticOptions,
+            ...enableImports,
+          }),
+    )
+  }
 
   if (enableUnicorn) {
     configs.push(unicorn(enableUnicorn === true ? {} : enableUnicorn))

@@ -644,237 +644,6 @@ export interface RuleOptions {
    */
   'implicit-arrow-linebreak'?: Linter.RuleEntry<ImplicitArrowLinebreak>
   /**
-   * Enforce or ban the use of inline type-only markers for named imports.
-   * @see https://github.com/un-ts/eslint-plugin-import-x/blob/v4.15.0/docs/rules/consistent-type-specifier-style.md
-   */
-  'import/consistent-type-specifier-style'?: Linter.RuleEntry<ImportConsistentTypeSpecifierStyle>
-  /**
-   * Ensure a default export is present, given a default import.
-   * @see https://github.com/un-ts/eslint-plugin-import-x/blob/v4.15.0/docs/rules/default.md
-   */
-  'import/default'?: Linter.RuleEntry<[]>
-  /**
-   * Enforce a leading comment with the webpackChunkName for dynamic imports.
-   * @see https://github.com/un-ts/eslint-plugin-import-x/blob/v4.15.0/docs/rules/dynamic-import-chunkname.md
-   */
-  'import/dynamic-import-chunkname'?: Linter.RuleEntry<ImportDynamicImportChunkname>
-  /**
-   * Forbid any invalid exports, i.e. re-export of the same name.
-   * @see https://github.com/un-ts/eslint-plugin-import-x/blob/v4.15.0/docs/rules/export.md
-   */
-  'import/export'?: Linter.RuleEntry<[]>
-  /**
-   * Ensure all exports appear after other statements.
-   * @see https://github.com/un-ts/eslint-plugin-import-x/blob/v4.15.0/docs/rules/exports-last.md
-   */
-  'import/exports-last'?: Linter.RuleEntry<[]>
-  /**
-   * Ensure consistent use of file extension within the import path.
-   * @see https://github.com/un-ts/eslint-plugin-import-x/blob/v4.15.0/docs/rules/extensions.md
-   */
-  'import/extensions'?: Linter.RuleEntry<ImportExtensions>
-  /**
-   * Ensure all imports appear before other statements.
-   * @see https://github.com/un-ts/eslint-plugin-import-x/blob/v4.15.0/docs/rules/first.md
-   */
-  'import/first'?: Linter.RuleEntry<ImportFirst>
-  /**
-   * Prefer named exports to be grouped together in a single export declaration.
-   * @see https://github.com/un-ts/eslint-plugin-import-x/blob/v4.15.0/docs/rules/group-exports.md
-   */
-  'import/group-exports'?: Linter.RuleEntry<[]>
-  /**
-   * Replaced by `import-x/first`.
-   * @see https://github.com/un-ts/eslint-plugin-import-x/blob/v4.15.0/docs/rules/imports-first.md
-   * @deprecated
-   */
-  'import/imports-first'?: Linter.RuleEntry<ImportImportsFirst>
-  /**
-   * Enforce the maximum number of dependencies a module can have.
-   * @see https://github.com/un-ts/eslint-plugin-import-x/blob/v4.15.0/docs/rules/max-dependencies.md
-   */
-  'import/max-dependencies'?: Linter.RuleEntry<ImportMaxDependencies>
-  /**
-   * Ensure named imports correspond to a named export in the remote file.
-   * @see https://github.com/un-ts/eslint-plugin-import-x/blob/v4.15.0/docs/rules/named.md
-   */
-  'import/named'?: Linter.RuleEntry<ImportNamed>
-  /**
-   * Ensure imported namespaces contain dereferenced properties as they are dereferenced.
-   * @see https://github.com/un-ts/eslint-plugin-import-x/blob/v4.15.0/docs/rules/namespace.md
-   */
-  'import/namespace'?: Linter.RuleEntry<ImportNamespace>
-  /**
-   * Enforce a newline after import statements.
-   * @see https://github.com/un-ts/eslint-plugin-import-x/blob/v4.15.0/docs/rules/newline-after-import.md
-   */
-  'import/newline-after-import'?: Linter.RuleEntry<ImportNewlineAfterImport>
-  /**
-   * Forbid import of modules using absolute paths.
-   * @see https://github.com/un-ts/eslint-plugin-import-x/blob/v4.15.0/docs/rules/no-absolute-path.md
-   */
-  'import/no-absolute-path'?: Linter.RuleEntry<ImportNoAbsolutePath>
-  /**
-   * Forbid AMD `require` and `define` calls.
-   * @see https://github.com/un-ts/eslint-plugin-import-x/blob/v4.15.0/docs/rules/no-amd.md
-   */
-  'import/no-amd'?: Linter.RuleEntry<[]>
-  /**
-   * Forbid anonymous values as default exports.
-   * @see https://github.com/un-ts/eslint-plugin-import-x/blob/v4.15.0/docs/rules/no-anonymous-default-export.md
-   */
-  'import/no-anonymous-default-export'?: Linter.RuleEntry<ImportNoAnonymousDefaultExport>
-  /**
-   * Forbid CommonJS `require` calls and `module.exports` or `exports.*`.
-   * @see https://github.com/un-ts/eslint-plugin-import-x/blob/v4.15.0/docs/rules/no-commonjs.md
-   */
-  'import/no-commonjs'?: Linter.RuleEntry<ImportNoCommonjs>
-  /**
-   * Forbid a module from importing a module with a dependency path back to itself.
-   * @see https://github.com/un-ts/eslint-plugin-import-x/blob/v4.15.0/docs/rules/no-cycle.md
-   */
-  'import/no-cycle'?: Linter.RuleEntry<ImportNoCycle>
-  /**
-   * Forbid default exports.
-   * @see https://github.com/un-ts/eslint-plugin-import-x/blob/v4.15.0/docs/rules/no-default-export.md
-   */
-  'import/no-default-export'?: Linter.RuleEntry<[]>
-  /**
-   * Forbid imported names marked with `@deprecated` documentation tag.
-   * @see https://github.com/un-ts/eslint-plugin-import-x/blob/v4.15.0/docs/rules/no-deprecated.md
-   */
-  'import/no-deprecated'?: Linter.RuleEntry<[]>
-  /**
-   * Forbid repeated import of the same module in multiple places.
-   * @see https://github.com/un-ts/eslint-plugin-import-x/blob/v4.15.0/docs/rules/no-duplicates.md
-   */
-  'import/no-duplicates'?: Linter.RuleEntry<ImportNoDuplicates>
-  /**
-   * Forbid `require()` calls with expressions.
-   * @see https://github.com/un-ts/eslint-plugin-import-x/blob/v4.15.0/docs/rules/no-dynamic-require.md
-   */
-  'import/no-dynamic-require'?: Linter.RuleEntry<ImportNoDynamicRequire>
-  /**
-   * Forbid empty named import blocks.
-   * @see https://github.com/un-ts/eslint-plugin-import-x/blob/v4.15.0/docs/rules/no-empty-named-blocks.md
-   */
-  'import/no-empty-named-blocks'?: Linter.RuleEntry<[]>
-  /**
-   * Forbid the use of extraneous packages.
-   * @see https://github.com/un-ts/eslint-plugin-import-x/blob/v4.15.0/docs/rules/no-extraneous-dependencies.md
-   */
-  'import/no-extraneous-dependencies'?: Linter.RuleEntry<ImportNoExtraneousDependencies>
-  /**
-   * Forbid import statements with CommonJS module.exports.
-   * @see https://github.com/un-ts/eslint-plugin-import-x/blob/v4.15.0/docs/rules/no-import-module-exports.md
-   */
-  'import/no-import-module-exports'?: Linter.RuleEntry<ImportNoImportModuleExports>
-  /**
-   * Forbid importing the submodules of other modules.
-   * @see https://github.com/un-ts/eslint-plugin-import-x/blob/v4.15.0/docs/rules/no-internal-modules.md
-   */
-  'import/no-internal-modules'?: Linter.RuleEntry<ImportNoInternalModules>
-  /**
-   * Forbid the use of mutable exports with `var` or `let`.
-   * @see https://github.com/un-ts/eslint-plugin-import-x/blob/v4.15.0/docs/rules/no-mutable-exports.md
-   */
-  'import/no-mutable-exports'?: Linter.RuleEntry<[]>
-  /**
-   * Forbid use of exported name as identifier of default export.
-   * @see https://github.com/un-ts/eslint-plugin-import-x/blob/v4.15.0/docs/rules/no-named-as-default.md
-   */
-  'import/no-named-as-default'?: Linter.RuleEntry<[]>
-  /**
-   * Forbid use of exported name as property of default export.
-   * @see https://github.com/un-ts/eslint-plugin-import-x/blob/v4.15.0/docs/rules/no-named-as-default-member.md
-   */
-  'import/no-named-as-default-member'?: Linter.RuleEntry<[]>
-  /**
-   * Forbid named default exports.
-   * @see https://github.com/un-ts/eslint-plugin-import-x/blob/v4.15.0/docs/rules/no-named-default.md
-   */
-  'import/no-named-default'?: Linter.RuleEntry<[]>
-  /**
-   * Forbid named exports.
-   * @see https://github.com/un-ts/eslint-plugin-import-x/blob/v4.15.0/docs/rules/no-named-export.md
-   */
-  'import/no-named-export'?: Linter.RuleEntry<[]>
-  /**
-   * Forbid namespace (a.k.a. "wildcard" `*`) imports.
-   * @see https://github.com/un-ts/eslint-plugin-import-x/blob/v4.15.0/docs/rules/no-namespace.md
-   */
-  'import/no-namespace'?: Linter.RuleEntry<ImportNoNamespace>
-  /**
-   * Forbid Node.js builtin modules.
-   * @see https://github.com/un-ts/eslint-plugin-import-x/blob/v4.15.0/docs/rules/no-nodejs-modules.md
-   */
-  'import/no-nodejs-modules'?: Linter.RuleEntry<ImportNoNodejsModules>
-  /**
-   * Forbid importing packages through relative paths.
-   * @see https://github.com/un-ts/eslint-plugin-import-x/blob/v4.15.0/docs/rules/no-relative-packages.md
-   */
-  'import/no-relative-packages'?: Linter.RuleEntry<ImportNoRelativePackages>
-  /**
-   * Forbid importing modules from parent directories.
-   * @see https://github.com/un-ts/eslint-plugin-import-x/blob/v4.15.0/docs/rules/no-relative-parent-imports.md
-   */
-  'import/no-relative-parent-imports'?: Linter.RuleEntry<ImportNoRelativeParentImports>
-  /**
-   * Forbid importing a default export by a different name.
-   * @see https://github.com/un-ts/eslint-plugin-import-x/blob/v4.15.0/docs/rules/no-rename-default.md
-   */
-  'import/no-rename-default'?: Linter.RuleEntry<ImportNoRenameDefault>
-  /**
-   * Enforce which files can be imported in a given folder.
-   * @see https://github.com/un-ts/eslint-plugin-import-x/blob/v4.15.0/docs/rules/no-restricted-paths.md
-   */
-  'import/no-restricted-paths'?: Linter.RuleEntry<ImportNoRestrictedPaths>
-  /**
-   * Forbid a module from importing itself.
-   * @see https://github.com/un-ts/eslint-plugin-import-x/blob/v4.15.0/docs/rules/no-self-import.md
-   */
-  'import/no-self-import'?: Linter.RuleEntry<[]>
-  /**
-   * Forbid unassigned imports.
-   * @see https://github.com/un-ts/eslint-plugin-import-x/blob/v4.15.0/docs/rules/no-unassigned-import.md
-   */
-  'import/no-unassigned-import'?: Linter.RuleEntry<ImportNoUnassignedImport>
-  /**
-   * Ensure imports point to a file/module that can be resolved.
-   * @see https://github.com/un-ts/eslint-plugin-import-x/blob/v4.15.0/docs/rules/no-unresolved.md
-   */
-  'import/no-unresolved'?: Linter.RuleEntry<ImportNoUnresolved>
-  /**
-   * Forbid modules without exports, or exports without matching import in another module.
-   * @see https://github.com/un-ts/eslint-plugin-import-x/blob/v4.15.0/docs/rules/no-unused-modules.md
-   */
-  'import/no-unused-modules'?: Linter.RuleEntry<ImportNoUnusedModules>
-  /**
-   * Forbid unnecessary path segments in import and require statements.
-   * @see https://github.com/un-ts/eslint-plugin-import-x/blob/v4.15.0/docs/rules/no-useless-path-segments.md
-   */
-  'import/no-useless-path-segments'?: Linter.RuleEntry<ImportNoUselessPathSegments>
-  /**
-   * Forbid webpack loader syntax in imports.
-   * @see https://github.com/un-ts/eslint-plugin-import-x/blob/v4.15.0/docs/rules/no-webpack-loader-syntax.md
-   */
-  'import/no-webpack-loader-syntax'?: Linter.RuleEntry<[]>
-  /**
-   * Enforce a convention in module import order.
-   * @see https://github.com/un-ts/eslint-plugin-import-x/blob/v4.15.0/docs/rules/order.md
-   */
-  'import/order'?: Linter.RuleEntry<ImportOrder>
-  /**
-   * Prefer a default export if module exports a single name or multiple names.
-   * @see https://github.com/un-ts/eslint-plugin-import-x/blob/v4.15.0/docs/rules/prefer-default-export.md
-   */
-  'import/prefer-default-export'?: Linter.RuleEntry<ImportPreferDefaultExport>
-  /**
-   * Forbid potentially ambiguous parse goal (`script` vs. `module`).
-   * @see https://github.com/un-ts/eslint-plugin-import-x/blob/v4.15.0/docs/rules/unambiguous.md
-   */
-  'import/unambiguous'?: Linter.RuleEntry<[]>
-  /**
    * Enforce consistent indentation
    * @see https://eslint.org/docs/latest/rules/indent
    * @deprecated
@@ -1460,10 +1229,30 @@ export interface RuleOptions {
    */
   'markdown/heading-increment'?: Linter.RuleEntry<[]>
   /**
+   * Disallow bare URLs
+   * @see https://github.com/eslint/markdown/blob/main/docs/rules/no-bare-urls.md
+   */
+  'markdown/no-bare-urls'?: Linter.RuleEntry<[]>
+  /**
+   * Disallow duplicate definitions
+   * @see https://github.com/eslint/markdown/blob/main/docs/rules/no-duplicate-definitions.md
+   */
+  'markdown/no-duplicate-definitions'?: Linter.RuleEntry<MarkdownNoDuplicateDefinitions>
+  /**
    * Disallow duplicate headings in the same document
    * @see https://github.com/eslint/markdown/blob/main/docs/rules/no-duplicate-headings.md
    */
-  'markdown/no-duplicate-headings'?: Linter.RuleEntry<[]>
+  'markdown/no-duplicate-headings'?: Linter.RuleEntry<MarkdownNoDuplicateHeadings>
+  /**
+   * Disallow empty definitions
+   * @see https://github.com/eslint/markdown/blob/main/docs/rules/no-empty-definitions.md
+   */
+  'markdown/no-empty-definitions'?: Linter.RuleEntry<[]>
+  /**
+   * Disallow empty images
+   * @see https://github.com/eslint/markdown/blob/main/docs/rules/no-empty-images.md
+   */
+  'markdown/no-empty-images'?: Linter.RuleEntry<[]>
   /**
    * Disallow empty links
    * @see https://github.com/eslint/markdown/blob/main/docs/rules/no-empty-links.md
@@ -1480,10 +1269,40 @@ export interface RuleOptions {
    */
   'markdown/no-invalid-label-refs'?: Linter.RuleEntry<[]>
   /**
+   * Disallow headings without a space after the hash characters
+   * @see https://github.com/eslint/markdown/blob/main/docs/rules/no-missing-atx-heading-space.md
+   */
+  'markdown/no-missing-atx-heading-space'?: Linter.RuleEntry<[]>
+  /**
    * Disallow missing label references
    * @see https://github.com/eslint/markdown/blob/main/docs/rules/no-missing-label-refs.md
    */
   'markdown/no-missing-label-refs'?: Linter.RuleEntry<[]>
+  /**
+   * Disallow link fragments that do not reference valid headings
+   * @see https://github.com/eslint/markdown/blob/main/docs/rules/no-missing-link-fragments.md
+   */
+  'markdown/no-missing-link-fragments'?: Linter.RuleEntry<MarkdownNoMissingLinkFragments>
+  /**
+   * Disallow multiple H1 headings in the same document
+   * @see https://github.com/eslint/markdown/blob/main/docs/rules/no-multiple-h1.md
+   */
+  'markdown/no-multiple-h1'?: Linter.RuleEntry<MarkdownNoMultipleH1>
+  /**
+   * Disallow reversed link and image syntax
+   * @see https://github.com/eslint/markdown/blob/main/docs/rules/no-reversed-media-syntax.md
+   */
+  'markdown/no-reversed-media-syntax'?: Linter.RuleEntry<[]>
+  /**
+   * Require alternative text for images
+   * @see https://github.com/eslint/markdown/blob/main/docs/rules/require-alt-text.md
+   */
+  'markdown/require-alt-text'?: Linter.RuleEntry<[]>
+  /**
+   * Disallow data rows in a GitHub Flavored Markdown table from having more cells than the header row
+   * @see https://github.com/eslint/markdown/blob/main/docs/rules/table-column-count.md
+   */
+  'markdown/table-column-count'?: Linter.RuleEntry<[]>
   /**
    * Enforce a maximum number of classes per file
    * @see https://eslint.org/docs/latest/rules/max-classes-per-file
@@ -2490,6 +2309,11 @@ export interface RuleOptions {
    */
   'node/no-sync'?: Linter.RuleEntry<NodeNoSync>
   /**
+   * disallow top-level `await` in published modules
+   * @see https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/no-top-level-await.md
+   */
+  'node/no-top-level-await'?: Linter.RuleEntry<NodeNoTopLevelAwait>
+  /**
    * disallow `bin` files that npm ignores
    * @see https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/no-unpublished-bin.md
    */
@@ -3052,6 +2876,11 @@ export interface RuleOptions {
    * @see https://eslint-react.xyz/docs/rules/jsx-no-duplicate-props
    */
   'react/jsx-no-duplicate-props'?: Linter.RuleEntry<[]>
+  /**
+   * Disallows 'IIFE' in JSX elements.
+   * @see https://eslint-react.xyz/docs/rules/jsx-no-iife
+   */
+  'react/jsx-no-iife'?: Linter.RuleEntry<[]>
   /**
    * Disallow undefined variables in JSX.
    * @see https://eslint-react.xyz/docs/rules/jsx-no-undef
@@ -3651,7 +3480,7 @@ export interface RuleOptions {
    * enforce using quantifier
    * @see https://ota-meshi.github.io/eslint-plugin-regexp/rules/prefer-quantifier.html
    */
-  'regexp/prefer-quantifier'?: Linter.RuleEntry<[]>
+  'regexp/prefer-quantifier'?: Linter.RuleEntry<RegexpPreferQuantifier>
   /**
    * enforce using `?` quantifier
    * @see https://ota-meshi.github.io/eslint-plugin-regexp/rules/prefer-question-quantifier.html
@@ -3950,483 +3779,478 @@ export interface RuleOptions {
   'strict'?: Linter.RuleEntry<Strict>
   /**
    * Enforce linebreaks after opening and before closing array brackets
-   * @see https://eslint.style/rules/js/array-bracket-newline
+   * @see https://eslint.style/rules/array-bracket-newline
    */
   'style/array-bracket-newline'?: Linter.RuleEntry<StyleArrayBracketNewline>
   /**
    * Enforce consistent spacing inside array brackets
-   * @see https://eslint.style/rules/js/array-bracket-spacing
+   * @see https://eslint.style/rules/array-bracket-spacing
    */
   'style/array-bracket-spacing'?: Linter.RuleEntry<StyleArrayBracketSpacing>
   /**
    * Enforce line breaks after each array element
-   * @see https://eslint.style/rules/js/array-element-newline
+   * @see https://eslint.style/rules/array-element-newline
    */
   'style/array-element-newline'?: Linter.RuleEntry<StyleArrayElementNewline>
   /**
    * Require parentheses around arrow function arguments
-   * @see https://eslint.style/rules/js/arrow-parens
+   * @see https://eslint.style/rules/arrow-parens
    */
   'style/arrow-parens'?: Linter.RuleEntry<StyleArrowParens>
   /**
    * Enforce consistent spacing before and after the arrow in arrow functions
-   * @see https://eslint.style/rules/js/arrow-spacing
+   * @see https://eslint.style/rules/arrow-spacing
    */
   'style/arrow-spacing'?: Linter.RuleEntry<StyleArrowSpacing>
   /**
    * Disallow or enforce spaces inside of blocks after opening block and before closing block
-   * @see https://eslint.style/rules/ts/block-spacing
+   * @see https://eslint.style/rules/block-spacing
    */
   'style/block-spacing'?: Linter.RuleEntry<StyleBlockSpacing>
   /**
    * Enforce consistent brace style for blocks
-   * @see https://eslint.style/rules/ts/brace-style
+   * @see https://eslint.style/rules/brace-style
    */
   'style/brace-style'?: Linter.RuleEntry<StyleBraceStyle>
   /**
    * Require or disallow trailing commas
-   * @see https://eslint.style/rules/ts/comma-dangle
+   * @see https://eslint.style/rules/comma-dangle
    */
   'style/comma-dangle'?: Linter.RuleEntry<StyleCommaDangle>
   /**
    * Enforce consistent spacing before and after commas
-   * @see https://eslint.style/rules/ts/comma-spacing
+   * @see https://eslint.style/rules/comma-spacing
    */
   'style/comma-spacing'?: Linter.RuleEntry<StyleCommaSpacing>
   /**
    * Enforce consistent comma style
-   * @see https://eslint.style/rules/js/comma-style
+   * @see https://eslint.style/rules/comma-style
    */
   'style/comma-style'?: Linter.RuleEntry<StyleCommaStyle>
   /**
    * Enforce consistent spacing inside computed property brackets
-   * @see https://eslint.style/rules/js/computed-property-spacing
+   * @see https://eslint.style/rules/computed-property-spacing
    */
   'style/computed-property-spacing'?: Linter.RuleEntry<StyleComputedPropertySpacing>
   /**
    * Enforce consistent line breaks after opening and before closing braces
-   * @see https://eslint.style/rules/plus/curly-newline
+   * @see https://eslint.style/rules/curly-newline
    */
   'style/curly-newline'?: Linter.RuleEntry<StyleCurlyNewline>
   /**
    * Enforce consistent newlines before and after dots
-   * @see https://eslint.style/rules/js/dot-location
+   * @see https://eslint.style/rules/dot-location
    */
   'style/dot-location'?: Linter.RuleEntry<StyleDotLocation>
   /**
    * Require or disallow newline at the end of files
-   * @see https://eslint.style/rules/js/eol-last
+   * @see https://eslint.style/rules/eol-last
    */
   'style/eol-last'?: Linter.RuleEntry<StyleEolLast>
   /**
-   * Require or disallow spacing between function identifiers and their invocations
-   * @see https://eslint.style/rules/ts/function-call-spacing
-   */
-  'style/func-call-spacing'?: Linter.RuleEntry<StyleFuncCallSpacing>
-  /**
    * Enforce line breaks between arguments of a function call
-   * @see https://eslint.style/rules/js/function-call-argument-newline
+   * @see https://eslint.style/rules/function-call-argument-newline
    */
   'style/function-call-argument-newline'?: Linter.RuleEntry<StyleFunctionCallArgumentNewline>
   /**
    * Require or disallow spacing between function identifiers and their invocations
-   * @see https://eslint.style/rules/ts/function-call-spacing
+   * @see https://eslint.style/rules/function-call-spacing
    */
   'style/function-call-spacing'?: Linter.RuleEntry<StyleFunctionCallSpacing>
   /**
    * Enforce consistent line breaks inside function parentheses
-   * @see https://eslint.style/rules/js/function-paren-newline
+   * @see https://eslint.style/rules/function-paren-newline
    */
   'style/function-paren-newline'?: Linter.RuleEntry<StyleFunctionParenNewline>
   /**
    * Enforce consistent spacing around `*` operators in generator functions
-   * @see https://eslint.style/rules/js/generator-star-spacing
+   * @see https://eslint.style/rules/generator-star-spacing
    */
   'style/generator-star-spacing'?: Linter.RuleEntry<StyleGeneratorStarSpacing>
   /**
    * Enforce the location of arrow function bodies
-   * @see https://eslint.style/rules/js/implicit-arrow-linebreak
+   * @see https://eslint.style/rules/implicit-arrow-linebreak
    */
   'style/implicit-arrow-linebreak'?: Linter.RuleEntry<StyleImplicitArrowLinebreak>
   /**
    * Enforce consistent indentation
-   * @see https://eslint.style/rules/ts/indent
+   * @see https://eslint.style/rules/indent
    */
   'style/indent'?: Linter.RuleEntry<StyleIndent>
   /**
    * Indentation for binary operators
-   * @see https://eslint.style/rules/plus/indent-binary-ops
+   * @see https://eslint.style/rules/indent-binary-ops
    */
   'style/indent-binary-ops'?: Linter.RuleEntry<StyleIndentBinaryOps>
   /**
    * Enforce or disallow spaces inside of curly braces in JSX attributes and expressions
-   * @see https://eslint.style/rules/jsx/jsx-child-element-spacing
+   * @see https://eslint.style/rules/jsx-child-element-spacing
    */
   'style/jsx-child-element-spacing'?: Linter.RuleEntry<[]>
   /**
    * Enforce closing bracket location in JSX
-   * @see https://eslint.style/rules/jsx/jsx-closing-bracket-location
+   * @see https://eslint.style/rules/jsx-closing-bracket-location
    */
   'style/jsx-closing-bracket-location'?: Linter.RuleEntry<StyleJsxClosingBracketLocation>
   /**
    * Enforce closing tag location for multiline JSX
-   * @see https://eslint.style/rules/jsx/jsx-closing-tag-location
+   * @see https://eslint.style/rules/jsx-closing-tag-location
    */
   'style/jsx-closing-tag-location'?: Linter.RuleEntry<StyleJsxClosingTagLocation>
   /**
    * Disallow unnecessary JSX expressions when literals alone are sufficient or enforce JSX expressions on literals in JSX children or attributes
-   * @see https://eslint.style/rules/jsx/jsx-curly-brace-presence
+   * @see https://eslint.style/rules/jsx-curly-brace-presence
    */
   'style/jsx-curly-brace-presence'?: Linter.RuleEntry<StyleJsxCurlyBracePresence>
   /**
    * Enforce consistent linebreaks in curly braces in JSX attributes and expressions
-   * @see https://eslint.style/rules/jsx/jsx-curly-newline
+   * @see https://eslint.style/rules/jsx-curly-newline
    */
   'style/jsx-curly-newline'?: Linter.RuleEntry<StyleJsxCurlyNewline>
   /**
    * Enforce or disallow spaces inside of curly braces in JSX attributes and expressions
-   * @see https://eslint.style/rules/jsx/jsx-curly-spacing
+   * @see https://eslint.style/rules/jsx-curly-spacing
    */
   'style/jsx-curly-spacing'?: Linter.RuleEntry<StyleJsxCurlySpacing>
   /**
    * Enforce or disallow spaces around equal signs in JSX attributes
-   * @see https://eslint.style/rules/jsx/jsx-equals-spacing
+   * @see https://eslint.style/rules/jsx-equals-spacing
    */
   'style/jsx-equals-spacing'?: Linter.RuleEntry<StyleJsxEqualsSpacing>
   /**
    * Enforce proper position of the first property in JSX
-   * @see https://eslint.style/rules/jsx/jsx-first-prop-new-line
+   * @see https://eslint.style/rules/jsx-first-prop-new-line
    */
   'style/jsx-first-prop-new-line'?: Linter.RuleEntry<StyleJsxFirstPropNewLine>
   /**
    * Enforce line breaks before and after JSX elements when they are used as arguments to a function.
-   * @see https://eslint.style/rules/jsx/jsx-function-call-newline
+   * @see https://eslint.style/rules/jsx-function-call-newline
    */
   'style/jsx-function-call-newline'?: Linter.RuleEntry<StyleJsxFunctionCallNewline>
   /**
    * Enforce JSX indentation. Deprecated, use `indent` rule instead.
-   * @see https://eslint.style/rules/jsx/jsx-indent
+   * @see https://eslint.style/rules/jsx-indent
    * @deprecated
    */
   'style/jsx-indent'?: Linter.RuleEntry<StyleJsxIndent>
   /**
    * Enforce props indentation in JSX
-   * @see https://eslint.style/rules/jsx/jsx-indent-props
+   * @see https://eslint.style/rules/jsx-indent-props
    */
   'style/jsx-indent-props'?: Linter.RuleEntry<StyleJsxIndentProps>
   /**
    * Enforce maximum of props on a single line in JSX
-   * @see https://eslint.style/rules/jsx/jsx-max-props-per-line
+   * @see https://eslint.style/rules/jsx-max-props-per-line
    */
   'style/jsx-max-props-per-line'?: Linter.RuleEntry<StyleJsxMaxPropsPerLine>
   /**
    * Require or prevent a new line after jsx elements and expressions.
-   * @see https://eslint.style/rules/jsx/jsx-newline
+   * @see https://eslint.style/rules/jsx-newline
    */
   'style/jsx-newline'?: Linter.RuleEntry<StyleJsxNewline>
   /**
    * Require one JSX element per line
-   * @see https://eslint.style/rules/jsx/jsx-one-expression-per-line
+   * @see https://eslint.style/rules/jsx-one-expression-per-line
    */
   'style/jsx-one-expression-per-line'?: Linter.RuleEntry<StyleJsxOneExpressionPerLine>
   /**
    * Enforce PascalCase for user-defined JSX components
-   * @see https://eslint.style/rules/jsx/jsx-pascal-case
+   * @see https://eslint.style/rules/jsx-pascal-case
    */
   'style/jsx-pascal-case'?: Linter.RuleEntry<StyleJsxPascalCase>
   /**
    * Disallow multiple spaces between inline JSX props
-   * @see https://eslint.style/rules/jsx/jsx-props-no-multi-spaces
+   * @see https://eslint.style/rules/jsx-props-no-multi-spaces
    */
   'style/jsx-props-no-multi-spaces'?: Linter.RuleEntry<[]>
   /**
    * Enforce the consistent use of either double or single quotes in JSX attributes
-   * @see https://eslint.style/rules/js/jsx-quotes
+   * @see https://eslint.style/rules/jsx-quotes
    */
   'style/jsx-quotes'?: Linter.RuleEntry<StyleJsxQuotes>
   /**
    * Disallow extra closing tags for components without children
-   * @see https://eslint.style/rules/jsx/jsx-self-closing-comp
+   * @see https://eslint.style/rules/jsx-self-closing-comp
    */
   'style/jsx-self-closing-comp'?: Linter.RuleEntry<StyleJsxSelfClosingComp>
   /**
    * Enforce props alphabetical sorting
-   * @see https://eslint.style/rules/jsx/jsx-sort-props
+   * @see https://eslint.style/rules/jsx-sort-props
    */
   'style/jsx-sort-props'?: Linter.RuleEntry<StyleJsxSortProps>
   /**
    * Enforce whitespace in and around the JSX opening and closing brackets
-   * @see https://eslint.style/rules/jsx/jsx-tag-spacing
+   * @see https://eslint.style/rules/jsx-tag-spacing
    */
   'style/jsx-tag-spacing'?: Linter.RuleEntry<StyleJsxTagSpacing>
   /**
    * Disallow missing parentheses around multiline JSX
-   * @see https://eslint.style/rules/jsx/jsx-wrap-multilines
+   * @see https://eslint.style/rules/jsx-wrap-multilines
    */
   'style/jsx-wrap-multilines'?: Linter.RuleEntry<StyleJsxWrapMultilines>
   /**
    * Enforce consistent spacing between property names and type annotations in types and interfaces
-   * @see https://eslint.style/rules/ts/key-spacing
+   * @see https://eslint.style/rules/key-spacing
    */
   'style/key-spacing'?: Linter.RuleEntry<StyleKeySpacing>
   /**
    * Enforce consistent spacing before and after keywords
-   * @see https://eslint.style/rules/ts/keyword-spacing
+   * @see https://eslint.style/rules/keyword-spacing
    */
   'style/keyword-spacing'?: Linter.RuleEntry<StyleKeywordSpacing>
   /**
    * Enforce position of line comments
-   * @see https://eslint.style/rules/js/line-comment-position
+   * @see https://eslint.style/rules/line-comment-position
    */
   'style/line-comment-position'?: Linter.RuleEntry<StyleLineCommentPosition>
   /**
    * Enforce consistent linebreak style
-   * @see https://eslint.style/rules/js/linebreak-style
+   * @see https://eslint.style/rules/linebreak-style
    */
   'style/linebreak-style'?: Linter.RuleEntry<StyleLinebreakStyle>
   /**
    * Require empty lines around comments
-   * @see https://eslint.style/rules/ts/lines-around-comment
+   * @see https://eslint.style/rules/lines-around-comment
    */
   'style/lines-around-comment'?: Linter.RuleEntry<StyleLinesAroundComment>
   /**
    * Require or disallow an empty line between class members
-   * @see https://eslint.style/rules/ts/lines-between-class-members
+   * @see https://eslint.style/rules/lines-between-class-members
    */
   'style/lines-between-class-members'?: Linter.RuleEntry<StyleLinesBetweenClassMembers>
   /**
    * Enforce a maximum line length
-   * @see https://eslint.style/rules/js/max-len
+   * @see https://eslint.style/rules/max-len
    */
   'style/max-len'?: Linter.RuleEntry<StyleMaxLen>
   /**
    * Enforce a maximum number of statements allowed per line
-   * @see https://eslint.style/rules/js/max-statements-per-line
+   * @see https://eslint.style/rules/max-statements-per-line
    */
   'style/max-statements-per-line'?: Linter.RuleEntry<StyleMaxStatementsPerLine>
   /**
    * Require a specific member delimiter style for interfaces and type literals
-   * @see https://eslint.style/rules/ts/member-delimiter-style
+   * @see https://eslint.style/rules/member-delimiter-style
    */
   'style/member-delimiter-style'?: Linter.RuleEntry<StyleMemberDelimiterStyle>
   /**
    * Enforce a particular style for multiline comments
-   * @see https://eslint.style/rules/js/multiline-comment-style
+   * @see https://eslint.style/rules/multiline-comment-style
    */
   'style/multiline-comment-style'?: Linter.RuleEntry<StyleMultilineCommentStyle>
   /**
    * Enforce newlines between operands of ternary expressions
-   * @see https://eslint.style/rules/js/multiline-ternary
+   * @see https://eslint.style/rules/multiline-ternary
    */
   'style/multiline-ternary'?: Linter.RuleEntry<StyleMultilineTernary>
   /**
    * Enforce or disallow parentheses when invoking a constructor with no arguments
-   * @see https://eslint.style/rules/js/new-parens
+   * @see https://eslint.style/rules/new-parens
    */
   'style/new-parens'?: Linter.RuleEntry<StyleNewParens>
   /**
    * Require a newline after each call in a method chain
-   * @see https://eslint.style/rules/js/newline-per-chained-call
+   * @see https://eslint.style/rules/newline-per-chained-call
    */
   'style/newline-per-chained-call'?: Linter.RuleEntry<StyleNewlinePerChainedCall>
   /**
    * Disallow arrow functions where they could be confused with comparisons
-   * @see https://eslint.style/rules/js/no-confusing-arrow
+   * @see https://eslint.style/rules/no-confusing-arrow
    */
   'style/no-confusing-arrow'?: Linter.RuleEntry<StyleNoConfusingArrow>
   /**
    * Disallow unnecessary parentheses
-   * @see https://eslint.style/rules/ts/no-extra-parens
+   * @see https://eslint.style/rules/no-extra-parens
    */
   'style/no-extra-parens'?: Linter.RuleEntry<StyleNoExtraParens>
   /**
    * Disallow unnecessary semicolons
-   * @see https://eslint.style/rules/ts/no-extra-semi
+   * @see https://eslint.style/rules/no-extra-semi
    */
   'style/no-extra-semi'?: Linter.RuleEntry<[]>
   /**
    * Disallow leading or trailing decimal points in numeric literals
-   * @see https://eslint.style/rules/js/no-floating-decimal
+   * @see https://eslint.style/rules/no-floating-decimal
    */
   'style/no-floating-decimal'?: Linter.RuleEntry<[]>
   /**
    * Disallow mixed binary operators
-   * @see https://eslint.style/rules/js/no-mixed-operators
+   * @see https://eslint.style/rules/no-mixed-operators
    */
   'style/no-mixed-operators'?: Linter.RuleEntry<StyleNoMixedOperators>
   /**
    * Disallow mixed spaces and tabs for indentation
-   * @see https://eslint.style/rules/js/no-mixed-spaces-and-tabs
+   * @see https://eslint.style/rules/no-mixed-spaces-and-tabs
    */
   'style/no-mixed-spaces-and-tabs'?: Linter.RuleEntry<StyleNoMixedSpacesAndTabs>
   /**
    * Disallow multiple spaces
-   * @see https://eslint.style/rules/js/no-multi-spaces
+   * @see https://eslint.style/rules/no-multi-spaces
    */
   'style/no-multi-spaces'?: Linter.RuleEntry<StyleNoMultiSpaces>
   /**
    * Disallow multiple empty lines
-   * @see https://eslint.style/rules/js/no-multiple-empty-lines
+   * @see https://eslint.style/rules/no-multiple-empty-lines
    */
   'style/no-multiple-empty-lines'?: Linter.RuleEntry<StyleNoMultipleEmptyLines>
   /**
    * Disallow all tabs
-   * @see https://eslint.style/rules/js/no-tabs
+   * @see https://eslint.style/rules/no-tabs
    */
   'style/no-tabs'?: Linter.RuleEntry<StyleNoTabs>
   /**
    * Disallow trailing whitespace at the end of lines
-   * @see https://eslint.style/rules/js/no-trailing-spaces
+   * @see https://eslint.style/rules/no-trailing-spaces
    */
   'style/no-trailing-spaces'?: Linter.RuleEntry<StyleNoTrailingSpaces>
   /**
    * Disallow whitespace before properties
-   * @see https://eslint.style/rules/js/no-whitespace-before-property
+   * @see https://eslint.style/rules/no-whitespace-before-property
    */
   'style/no-whitespace-before-property'?: Linter.RuleEntry<[]>
   /**
    * Enforce the location of single-line statements
-   * @see https://eslint.style/rules/js/nonblock-statement-body-position
+   * @see https://eslint.style/rules/nonblock-statement-body-position
    */
   'style/nonblock-statement-body-position'?: Linter.RuleEntry<StyleNonblockStatementBodyPosition>
   /**
    * Enforce consistent line breaks after opening and before closing braces
-   * @see https://eslint.style/rules/ts/object-curly-newline
+   * @see https://eslint.style/rules/object-curly-newline
    */
   'style/object-curly-newline'?: Linter.RuleEntry<StyleObjectCurlyNewline>
   /**
    * Enforce consistent spacing inside braces
-   * @see https://eslint.style/rules/ts/object-curly-spacing
+   * @see https://eslint.style/rules/object-curly-spacing
    */
   'style/object-curly-spacing'?: Linter.RuleEntry<StyleObjectCurlySpacing>
   /**
    * Enforce placing object properties on separate lines
-   * @see https://eslint.style/rules/ts/object-property-newline
+   * @see https://eslint.style/rules/object-property-newline
    */
   'style/object-property-newline'?: Linter.RuleEntry<StyleObjectPropertyNewline>
   /**
    * Require or disallow newlines around variable declarations
-   * @see https://eslint.style/rules/js/one-var-declaration-per-line
+   * @see https://eslint.style/rules/one-var-declaration-per-line
    */
   'style/one-var-declaration-per-line'?: Linter.RuleEntry<StyleOneVarDeclarationPerLine>
   /**
    * Enforce consistent linebreak style for operators
-   * @see https://eslint.style/rules/js/operator-linebreak
+   * @see https://eslint.style/rules/operator-linebreak
    */
   'style/operator-linebreak'?: Linter.RuleEntry<StyleOperatorLinebreak>
   /**
    * Require or disallow padding within blocks
-   * @see https://eslint.style/rules/js/padded-blocks
+   * @see https://eslint.style/rules/padded-blocks
    */
   'style/padded-blocks'?: Linter.RuleEntry<StylePaddedBlocks>
   /**
    * Require or disallow padding lines between statements
-   * @see https://eslint.style/rules/ts/padding-line-between-statements
+   * @see https://eslint.style/rules/padding-line-between-statements
    */
   'style/padding-line-between-statements'?: Linter.RuleEntry<StylePaddingLineBetweenStatements>
   /**
    * Require quotes around object literal, type literal, interfaces and enums property names
-   * @see https://eslint.style/rules/ts/quote-props
+   * @see https://eslint.style/rules/quote-props
    */
   'style/quote-props'?: Linter.RuleEntry<StyleQuoteProps>
   /**
    * Enforce the consistent use of either backticks, double, or single quotes
-   * @see https://eslint.style/rules/ts/quotes
+   * @see https://eslint.style/rules/quotes
    */
   'style/quotes'?: Linter.RuleEntry<StyleQuotes>
   /**
    * Enforce spacing between rest and spread operators and their expressions
-   * @see https://eslint.style/rules/js/rest-spread-spacing
+   * @see https://eslint.style/rules/rest-spread-spacing
    */
   'style/rest-spread-spacing'?: Linter.RuleEntry<StyleRestSpreadSpacing>
   /**
    * Require or disallow semicolons instead of ASI
-   * @see https://eslint.style/rules/ts/semi
+   * @see https://eslint.style/rules/semi
    */
   'style/semi'?: Linter.RuleEntry<StyleSemi>
   /**
    * Enforce consistent spacing before and after semicolons
-   * @see https://eslint.style/rules/ts/semi-spacing
+   * @see https://eslint.style/rules/semi-spacing
    */
   'style/semi-spacing'?: Linter.RuleEntry<StyleSemiSpacing>
   /**
    * Enforce location of semicolons
-   * @see https://eslint.style/rules/js/semi-style
+   * @see https://eslint.style/rules/semi-style
    */
   'style/semi-style'?: Linter.RuleEntry<StyleSemiStyle>
   /**
    * Enforce consistent spacing before blocks
-   * @see https://eslint.style/rules/ts/space-before-blocks
+   * @see https://eslint.style/rules/space-before-blocks
    */
   'style/space-before-blocks'?: Linter.RuleEntry<StyleSpaceBeforeBlocks>
   /**
    * Enforce consistent spacing before function parenthesis
-   * @see https://eslint.style/rules/ts/space-before-function-paren
+   * @see https://eslint.style/rules/space-before-function-paren
    */
   'style/space-before-function-paren'?: Linter.RuleEntry<StyleSpaceBeforeFunctionParen>
   /**
    * Enforce consistent spacing inside parentheses
-   * @see https://eslint.style/rules/js/space-in-parens
+   * @see https://eslint.style/rules/space-in-parens
    */
   'style/space-in-parens'?: Linter.RuleEntry<StyleSpaceInParens>
   /**
    * Require spacing around infix operators
-   * @see https://eslint.style/rules/ts/space-infix-ops
+   * @see https://eslint.style/rules/space-infix-ops
    */
   'style/space-infix-ops'?: Linter.RuleEntry<StyleSpaceInfixOps>
   /**
    * Enforce consistent spacing before or after unary operators
-   * @see https://eslint.style/rules/js/space-unary-ops
+   * @see https://eslint.style/rules/space-unary-ops
    */
   'style/space-unary-ops'?: Linter.RuleEntry<StyleSpaceUnaryOps>
   /**
    * Enforce consistent spacing after the `//` or `/*` in a comment
-   * @see https://eslint.style/rules/js/spaced-comment
+   * @see https://eslint.style/rules/spaced-comment
    */
   'style/spaced-comment'?: Linter.RuleEntry<StyleSpacedComment>
   /**
    * Enforce spacing around colons of switch statements
-   * @see https://eslint.style/rules/js/switch-colon-spacing
+   * @see https://eslint.style/rules/switch-colon-spacing
    */
   'style/switch-colon-spacing'?: Linter.RuleEntry<StyleSwitchColonSpacing>
   /**
    * Require or disallow spacing around embedded expressions of template strings
-   * @see https://eslint.style/rules/js/template-curly-spacing
+   * @see https://eslint.style/rules/template-curly-spacing
    */
   'style/template-curly-spacing'?: Linter.RuleEntry<StyleTemplateCurlySpacing>
   /**
    * Require or disallow spacing between template tags and their literals
-   * @see https://eslint.style/rules/js/template-tag-spacing
+   * @see https://eslint.style/rules/template-tag-spacing
    */
   'style/template-tag-spacing'?: Linter.RuleEntry<StyleTemplateTagSpacing>
   /**
    * Require consistent spacing around type annotations
-   * @see https://eslint.style/rules/ts/type-annotation-spacing
+   * @see https://eslint.style/rules/type-annotation-spacing
    */
   'style/type-annotation-spacing'?: Linter.RuleEntry<StyleTypeAnnotationSpacing>
   /**
    * Enforces consistent spacing inside TypeScript type generics
-   * @see https://eslint.style/rules/plus/type-generic-spacing
+   * @see https://eslint.style/rules/type-generic-spacing
    */
   'style/type-generic-spacing'?: Linter.RuleEntry<[]>
   /**
    * Expect space before the type declaration in the named tuple
-   * @see https://eslint.style/rules/plus/type-named-tuple-spacing
+   * @see https://eslint.style/rules/type-named-tuple-spacing
    */
   'style/type-named-tuple-spacing'?: Linter.RuleEntry<[]>
   /**
    * Require parentheses around immediate `function` invocations
-   * @see https://eslint.style/rules/js/wrap-iife
+   * @see https://eslint.style/rules/wrap-iife
    */
   'style/wrap-iife'?: Linter.RuleEntry<StyleWrapIife>
   /**
    * Require parenthesis around regex literals
-   * @see https://eslint.style/rules/js/wrap-regex
+   * @see https://eslint.style/rules/wrap-regex
    */
   'style/wrap-regex'?: Linter.RuleEntry<[]>
   /**
    * Require or disallow spacing around the `*` in `yield*` expressions
-   * @see https://eslint.style/rules/js/yield-star-spacing
+   * @see https://eslint.style/rules/yield-star-spacing
    */
   'style/yield-star-spacing'?: Linter.RuleEntry<StyleYieldStarSpacing>
   /**
@@ -4891,6 +4715,11 @@ export interface RuleOptions {
    */
   'test/consistent-test-it'?: Linter.RuleEntry<TestConsistentTestIt>
   /**
+   * enforce using vitest or vi but not both
+   * @see https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/consistent-vitest-vi.md
+   */
+  'test/consistent-vitest-vi'?: Linter.RuleEntry<TestConsistentVitestVi>
+  /**
    * enforce having expectation in test body
    * @see https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/expect-expect.md
    */
@@ -4967,6 +4796,11 @@ export interface RuleOptions {
    */
   'test/no-import-node-test'?: Linter.RuleEntry<[]>
   /**
+   * disallow importing Vitest globals
+   * @see https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/no-importing-vitest-globals.md
+   */
+  'test/no-importing-vitest-globals'?: Linter.RuleEntry<[]>
+  /**
    * disallow string interpolation in snapshots
    * @see https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/no-interpolation-in-snapshots.md
    */
@@ -5002,7 +4836,7 @@ export interface RuleOptions {
    */
   'test/no-standalone-expect'?: Linter.RuleEntry<TestNoStandaloneExpect>
   /**
-   * Disallow using the `f` and `x` prefixes in favour of `.only` and `.skip`
+   * disallow using the `f` and `x` prefixes in favour of `.only` and `.skip`
    * @see https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/no-test-prefixes.md
    */
   'test/no-test-prefixes'?: Linter.RuleEntry<[]>
@@ -5096,6 +4930,11 @@ export interface RuleOptions {
    * @see https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-hooks-on-top.md
    */
   'test/prefer-hooks-on-top'?: Linter.RuleEntry<[]>
+  /**
+   * enforce importing Vitest globals
+   * @see https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-importing-vitest-globals.md
+   */
+  'test/prefer-importing-vitest-globals'?: Linter.RuleEntry<[]>
   /**
    * enforce lowercase titles
    * @see https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-lowercase-title.md
@@ -8393,265 +8232,6 @@ type IdMatch = []|[string]|[string, {
 }]
 // ----- implicit-arrow-linebreak -----
 type ImplicitArrowLinebreak = []|[("beside" | "below")]
-// ----- import/consistent-type-specifier-style -----
-type ImportConsistentTypeSpecifierStyle = []|[("prefer-top-level" | "prefer-inline")]
-// ----- import/dynamic-import-chunkname -----
-type ImportDynamicImportChunkname = []|[{
-  importFunctions?: string[]
-  allowEmpty?: boolean
-  webpackChunknameFormat?: string
-  [k: string]: unknown | undefined
-}]
-// ----- import/extensions -----
-type ImportExtensions = ([]|[("always" | "ignorePackages" | "never")] | []|[("always" | "ignorePackages" | "never")]|[("always" | "ignorePackages" | "never"), {
-  pattern?: {
-    [k: string]: ("always" | "ignorePackages" | "never")
-  }
-  ignorePackages?: boolean
-  checkTypeImports?: boolean
-  pathGroupOverrides?: {
-    pattern: string
-    patternOptions?: {
-      [k: string]: unknown | undefined
-    }
-    action: ("enforce" | "ignore")
-  }[]
-  fix?: boolean
-  [k: string]: unknown | undefined
-}] | []|[{
-  pattern?: {
-    [k: string]: ("always" | "ignorePackages" | "never")
-  }
-  ignorePackages?: boolean
-  checkTypeImports?: boolean
-  pathGroupOverrides?: {
-    pattern: string
-    patternOptions?: {
-      [k: string]: unknown | undefined
-    }
-    action: ("enforce" | "ignore")
-  }[]
-  fix?: boolean
-  [k: string]: unknown | undefined
-}] | []|[("always" | "ignorePackages" | "never")]|[("always" | "ignorePackages" | "never"), {
-  [k: string]: ("always" | "ignorePackages" | "never")
-}] | []|[{
-  [k: string]: ("always" | "ignorePackages" | "never")
-}])
-// ----- import/first -----
-type ImportFirst = []|[("absolute-first" | "disable-absolute-first")]
-// ----- import/imports-first -----
-type ImportImportsFirst = []|[("absolute-first" | "disable-absolute-first")]
-// ----- import/max-dependencies -----
-type ImportMaxDependencies = []|[{
-  max?: number
-  ignoreTypeImports?: boolean
-}]
-// ----- import/named -----
-type ImportNamed = []|[{
-  commonjs?: boolean
-}]
-// ----- import/namespace -----
-type ImportNamespace = []|[{
-  
-  allowComputed?: boolean
-}]
-// ----- import/newline-after-import -----
-type ImportNewlineAfterImport = []|[{
-  count?: number
-  exactCount?: boolean
-  considerComments?: boolean
-}]
-// ----- import/no-absolute-path -----
-type ImportNoAbsolutePath = []|[{
-  commonjs?: boolean
-  amd?: boolean
-  esmodule?: boolean
-  
-  ignore?: [string, ...(string)[]]
-}]
-// ----- import/no-anonymous-default-export -----
-type ImportNoAnonymousDefaultExport = []|[{
-  
-  allowArray?: boolean
-  
-  allowArrowFunction?: boolean
-  
-  allowCallExpression?: boolean
-  
-  allowAnonymousClass?: boolean
-  
-  allowAnonymousFunction?: boolean
-  
-  allowLiteral?: boolean
-  
-  allowObject?: boolean
-  
-  allowNew?: boolean
-}]
-// ----- import/no-commonjs -----
-type ImportNoCommonjs = ([]|["allow-primitive-modules"] | []|[{
-  allowPrimitiveModules?: boolean
-  allowRequire?: boolean
-  allowConditionalRequire?: boolean
-}])
-// ----- import/no-cycle -----
-type ImportNoCycle = []|[{
-  commonjs?: boolean
-  amd?: boolean
-  esmodule?: boolean
-  
-  ignore?: [string, ...(string)[]]
-  maxDepth?: (number | "∞")
-  
-  ignoreExternal?: boolean
-  
-  allowUnsafeDynamicCyclicDependency?: boolean
-}]
-// ----- import/no-duplicates -----
-type ImportNoDuplicates = []|[{
-  considerQueryString?: boolean
-  "prefer-inline"?: boolean
-}]
-// ----- import/no-dynamic-require -----
-type ImportNoDynamicRequire = []|[{
-  esmodule?: boolean
-}]
-// ----- import/no-extraneous-dependencies -----
-type ImportNoExtraneousDependencies = []|[{
-  devDependencies?: (boolean | unknown[])
-  optionalDependencies?: (boolean | unknown[])
-  peerDependencies?: (boolean | unknown[])
-  bundledDependencies?: (boolean | unknown[])
-  packageDir?: (string | unknown[])
-  includeInternal?: boolean
-  includeTypes?: boolean
-  whitelist?: unknown[]
-}]
-// ----- import/no-import-module-exports -----
-type ImportNoImportModuleExports = []|[{
-  exceptions?: unknown[]
-}]
-// ----- import/no-internal-modules -----
-type ImportNoInternalModules = []|[({
-  allow?: string[]
-} | {
-  forbid?: string[]
-})]
-// ----- import/no-namespace -----
-type ImportNoNamespace = []|[{
-  ignore?: string[]
-  [k: string]: unknown | undefined
-}]
-// ----- import/no-nodejs-modules -----
-type ImportNoNodejsModules = []|[{
-  allow?: string[]
-}]
-// ----- import/no-relative-packages -----
-type ImportNoRelativePackages = []|[{
-  commonjs?: boolean
-  amd?: boolean
-  esmodule?: boolean
-  
-  ignore?: [string, ...(string)[]]
-}]
-// ----- import/no-relative-parent-imports -----
-type ImportNoRelativeParentImports = []|[{
-  commonjs?: boolean
-  amd?: boolean
-  esmodule?: boolean
-  
-  ignore?: [string, ...(string)[]]
-}]
-// ----- import/no-rename-default -----
-type ImportNoRenameDefault = []|[{
-  commonjs?: boolean
-  preventRenamingBindings?: boolean
-}]
-// ----- import/no-restricted-paths -----
-type ImportNoRestrictedPaths = []|[{
-  
-  zones?: [{
-    target?: (string | [string, ...(string)[]])
-    from?: (string | [string, ...(string)[]])
-    except?: string[]
-    message?: string
-  }, ...({
-    target?: (string | [string, ...(string)[]])
-    from?: (string | [string, ...(string)[]])
-    except?: string[]
-    message?: string
-  })[]]
-  basePath?: string
-}]
-// ----- import/no-unassigned-import -----
-type ImportNoUnassignedImport = []|[{
-  devDependencies?: (boolean | unknown[])
-  optionalDependencies?: (boolean | unknown[])
-  peerDependencies?: (boolean | unknown[])
-  allow?: string[]
-}]
-// ----- import/no-unresolved -----
-type ImportNoUnresolved = []|[{
-  commonjs?: boolean
-  amd?: boolean
-  esmodule?: boolean
-  
-  ignore?: [string, ...(string)[]]
-  caseSensitive?: boolean
-  caseSensitiveStrict?: boolean
-}]
-// ----- import/no-unused-modules -----
-type ImportNoUnusedModules = []|[({
-  unusedExports: true
-  
-  src?: [unknown, ...(unknown)[]]
-  [k: string]: unknown | undefined
-} | {
-  missingExports: true
-  [k: string]: unknown | undefined
-})]
-// ----- import/no-useless-path-segments -----
-type ImportNoUselessPathSegments = []|[{
-  commonjs?: boolean
-  noUselessIndex?: boolean
-}]
-// ----- import/order -----
-type ImportOrder = []|[{
-  groups?: unknown[]
-  pathGroupsExcludedImportTypes?: unknown[]
-  distinctGroup?: boolean
-  pathGroups?: {
-    pattern: string
-    patternOptions?: {
-      [k: string]: unknown | undefined
-    }
-    group: ("builtin" | "external" | "internal" | "unknown" | "parent" | "sibling" | "index" | "object" | "type")
-    position?: ("after" | "before")
-  }[]
-  "newlines-between"?: ("ignore" | "always" | "always-and-inside-groups" | "never")
-  "newlines-between-types"?: ("ignore" | "always" | "always-and-inside-groups" | "never")
-  consolidateIslands?: ("inside-groups" | "never")
-  sortTypesGroup?: boolean
-  named?: (boolean | {
-    enabled?: boolean
-    import?: boolean
-    export?: boolean
-    require?: boolean
-    cjsExports?: boolean
-    types?: ("mixed" | "types-first" | "types-last")
-  })
-  alphabetize?: {
-    caseInsensitive?: boolean
-    order?: ("ignore" | "asc" | "desc")
-    orderImportKind?: ("ignore" | "asc" | "desc")
-  }
-  warnOnUnassignedImports?: boolean
-}]
-// ----- import/prefer-default-export -----
-type ImportPreferDefaultExport = []|[{
-  target?: ("single" | "any")
-}]
 // ----- indent -----
 type Indent = []|[("tab" | number)]|[("tab" | number), {
   SwitchCase?: number
@@ -8837,6 +8417,7 @@ type JsdocLinesBeforeBlock = []|[{
   checkBlockStarts?: boolean
   excludedTags?: string[]
   ignoreSameLine?: boolean
+  ignoreSingleLines?: boolean
   lines?: number
 }]
 // ----- jsdoc/match-description -----
@@ -9834,9 +9415,27 @@ type LogicalAssignmentOperators = (([]|["always"]|["always", {
 type MarkdownFencedCodeLanguage = []|[{
   required?: string[]
 }]
+// ----- markdown/no-duplicate-definitions -----
+type MarkdownNoDuplicateDefinitions = []|[{
+  allowDefinitions?: string[]
+  allowFootnoteDefinitions?: string[]
+}]
+// ----- markdown/no-duplicate-headings -----
+type MarkdownNoDuplicateHeadings = []|[{
+  checkSiblingsOnly?: boolean
+}]
 // ----- markdown/no-html -----
 type MarkdownNoHtml = []|[{
   allowed?: string[]
+}]
+// ----- markdown/no-missing-link-fragments -----
+type MarkdownNoMissingLinkFragments = []|[{
+  ignoreCase?: boolean
+  allowPattern?: string
+}]
+// ----- markdown/no-multiple-h1 -----
+type MarkdownNoMultipleH1 = []|[{
+  frontmatterTitle?: string
 }]
 // ----- max-classes-per-file -----
 type MaxClassesPerFile = []|[(number | {
@@ -10496,7 +10095,38 @@ type NodeNoRestrictedRequire = []|[(string | {
 // ----- node/no-sync -----
 type NodeNoSync = []|[{
   allowAtRootLevel?: boolean
-  ignores?: string[]
+  ignores?: (string | {
+    from?: "file"
+    path?: string
+    name?: string[]
+  } | {
+    from?: "lib"
+    name?: string[]
+  } | {
+    from?: "package"
+    package?: string
+    name?: string[]
+  })[]
+}]
+// ----- node/no-top-level-await -----
+type NodeNoTopLevelAwait = []|[{
+  ignoreBin?: boolean
+  convertPath?: ({
+    
+    [k: string]: [string, string]
+  } | [{
+    
+    include: [string, ...(string)[]]
+    exclude?: string[]
+    
+    replace: [string, string]
+  }, ...({
+    
+    include: [string, ...(string)[]]
+    exclude?: string[]
+    
+    replace: [string, string]
+  })[]])
 }]
 // ----- node/no-unpublished-bin -----
 type NodeNoUnpublishedBin = []|[{
@@ -10750,8 +10380,7 @@ type PerfectionistSortArrayIncludes = {
   groupKind?: ("mixed" | "literals-first" | "spreads-first")
   
   customGroups?: ({
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -10782,8 +10411,7 @@ type PerfectionistSortArrayIncludes = {
       } | string))
     }[]
   } | {
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -10866,12 +10494,12 @@ type PerfectionistSortArrayIncludes = {
   })
   
   partitionByNewLine?: boolean
-  
-  newlinesBetween?: ("ignore" | "always" | "never")
+  newlinesBetween?: (("ignore" | "always" | "never") | number)
   
   groups?: (string | string[] | {
+    newlinesBetween?: (("ignore" | "always" | "never") | number)
     
-    newlinesBetween: ("ignore" | "always" | "never")
+    commentAbove?: string
   })[]
 }[]
 // ----- perfectionist/sort-classes -----
@@ -10897,8 +10525,7 @@ type PerfectionistSortClasses = []|[{
   type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
   
   customGroups?: ({
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -10955,8 +10582,7 @@ type PerfectionistSortClasses = []|[{
       } | string))
     }[]
   } | {
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -11062,12 +10688,12 @@ type PerfectionistSortClasses = []|[{
   })
   
   partitionByNewLine?: boolean
-  
-  newlinesBetween?: ("ignore" | "always" | "never")
+  newlinesBetween?: (("ignore" | "always" | "never") | number)
   
   groups?: (string | string[] | {
+    newlinesBetween?: (("ignore" | "always" | "never") | number)
     
-    newlinesBetween: ("ignore" | "always" | "never")
+    commentAbove?: string
   })[]
 }]
 // ----- perfectionist/sort-decorators -----
@@ -11144,8 +10770,9 @@ type PerfectionistSortDecorators = []|[{
   }
   
   groups?: (string | string[] | {
+    newlinesBetween?: (("ignore" | "always" | "never") | number)
     
-    newlinesBetween: ("ignore" | "always" | "never")
+    commentAbove?: string
   })[]
 }]
 // ----- perfectionist/sort-enums -----
@@ -11172,8 +10799,7 @@ type PerfectionistSortEnums = []|[{
   customGroups?: ({
     [k: string]: (string | string[]) | undefined
   } | ({
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -11214,8 +10840,7 @@ type PerfectionistSortEnums = []|[{
       } | string))
     }[]
   } | {
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -11297,12 +10922,12 @@ type PerfectionistSortEnums = []|[{
   })
   
   partitionByNewLine?: boolean
-  
-  newlinesBetween?: ("ignore" | "always" | "never")
+  newlinesBetween?: (("ignore" | "always" | "never") | number)
   
   groups?: (string | string[] | {
+    newlinesBetween?: (("ignore" | "always" | "never") | number)
     
-    newlinesBetween: ("ignore" | "always" | "never")
+    commentAbove?: string
   })[]
 }]
 // ----- perfectionist/sort-exports -----
@@ -11330,8 +10955,7 @@ type PerfectionistSortExports = {
   groupKind?: ("mixed" | "values-first" | "types-first")
   
   customGroups?: ({
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -11364,8 +10988,7 @@ type PerfectionistSortExports = {
       } | string))
     }[]
   } | {
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -11435,12 +11058,12 @@ type PerfectionistSortExports = {
   })
   
   partitionByNewLine?: boolean
-  
-  newlinesBetween?: ("ignore" | "always" | "never")
+  newlinesBetween?: (("ignore" | "always" | "never") | number)
   
   groups?: (string | string[] | {
+    newlinesBetween?: (("ignore" | "always" | "never") | number)
     
-    newlinesBetween: ("ignore" | "always" | "never")
+    commentAbove?: string
   })[]
 }[]
 // ----- perfectionist/sort-heritage-clauses -----
@@ -11470,8 +11093,9 @@ type PerfectionistSortHeritageClauses = []|[{
   }
   
   groups?: (string | string[] | {
+    newlinesBetween?: (("ignore" | "always" | "never") | number)
     
-    newlinesBetween: ("ignore" | "always" | "never")
+    commentAbove?: string
   })[]
 }]
 // ----- perfectionist/sort-imports -----
@@ -11505,8 +11129,7 @@ type PerfectionistSortImports = {
       [k: string]: (string | string[]) | undefined
     }
   } | ({
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -11551,8 +11174,7 @@ type PerfectionistSortImports = {
       } | string))
     }[]
   } | {
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -11595,6 +11217,12 @@ type PerfectionistSortImports = {
       flags?: string
     } | string))
   })[])
+  tsconfig?: {
+    
+    rootDir: string
+    
+    filename?: string
+  }
   
   maxLineLength?: number
   
@@ -11642,8 +11270,7 @@ type PerfectionistSortImports = {
   })
   
   partitionByNewLine?: boolean
-  
-  newlinesBetween?: ("ignore" | "always" | "never")
+  newlinesBetween?: (("ignore" | "always" | "never") | number)
   
   internalPattern?: (({
     
@@ -11658,8 +11285,9 @@ type PerfectionistSortImports = {
   } | string))
   
   groups?: (string | string[] | {
+    newlinesBetween?: (("ignore" | "always" | "never") | number)
     
-    newlinesBetween: ("ignore" | "always" | "never")
+    commentAbove?: string
   })[]
 }[]
 // ----- perfectionist/sort-interfaces -----
@@ -11687,8 +11315,7 @@ type PerfectionistSortInterfaces = {
   customGroups?: ({
     [k: string]: (string | string[]) | undefined
   } | ({
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -11735,8 +11362,7 @@ type PerfectionistSortInterfaces = {
       sortBy?: ("name" | "value")
     }[]
   } | {
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -11849,8 +11475,7 @@ type PerfectionistSortInterfaces = {
   })
   
   partitionByNewLine?: boolean
-  
-  newlinesBetween?: ("ignore" | "always" | "never")
+  newlinesBetween?: (("ignore" | "always" | "never") | number)
   
   ignorePattern?: (({
     
@@ -11866,8 +11491,9 @@ type PerfectionistSortInterfaces = {
   sortBy?: ("name" | "value")
   
   groups?: (string | string[] | {
+    newlinesBetween?: (("ignore" | "always" | "never") | number)
     
-    newlinesBetween: ("ignore" | "always" | "never")
+    commentAbove?: string
   })[]
 }[]
 // ----- perfectionist/sort-intersection-types -----
@@ -11893,8 +11519,7 @@ type PerfectionistSortIntersectionTypes = {
   type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
   
   customGroups?: ({
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -11925,8 +11550,7 @@ type PerfectionistSortIntersectionTypes = {
       } | string))
     }[]
   } | {
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -11994,12 +11618,12 @@ type PerfectionistSortIntersectionTypes = {
   })
   
   partitionByNewLine?: boolean
-  
-  newlinesBetween?: ("ignore" | "always" | "never")
+  newlinesBetween?: (("ignore" | "always" | "never") | number)
   
   groups?: (string | string[] | {
+    newlinesBetween?: (("ignore" | "always" | "never") | number)
     
-    newlinesBetween: ("ignore" | "always" | "never")
+    commentAbove?: string
   })[]
 }[]
 // ----- perfectionist/sort-jsx-props -----
@@ -12026,8 +11650,7 @@ type PerfectionistSortJsxProps = {
   customGroups?: ({
     [k: string]: (string | string[]) | undefined
   } | ({
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -12072,8 +11695,7 @@ type PerfectionistSortJsxProps = {
       } | string))
     }[]
   } | {
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -12145,8 +11767,7 @@ type PerfectionistSortJsxProps = {
   }
   
   partitionByNewLine?: boolean
-  
-  newlinesBetween?: ("ignore" | "always" | "never")
+  newlinesBetween?: (("ignore" | "always" | "never") | number)
   
   ignorePattern?: (({
     
@@ -12161,8 +11782,9 @@ type PerfectionistSortJsxProps = {
   } | string))
   
   groups?: (string | string[] | {
+    newlinesBetween?: (("ignore" | "always" | "never") | number)
     
-    newlinesBetween: ("ignore" | "always" | "never")
+    commentAbove?: string
   })[]
 }[]
 // ----- perfectionist/sort-maps -----
@@ -12188,8 +11810,7 @@ type PerfectionistSortMaps = {
   type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
   
   customGroups?: ({
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -12218,8 +11839,7 @@ type PerfectionistSortMaps = {
       } | string))
     }[]
   } | {
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -12300,12 +11920,12 @@ type PerfectionistSortMaps = {
   })
   
   partitionByNewLine?: boolean
-  
-  newlinesBetween?: ("ignore" | "always" | "never")
+  newlinesBetween?: (("ignore" | "always" | "never") | number)
   
   groups?: (string | string[] | {
+    newlinesBetween?: (("ignore" | "always" | "never") | number)
     
-    newlinesBetween: ("ignore" | "always" | "never")
+    commentAbove?: string
   })[]
 }[]
 // ----- perfectionist/sort-modules -----
@@ -12331,8 +11951,7 @@ type PerfectionistSortModules = []|[{
   type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
   
   customGroups?: ({
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -12377,8 +11996,7 @@ type PerfectionistSortModules = []|[{
       } | string))
     }[]
   } | {
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -12460,12 +12078,12 @@ type PerfectionistSortModules = []|[{
   })
   
   partitionByNewLine?: boolean
-  
-  newlinesBetween?: ("ignore" | "always" | "never")
+  newlinesBetween?: (("ignore" | "always" | "never") | number)
   
   groups?: (string | string[] | {
+    newlinesBetween?: (("ignore" | "always" | "never") | number)
     
-    newlinesBetween: ("ignore" | "always" | "never")
+    commentAbove?: string
   })[]
 }]
 // ----- perfectionist/sort-named-exports -----
@@ -12495,8 +12113,7 @@ type PerfectionistSortNamedExports = {
   ignoreAlias?: boolean
   
   customGroups?: ({
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -12529,8 +12146,7 @@ type PerfectionistSortNamedExports = {
       } | string))
     }[]
   } | {
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -12600,12 +12216,12 @@ type PerfectionistSortNamedExports = {
   })
   
   partitionByNewLine?: boolean
-  
-  newlinesBetween?: ("ignore" | "always" | "never")
+  newlinesBetween?: (("ignore" | "always" | "never") | number)
   
   groups?: (string | string[] | {
+    newlinesBetween?: (("ignore" | "always" | "never") | number)
     
-    newlinesBetween: ("ignore" | "always" | "never")
+    commentAbove?: string
   })[]
 }[]
 // ----- perfectionist/sort-named-imports -----
@@ -12635,8 +12251,7 @@ type PerfectionistSortNamedImports = {
   ignoreAlias?: boolean
   
   customGroups?: ({
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -12669,8 +12284,7 @@ type PerfectionistSortNamedImports = {
       } | string))
     }[]
   } | {
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -12740,12 +12354,12 @@ type PerfectionistSortNamedImports = {
   })
   
   partitionByNewLine?: boolean
-  
-  newlinesBetween?: ("ignore" | "always" | "never")
+  newlinesBetween?: (("ignore" | "always" | "never") | number)
   
   groups?: (string | string[] | {
+    newlinesBetween?: (("ignore" | "always" | "never") | number)
     
-    newlinesBetween: ("ignore" | "always" | "never")
+    commentAbove?: string
   })[]
 }[]
 // ----- perfectionist/sort-object-types -----
@@ -12773,8 +12387,7 @@ type PerfectionistSortObjectTypes = {
   customGroups?: ({
     [k: string]: (string | string[]) | undefined
   } | ({
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -12821,8 +12434,7 @@ type PerfectionistSortObjectTypes = {
       sortBy?: ("name" | "value")
     }[]
   } | {
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -12935,8 +12547,7 @@ type PerfectionistSortObjectTypes = {
   })
   
   partitionByNewLine?: boolean
-  
-  newlinesBetween?: ("ignore" | "always" | "never")
+  newlinesBetween?: (("ignore" | "always" | "never") | number)
   
   ignorePattern?: (({
     
@@ -12952,8 +12563,9 @@ type PerfectionistSortObjectTypes = {
   sortBy?: ("name" | "value")
   
   groups?: (string | string[] | {
+    newlinesBetween?: (("ignore" | "always" | "never") | number)
     
-    newlinesBetween: ("ignore" | "always" | "never")
+    commentAbove?: string
   })[]
 }[]
 // ----- perfectionist/sort-objects -----
@@ -12985,8 +12597,7 @@ type PerfectionistSortObjects = {
   customGroups?: ({
     [k: string]: (string | string[]) | undefined
   } | ({
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -13031,8 +12642,7 @@ type PerfectionistSortObjects = {
       } | string))
     }[]
   } | {
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -13147,8 +12757,7 @@ type PerfectionistSortObjects = {
   })
   
   partitionByNewLine?: boolean
-  
-  newlinesBetween?: ("ignore" | "always" | "never")
+  newlinesBetween?: (("ignore" | "always" | "never") | number)
   
   ignorePattern?: (({
     
@@ -13163,8 +12772,9 @@ type PerfectionistSortObjects = {
   } | string))
   
   groups?: (string | string[] | {
+    newlinesBetween?: (("ignore" | "always" | "never") | number)
     
-    newlinesBetween: ("ignore" | "always" | "never")
+    commentAbove?: string
   })[]
 }[]
 // ----- perfectionist/sort-sets -----
@@ -13192,8 +12802,7 @@ type PerfectionistSortSets = {
   groupKind?: ("mixed" | "literals-first" | "spreads-first")
   
   customGroups?: ({
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -13224,8 +12833,7 @@ type PerfectionistSortSets = {
       } | string))
     }[]
   } | {
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -13308,12 +12916,12 @@ type PerfectionistSortSets = {
   })
   
   partitionByNewLine?: boolean
-  
-  newlinesBetween?: ("ignore" | "always" | "never")
+  newlinesBetween?: (("ignore" | "always" | "never") | number)
   
   groups?: (string | string[] | {
+    newlinesBetween?: (("ignore" | "always" | "never") | number)
     
-    newlinesBetween: ("ignore" | "always" | "never")
+    commentAbove?: string
   })[]
 }[]
 // ----- perfectionist/sort-switch-case -----
@@ -13361,8 +12969,7 @@ type PerfectionistSortUnionTypes = {
   type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
   
   customGroups?: ({
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -13393,8 +13000,7 @@ type PerfectionistSortUnionTypes = {
       } | string))
     }[]
   } | {
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -13462,12 +13068,12 @@ type PerfectionistSortUnionTypes = {
   })
   
   partitionByNewLine?: boolean
-  
-  newlinesBetween?: ("ignore" | "always" | "never")
+  newlinesBetween?: (("ignore" | "always" | "never") | number)
   
   groups?: (string | string[] | {
+    newlinesBetween?: (("ignore" | "always" | "never") | number)
     
-    newlinesBetween: ("ignore" | "always" | "never")
+    commentAbove?: string
   })[]
 }[]
 // ----- perfectionist/sort-variable-declarations -----
@@ -13493,8 +13099,7 @@ type PerfectionistSortVariableDeclarations = []|[{
   type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
   
   customGroups?: ({
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -13525,8 +13130,7 @@ type PerfectionistSortVariableDeclarations = []|[{
       } | string))
     }[]
   } | {
-    
-    newlinesInside?: ("always" | "never")
+    newlinesInside?: (("always" | "never") | number)
     
     fallbackSort?: {
       
@@ -13594,12 +13198,12 @@ type PerfectionistSortVariableDeclarations = []|[{
   })
   
   partitionByNewLine?: boolean
-  
-  newlinesBetween?: ("ignore" | "always" | "never")
+  newlinesBetween?: (("ignore" | "always" | "never") | number)
   
   groups?: (string | string[] | {
+    newlinesBetween?: (("ignore" | "always" | "never") | number)
     
-    newlinesBetween: ("ignore" | "always" | "never")
+    commentAbove?: string
   })[]
 }]
 // ----- prefer-arrow-callback -----
@@ -13800,6 +13404,10 @@ type RegexpPreferLookaround = []|[{
 // ----- regexp/prefer-named-replacement -----
 type RegexpPreferNamedReplacement = []|[{
   strictTypes?: boolean
+}]
+// ----- regexp/prefer-quantifier -----
+type RegexpPreferQuantifier = []|[{
+  allows?: string[]
 }]
 // ----- regexp/prefer-range -----
 type RegexpPreferRange = []|[{
@@ -14138,16 +13746,6 @@ type StyleCurlyNewline = []|[(("always" | "never") | {
     minElements?: number
     consistent?: boolean
   })
-  TSEnumBody?: (("always" | "never") | {
-    multiline?: boolean
-    minElements?: number
-    consistent?: boolean
-  })
-  TSInterfaceBody?: (("always" | "never") | {
-    multiline?: boolean
-    minElements?: number
-    consistent?: boolean
-  })
   TSModuleBlock?: (("always" | "never") | {
     multiline?: boolean
     minElements?: number
@@ -14161,14 +13759,6 @@ type StyleCurlyNewline = []|[(("always" | "never") | {
 type StyleDotLocation = []|[("object" | "property")]
 // ----- style/eol-last -----
 type StyleEolLast = []|[("always" | "never" | "unix" | "windows")]
-// ----- style/func-call-spacing -----
-type StyleFuncCallSpacing = ([]|["never"] | []|["always"]|["always", {
-  allowNewlines?: boolean
-  optionalChain?: {
-    before?: boolean
-    after?: boolean
-  }
-}])
 // ----- style/function-call-argument-newline -----
 type StyleFunctionCallArgumentNewline = []|[("always" | "never" | "consistent")]
 // ----- style/function-call-spacing -----
@@ -14343,8 +13933,8 @@ type StyleJsxSortProps = []|[{
   multiline?: ("ignore" | "first" | "last")
   ignoreCase?: boolean
   noSortAlphabetically?: boolean
-  reservedFirst?: (unknown[] | boolean)
-  reservedLast?: unknown[]
+  reservedFirst?: (string[] | boolean)
+  reservedLast?: string[]
   locale?: string
 }]
 // ----- style/jsx-tag-spacing -----
@@ -14893,6 +14483,11 @@ type StyleNoExtraParens = ([]|["functions"] | []|["all"]|["all", {
   enforceForFunctionPrototypeMethods?: boolean
   allowParensAfterCommentPattern?: string
   nestedConditionalExpressions?: boolean
+  allowNodesInSpreadElement?: {
+    ConditionalExpression?: boolean
+    LogicalExpression?: boolean
+    AwaitExpression?: boolean
+  }
 }])
 // ----- style/no-mixed-operators -----
 type StyleNoMixedOperators = []|[{
@@ -14970,6 +14565,11 @@ type StyleObjectCurlyNewline = []|[((("always" | "never") | {
     minProperties?: number
     consistent?: boolean
   })
+  TSEnumBody?: (("always" | "never") | {
+    multiline?: boolean
+    minProperties?: number
+    consistent?: boolean
+  })
 })]
 // ----- style/object-curly-spacing -----
 type StyleObjectCurlySpacing = []|[("always" | "never")]|[("always" | "never"), {
@@ -14979,7 +14579,6 @@ type StyleObjectCurlySpacing = []|[("always" | "never")]|[("always" | "never"), 
 // ----- style/object-property-newline -----
 type StyleObjectPropertyNewline = []|[{
   allowAllPropertiesOnSameLine?: boolean
-  allowMultiplePropertiesPerLine?: boolean
 }]
 // ----- style/one-var-declaration-per-line -----
 type StyleOneVarDeclarationPerLine = []|[("always" | "initializations")]
@@ -15042,12 +14641,14 @@ type StyleSpaceBeforeBlocks = []|[(("always" | "never") | {
   keywords?: ("always" | "never" | "off")
   functions?: ("always" | "never" | "off")
   classes?: ("always" | "never" | "off")
+  modules?: ("always" | "never" | "off")
 })]
 // ----- style/space-before-function-paren -----
 type StyleSpaceBeforeFunctionParen = []|[(("always" | "never") | {
   anonymous?: ("always" | "never" | "ignore")
   named?: ("always" | "never" | "ignore")
   asyncArrow?: ("always" | "never" | "ignore")
+  catch?: ("always" | "never" | "ignore")
 })]
 // ----- style/space-in-parens -----
 type StyleSpaceInParens = []|[("always" | "never")]|[("always" | "never"), {
@@ -15284,6 +14885,7 @@ type SveltePreferConst = []|[{
   destructuring?: ("any" | "all")
   ignoreReadBeforeAssign?: boolean
   excludedRunes?: string[]
+  [k: string]: unknown | undefined
 }]
 // ----- svelte/require-event-prefix -----
 type SvelteRequireEventPrefix = []|[{
@@ -15413,6 +15015,10 @@ type TestConsistentTestFilename = []|[{
 type TestConsistentTestIt = []|[{
   fn?: ("test" | "it")
   withinDescribe?: ("test" | "it")
+}]
+// ----- test/consistent-vitest-vi -----
+type TestConsistentVitestVi = []|[{
+  fn?: ("vi" | "vitest")
 }]
 // ----- test/expect-expect -----
 type TestExpectExpect = []|[{
@@ -17960,7 +17566,7 @@ type VueNoRestrictedCustomEvent = (string | {
 })[]
 // ----- vue/no-restricted-html-elements -----
 type VueNoRestrictedHtmlElements = (string | {
-  element: string
+  element: (string | string[])
   message?: string
 })[]
 // ----- vue/no-restricted-props -----
