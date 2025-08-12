@@ -198,6 +198,10 @@ export async function react(
                     'headers',
                     'loader',
                     'action',
+                    'clientLoader',
+                    'clientAction',
+                    'handle',
+                    'shouldRevalidate',
                   ]
                 : []),
             ],
@@ -212,7 +216,7 @@ export async function react(
       ? [{
           files: filesTypeAware,
           ignores: ignoresTypeAware,
-          name: 'antfu/react/type-aware-rules',
+          name: 'config/react/type-aware-rules',
           rules: {
             ...typeAwareRules,
           },

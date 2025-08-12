@@ -22,7 +22,7 @@ export async function pnpm(): Promise<TypedFlatConfigItem[]> {
       languageOptions: {
         parser: jsoncParser,
       },
-      name: 'antfu/pnpm/package-json',
+      name: 'config/pnpm/package-json',
       plugins: {
         pnpm: pluginPnpm,
       },
@@ -37,7 +37,7 @@ export async function pnpm(): Promise<TypedFlatConfigItem[]> {
       languageOptions: {
         parser: yamlParser,
       },
-      name: 'antfu/pnpm/pnpm-workspace-yaml',
+      name: 'config/pnpm/pnpm-workspace-yaml',
       plugins: {
         pnpm: pluginPnpm,
       },

@@ -27,7 +27,7 @@ export const GLOB_SVG = '**/*.svg'
 export const GLOB_HTML = '**/*.htm?(l)'
 export const GLOB_ASTRO = '**/*.astro'
 export const GLOB_ASTRO_TS = '**/*.astro/*.ts'
-export const GLOB_SVELTE = '**/*.svelte'
+export const GLOB_SVELTE = '**/*.svelte?(.{js,ts})'
 export const GLOB_GRAPHQL = '**/*.{g,graph}ql'
 
 export const GLOB_MARKDOWN_CODE: string = `${GLOB_MARKDOWN}/${GLOB_SRC}`

@@ -15,6 +15,7 @@ import {
   jsonc,
   jsx,
   markdown,
+  nextjs,
   node,
   perfectionist,
   pnpm,
@@ -60,6 +61,7 @@ export const defaultPluginRenaming = {
   '@eslint-react/hooks-extra': 'react-hooks-extra',
   '@eslint-react/naming-convention': 'react-naming-convention',
 
+  '@next/next': 'next',
   '@stylistic': 'style',
   '@typescript-eslint': 'ts',
   'n': 'node',
@@ -94,6 +96,7 @@ export function eslintFlatConfig(
     gitignore: enableGitignore = true,
     imports: enableImports = true,
     jsx: enableJsx = true,
+    nextjs: enableNextjs = false,
     pnpm: enableCatalogs = false,
     react: enableReact = false,
     regexp: enableRegexp = true,
@@ -121,7 +124,7 @@ export function eslintFlatConfig(
       : {}
 
   if (stylisticOptions && !('jsx' in stylisticOptions))
-    stylisticOptions.jsx = enableJsx
+    stylisticOptions.jsx = typeof enableJsx === 'object' ? true : enableJsx
 
   const configs: Awaitable<TypedFlatConfigItem[]>[] = []
 
@@ -186,7 +189,7 @@ export function eslintFlatConfig(
   }
 
   if (enableJsx) {
-    configs.push(jsx())
+    configs.push(jsx(enableJsx === true ? {} : enableJsx))
   }
 
   if (enableTypeScript) {
@@ -239,6 +242,12 @@ export function eslintFlatConfig(
       overrides: getOverrides(options, 'svelte'),
       stylistic: stylisticOptions,
       typescript: !!enableTypeScript,
+    }))
+  }
+
+  if (enableNextjs) {
+    configs.push(nextjs({
+      overrides: getOverrides(options, 'nextjs'),
     }))
   }
 

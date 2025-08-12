@@ -70,7 +70,7 @@ export async function yaml(
     },
     {
       files: ['pnpm-workspace.yaml'],
-      name: 'antfu/yaml/pnpm-workspace',
+      name: 'config/yaml/pnpm-workspace',
       rules: {
         'yaml/sort-keys': [
           'error',
