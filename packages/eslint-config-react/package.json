@@ -34,6 +34,7 @@
     "prepublishOnly": "pnpm build"
   },
   "peerDependencies": {
+    "@next/eslint-plugin-next": "catalog:peer",
     "@prettier/plugin-xml": "catalog:peer",
     "@unocss/eslint-plugin": "catalog:peer",
     "eslint": "catalog:peer",
@@ -41,6 +42,9 @@
     "eslint-plugin-tailwindcss": "catalog:peer"
   },
   "peerDependenciesMeta": {
+    "@next/eslint-plugin-next": {
+      "optional": true
+    },
     "@prettier/plugin-xml": {
       "optional": true
     },
@@ -61,6 +65,7 @@
     "eslint-plugin-react-refresh": "catalog:peer"
   },
   "devDependencies": {
+    "@next/eslint-plugin-next": "catalog:peer",
     "@unocss/eslint-plugin": "catalog:peer",
     "eslint": "catalog:peer",
     "eslint-plugin-format": "catalog:peer",

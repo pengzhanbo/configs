@@ -8,18 +8,30 @@ import type { VendoredPrettierOptions } from './vender/prettier-types'
 
 export type Awaitable<T> = T | Promise<T>
 
-export interface Rules extends RuleOptions {}
+export type Rules = Record<string, Linter.RuleEntry<any> | undefined> & RuleOptions
 
 export type { ConfigNames }
 
+/**
+ * An updated version of ESLint's `Linter.Config`, which provides autocompletion
+ * for `rules` and relaxes type limitations for `plugins` and `rules`, because
+ * many plugins still lack proper type definitions.
+ */
 export type TypedFlatConfigItem = Omit<Linter.Config<Linter.RulesRecord & Rules>, 'plugins'> & {
   // Relax plugins type limitation, as most of the plugins did not have correct type info yet.
   /**
-   * An object containing a name-value mapping of plugin names to plugin objects. When `files` is specified, these plugins are only available to the matching files.
+   * An object containing a name-value mapping of plugin names to plugin objects.
+   * When `files` is specified, these plugins are only available to the matching files.
    *
    * @see [Using plugins in your configuration](https://eslint.org/docs/latest/user-guide/configuring/configuration-files-new#using-plugins-in-your-configuration)
    */
   plugins?: Record<string, any>
+
+  /**
+   * An object containing the configured rules. When `files` or `ignores` are
+   * specified, these rule configurations are only available to the matching files.
+   */
+  rules?: Rules
 }
 
 export interface OptionsFiles {
@@ -54,15 +66,21 @@ export interface OptionsVue extends OptionsOverrides {
   a11y?: boolean
 }
 
-export interface OptionsNextjs extends OptionsOverrides {
-  /**
-   * normally locate your pages directory aut
-   *
-   * @see https://nextjs.org/docs/messages/no-html-link-for-pages#pagesdir
-   * @default ''
-   */
-  pagesDir?: string
+export interface OptionsJSXA11y extends OptionsOverrides {
+  // Add future a11y-specific options here
+}
 
+export interface OptionsJSX {
+  /**
+   * Enable JSX accessibility rules.
+   *
+   * Requires installing:
+   * - `eslint-plugin-jsx-a11y`
+   *
+   * Can be a boolean or an object for custom options and overrides.
+   * @default false
+   */
+  a11y?: boolean | OptionsJSXA11y
 }
 
 export type OptionsTypescript
@@ -296,11 +314,11 @@ export interface OptionsConfig extends OptionsComponentExts, OptionsProjectType 
   /**
    * Enable JSX related rules.
    *
-   * Currently only stylistic rules are included.
+   * Passing an object to enable JSX accessibility rules.
    *
    * @default true
    */
-  jsx?: boolean
+  jsx?: boolean | OptionsJSX
 
   /**
    * Options for eslint-plugin-unicorn.
@@ -396,6 +414,16 @@ export interface OptionsConfig extends OptionsComponentExts, OptionsProjectType 
    * @default false
    */
   react?: boolean | OptionsOverrides
+
+  /**
+   * Enable nextjs rules.
+   *
+   * Requires installing:
+   * - `@next/eslint-plugin-next`
+   *
+   * @default false
+   */
+  nextjs?: boolean | OptionsOverrides
 
   /**
    * Enable svelte rules.

@@ -37,6 +37,7 @@
   },
   "peerDependencies": {
     "@eslint-react/eslint-plugin": "catalog:peer",
+    "@next/eslint-plugin-next": "catalog:peer",
     "@prettier/plugin-xml": "catalog:peer",
     "@unocss/eslint-plugin": "catalog:peer",
     "astro-eslint-parser": "catalog:peer",
@@ -58,6 +59,9 @@
   },
   "peerDependenciesMeta": {
     "@eslint-react/eslint-plugin": {
+      "optional": true
+    },
+    "@next/eslint-plugin-next": {
       "optional": true
     },
     "@prettier/plugin-xml": {
@@ -125,6 +129,7 @@
     "eslint-plugin-import-lite": "catalog:prod",
     "eslint-plugin-jsdoc": "catalog:prod",
     "eslint-plugin-jsonc": "catalog:prod",
+    "eslint-plugin-jsx-a11y": "catalog:prod",
     "eslint-plugin-n": "catalog:prod",
     "eslint-plugin-no-only-tests": "catalog:prod",
     "eslint-plugin-perfectionist": "catalog:prod",
@@ -144,6 +149,7 @@
   "devDependencies": {
     "@eslint-react/eslint-plugin": "catalog:peer",
     "@eslint/config-inspector": "catalog:dev",
+    "@next/eslint-plugin-next": "catalog:peer",
     "@prettier/plugin-xml": "catalog:peer",
     "@unocss/eslint-plugin": "catalog:peer",
     "astro-eslint-parser": "catalog:peer",
