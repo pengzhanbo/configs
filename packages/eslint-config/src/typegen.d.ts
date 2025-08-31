@@ -1425,7 +1425,7 @@ export interface RuleOptions {
    * Enforce heading levels increment by one
    * @see https://github.com/eslint/markdown/blob/main/docs/rules/heading-increment.md
    */
-  'markdown/heading-increment'?: Linter.RuleEntry<[]>
+  'markdown/heading-increment'?: Linter.RuleEntry<MarkdownHeadingIncrement>
   /**
    * Disallow bare URLs
    * @see https://github.com/eslint/markdown/blob/main/docs/rules/no-bare-urls.md
@@ -1470,7 +1470,7 @@ export interface RuleOptions {
    * Disallow headings without a space after the hash characters
    * @see https://github.com/eslint/markdown/blob/main/docs/rules/no-missing-atx-heading-space.md
    */
-  'markdown/no-missing-atx-heading-space'?: Linter.RuleEntry<[]>
+  'markdown/no-missing-atx-heading-space'?: Linter.RuleEntry<MarkdownNoMissingAtxHeadingSpace>
   /**
    * Disallow missing label references
    * @see https://github.com/eslint/markdown/blob/main/docs/rules/no-missing-label-refs.md
@@ -1491,6 +1491,11 @@ export interface RuleOptions {
    * @see https://github.com/eslint/markdown/blob/main/docs/rules/no-reversed-media-syntax.md
    */
   'markdown/no-reversed-media-syntax'?: Linter.RuleEntry<[]>
+  /**
+   * Disallow spaces around emphasis markers
+   * @see https://github.com/eslint/markdown/blob/main/docs/rules/no-space-in-emphasis.md
+   */
+  'markdown/no-space-in-emphasis'?: Linter.RuleEntry<MarkdownNoSpaceInEmphasis>
   /**
    * Disallow unused definitions
    * @see https://github.com/eslint/markdown/blob/main/docs/rules/no-unused-definitions.md
@@ -3360,7 +3365,7 @@ export interface RuleOptions {
   'react/no-nested-components'?: Linter.RuleEntry<[]>
   /**
    * Disallow nesting lazy component declarations inside other components.
-   * @see https://eslint-react.xyz/docs/rules/no-nested-component-definitions
+   * @see https://eslint-react.xyz/docs/rules/no-nested-lazy-component-declarations
    */
   'react/no-nested-lazy-component-declarations'?: Linter.RuleEntry<[]>
   /**
@@ -10181,6 +10186,10 @@ type LogicalAssignmentOperators = (([]|["always"]|["always", {
 type MarkdownFencedCodeLanguage = []|[{
   required?: string[]
 }]
+// ----- markdown/heading-increment -----
+type MarkdownHeadingIncrement = []|[{
+  frontmatterTitle?: string
+}]
 // ----- markdown/no-duplicate-definitions -----
 type MarkdownNoDuplicateDefinitions = []|[{
   allowDefinitions?: string[]
@@ -10199,6 +10208,11 @@ type MarkdownNoEmptyDefinitions = []|[{
 // ----- markdown/no-html -----
 type MarkdownNoHtml = []|[{
   allowed?: string[]
+  allowedIgnoreCase?: boolean
+}]
+// ----- markdown/no-missing-atx-heading-space -----
+type MarkdownNoMissingAtxHeadingSpace = []|[{
+  checkClosedHeadings?: boolean
 }]
 // ----- markdown/no-missing-link-fragments -----
 type MarkdownNoMissingLinkFragments = []|[{
@@ -10208,6 +10222,10 @@ type MarkdownNoMissingLinkFragments = []|[{
 // ----- markdown/no-multiple-h1 -----
 type MarkdownNoMultipleH1 = []|[{
   frontmatterTitle?: string
+}]
+// ----- markdown/no-space-in-emphasis -----
+type MarkdownNoSpaceInEmphasis = []|[{
+  checkStrikethrough?: boolean
 }]
 // ----- markdown/no-unused-definitions -----
 type MarkdownNoUnusedDefinitions = []|[{
@@ -17461,7 +17479,6 @@ type UnocssEnforceClassCompile = []|[{
 type UnocssOrder = []|[{
   unoFunctions?: string[]
   unoVariables?: string[]
-  [k: string]: unknown | undefined
 }]
 // ----- unused-imports/no-unused-imports -----
 type UnusedImportsNoUnusedImports = []|[(("all" | "local") | {
