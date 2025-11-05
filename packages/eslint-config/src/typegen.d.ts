@@ -430,6 +430,11 @@ export interface RuleOptions {
    */
   'comma-style'?: Linter.RuleEntry<CommaStyle>
   /**
+   * Comment-as-command for one-off codemod with ESLint
+   * @see https://github.com/antfu/eslint-plugin-command
+   */
+  'command/command'?: Linter.RuleEntry<[]>
+  /**
    * Enforce a maximum cyclomatic complexity allowed in a program
    * @see https://eslint.org/docs/latest/rules/complexity
    */
@@ -497,6 +502,26 @@ export interface RuleOptions {
    * @see https://eslint.org/docs/latest/rules/eqeqeq
    */
   'eqeqeq'?: Linter.RuleEntry<Eqeqeq>
+  /**
+   * Avoid using TypeScript's enums.
+   * @see https://github.com/JoshuaKGoldberg/eslint-plugin-erasable-syntax-only/blob/main/docs/rules/enums.md
+   */
+  'erasable-syntax-only/enums'?: Linter.RuleEntry<[]>
+  /**
+   * Avoid using TypeScript's import aliases.
+   * @see https://github.com/JoshuaKGoldberg/eslint-plugin-erasable-syntax-only/blob/main/docs/rules/import-aliases.md
+   */
+  'erasable-syntax-only/import-aliases'?: Linter.RuleEntry<[]>
+  /**
+   * Avoid using TypeScript's namespaces.
+   * @see https://github.com/JoshuaKGoldberg/eslint-plugin-erasable-syntax-only/blob/main/docs/rules/namespaces.md
+   */
+  'erasable-syntax-only/namespaces'?: Linter.RuleEntry<[]>
+  /**
+   * Avoid using TypeScript's class parameter properties.
+   * @see https://github.com/JoshuaKGoldberg/eslint-plugin-erasable-syntax-only/blob/main/docs/rules/parameter-properties.md
+   */
+  'erasable-syntax-only/parameter-properties'?: Linter.RuleEntry<[]>
   /**
    * require a `eslint-enable` comment for every `eslint-disable` comment
    * @see https://eslint-community.github.io/eslint-plugin-eslint-comments/rules/disable-enable-pair.html
@@ -2975,6 +3000,36 @@ export interface RuleOptions {
    */
   'perfectionist/sort-variable-declarations'?: Linter.RuleEntry<PerfectionistSortVariableDeclarations>
   /**
+   * Enforce using "catalog:" in `package.json`
+   * @see https://github.com/antfu/pnpm-workspace-utils/tree/main/packages/eslint-plugin-pnpm/src/rules/json/json-enforce-catalog.test.ts
+   */
+  'pnpm/json-enforce-catalog'?: Linter.RuleEntry<PnpmJsonEnforceCatalog>
+  /**
+   * Prefer having pnpm settings in `pnpm-workspace.yaml` instead of `package.json`. This requires pnpm v10.6+, see https://github.com/orgs/pnpm/discussions/9037.
+   * @see https://github.com/antfu/pnpm-workspace-utils/tree/main/packages/eslint-plugin-pnpm/src/rules/json/json-prefer-workspace-settings.test.ts
+   */
+  'pnpm/json-prefer-workspace-settings'?: Linter.RuleEntry<PnpmJsonPreferWorkspaceSettings>
+  /**
+   * Enforce using valid catalog in `package.json`
+   * @see https://github.com/antfu/pnpm-workspace-utils/tree/main/packages/eslint-plugin-pnpm/src/rules/json/json-valid-catalog.test.ts
+   */
+  'pnpm/json-valid-catalog'?: Linter.RuleEntry<PnpmJsonValidCatalog>
+  /**
+   * Disallow duplicate catalog items in `pnpm-workspace.yaml`
+   * @see https://github.com/antfu/pnpm-workspace-utils/tree/main/packages/eslint-plugin-pnpm/src/rules/yaml/yaml-no-duplicate-catalog-item.test.ts
+   */
+  'pnpm/yaml-no-duplicate-catalog-item'?: Linter.RuleEntry<PnpmYamlNoDuplicateCatalogItem>
+  /**
+   * Disallow unused catalogs in `pnpm-workspace.yaml`
+   * @see https://github.com/antfu/pnpm-workspace-utils/tree/main/packages/eslint-plugin-pnpm/src/rules/yaml/yaml-no-unused-catalog-item.test.ts
+   */
+  'pnpm/yaml-no-unused-catalog-item'?: Linter.RuleEntry<[]>
+  /**
+   * Ensure all package patterns in `pnpm-workspace.yaml` match at least one directory
+   * @see https://github.com/antfu/pnpm-workspace-utils/tree/main/packages/eslint-plugin-pnpm/src/rules/yaml/yaml-valid-packages.test.ts
+   */
+  'pnpm/yaml-valid-packages'?: Linter.RuleEntry<[]>
+  /**
    * Require using arrow functions for callbacks
    * @see https://eslint.org/docs/latest/rules/prefer-arrow-callback
    */
@@ -3326,6 +3381,11 @@ export interface RuleOptions {
    * @see https://eslint-react.xyz/docs/rules/web-api-no-leaked-timeout
    */
   'react-web-api/no-leaked-timeout'?: Linter.RuleEntry<[]>
+  /**
+   * Prevents dollar signs from being inserted as text nodes before expressions.
+   * @see https://eslint-react.xyz/docs/rules/jsx-dollar
+   */
+  'react/jsx-dollar'?: Linter.RuleEntry<[]>
   /**
    * Enforces that the 'key' prop is placed before the spread prop in JSX elements.
    * @see https://eslint-react.xyz/docs/rules/jsx-key-before-spread
@@ -5139,46 +5199,6 @@ export interface RuleOptions {
    * @see https://eslint.org/docs/latest/rules/symbol-description
    */
   'symbol-description'?: Linter.RuleEntry<[]>
-  /**
-   * Enforce a consistent and logical order of the Tailwind CSS classnames
-   * @see https://github.com/francoismassart/eslint-plugin-tailwindcss/tree/master/docs/rules/classnames-order.md
-   */
-  'tailwindcss/classnames-order'?: Linter.RuleEntry<TailwindcssClassnamesOrder>
-  /**
-   * Warns about dash prefixed classnames using arbitrary values
-   * @see https://github.com/francoismassart/eslint-plugin-tailwindcss/tree/master/docs/rules/enforces-negative-arbitrary-values.md
-   */
-  'tailwindcss/enforces-negative-arbitrary-values'?: Linter.RuleEntry<TailwindcssEnforcesNegativeArbitraryValues>
-  /**
-   * Enforces the usage of shorthand Tailwind CSS classnames
-   * @see https://github.com/francoismassart/eslint-plugin-tailwindcss/tree/master/docs/rules/enforces-shorthand.md
-   */
-  'tailwindcss/enforces-shorthand'?: Linter.RuleEntry<TailwindcssEnforcesShorthand>
-  /**
-   * Detect obsolete classnames when upgrading to Tailwind CSS v3
-   * @see https://github.com/francoismassart/eslint-plugin-tailwindcss/tree/master/docs/rules/migration-from-tailwind-2.md
-   */
-  'tailwindcss/migration-from-tailwind-2'?: Linter.RuleEntry<TailwindcssMigrationFromTailwind2>
-  /**
-   * Forbid using arbitrary values in classnames
-   * @see https://github.com/francoismassart/eslint-plugin-tailwindcss/tree/master/docs/rules/no-arbitrary-value.md
-   */
-  'tailwindcss/no-arbitrary-value'?: Linter.RuleEntry<TailwindcssNoArbitraryValue>
-  /**
-   * Avoid contradicting Tailwind CSS classnames (e.g. "w-3 w-5")
-   * @see https://github.com/francoismassart/eslint-plugin-tailwindcss/tree/master/docs/rules/no-contradicting-classname.md
-   */
-  'tailwindcss/no-contradicting-classname'?: Linter.RuleEntry<TailwindcssNoContradictingClassname>
-  /**
-   * Detect classnames which do not belong to Tailwind CSS
-   * @see https://github.com/francoismassart/eslint-plugin-tailwindcss/tree/master/docs/rules/no-custom-classname.md
-   */
-  'tailwindcss/no-custom-classname'?: Linter.RuleEntry<TailwindcssNoCustomClassname>
-  /**
-   * Forbid using arbitrary values in classnames when an equivalent preset exists
-   * @see https://github.com/francoismassart/eslint-plugin-tailwindcss/tree/master/docs/rules/no-unnecessary-arbitrary-value.md
-   */
-  'tailwindcss/no-unnecessary-arbitrary-value'?: Linter.RuleEntry<TailwindcssNoUnnecessaryArbitraryValue>
   /**
    * Require or disallow spacing around embedded expressions of template strings
    * @see https://eslint.org/docs/latest/rules/template-curly-spacing
@@ -7118,6 +7138,99 @@ export interface RuleOptions {
    * @see https://eslint.org/docs/latest/rules/vars-on-top
    */
   'vars-on-top'?: Linter.RuleEntry<[]>
+  /**
+   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/alt-text.html
+   */
+  'vue-a11y/alt-text'?: Linter.RuleEntry<VueA11YAltText>
+  /**
+   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/anchor-has-content.html
+   */
+  'vue-a11y/anchor-has-content'?: Linter.RuleEntry<VueA11YAnchorHasContent>
+  /**
+   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/aria-props.html
+   */
+  'vue-a11y/aria-props'?: Linter.RuleEntry<[]>
+  /**
+   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/aria-role.html
+   */
+  'vue-a11y/aria-role'?: Linter.RuleEntry<VueA11YAriaRole>
+  /**
+   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/aria-unsupported-elements.html
+   */
+  'vue-a11y/aria-unsupported-elements'?: Linter.RuleEntry<[]>
+  /**
+   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/click-events-have-key-events.html
+   */
+  'vue-a11y/click-events-have-key-events'?: Linter.RuleEntry<[]>
+  /**
+   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/form-control-has-label.html
+   */
+  'vue-a11y/form-control-has-label'?: Linter.RuleEntry<VueA11YFormControlHasLabel>
+  /**
+   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/heading-has-content.html
+   */
+  'vue-a11y/heading-has-content'?: Linter.RuleEntry<VueA11YHeadingHasContent>
+  /**
+   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/iframe-has-title.html
+   */
+  'vue-a11y/iframe-has-title'?: Linter.RuleEntry<[]>
+  /**
+   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/interactive-supports-focus.html
+   */
+  'vue-a11y/interactive-supports-focus'?: Linter.RuleEntry<VueA11YInteractiveSupportsFocus>
+  /**
+   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/label-has-for.html
+   */
+  'vue-a11y/label-has-for'?: Linter.RuleEntry<VueA11YLabelHasFor>
+  /**
+   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/media-has-caption.html
+   */
+  'vue-a11y/media-has-caption'?: Linter.RuleEntry<VueA11YMediaHasCaption>
+  /**
+   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/mouse-events-have-key-events.html
+   */
+  'vue-a11y/mouse-events-have-key-events'?: Linter.RuleEntry<[]>
+  /**
+   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/no-access-key.html
+   */
+  'vue-a11y/no-access-key'?: Linter.RuleEntry<[]>
+  /**
+   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/no-aria-hidden-on-focusable.html
+   */
+  'vue-a11y/no-aria-hidden-on-focusable'?: Linter.RuleEntry<[]>
+  /**
+   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/no-autofocus.html
+   */
+  'vue-a11y/no-autofocus'?: Linter.RuleEntry<VueA11YNoAutofocus>
+  /**
+   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/no-distracting-elements.html
+   */
+  'vue-a11y/no-distracting-elements'?: Linter.RuleEntry<VueA11YNoDistractingElements>
+  /**
+   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/no-onchange.html
+   * @deprecated
+   */
+  'vue-a11y/no-onchange'?: Linter.RuleEntry<[]>
+  /**
+   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/no-redundant-roles.html
+   */
+  'vue-a11y/no-redundant-roles'?: Linter.RuleEntry<VueA11YNoRedundantRoles>
+  /**
+   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/no-role-presentation-on-focusable.html
+   */
+  'vue-a11y/no-role-presentation-on-focusable'?: Linter.RuleEntry<[]>
+  /**
+   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/no-static-element-interactions.html
+   */
+  'vue-a11y/no-static-element-interactions'?: Linter.RuleEntry<[]>
+  /**
+   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/role-has-required-aria-props.html
+   */
+  'vue-a11y/role-has-required-aria-props'?: Linter.RuleEntry<[]>
+  /**
+   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/tabindex-no-positive.html
+   */
+  'vue-a11y/tabindex-no-positive'?: Linter.RuleEntry<[]>
   /**
    * Enforce linebreaks after opening and before closing array brackets in `<template>`
    * @see https://eslint.vuejs.org/rules/array-bracket-newline.html
@@ -14569,6 +14682,47 @@ type PerfectionistSortVariableDeclarations = []|[{
     commentAbove?: string
   })[]
 }]
+// ----- pnpm/json-enforce-catalog -----
+type PnpmJsonEnforceCatalog = []|[{
+  
+  allowedProtocols?: string[]
+  
+  autofix?: boolean
+  
+  defaultCatalog?: string
+  
+  reuseExistingCatalog?: boolean
+  
+  conflicts?: ("new-catalog" | "overrides" | "error")
+  
+  fields?: string[]
+  
+  ignores?: string[]
+}]
+// ----- pnpm/json-prefer-workspace-settings -----
+type PnpmJsonPreferWorkspaceSettings = []|[{
+  
+  autofix?: boolean
+}]
+// ----- pnpm/json-valid-catalog -----
+type PnpmJsonValidCatalog = []|[{
+  
+  autoInsert?: boolean
+  
+  autoInsertDefaultSpecifier?: string
+  
+  autofix?: boolean
+  
+  enforceNoConflict?: boolean
+  
+  fields?: unknown[]
+}]
+// ----- pnpm/yaml-no-duplicate-catalog-item -----
+type PnpmYamlNoDuplicateCatalogItem = []|[{
+  allow?: string[]
+  
+  checkDuplicates?: ("name-only" | "exact-version")
+}]
 // ----- prefer-arrow-callback -----
 type PreferArrowCallback = []|[{
   allowNamedFunctions?: boolean
@@ -16525,90 +16679,6 @@ type SwitchColonSpacing = []|[{
   before?: boolean
   after?: boolean
 }]
-// ----- tailwindcss/classnames-order -----
-type TailwindcssClassnamesOrder = []|[{
-  callees?: string[]
-  ignoredKeys?: string[]
-  config?: (string | {
-    [k: string]: unknown | undefined
-  })
-  removeDuplicates?: boolean
-  tags?: string[]
-  [k: string]: unknown | undefined
-}]
-// ----- tailwindcss/enforces-negative-arbitrary-values -----
-type TailwindcssEnforcesNegativeArbitraryValues = []|[{
-  callees?: string[]
-  ignoredKeys?: string[]
-  config?: (string | {
-    [k: string]: unknown | undefined
-  })
-  tags?: string[]
-  [k: string]: unknown | undefined
-}]
-// ----- tailwindcss/enforces-shorthand -----
-type TailwindcssEnforcesShorthand = []|[{
-  callees?: string[]
-  ignoredKeys?: string[]
-  config?: (string | {
-    [k: string]: unknown | undefined
-  })
-  tags?: string[]
-  [k: string]: unknown | undefined
-}]
-// ----- tailwindcss/migration-from-tailwind-2 -----
-type TailwindcssMigrationFromTailwind2 = []|[{
-  callees?: string[]
-  ignoredKeys?: string[]
-  config?: (string | {
-    [k: string]: unknown | undefined
-  })
-  tags?: string[]
-  [k: string]: unknown | undefined
-}]
-// ----- tailwindcss/no-arbitrary-value -----
-type TailwindcssNoArbitraryValue = []|[{
-  callees?: string[]
-  ignoredKeys?: string[]
-  config?: (string | {
-    [k: string]: unknown | undefined
-  })
-  tags?: string[]
-  [k: string]: unknown | undefined
-}]
-// ----- tailwindcss/no-contradicting-classname -----
-type TailwindcssNoContradictingClassname = []|[{
-  callees?: string[]
-  ignoredKeys?: string[]
-  config?: (string | {
-    [k: string]: unknown | undefined
-  })
-  tags?: string[]
-  [k: string]: unknown | undefined
-}]
-// ----- tailwindcss/no-custom-classname -----
-type TailwindcssNoCustomClassname = []|[{
-  callees?: string[]
-  ignoredKeys?: string[]
-  config?: (string | {
-    [k: string]: unknown | undefined
-  })
-  cssFiles?: string[]
-  cssFilesRefreshRate?: number
-  tags?: string[]
-  whitelist?: string[]
-  [k: string]: unknown | undefined
-}]
-// ----- tailwindcss/no-unnecessary-arbitrary-value -----
-type TailwindcssNoUnnecessaryArbitraryValue = []|[{
-  callees?: string[]
-  ignoredKeys?: string[]
-  config?: (string | {
-    [k: string]: unknown | undefined
-  })
-  tags?: string[]
-  [k: string]: unknown | undefined
-}]
 // ----- template-curly-spacing -----
 type TemplateCurlySpacing = []|[("always" | "never")]
 // ----- template-tag-spacing -----
@@ -18331,6 +18401,77 @@ type UseIsnan = []|[{
 type ValidTypeof = []|[{
   requireStringLiterals?: boolean
 }]
+// ----- vue-a11y/alt-text -----
+type VueA11YAltText = []|[{
+  elements?: string[]
+  img?: string[]
+  object?: string[]
+  area?: string[]
+  "input[type=\"image\"]"?: string[]
+  [k: string]: unknown | undefined
+}]
+// ----- vue-a11y/anchor-has-content -----
+type VueA11YAnchorHasContent = []|[{
+  components?: string[]
+  accessibleChildren?: string[]
+  accessibleDirectives?: string[]
+  [k: string]: unknown | undefined
+}]
+// ----- vue-a11y/aria-role -----
+type VueA11YAriaRole = []|[{
+  ignoreNonDOM?: boolean
+}]
+// ----- vue-a11y/form-control-has-label -----
+type VueA11YFormControlHasLabel = []|[{
+  labelComponents?: string[]
+  controlComponents?: string[]
+  [k: string]: unknown | undefined
+}]
+// ----- vue-a11y/heading-has-content -----
+type VueA11YHeadingHasContent = []|[{
+  components?: string[]
+  accessibleChildren?: string[]
+  accessibleDirectives?: string[]
+  [k: string]: unknown | undefined
+}]
+// ----- vue-a11y/interactive-supports-focus -----
+type VueA11YInteractiveSupportsFocus = []|[{
+  tabbable?: ("button" | "checkbox" | "columnheader" | "combobox" | "grid" | "gridcell" | "link" | "listbox" | "menu" | "menubar" | "menuitem" | "menuitemcheckbox" | "menuitemradio" | "option" | "progressbar" | "radio" | "radiogroup" | "row" | "rowheader" | "scrollbar" | "searchbox" | "slider" | "spinbutton" | "switch" | "tab" | "tablist" | "textbox" | "tree" | "treegrid" | "treeitem" | "doc-backlink" | "doc-biblioref" | "doc-glossref" | "doc-noteref")[]
+  [k: string]: unknown | undefined
+}]
+// ----- vue-a11y/label-has-for -----
+type VueA11YLabelHasFor = []|[{
+  components?: string[]
+  controlComponents?: string[]
+  required?: (("nesting" | "id") | {
+    some: ("nesting" | "id")[]
+    [k: string]: unknown | undefined
+  } | {
+    every: ("nesting" | "id")[]
+    [k: string]: unknown | undefined
+  })
+  allowChildren?: boolean
+  [k: string]: unknown | undefined
+}]
+// ----- vue-a11y/media-has-caption -----
+type VueA11YMediaHasCaption = []|[{
+  audio?: string[]
+  track?: string[]
+  video?: string[]
+  [k: string]: unknown | undefined
+}]
+// ----- vue-a11y/no-autofocus -----
+type VueA11YNoAutofocus = []|[{
+  ignoreNonDOM?: boolean
+}]
+// ----- vue-a11y/no-distracting-elements -----
+type VueA11YNoDistractingElements = []|[{
+  [k: string]: unknown | undefined
+}]
+// ----- vue-a11y/no-redundant-roles -----
+type VueA11YNoRedundantRoles = []|[{
+  [k: string]: string[] | undefined
+}]
 // ----- vue/array-bracket-newline -----
 type VueArrayBracketNewline = []|[(("always" | "never" | "consistent") | {
   multiline?: boolean
@@ -19748,4 +19889,4 @@ type Yoda = []|[("always" | "never")]|[("always" | "never"), {
   onlyEquality?: boolean
 }]
 // Names of all the configs
-export type ConfigNames = 'config/astro/setup' | 'config/astro/rules' | 'config/eslint-comments/rules' | 'config/formatters/setup' | 'config/imports/rules' | 'config/javascript/setup' | 'config/javascript/rules' | 'config/jsx/setup' | 'config/jsdoc/rules' | 'config/jsonc/setup' | 'config/jsonc/rules' | 'config/markdown/setup' | 'config/markdown/processor' | 'config/markdown/parser' | 'config/markdown/disables' | 'config/node/rules' | 'config/nextjs/setup' | 'config/nextjs/rules' | 'config/perfectionist/setup' | 'config/react/setup' | 'config/react/rules' | 'config/sort/package-json' | 'config/stylistic/rules' | 'config/svelte/setup' | 'config/svelte/rules' | 'config/test/setup' | 'config/test/rules' | 'config/toml/setup' | 'config/toml/rules' | 'config/regexp/rules' | 'config/typescript/setup' | 'config/typescript/parser' | 'config/typescript/rules' | 'config/unicorn' | 'config/unocss/rules' | 'config/tailwindcss/setup' | 'config/tailwindcss/rules' | 'config/vue/setup' | 'config/vue/rules' | 'config/yaml/setup' | 'config/yaml/rules' | 'config/yaml/pnpm-workspace' | 'config/solid/setup' | 'config/solid/rules'
+export type ConfigNames = 'config/gitignore' | 'config/ignores' | 'config/javascript/setup' | 'config/javascript/rules' | 'config/eslint-comments/rules' | 'config/node/rules' | 'config/jsdoc/rules' | 'config/imports/rules' | 'config/command/rules' | 'config/perfectionist/setup' | 'config/imports/rules' | 'config/unicorn' | 'config/jsx/setup' | 'config/typescript/setup' | 'config/typescript/parser' | 'config/typescript/type-aware-parser' | 'config/typescript/rules' | 'config/typescript/rules-type-aware' | 'config/typescript/erasable-syntax-only' | 'config/stylistic/rules' | 'config/regexp/rules' | 'config/test/setup' | 'config/test/rules' | 'config/vue/setup' | 'config/vue/rules' | 'config/react/setup' | 'config/react/rules' | 'config/react/type-aware-rules' | 'config/svelte/setup' | 'config/svelte/rules' | 'config/nextjs/setup' | 'config/nextjs/rules' | 'config/solid/setup' | 'config/solid/rules' | 'config/unocss/rules' | 'config/astro/setup' | 'config/astro/rules' | 'config/jsonc/setup' | 'config/jsonc/rules' | 'config/sort/package-json' | 'config/sort/tsconfig-json' | 'config/pnpm/package-json' | 'config/pnpm/pnpm-workspace-yaml' | 'config/yaml/setup' | 'config/yaml/rules' | 'config/yaml/pnpm-workspace' | 'config/toml/setup' | 'config/toml/rules' | 'config/markdown/setup' | 'config/markdown/processor' | 'config/markdown/parser' | 'config/markdown/disables' | 'config/formatters/setup' | 'config/formatter/css' | 'config/formatter/scss' | 'config/formatter/less' | 'config/formatter/html' | 'config/formatter/xml' | 'config/formatter/svg' | 'config/formatter/markdown' | 'config/formatter/astro' | 'config/formatter/astro/disables' | 'config/formatter/graphql' | 'config/disables/scripts' | 'config/disables/cli' | 'config/disables/bin' | 'config/disables/dts' | 'config/disables/cjs' | 'config/disables/config-files'
