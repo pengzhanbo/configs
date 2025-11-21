@@ -1,0 +1,54 @@
+{
+  "$schema": "https://www.schemastore.org/tsconfig",
+  "compilerOptions": {
+    // - 对于Vite而言，实际编译目标由Vite配置中的`build.target`选项决定。
+    //   因此请勿修改此处的`target`字段。为确保动态`import()`和`import.meta`正常工作，该值至少需设置为`ES2020`。
+    // - 若未使用Vite构建工具，可自行覆盖`target`字段配置。
+    "target": "ESNext",
+    // 即使没有 `import` 或 `export` 的文件也会被视为模块。
+    // 这有助于避免诸如“无法重新声明块级作用域变量‘name’”这类难以捉摸的错误。
+    // https://www.totaltypescript.com/cannot-redeclare-block-scoped-variable#solution-3-your-module-isnt-a-module
+    "moduleDetection": "force",
+    // 为了符合规范要求。
+    // 若 `target` 设置为 `ES2020` 或更高版本，默认值为 `true`。
+    // 此处显式设置为 `true`，以防某些用户需要覆盖 `target` 配置。
+    "useDefineForClassFields": true,
+    "libReplacement": false,
+    // 只要您正在使用构建工具，我们建议您编写并发布 ES 模块格式的代码。
+    // 即使您的目标运行环境是 Node.js 也应如此，因为：
+    // - `CommonJS` 已过于陈旧
+    // - 生态系统尚未完全适配 `Node16`/`NodeNext` 模式
+    // 此建议适用于 Vitest、Vite 配置文件、Vite SSR 等各类环境。
+    "module": "ESNext",
+    // 我们预期用户会使用打包工具。
+    // 因此这里启用了一些仅在打包工具中可用的解析功能。
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "allowImportingTsExtensions": true,
+    "strict": true,
+    // `"noImplicitThis": true` 属于 `strict` 选项的组成部分
+    // 此处再次单独声明，以防某些用户选择禁用 `strict` 模式
+    // 该配置会针对 `this` 上的数据属性启用更严格的类型推断。
+    "noImplicitThis": true,
+    // See <https://www.semver-ts.org/formal-spec/5-compiler-considerations.html#strictness>
+    // 截至 TypeScript 5.9 版本，这两个选项也已纳入推荐的 tsconfig 配置中。
+    "noUncheckedIndexedAccess": true,
+    // 目前暂不启用。在当前生态系统中难以落地。
+    // 需要达成更多共识才能推进。
+    // "exactOptionalPropertyTypes": true,
+
+    // 大多数非库项目无需生成声明文件。
+    // 因此我们默认添加此选项，使配置对大多数用户更友好。
+    "noEmit": true,
+
+    // Recommended
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    // <https://devblogs.microsoft.com/typescript/announcing-typescript-5-0/#verbatimmodulesyntax>
+    // 所有未使用类型修饰符的导入或导出语句均会保留。
+    // 任何使用了类型修饰符的内容都会被完全移除。
+    "verbatimModuleSyntax": true,
+    // See <https://github.com/vuejs/vue-cli/pull/5688>
+    "skipLibCheck": true
+  }
+}

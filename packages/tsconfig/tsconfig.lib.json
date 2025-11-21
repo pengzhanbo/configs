@@ -1,0 +1,14 @@
+{
+  "$schema": "https://www.schemastore.org/tsconfig",
+  "compilerOptions": {
+    "declaration": true,
+    "emitDeclarationOnly": true,
+
+    // 为库生成声明文件。
+    "noEmit": false,
+    // 库通常需要更严格的类型精确度。
+    // 例如，其类型必须与 Vue 类型兼容。
+    // 因此我们不应跳过其依赖项的类型检查。
+    "skipLibCheck": false
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "extends": "./tsconfig.json",
+  "display": "Vue 3",
+  "compilerOptions": {
+    // Required in Vue projects
+    "jsx": "preserve",
+    "jsxImportSource": "vue",
+    "lib": [
+      // 目标设置为ES2020以与Vite对齐。
+      // <https://vite.dev/config/build-options.html#build-target>
+      // 对新版本语言内置功能的支持
+      // 交由用户自行处理，因为这将要求：
+      // - 项目无需支持旧版本浏览器；
+      // - 或项目已正确包含必要的polyfill。
+      "ES2020",
+
+      "DOM",
+      "DOM.Iterable"
+
+      // 由于 Vue 3 放弃了对 IE 的支持，因此没有 `ScriptHost`
+    ],
+
+    // 设置为空以避免意外包含不需要的类型，
+    // 例如可能污染全局作用域的Node.js类型。
+    "types": []
+  }
+}

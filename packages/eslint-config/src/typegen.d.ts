@@ -946,6 +946,11 @@ export interface RuleOptions {
    */
   'jsdoc/require-property-type'?: Linter.RuleEntry<[]>
   /**
+   * Requires that Promise rejections are documented with `@rejects` tags.
+   * @see https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/require-rejects.md#repos-sticky-header
+   */
+  'jsdoc/require-rejects'?: Linter.RuleEntry<JsdocRequireRejects>
+  /**
    * Requires that returns are documented with `@returns`.
    * @see https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/require-returns.md#repos-sticky-header
    */
@@ -3524,6 +3529,7 @@ export interface RuleOptions {
   /**
    * Disallow certain props on components.
    * @see https://eslint-react.xyz/docs/rules/no-forbidden-props
+   * @deprecated
    */
   'react/no-forbidden-props'?: Linter.RuleEntry<ReactNoForbiddenProps>
   /**
@@ -3645,7 +3651,7 @@ export interface RuleOptions {
    * Prevents using referential-type values as default props in object destructuring.
    * @see https://eslint-react.xyz/docs/rules/no-unstable-default-props
    */
-  'react/no-unstable-default-props'?: Linter.RuleEntry<[]>
+  'react/no-unstable-default-props'?: Linter.RuleEntry<ReactNoUnstableDefaultProps>
   /**
    * Warns unused class component methods and properties.
    * @see https://eslint-react.xyz/docs/rules/no-unused-class-component-members
@@ -5543,6 +5549,11 @@ export interface RuleOptions {
    */
   'test/prefer-vi-mocked'?: Linter.RuleEntry<[]>
   /**
+   * ensure that every `expect.poll` call is awaited
+   * @see https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/require-awaited-expect-poll.md
+   */
+  'test/require-awaited-expect-poll'?: Linter.RuleEntry<[]>
+  /**
    * require setup and teardown to be within a hook
    * @see https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/require-hook.md
    */
@@ -6146,6 +6157,11 @@ export interface RuleOptions {
    * @see https://typescript-eslint.io/rules/no-unused-expressions
    */
   'ts/no-unused-expressions'?: Linter.RuleEntry<TsNoUnusedExpressions>
+  /**
+   * Disallow unused private class members
+   * @see https://typescript-eslint.io/rules/no-unused-private-class-members
+   */
+  'ts/no-unused-private-class-members'?: Linter.RuleEntry<[]>
   /**
    * Disallow unused variables
    * @see https://typescript-eslint.io/rules/no-unused-vars
@@ -9228,6 +9244,8 @@ type JsdocCheckExamples = []|[{
 // ----- jsdoc/check-indentation -----
 type JsdocCheckIndentation = []|[{
   
+  allowIndentedSections?: boolean
+  
   excludeTags?: string[]
 }]
 // ----- jsdoc/check-line-alignment -----
@@ -9733,6 +9751,16 @@ type JsdocRequireParamType = []|[{
   
   setDefaultDestructuredRootType?: boolean
 }]
+// ----- jsdoc/require-rejects -----
+type JsdocRequireRejects = []|[{
+  
+  contexts?: (string | {
+    comment?: string
+    context?: string
+  })[]
+  
+  exemptedBy?: string[]
+}]
 // ----- jsdoc/require-returns -----
 type JsdocRequireReturns = []|[{
   
@@ -9856,6 +9884,10 @@ type JsdocSortTags = []|[{
   reportIntraTagGroupSpacing?: boolean
   
   reportTagGroupSpacing?: boolean
+  
+  tagExceptions?: {
+    [k: string]: number
+  }
   
   tagSequence?: {
     
@@ -14954,6 +14986,10 @@ type ReactNoForbiddenProps = []|[{
     prop: string
   })[]
 }]
+// ----- react/no-unstable-default-props -----
+type ReactNoUnstableDefaultProps = []|[{
+  safeDefaultProps?: string[]
+}]
 // ----- react/no-useless-fragment -----
 type ReactNoUselessFragment = []|[{
   
@@ -16716,7 +16752,8 @@ type TestNoFocusedTests = []|[{
 }]
 // ----- test/no-hooks -----
 type TestNoHooks = []|[{
-  allow?: unknown[]
+  
+  allow?: ("beforeAll" | "beforeEach" | "afterAll" | "afterEach")[]
 }]
 // ----- test/no-large-snapshots -----
 type TestNoLargeSnapshots = []|[{

@@ -1,0 +1,24 @@
+{
+  "name": "@pengzhanbo/tsconfig",
+  "version": "1.40.0",
+  "author": "pengzhanbo <q942450674@outlook.com> (https://github/pengzhanbo/)",
+  "license": "MIT",
+  "homepage": "https://github.com/pengzhanbo/configs#readme",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:pengzhanbo/configs.git",
+    "directory": "packages/tsconfig"
+  },
+  "keywords": [
+    "tsconfig"
+  ],
+  "main": "tsconfig.json",
+  "peerDependencies": {
+    "typescript": "5.x"
+  },
+  "peerDependenciesMeta": {
+    "typescript": {
+      "optional": true
+    }
+  }
+}
