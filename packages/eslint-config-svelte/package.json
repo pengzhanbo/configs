@@ -30,7 +30,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsdown src/index.ts --format esm --clean --dts --shims",
+    "build": "tsdown src/index.ts --format esm --dts",
     "stub": "tsdown src/index.ts --format esm",
     "prepublishOnly": "pnpm run build"
   },
@@ -65,5 +65,9 @@
     "eslint": "catalog:peer",
     "eslint-plugin-format": "catalog:peer",
     "eslint-plugin-tailwindcss": "catalog:peer"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
   }
 }

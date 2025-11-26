@@ -31,8 +31,7 @@
   ],
   "scripts": {
     "build": "tsdown src/index.ts --format esm --dts",
-    "stub": "tsdown src/index.ts --format esm",
-    "prepublishOnly": "pnpm run build"
+    "stub": "tsdown src/index.ts --format esm"
   },
   "peerDependencies": {
     "@prettier/plugin-xml": "catalog:peer",
@@ -66,5 +65,9 @@
     "eslint": "catalog:peer",
     "eslint-plugin-format": "catalog:peer",
     "eslint-plugin-tailwindcss": "catalog:peer"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
   }
 }

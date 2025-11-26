@@ -50,3 +50,4 @@ In `.stylelintrc.json`
 - [@pengzhanbo/eslint-config-astro](https://github.com/pengzhanbo/configs/tree/main/packages/eslint-config-astro)
 - [@pengzhanbo/prettier-config](https://github.com/pengzhanbo/configs/tree/main/packages/prettier-config)
 - [@pengzhanbo/stylelint-config](https://github.com/pengzhanbo/configs/tree/main/packages/stylelint-config)
+- [@pengzhanbo/tsconfig](https://github.com/pengzhanbo/configs/tree/main/packages/tsconfig)

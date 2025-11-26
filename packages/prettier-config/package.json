@@ -33,11 +33,14 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsdown src/index.ts --format esm,cjs --clean --dts --shims",
-    "stub": "tsdown src/index.ts --format esm",
-    "prepublishOnly": "pnpm run build"
+    "build": "tsdown src/index.ts --format esm,cjs --dts",
+    "stub": "tsdown src/index.ts --format esm"
   },
   "peerDependencies": {
     "prettier": "catalog:peer"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
   }
 }

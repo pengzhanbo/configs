@@ -33,8 +33,7 @@
     "build": "pnpm typegen && tsdown src/index.ts --format esm --dts",
     "build:inspector": "pnpm build && npx @eslint/config-inspector build",
     "stub": "tsdown src/index.ts --format esm",
-    "typegen": "tsx scripts/typegen.ts",
-    "prepublishOnly": "pnpm run build"
+    "typegen": "tsx scripts/typegen.ts"
   },
   "peerDependencies": {
     "@eslint-react/eslint-plugin": "catalog:peer",
@@ -172,5 +171,9 @@
     "svelte": "catalog:dev",
     "svelte-eslint-parser": "catalog:peer",
     "vue-eslint-parser": "catalog:peer"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
   }
 }

@@ -29,9 +29,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsdown src/index.ts --format esm --clean --dts --shims",
+    "build": "tsdown src/index.ts --format esm --dts",
     "stub": "tsdown src/index.ts --format esm",
-    "prepublishOnly": "pnpm run build",
     "lint": "stylelint **/*.{css,scss} -c ./stylelint.config.js"
   },
   "peerDependencies": {
@@ -54,5 +53,9 @@
   },
   "devDependencies": {
     "stylelint": "catalog:peer"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
   }
 }
