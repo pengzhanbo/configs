@@ -14,23 +14,18 @@
     "eslint-config"
   ],
   "exports": {
-    ".": {
-      "import": {
-        "types": "./dist/index.d.mts",
-        "default": "./dist/index.mjs"
-      }
-    },
+    ".": "./dist/index.mjs",
     "./package.json": "./package.json"
   },
-  "main": "dist/index.mjs",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.mts",
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
   "files": [
     "dist"
   ],
   "scripts": {
     "dev": "tsdown src/index.ts --shims --format esm --watch & npx @eslint/config-inspector",
-    "build": "pnpm typegen && tsdown src/index.ts --format esm --dts",
+    "build": "pnpm typegen && tsdown src/index.ts --format esm --dts --exports",
     "build:inspector": "pnpm build && npx @eslint/config-inspector build",
     "stub": "tsdown src/index.ts --format esm",
     "typegen": "tsx scripts/typegen.ts"
@@ -166,6 +161,7 @@
     "eslint-plugin-vuejs-accessibility": "catalog:peer",
     "eslint-processor-vue-blocks": "catalog:peer",
     "eslint-typegen": "catalog:dev",
+    "find-up-simple": "catalog:inline",
     "prettier-plugin-astro": "catalog:peer",
     "prettier-plugin-slidev": "catalog:peer",
     "svelte": "catalog:dev",

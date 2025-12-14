@@ -3,7 +3,7 @@
   "type": "module",
   "version": "1.43.0",
   "private": true,
-  "packageManager": "pnpm@10.23.0",
+  "packageManager": "pnpm@10.25.0",
   "author": "pengzhanbo <q942450674@outlook.com> (https://github/pengzhanbo/)",
   "license": "MIT",
   "engines": {
@@ -35,6 +35,14 @@
     "tsx": "catalog:dev",
     "typescript": "catalog:dev",
     "vitest": "catalog:dev"
+  },
+  "resolutions": {
+    "@eslint-community/eslint-utils": "catalog:peer",
+    "@typescript-eslint/types": "catalog:peer",
+    "@typescript-eslint/utils": "catalog:peer",
+    "chokidar": "catalog:dev",
+    "eslint": "catalog:peer",
+    "tsx": "catalog:dev"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged"

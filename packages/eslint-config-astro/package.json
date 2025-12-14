@@ -15,22 +15,17 @@
     "astro"
   ],
   "exports": {
-    ".": {
-      "import": {
-        "types": "./dist/index.d.mts",
-        "default": "./dist/index.mjs"
-      }
-    },
+    ".": "./dist/index.mjs",
     "./package.json": "./package.json"
   },
-  "main": "dist/index.mjs",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.mts",
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "tsdown src/index.ts --format esm --dts",
+    "build": "tsdown src/index.ts --format esm --dts --exports",
     "stub": "tsdown src/index.ts --format esm"
   },
   "peerDependencies": {
