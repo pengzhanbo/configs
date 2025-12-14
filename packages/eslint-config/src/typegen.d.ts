@@ -3020,6 +3020,11 @@ export interface RuleOptions {
    */
   'pnpm/json-valid-catalog'?: Linter.RuleEntry<PnpmJsonValidCatalog>
   /**
+   * Enforce settings in `pnpm-workspace.yaml`
+   * @see https://github.com/antfu/pnpm-workspace-utils/tree/main/packages/eslint-plugin-pnpm/src/rules/yaml/yaml-enforce-settings.test.ts
+   */
+  'pnpm/yaml-enforce-settings'?: Linter.RuleEntry<PnpmYamlEnforceSettings>
+  /**
    * Disallow duplicate catalog items in `pnpm-workspace.yaml`
    * @see https://github.com/antfu/pnpm-workspace-utils/tree/main/packages/eslint-plugin-pnpm/src/rules/yaml/yaml-no-duplicate-catalog-item.test.ts
    */
@@ -14764,6 +14769,19 @@ type PnpmJsonValidCatalog = []|[{
   
   fields?: unknown[]
 }]
+// ----- pnpm/yaml-enforce-settings -----
+type PnpmYamlEnforceSettings = []|[{
+  
+  autofix?: boolean
+  
+  settings?: {
+    [k: string]: unknown | undefined
+  }
+  
+  requiredFields?: string[]
+  
+  forbiddenFields?: string[]
+}]
 // ----- pnpm/yaml-no-duplicate-catalog-item -----
 type PnpmYamlNoDuplicateCatalogItem = []|[{
   allow?: string[]
@@ -15007,6 +15025,8 @@ type ReactNoUnstableDefaultProps = []|[{
 }]
 // ----- react/no-useless-fragment -----
 type ReactNoUselessFragment = []|[{
+  
+  allowEmptyFragment?: boolean
   
   allowExpressions?: boolean
 }]
@@ -19948,4 +19968,4 @@ type Yoda = []|[("always" | "never")]|[("always" | "never"), {
   onlyEquality?: boolean
 }]
 // Names of all the configs
-export type ConfigNames = 'config/gitignore' | 'config/ignores' | 'config/javascript/setup' | 'config/javascript/rules' | 'config/eslint-comments/rules' | 'config/node/rules' | 'config/jsdoc/rules' | 'config/imports/rules' | 'config/command/rules' | 'config/perfectionist/setup' | 'config/imports/rules' | 'config/unicorn' | 'config/jsx/setup' | 'config/typescript/setup' | 'config/typescript/parser' | 'config/typescript/type-aware-parser' | 'config/typescript/rules' | 'config/typescript/rules-type-aware' | 'config/typescript/erasable-syntax-only' | 'config/stylistic/rules' | 'config/regexp/rules' | 'config/test/setup' | 'config/test/rules' | 'config/vue/setup' | 'config/vue/rules' | 'config/react/setup' | 'config/react/rules' | 'config/react/type-aware-rules' | 'config/svelte/setup' | 'config/svelte/rules' | 'config/nextjs/setup' | 'config/nextjs/rules' | 'config/solid/setup' | 'config/solid/rules' | 'config/unocss/rules' | 'config/astro/setup' | 'config/astro/rules' | 'config/jsonc/setup' | 'config/jsonc/rules' | 'config/sort/package-json' | 'config/sort/tsconfig-json' | 'config/pnpm/package-json' | 'config/pnpm/pnpm-workspace-yaml' | 'config/yaml/setup' | 'config/yaml/rules' | 'config/yaml/pnpm-workspace' | 'config/toml/setup' | 'config/toml/rules' | 'config/markdown/setup' | 'config/markdown/processor' | 'config/markdown/parser' | 'config/markdown/disables' | 'config/formatters/setup' | 'config/formatter/css' | 'config/formatter/scss' | 'config/formatter/less' | 'config/formatter/html' | 'config/formatter/xml' | 'config/formatter/svg' | 'config/formatter/markdown' | 'config/formatter/astro' | 'config/formatter/astro/disables' | 'config/formatter/graphql' | 'config/disables/scripts' | 'config/disables/cli' | 'config/disables/bin' | 'config/disables/dts' | 'config/disables/cjs' | 'config/disables/config-files'
+export type ConfigNames = 'config/gitignore' | 'config/ignores' | 'config/javascript/setup' | 'config/javascript/rules' | 'config/eslint-comments/rules' | 'config/node/rules' | 'config/jsdoc/rules' | 'config/imports/rules' | 'config/command/rules' | 'config/perfectionist/setup' | 'config/node/rules' | 'config/jsdoc/rules' | 'config/imports/rules' | 'config/unicorn' | 'config/jsx/setup' | 'config/typescript/setup' | 'config/typescript/parser' | 'config/typescript/type-aware-parser' | 'config/typescript/rules' | 'config/typescript/rules-type-aware' | 'config/typescript/erasable-syntax-only' | 'config/stylistic/rules' | 'config/regexp/rules' | 'config/test/setup' | 'config/test/rules' | 'config/vue/setup' | 'config/vue/rules' | 'config/react/setup' | 'config/react/rules' | 'config/react/type-aware-rules' | 'config/nextjs/setup' | 'config/nextjs/rules' | 'config/solid/setup' | 'config/solid/rules' | 'config/svelte/setup' | 'config/svelte/rules' | 'config/unocss/rules' | 'config/astro/setup' | 'config/astro/rules' | 'config/jsonc/setup' | 'config/jsonc/rules' | 'config/sort/package-json' | 'config/sort/tsconfig-json' | 'config/pnpm/package-json' | 'config/pnpm/pnpm-workspace-yaml' | 'config/pnpm/pnpm-workspace-yaml-sort' | 'config/yaml/setup' | 'config/yaml/rules' | 'config/toml/setup' | 'config/toml/rules' | 'config/markdown/setup' | 'config/markdown/processor' | 'config/markdown/parser' | 'config/markdown/disables' | 'config/formatters/setup' | 'config/formatter/css' | 'config/formatter/scss' | 'config/formatter/less' | 'config/formatter/html' | 'config/formatter/xml' | 'config/formatter/svg' | 'config/formatter/markdown' | 'config/formatter/astro' | 'config/formatter/astro/disables' | 'config/formatter/graphql' | 'config/disables/scripts' | 'config/disables/cli' | 'config/disables/bin' | 'config/disables/dts' | 'config/disables/cjs' | 'config/disables/config-files'

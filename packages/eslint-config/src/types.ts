@@ -214,7 +214,7 @@ export interface OptionsStylistic {
 }
 
 export interface StylisticConfig
-  extends Pick<StylisticCustomizeOptions, 'indent' | 'quotes' | 'jsx' | 'semi'> {
+  extends Pick<StylisticCustomizeOptions, 'indent' | 'quotes' | 'jsx' | 'semi' | 'experimental'> {
 }
 
 export interface OptionsOverrides {
@@ -251,6 +251,36 @@ export interface OptionsIsInEditor {
   isInEditor?: boolean
 }
 
+export interface OptionsPnpm extends OptionsIsInEditor {
+  /**
+   * Requires catalogs usage
+   *
+   * Detects automatically based if `catalogs` is used in the pnpm-workspace.yaml file
+   */
+  catalogs?: boolean
+
+  /**
+   * Enable linting for package.json, will install the jsonc parser
+   *
+   * @default true
+   */
+  json?: boolean
+
+  /**
+   * Enable linting for pnpm-workspace.yaml, will install the yaml parser
+   *
+   * @default true
+   */
+  yaml?: boolean
+
+  /**
+   * Sort entries in pnpm-workspace.yaml
+   *
+   * @default false
+   */
+  sort?: boolean
+}
+
 export interface OptionsUnoCSS extends OptionsOverrides {
   /**
    * Enable attributify support.
@@ -283,6 +313,10 @@ export interface OptionsTailwindCSS extends OptionsOverrides {
    * @default true
    */
   customClassNames?: boolean
+}
+
+export interface OptionsReact extends OptionsOverrides {
+  reactCompiler?: boolean
 }
 
 export interface OptionsConfig extends OptionsComponentExts, OptionsProjectType {
@@ -321,6 +355,20 @@ export interface OptionsConfig extends OptionsComponentExts, OptionsProjectType 
    * Core rules. Can't be disabled.
    */
   javascript?: OptionsOverrides
+
+  /**
+   * Enable Node.js rules
+   *
+   * @default true
+   */
+  node?: boolean
+
+  /**
+   * Enable JSDoc rules
+   *
+   * @default true
+   */
+  jsdoc?: boolean
 
   /**
    * Enable TypeScript support.
@@ -433,7 +481,7 @@ export interface OptionsConfig extends OptionsComponentExts, OptionsProjectType 
    *
    * @default false
    */
-  react?: boolean | OptionsOverrides
+  react?: boolean | OptionsReact
 
   /**
    * Enable nextjs rules.
@@ -506,7 +554,7 @@ export interface OptionsConfig extends OptionsComponentExts, OptionsProjectType 
    * @experimental
    * @default false
    */
-  pnpm?: boolean
+  pnpm?: boolean | OptionsPnpm
 
   /**
    * Control to disable some rules in editors.

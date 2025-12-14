@@ -27,7 +27,7 @@ export async function nextjs(
   function getRules(name: keyof typeof pluginNextJS.configs): Record<string, any> {
     const rules = pluginNextJS.configs?.[name]?.rules
     if (!rules)
-      throw new Error(`[@antfu/eslint-config] Failed to find config ${String(name)} in @next/eslint-plugin-next`)
+      throw new Error(`[@pengzhanbo/eslint-config] Failed to find config ${String(name)} in @next/eslint-plugin-next`)
     return normalizeRules(rules)
   }
 
