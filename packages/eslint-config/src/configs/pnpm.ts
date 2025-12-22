@@ -57,7 +57,10 @@ export async function pnpm(
             ? {
                 'pnpm/json-enforce-catalog': [
                   'error',
-                  { autofix: !isInEditor },
+                  {
+                    autofix: !isInEditor,
+                    ignores: ['@types/vscode'],
+                  },
                 ],
               }
             : {}),
@@ -89,7 +92,6 @@ export async function pnpm(
           settings: {
             shellEmulator: true,
             trustPolicy: 'no-downgrade',
-            ...(catalogs ? { catalogMode: 'prefer' } : {}),
           },
         }],
         'pnpm/yaml-no-duplicate-catalog-item': 'error',
