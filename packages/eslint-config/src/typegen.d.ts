@@ -3407,12 +3407,12 @@ export interface RuleOptions {
    */
   'react-web-api/no-leaked-timeout'?: Linter.RuleEntry<[]>
   /**
-   * Prevents unnecessary dollar signs ('$') from being inserted before an expression in JSX.
+   * Prevents unnecessary '$' symbols before JSX expressions.
    * @see https://eslint-react.xyz/docs/rules/jsx-dollar
    */
   'react/jsx-dollar'?: Linter.RuleEntry<[]>
   /**
-   * Enforces that the 'key' prop is placed before the spread prop in JSX elements when using the new JSX transform.
+   * Enforces 'key' prop placement before spread props.
    * @see https://eslint-react.xyz/docs/rules/jsx-key-before-spread
    */
   'react/jsx-key-before-spread'?: Linter.RuleEntry<[]>
@@ -3427,7 +3427,7 @@ export interface RuleOptions {
    */
   'react/jsx-no-duplicate-props'?: Linter.RuleEntry<[]>
   /**
-   * Disallows 'IIFE' in JSX.
+   * Disallows immediately-invoked function expressions in JSX.
    * @see https://eslint-react.xyz/docs/rules/jsx-no-iife
    */
   'react/jsx-no-iife'?: Linter.RuleEntry<[]>
@@ -3437,12 +3437,12 @@ export interface RuleOptions {
    */
   'react/jsx-no-undef'?: Linter.RuleEntry<[]>
   /**
-   * Enforces the use of shorthand syntax for boolean attributes.
+   * Enforces shorthand syntax for boolean props.
    * @see https://eslint-react.xyz/docs/rules/jsx-shorthand-boolean
    */
   'react/jsx-shorthand-boolean'?: Linter.RuleEntry<ReactJsxShorthandBoolean>
   /**
-   * Enforces the use of shorthand syntax for fragments.
+   * Enforces shorthand syntax for fragment elements.
    * @see https://eslint-react.xyz/docs/rules/jsx-shorthand-fragment
    */
   'react/jsx-shorthand-fragment'?: Linter.RuleEntry<ReactJsxShorthandFragment>
@@ -3452,7 +3452,7 @@ export interface RuleOptions {
    */
   'react/jsx-uses-react'?: Linter.RuleEntry<[]>
   /**
-   * Marks variables used in JSX elements as used.
+   * Marks JSX element variables as used.
    * @see https://eslint-react.xyz/docs/rules/jsx-uses-vars
    */
   'react/jsx-uses-vars'?: Linter.RuleEntry<[]>
@@ -3542,7 +3542,7 @@ export interface RuleOptions {
    */
   'react/no-direct-mutation-state'?: Linter.RuleEntry<[]>
   /**
-   * Disallows duplicate 'key' on elements in the same array or a list of 'children'.
+   * Prevents duplicate 'key' props on sibling elements when rendering lists.
    * @see https://eslint-react.xyz/docs/rules/no-duplicate-key
    */
   'react/no-duplicate-key'?: Linter.RuleEntry<[]>
@@ -10060,6 +10060,8 @@ type JsdocTypeFormatting = []|[{
   
   objectFieldSeparatorTrailingPunctuation?: boolean
   
+  objectTypeBracketSpacing?: string
+  
   parameterDefaultValueSpacing?: string
   
   postMethodNameSpacing?: string
@@ -10069,6 +10071,8 @@ type JsdocTypeFormatting = []|[{
   separatorForSingleObjectField?: boolean
   
   stringQuotes?: ("double" | "single")
+  
+  trailingPunctuationMultilineOnly?: boolean
   
   typeBracketSpacing?: string
   
@@ -12688,6 +12692,8 @@ type PerfectionistSortEnums = []|[{
   
   sortByValue?: ("always" | "ifNumericEnum" | "never")
   
+  useExperimentalDependencyDetection?: boolean
+  
   partitionByComment?: (boolean | (({
     
     pattern: string
@@ -13506,6 +13512,8 @@ type PerfectionistSortImports = {
   sortSideEffects?: boolean
   
   environment?: ("node" | "bun")
+  
+  useExperimentalDependencyDetection?: boolean
   
   partitionByComment?: (boolean | (({
     
@@ -14502,6 +14510,8 @@ type PerfectionistSortModules = []|[{
   })[]
   newlinesBetween?: ("ignore" | number)
   
+  useExperimentalDependencyDetection?: boolean
+  
   partitionByComment?: (boolean | (({
     
     pattern: string
@@ -15143,6 +15153,7 @@ type PerfectionistSortObjects = {
     type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
     
     order?: ("asc" | "desc")
+    sortBy?: ("name" | "value")
   }
   
   type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
@@ -15156,6 +15167,7 @@ type PerfectionistSortObjects = {
   locales?: (string | string[])
   
   order?: ("asc" | "desc")
+  sortBy?: ("name" | "value")
   
   customGroups?: ({
     
@@ -15164,6 +15176,7 @@ type PerfectionistSortObjects = {
       type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
       
       order?: ("asc" | "desc")
+      sortBy?: ("name" | "value")
     }
     
     type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
@@ -15172,6 +15185,7 @@ type PerfectionistSortObjects = {
     newlinesInside?: ("ignore" | number)
     
     order?: ("asc" | "desc")
+    sortBy?: ("name" | "value")
     
     anyOf: [{
       
@@ -15239,6 +15253,7 @@ type PerfectionistSortObjects = {
       type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
       
       order?: ("asc" | "desc")
+      sortBy?: ("name" | "value")
     }
     
     type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
@@ -15247,6 +15262,7 @@ type PerfectionistSortObjects = {
     newlinesInside?: ("ignore" | number)
     
     order?: ("asc" | "desc")
+    sortBy?: ("name" | "value")
     
     elementNamePattern?: (({
       
@@ -15288,6 +15304,7 @@ type PerfectionistSortObjects = {
       type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order")
       
       order?: ("asc" | "desc")
+      sortBy?: ("name" | "value")
     }
     
     commentAbove?: string
@@ -15296,6 +15313,7 @@ type PerfectionistSortObjects = {
     newlinesInside?: ("ignore" | number)
     
     order?: ("asc" | "desc")
+    sortBy?: ("name" | "value")
   })[]
   newlinesBetween?: ("ignore" | number)
   
@@ -15361,6 +15379,8 @@ type PerfectionistSortObjects = {
   }
   
   styledComponents?: boolean
+  
+  useExperimentalDependencyDetection?: boolean
   
   partitionByComment?: (boolean | (({
     
@@ -15881,6 +15901,8 @@ type PerfectionistSortVariableDeclarations = []|[{
     order?: ("asc" | "desc")
   })[]
   newlinesBetween?: ("ignore" | number)
+  
+  useExperimentalDependencyDetection?: boolean
   
   partitionByComment?: (boolean | (({
     
