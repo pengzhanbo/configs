@@ -40,6 +40,7 @@
     "@eslint-community/eslint-utils": "catalog:peer",
     "@typescript-eslint/types": "catalog:peer",
     "@typescript-eslint/utils": "catalog:peer",
+    "baseline-browser-mapping": "catalog:dev",
     "chokidar": "catalog:dev",
     "eslint": "catalog:peer",
     "tsx": "catalog:dev"

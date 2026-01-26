@@ -254,6 +254,7 @@ overrides:
   '@eslint-community/eslint-utils': ^4.9.1
   '@typescript-eslint/types': ^8.53.1
   '@typescript-eslint/utils': ^8.53.1
+  baseline-browser-mapping: ^2.9.18
   chokidar: ^5.0.0
   eslint: ^9.39.2
   tsx: ^4.21.0
@@ -2068,8 +2069,8 @@ packages:
     resolution: {integrity: sha512-vjtV3hiLqYDNRoiAv0zC4QaGAMPomEoq83PRmYIofPswwZurCeWR5LByXm7SyoL0Zh5+2z0+HC7jG8gSZJUh0w==}
     engines: {node: '>= 16'}
 
-  baseline-browser-mapping@2.8.20:
-    resolution: {integrity: sha512-JMWsdF+O8Orq3EMukbUN1QfbLK9mX2CkUmQBcW2T0s8OmdAUL5LLM/6wFwSrqXzlXB13yhyK9gTKS1rIizOduQ==}
+  baseline-browser-mapping@2.9.18:
+    resolution: {integrity: sha512-e23vBV1ZLfjb9apvfPk4rHVu2ry6RIr2Wfs+O324okSidrX7pTAnEJPCh/O5BtRlr7QtZI7ktOP3vsqr7Z5XoA==}
     hasBin: true
 
   birecord@0.1.1:
@@ -6068,7 +6069,7 @@ snapshots:
 
   balanced-match@3.0.1: {}
 
-  baseline-browser-mapping@2.8.20: {}
+  baseline-browser-mapping@2.9.18: {}
 
   birecord@0.1.1: {}
 
@@ -6098,7 +6099,7 @@ snapshots:
 
   browserslist@4.27.0:
     dependencies:
-      baseline-browser-mapping: 2.8.20
+      baseline-browser-mapping: 2.9.18
       caniuse-lite: 1.0.30001751
       electron-to-chromium: 1.5.241
       node-releases: 2.0.26

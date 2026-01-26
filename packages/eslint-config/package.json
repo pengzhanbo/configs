@@ -23,7 +23,7 @@
   ],
   "scripts": {
     "dev": "tsdown src/index.ts --shims --format esm --watch & npx @eslint/config-inspector",
-    "build": "pnpm typegen && tsdown src/index.ts --format esm --dts --exports",
+    "build": "pnpm typegen && tsdown src/index.ts --format esm --dts --exports --no-inline-only",
     "build:inspector": "pnpm build && npx @eslint/config-inspector build",
     "stub": "tsdown src/index.ts --format esm",
     "typegen": "tsx scripts/typegen.ts"
