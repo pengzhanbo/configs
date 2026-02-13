@@ -1,7 +1,7 @@
 {
   "name": "@pengzhanbo/eslint-config-svelte",
   "type": "module",
-  "version": "1.48.0",
+  "version": "2.0.0",
   "author": "pengzhanbo <q942450674@outlook.com> (https://github/pengzhanbo/)",
   "license": "MIT",
   "homepage": "https://github.com/pengzhanbo/configs#readme",
