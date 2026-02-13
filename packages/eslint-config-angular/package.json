@@ -1,0 +1,65 @@
+{
+  "name": "@pengzhanbo/eslint-config-angular",
+  "type": "module",
+  "version": "1.48.0",
+  "author": "pengzhanbo <q942450674@outlook.com> (https://github/pengzhanbo/)",
+  "license": "MIT",
+  "homepage": "https://github.com/pengzhanbo/configs#readme",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:pengzhanbo/configs.git",
+    "directory": "packages/eslint-config-angular"
+  },
+  "keywords": [
+    "eslint-config",
+    "angular"
+  ],
+  "exports": {
+    ".": "./dist/index.mjs",
+    "./package.json": "./package.json"
+  },
+  "types": "./dist/index.d.mts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsdown src/index.ts --format esm --dts --exports",
+    "stub": "tsdown src/index.ts --format esm"
+  },
+  "peerDependencies": {
+    "@prettier/plugin-xml": "catalog:peer",
+    "@unocss/eslint-plugin": "catalog:peer",
+    "eslint": "catalog:peer",
+    "eslint-plugin-format": "catalog:peer",
+    "eslint-plugin-tailwindcss": "catalog:peer"
+  },
+  "peerDependenciesMeta": {
+    "@prettier/plugin-xml": {
+      "optional": true
+    },
+    "@unocss/eslint-plugin": {
+      "optional": true
+    },
+    "eslint-plugin-format": {
+      "optional": true
+    },
+    "eslint-plugin-tailwindcss": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "@angular-eslint/eslint-plugin": "catalog:peer",
+    "@angular-eslint/eslint-plugin-template": "catalog:peer",
+    "@angular-eslint/template-parser": "catalog:peer",
+    "@pengzhanbo/eslint-config": "workspace:*"
+  },
+  "devDependencies": {
+    "@unocss/eslint-plugin": "catalog:peer",
+    "eslint": "catalog:peer",
+    "eslint-plugin-format": "catalog:peer",
+    "eslint-plugin-tailwindcss": "catalog:peer"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

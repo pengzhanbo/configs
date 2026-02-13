@@ -1,37 +1,35 @@
-# @pengzhanbo/tsconfig
+# @pengzhanbo/eslint-config-angular
 
-The tsconfig preset.
+## Documentation
+
+[Document](https://github.com/pengzhanbo/configs/tree/main/docs/eslint.md)
 
 ## Usage
 
-### Install
+## Install
 
-```sh
-pnpm add -D @pengzhanbo/tsconfig
+```bash
+pnpm add @pengzhanbo/eslint-config-angular
 ```
 
-### Config
+## Configuration
 
-In `tsconfig.json`
+`eslint.config.js`
+
+```js
+import eslintConfig from '@pengzhanbo/eslint-config-angular'
+
+export default eslintConfig()
+```
+
+## vs Code support
 
 ```json
 {
-  "extends": "@pengzhanbo/tsconfig/tsconfig.json"
-}
-```
-
-```json
-{
-  "extends": [
-    "@pengzhanbo/tsconfig/tsconfig.json",
-    "@pengzhanbo/tsconfig/tsconfig.lib.json"
+  "eslint.validate": [
+    // add "angular"
+    "angular"
   ]
-}
-```
-
-```json
-{
-  "extends": "@pengzhanbo/tsconfig/tsconfig.vue.json"
 }
 ```
 

@@ -5,6 +5,7 @@ import { FlatConfigComposer } from 'eslint-flat-config-utils'
 import { findUpSync } from 'find-up-simple'
 import { isPackageExists } from 'local-pkg'
 import {
+  angular,
   astro,
   command,
   comments,
@@ -91,6 +92,7 @@ export function eslintFlatConfig(
   ...userConfigs: UserConfig[]
 ): EslintConfigReturn {
   const {
+    angular: enableAngular = false,
     astro: enableAstro = false,
     autoRenamePlugins = true,
     componentExts = [],
@@ -156,7 +158,7 @@ export function eslintFlatConfig(
 
   // Base configs
   configs.push(
-    ignores(userIgnores),
+    ignores(userIgnores, !enableTypeScript),
     javascript({
       isInEditor,
       overrides: getOverrides(options, 'javascript'),
@@ -325,6 +327,12 @@ export function eslintFlatConfig(
         stylistic: stylisticOptions,
       }),
     )
+  }
+
+  if (enableAngular) {
+    configs.push(angular({
+      overrides: getOverrides(options, 'angular'),
+    }))
   }
 
   if (options.jsonc ?? true) {

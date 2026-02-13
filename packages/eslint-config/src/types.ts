@@ -2,6 +2,7 @@ import type { StylisticCustomizeOptions } from '@stylistic/eslint-plugin'
 import type { ParserOptions } from '@typescript-eslint/parser'
 import type { Linter } from 'eslint'
 import type { FlatGitignoreOptions } from 'eslint-config-flat-gitignore'
+import type { ConfigWithExtends } from 'eslint-flat-config-utils'
 import type { Options as VueBlocksOptions } from 'eslint-processor-vue-blocks'
 import type { ConfigNames, RuleOptions } from './typegen'
 import type { VendoredPrettierOptions } from './vender/prettier-types'
@@ -10,14 +11,14 @@ export type Awaitable<T> = T | Promise<T>
 
 export type Rules = Record<string, Linter.RuleEntry<any> | undefined> & RuleOptions
 
-export type { ConfigNames }
+export type { ConfigNames, RuleOptions }
 
 /**
  * An updated version of ESLint's `Linter.Config`, which provides autocompletion
  * for `rules` and relaxes type limitations for `plugins` and `rules`, because
  * many plugins still lack proper type definitions.
  */
-export type TypedFlatConfigItem = Omit<Linter.Config<Linter.RulesRecord & Rules>, 'plugins'> & {
+export type TypedFlatConfigItem = Omit<ConfigWithExtends, 'plugins' | 'rules'> & {
   // Relax plugins type limitation, as most of the plugins did not have correct type info yet.
   /**
    * An object containing a name-value mapping of plugin names to plugin objects.
@@ -434,6 +435,18 @@ export interface OptionsConfig extends OptionsComponentExts, OptionsProjectType 
    * @default true
    */
   yaml?: boolean | OptionsOverrides
+
+  /**
+   * Enable Angular support.
+   *
+   * Requires installing:
+   * - `@angular-eslint/eslint-plugin`
+   * - `@angular-eslint/eslint-plugin-template`
+   * - `@angular-eslint/template-parser`
+   *
+   * @default false
+   */
+  angular?: boolean | OptionsOverrides
 
   /**
    * Enable ASTRO support.

@@ -29,6 +29,9 @@
     "typegen": "tsx scripts/typegen.ts"
   },
   "peerDependencies": {
+    "@angular-eslint/eslint-plugin": "catalog:peer",
+    "@angular-eslint/eslint-plugin-template": "catalog:peer",
+    "@angular-eslint/template-parser": "catalog:peer",
     "@eslint-react/eslint-plugin": "catalog:peer",
     "@next/eslint-plugin-next": "catalog:peer",
     "@prettier/plugin-xml": "catalog:peer",
@@ -51,6 +54,15 @@
     "vue-eslint-parser": "catalog:peer"
   },
   "peerDependenciesMeta": {
+    "@angular-eslint/eslint-plugin": {
+      "optional": true
+    },
+    "@angular-eslint/eslint-plugin-template": {
+      "optional": true
+    },
+    "@angular-eslint/template-parser": {
+      "optional": true
+    },
     "@eslint-react/eslint-plugin": {
       "optional": true
     },
@@ -141,6 +153,10 @@
     "yaml-eslint-parser": "catalog:prod"
   },
   "devDependencies": {
+    "@angular-eslint/eslint-plugin": "catalog:peer",
+    "@angular-eslint/eslint-plugin-template": "catalog:peer",
+    "@angular-eslint/template-parser": "catalog:peer",
+    "@angular/core": "catalog:dev",
     "@eslint-react/eslint-plugin": "catalog:peer",
     "@eslint/config-inspector": "catalog:dev",
     "@next/eslint-plugin-next": "catalog:peer",

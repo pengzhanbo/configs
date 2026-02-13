@@ -8,7 +8,7 @@ const formatPackages = ['eslint-plugin-format']
 
 function mergePrettierOptions(
   options: VendoredPrettierOptions,
-  overrides: VendoredPrettierRuleOptions = {},
+  overrides: VendoredPrettierRuleOptions,
 ): VendoredPrettierRuleOptions {
   return {
     ...options,
