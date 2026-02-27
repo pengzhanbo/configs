@@ -146,7 +146,6 @@
     "eslint-plugin-unused-imports": "catalog:prod",
     "eslint-plugin-yml": "catalog:prod",
     "globals": "catalog:prod",
-    "jsonc-eslint-parser": "catalog:prod",
     "local-pkg": "catalog:prod",
     "parse-gitignore": "catalog:prod",
     "toml-eslint-parser": "catalog:prod",
