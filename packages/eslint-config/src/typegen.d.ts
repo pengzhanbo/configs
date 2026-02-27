@@ -1008,6 +1008,10 @@ export interface RuleOptions {
    */
   'format/dprint'?: Linter.RuleEntry<FormatDprint>
   /**
+   * Use oxfmt to format code
+   */
+  'format/oxfmt'?: Linter.RuleEntry<FormatOxfmt>
+  /**
    * Use Prettier to format code
    */
   'format/prettier'?: Linter.RuleEntry<FormatPrettier>
@@ -6136,10 +6140,20 @@ export interface RuleOptions {
    */
   'toml/indent'?: Linter.RuleEntry<TomlIndent>
   /**
+   * enforce linebreaks after opening and before closing braces
+   * @see https://ota-meshi.github.io/eslint-plugin-toml/rules/inline-table-curly-newline.html
+   */
+  'toml/inline-table-curly-newline'?: Linter.RuleEntry<TomlInlineTableCurlyNewline>
+  /**
    * enforce consistent spacing inside braces
    * @see https://ota-meshi.github.io/eslint-plugin-toml/rules/inline-table-curly-spacing.html
    */
   'toml/inline-table-curly-spacing'?: Linter.RuleEntry<TomlInlineTableCurlySpacing>
+  /**
+   * enforce placing inline table key-value pairs on separate lines
+   * @see https://ota-meshi.github.io/eslint-plugin-toml/rules/inline-table-key-value-newline.html
+   */
+  'toml/inline-table-key-value-newline'?: Linter.RuleEntry<TomlInlineTableKeyValueNewline>
   /**
    * enforce consistent spacing between keys and values in key/value pairs
    * @see https://ota-meshi.github.io/eslint-plugin-toml/rules/key-spacing.html
@@ -9809,6 +9823,10 @@ type FormatDprint = []|[{
   plugins?: unknown[]
   [k: string]: unknown | undefined
 }]
+// ----- format/oxfmt -----
+type FormatOxfmt = []|[{
+  [k: string]: unknown | undefined
+}]
 // ----- format/prettier -----
 type FormatPrettier = []|[{
   parser: string
@@ -10918,6 +10936,7 @@ type JsoncObjectCurlyNewline = []|[((("always" | "never") | {
 type JsoncObjectCurlySpacing = []|[("always" | "never")]|[("always" | "never"), {
   arraysInObjects?: boolean
   objectsInObjects?: boolean
+  emptyObjects?: ("ignore" | "always" | "never")
 }]
 // ----- jsonc/object-property-newline -----
 type JsoncObjectPropertyNewline = []|[{
@@ -18813,10 +18832,21 @@ type TomlIndent = []|[("tab" | number)]|[("tab" | number), {
   subTables?: number
   keyValuePairs?: number
 }]
+// ----- toml/inline-table-curly-newline -----
+type TomlInlineTableCurlyNewline = []|[(("always" | "never") | {
+  multiline?: boolean
+  minProperties?: number
+  consistent?: boolean
+})]
 // ----- toml/inline-table-curly-spacing -----
 type TomlInlineTableCurlySpacing = []|[("always" | "never")]|[("always" | "never"), {
   arraysInObjects?: boolean
   objectsInObjects?: boolean
+  emptyObjects?: ("ignore" | "always" | "never")
+}]
+// ----- toml/inline-table-key-value-newline -----
+type TomlInlineTableKeyValueNewline = []|[{
+  allowAllPropertiesOnSameLine?: boolean
 }]
 // ----- toml/key-spacing -----
 type TomlKeySpacing = []|[({
@@ -21741,6 +21771,7 @@ type YamlFlowMappingCurlyNewline = []|[(("always" | "never") | {
 type YamlFlowMappingCurlySpacing = []|[("always" | "never")]|[("always" | "never"), {
   arraysInObjects?: boolean
   objectsInObjects?: boolean
+  emptyObjects?: ("ignore" | "always" | "never")
 }]
 // ----- yaml/flow-sequence-bracket-newline -----
 type YamlFlowSequenceBracketNewline = []|[(("always" | "never" | "consistent") | {
@@ -21926,4 +21957,4 @@ type Yoda = []|[("always" | "never")]|[("always" | "never"), {
   onlyEquality?: boolean
 }]
 // Names of all the configs
-export type ConfigNames = 'config/gitignore' | 'config/ignores' | 'config/javascript/setup' | 'config/javascript/rules' | 'config/eslint-comments/rules' | 'config/node/rules' | 'config/jsdoc/rules' | 'config/imports/rules' | 'config/command/rules' | 'config/perfectionist/setup' | 'config/node/rules' | 'config/jsdoc/rules' | 'config/imports/rules' | 'config/unicorn' | 'config/jsx/setup' | 'config/typescript/setup' | 'config/typescript/parser' | 'config/typescript/type-aware-parser' | 'config/typescript/rules' | 'config/typescript/rules-type-aware' | 'config/typescript/erasable-syntax-only' | 'config/stylistic/rules' | 'config/regexp/rules' | 'config/test/setup' | 'config/test/rules' | 'config/vue/setup' | 'config/vue/rules' | 'config/react/setup' | 'config/react/rules' | 'antfu/react/typescript' | 'config/react/type-aware-rules' | 'config/nextjs/setup' | 'config/nextjs/rules' | 'config/solid/setup' | 'config/solid/rules' | 'config/svelte/setup' | 'config/svelte/rules' | 'config/unocss/rules' | 'config/astro/setup' | 'config/astro/rules' | 'antfu/angular/setup' | 'antfu/angular/rules/ts' | 'antfu/angular/rules/template' | 'config/jsonc/setup' | 'config/jsonc/rules' | 'config/sort/package-json' | 'config/sort/tsconfig-json' | 'config/pnpm/package-json' | 'config/pnpm/pnpm-workspace-yaml' | 'config/pnpm/pnpm-workspace-yaml-sort' | 'config/yaml/setup' | 'config/yaml/rules' | 'config/toml/setup' | 'config/toml/rules' | 'config/markdown/setup' | 'config/markdown/processor' | 'config/markdown/parser' | 'config/markdown/disables' | 'config/formatters/setup' | 'config/formatter/css' | 'config/formatter/scss' | 'config/formatter/less' | 'config/formatter/html' | 'config/formatter/xml' | 'config/formatter/svg' | 'config/formatter/markdown' | 'config/formatter/astro' | 'config/formatter/astro/disables' | 'config/formatter/graphql' | 'config/disables/scripts' | 'config/disables/cli' | 'config/disables/bin' | 'config/disables/dts' | 'config/disables/cjs' | 'config/disables/config-files'
+export type ConfigNames = 'config/gitignore' | 'config/ignores' | 'config/javascript/setup' | 'config/javascript/rules' | 'config/eslint-comments/rules' | 'config/node/setup' | 'config/node/rules' | 'config/jsdoc/setup' | 'config/jsdoc/rules' | 'config/imports/rules' | 'config/command/rules' | 'config/perfectionist/setup' | 'config/node/setup' | 'config/node/rules' | 'config/jsdoc/setup' | 'config/jsdoc/rules' | 'config/imports/rules' | 'config/unicorn' | 'config/jsx/setup' | 'config/typescript/setup' | 'config/typescript/parser' | 'config/typescript/type-aware-parser' | 'config/typescript/rules' | 'config/typescript/rules-type-aware' | 'config/typescript/erasable-syntax-only' | 'config/stylistic/rules' | 'config/regexp/rules' | 'config/test/setup' | 'config/test/rules' | 'config/vue/setup' | 'config/vue/rules' | 'config/react/setup' | 'config/react/rules' | 'antfu/react/typescript' | 'config/react/type-aware-rules' | 'config/nextjs/setup' | 'config/nextjs/rules' | 'config/solid/setup' | 'config/solid/rules' | 'config/svelte/setup' | 'config/svelte/rules' | 'config/unocss/rules' | 'config/astro/setup' | 'config/astro/rules' | 'antfu/angular/setup' | 'antfu/angular/rules/ts' | 'antfu/angular/rules/template' | 'config/jsonc/setup' | 'config/jsonc/rules' | 'config/sort/package-json' | 'config/sort/tsconfig-json' | 'config/pnpm/package-json' | 'config/pnpm/pnpm-workspace-yaml' | 'config/pnpm/pnpm-workspace-yaml-sort' | 'config/yaml/setup' | 'config/yaml/rules' | 'config/toml/setup' | 'config/toml/rules' | 'config/markdown/setup' | 'config/markdown/processor' | 'config/markdown/parser' | 'config/markdown/rules' | 'config/markdown/disables/markdown' | 'config/markdown/disables/code' | 'config/formatters/setup' | 'config/formatter/css' | 'config/formatter/scss' | 'config/formatter/less' | 'config/formatter/html' | 'config/formatter/xml' | 'config/formatter/svg' | 'config/formatter/markdown' | 'config/formatter/astro' | 'config/formatter/astro/disables' | 'config/formatter/graphql' | 'config/disables/scripts' | 'config/disables/cli' | 'config/disables/bin' | 'config/disables/dts' | 'config/disables/cjs' | 'config/disables/config-files'

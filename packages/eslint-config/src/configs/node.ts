@@ -6,11 +6,14 @@ import { pluginNode } from '../plugins'
 export async function node(): Promise<TypedFlatConfigItem[]> {
   return [
     {
-      files: [GLOB_SRC],
-      name: 'config/node/rules',
+      name: 'config/node/setup',
       plugins: {
         node: pluginNode,
       },
+    },
+    {
+      files: [GLOB_SRC],
+      name: 'config/node/rules',
       rules: {
         'node/handle-callback-err': ['error', '^(err|error)$'],
         'node/no-deprecated-api': 'error',
