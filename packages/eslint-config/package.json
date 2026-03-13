@@ -120,6 +120,7 @@
   },
   "dependencies": {
     "@antfu/install-pkg": "catalog:prod",
+    "@e18e/eslint-plugin": "catalog:prod",
     "@eslint-community/eslint-plugin-eslint-comments": "catalog:prod",
     "@eslint/markdown": "catalog:prod",
     "@stylistic/eslint-plugin": "catalog:prod",
@@ -180,6 +181,9 @@
     "svelte": "catalog:dev",
     "svelte-eslint-parser": "catalog:peer",
     "vue-eslint-parser": "catalog:peer"
+  },
+  "inlinedDependencies": {
+    "find-up-simple": "1.0.1"
   },
   "publishConfig": {
     "access": "public",
