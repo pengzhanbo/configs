@@ -10,6 +10,7 @@ import {
   command,
   comments,
   disables,
+  e18e,
   ignores,
   imports,
   javascript,
@@ -96,6 +97,7 @@ export function eslintFlatConfig(
     astro: enableAstro = false,
     autoRenamePlugins = true,
     componentExts = [],
+    e18e: enableE18e = false,
     gitignore: enableGitignore = true,
     ignores: userIgnores = [],
     imports: enableImports = true,
@@ -108,7 +110,8 @@ export function eslintFlatConfig(
     regexp: enableRegexp = true,
     svelte: enableSvelte = false,
     solid: enableSolid = false,
-    typescript: enableTypeScript = isPackageExists('typescript'),
+    type: appType = 'app',
+    typescript: enableTypeScript = isPackageExists('typescript') || isPackageExists('@typescript/native-preview'),
     unicorn: enableUnicorn = true,
     unocss: enableUnoCSS = false,
     tailwindcss: enableTailwindcss = false,
@@ -200,6 +203,15 @@ export function eslintFlatConfig(
     )
   }
 
+  if (enableE18e) {
+    configs.push(
+      e18e({
+        isInEditor,
+        ...enableE18e === true ? {} : enableE18e,
+      }),
+    )
+  }
+
   if (enableUnicorn) {
     configs.push(
       unicorn(enableUnicorn === true ? {} : enableUnicorn),
@@ -222,7 +234,7 @@ export function eslintFlatConfig(
         ...typescriptOptions,
         componentExts,
         overrides: getOverrides(options, 'typescript'),
-        type: options.type,
+        type: appType,
       }),
     )
   }

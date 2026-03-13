@@ -179,4 +179,4 @@ In `.stylelintrc.json`
 - [prettier](https://prettier.io/)
 - [@antfu/eslint-config](https://github.com/antfu/eslint-config)
 
-<!-- 7.4.3 -->
+<!-- 7.7.2 -->

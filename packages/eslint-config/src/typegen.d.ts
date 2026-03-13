@@ -124,6 +124,11 @@ export interface RuleOptions {
    */
   'angular-template/no-nested-tags'?: Linter.RuleEntry<[]>
   /**
+   * Disallows the non-null assertion operator (!) in templates
+   * @see https://github.com/angular-eslint/angular-eslint/blob/main/packages/eslint-plugin-template/docs/rules/no-non-null-assertion.md
+   */
+  'angular-template/no-non-null-assertion'?: Linter.RuleEntry<[]>
+  /**
    * Ensures that the `tabindex` attribute is not positive
    * @see https://github.com/angular-eslint/angular-eslint/blob/main/packages/eslint-plugin-template/docs/rules/no-positive-tabindex.md
    */
@@ -213,6 +218,11 @@ export interface RuleOptions {
    * @see https://github.com/angular-eslint/angular-eslint/blob/main/packages/eslint-plugin/docs/rules/component-selector.md
    */
   'angular/component-selector'?: Linter.RuleEntry<AngularComponentSelector>
+  /**
+   * Ensures that computed() returns a value. Omitting the value is likely a mistake.
+   * @see https://github.com/angular-eslint/angular-eslint/blob/main/packages/eslint-plugin/docs/rules/computed-must-return.md
+   */
+  'angular/computed-must-return'?: Linter.RuleEntry<[]>
   /**
    * Ensures consistent usage of `styles`/`styleUrls`/`styleUrl` within Component metadata
    * @see https://github.com/angular-eslint/angular-eslint/blob/main/packages/eslint-plugin/docs/rules/consistent-component-styles.md
@@ -981,6 +991,7 @@ export interface RuleOptions {
   /**
    * disallow unused `eslint-disable` comments
    * @see https://eslint-community.github.io/eslint-plugin-eslint-comments/rules/no-unused-disable.html
+   * @deprecated
    */
   'eslint-comments/no-unused-disable'?: Linter.RuleEntry<[]>
   /**
@@ -17402,33 +17413,33 @@ type StyleExpListStyle = []|[{
   singleLine?: _StyleExpListStyle_SingleLineConfig
   multiLine?: _StyleExpListStyle_MultiLineConfig
   overrides?: {
-    "()"?: _StyleExpListStyle_BaseConfig
-    "[]"?: _StyleExpListStyle_BaseConfig
-    "{}"?: _StyleExpListStyle_BaseConfig
-    "<>"?: _StyleExpListStyle_BaseConfig
-    ArrayExpression?: _StyleExpListStyle_BaseConfig
-    ArrayPattern?: _StyleExpListStyle_BaseConfig
-    ArrowFunctionExpression?: _StyleExpListStyle_BaseConfig
-    CallExpression?: _StyleExpListStyle_BaseConfig
-    ExportNamedDeclaration?: _StyleExpListStyle_BaseConfig
-    FunctionDeclaration?: _StyleExpListStyle_BaseConfig
-    FunctionExpression?: _StyleExpListStyle_BaseConfig
-    IfStatement?: _StyleExpListStyle_BaseConfig
-    ImportAttributes?: _StyleExpListStyle_BaseConfig
-    ImportDeclaration?: _StyleExpListStyle_BaseConfig
-    JSONArrayExpression?: _StyleExpListStyle_BaseConfig
-    JSONObjectExpression?: _StyleExpListStyle_BaseConfig
-    NewExpression?: _StyleExpListStyle_BaseConfig
-    ObjectExpression?: _StyleExpListStyle_BaseConfig
-    ObjectPattern?: _StyleExpListStyle_BaseConfig
-    TSDeclareFunction?: _StyleExpListStyle_BaseConfig
-    TSEnumBody?: _StyleExpListStyle_BaseConfig
-    TSFunctionType?: _StyleExpListStyle_BaseConfig
-    TSInterfaceBody?: _StyleExpListStyle_BaseConfig
-    TSTupleType?: _StyleExpListStyle_BaseConfig
-    TSTypeLiteral?: _StyleExpListStyle_BaseConfig
-    TSTypeParameterDeclaration?: _StyleExpListStyle_BaseConfig
-    TSTypeParameterInstantiation?: _StyleExpListStyle_BaseConfig
+    "()"?: (_StyleExpListStyle_BaseConfig | "off")
+    "[]"?: (_StyleExpListStyle_BaseConfig | "off")
+    "{}"?: (_StyleExpListStyle_BaseConfig | "off")
+    "<>"?: (_StyleExpListStyle_BaseConfig | "off")
+    ArrayExpression?: (_StyleExpListStyle_BaseConfig | "off")
+    ArrayPattern?: (_StyleExpListStyle_BaseConfig | "off")
+    ArrowFunctionExpression?: (_StyleExpListStyle_BaseConfig | "off")
+    CallExpression?: (_StyleExpListStyle_BaseConfig | "off")
+    ExportNamedDeclaration?: (_StyleExpListStyle_BaseConfig | "off")
+    FunctionDeclaration?: (_StyleExpListStyle_BaseConfig | "off")
+    FunctionExpression?: (_StyleExpListStyle_BaseConfig | "off")
+    IfStatement?: (_StyleExpListStyle_BaseConfig | "off")
+    ImportAttributes?: (_StyleExpListStyle_BaseConfig | "off")
+    ImportDeclaration?: (_StyleExpListStyle_BaseConfig | "off")
+    JSONArrayExpression?: (_StyleExpListStyle_BaseConfig | "off")
+    JSONObjectExpression?: (_StyleExpListStyle_BaseConfig | "off")
+    NewExpression?: (_StyleExpListStyle_BaseConfig | "off")
+    ObjectExpression?: (_StyleExpListStyle_BaseConfig | "off")
+    ObjectPattern?: (_StyleExpListStyle_BaseConfig | "off")
+    TSDeclareFunction?: (_StyleExpListStyle_BaseConfig | "off")
+    TSEnumBody?: (_StyleExpListStyle_BaseConfig | "off")
+    TSFunctionType?: (_StyleExpListStyle_BaseConfig | "off")
+    TSInterfaceBody?: (_StyleExpListStyle_BaseConfig | "off")
+    TSTupleType?: (_StyleExpListStyle_BaseConfig | "off")
+    TSTypeLiteral?: (_StyleExpListStyle_BaseConfig | "off")
+    TSTypeParameterDeclaration?: (_StyleExpListStyle_BaseConfig | "off")
+    TSTypeParameterInstantiation?: (_StyleExpListStyle_BaseConfig | "off")
   }
 }]
 interface _StyleExpListStyle_SingleLineConfig {
@@ -18356,6 +18367,7 @@ type StylePaddingLineBetweenStatements = {
 }[]
 interface _StylePaddingLineBetweenStatements_SelectorOption {
   selector: string
+  lineMode?: ("any" | "singleline" | "multiline")
 }
 // ----- style/quote-props -----
 type StyleQuoteProps = ([]|[("always" | "as-needed" | "consistent" | "consistent-as-needed")] | []|[("always" | "as-needed" | "consistent" | "consistent-as-needed")]|[("always" | "as-needed" | "consistent" | "consistent-as-needed"), {
@@ -18680,36 +18692,49 @@ type TemplateCurlySpacing = []|[("always" | "never")]
 type TemplateTagSpacing = []|[("always" | "never")]
 // ----- test/consistent-each-for -----
 type TestConsistentEachFor = []|[{
+  
   test?: ("each" | "for")
+  
   it?: ("each" | "for")
+  
   describe?: ("each" | "for")
+  
   suite?: ("each" | "for")
 }]
 // ----- test/consistent-test-filename -----
 type TestConsistentTestFilename = []|[{
+  
   pattern?: string
+  
   allTestPattern?: string
 }]
 // ----- test/consistent-test-it -----
 type TestConsistentTestIt = []|[{
+  
   fn?: ("test" | "it")
+  
   withinDescribe?: ("test" | "it")
 }]
 // ----- test/consistent-vitest-vi -----
 type TestConsistentVitestVi = []|[{
+  
   fn?: ("vi" | "vitest")
 }]
 // ----- test/expect-expect -----
 type TestExpectExpect = []|[{
+  
   assertFunctionNames?: string[]
+  
   additionalTestBlockFunctions?: string[]
 }]
 // ----- test/max-expects -----
 type TestMaxExpects = []|[{
+  
   max?: number
 }]
 // ----- test/max-nested-describe -----
 type TestMaxNestedDescribe = []|[{
+  
   max?: number
 }]
 // ----- test/no-conditional-expect -----
@@ -18719,6 +18744,7 @@ type TestNoConditionalExpect = []|[{
 }]
 // ----- test/no-focused-tests -----
 type TestNoFocusedTests = []|[{
+  
   fixable?: boolean
 }]
 // ----- test/no-hooks -----
@@ -18728,8 +18754,11 @@ type TestNoHooks = []|[{
 }]
 // ----- test/no-large-snapshots -----
 type TestNoLargeSnapshots = []|[{
+  
   maxSize?: number
+  
   inlineMaxSize?: number
+  
   allowedSnapshots?: {
     [k: string]: unknown[] | undefined
   }
@@ -18751,50 +18780,69 @@ type TestNoRestrictedViMethods = []|[{
 }]
 // ----- test/no-standalone-expect -----
 type TestNoStandaloneExpect = []|[{
+  
   additionalTestBlockFunctions?: string[]
 }]
 // ----- test/prefer-expect-assertions -----
 type TestPreferExpectAssertions = []|[{
+  
   onlyFunctionsWithAsyncKeyword?: boolean
+  
   onlyFunctionsWithExpectInLoop?: boolean
+  
   onlyFunctionsWithExpectInCallback?: boolean
 }]
 // ----- test/prefer-import-in-mock -----
 type TestPreferImportInMock = []|[{
+  
   fixable?: boolean
 }]
 // ----- test/prefer-lowercase-title -----
 type TestPreferLowercaseTitle = []|[{
+  
   ignore?: ("describe" | "test" | "it")[]
+  
   allowedPrefixes?: string[]
+  
   ignoreTopLevelDescribe?: boolean
+  
   lowercaseFirstCharacterOnly?: boolean
 }]
 // ----- test/prefer-snapshot-hint -----
 type TestPreferSnapshotHint = []|[("always" | "multi")]
 // ----- test/require-hook -----
 type TestRequireHook = []|[{
+  
   allowedFunctionCalls?: string[]
 }]
 // ----- test/require-mock-type-parameters -----
 type TestRequireMockTypeParameters = []|[{
+  
   checkImportFunctions?: boolean
 }]
 // ----- test/require-top-level-describe -----
 type TestRequireTopLevelDescribe = []|[{
+  
   maxNumberOfTopLevelDescribes?: number
 }]
 // ----- test/valid-expect -----
 type TestValidExpect = []|[{
+  
   alwaysAwait?: boolean
+  
   asyncMatchers?: string[]
+  
   minArgs?: number
+  
   maxArgs?: number
 }]
 // ----- test/valid-title -----
 type TestValidTitle = []|[{
+  
   ignoreTypeOfDescribeName?: boolean
+  
   allowArguments?: boolean
+  
   disallowedWords?: string[]
   [k: string]: (string | [string]|[string, string] | {
     [k: string]: (string | [string]|[string, string]) | undefined
@@ -19951,6 +19999,19 @@ type TsPreferOptionalChain = []|[{
 }]
 // ----- ts/prefer-promise-reject-errors -----
 type TsPreferPromiseRejectErrors = []|[{
+  
+  allow?: (string | {
+    from: "file"
+    name: (string | [string, ...(string)[]])
+    path?: string
+  } | {
+    from: "lib"
+    name: (string | [string, ...(string)[]])
+  } | {
+    from: "package"
+    name: (string | [string, ...(string)[]])
+    package: string
+  })[]
   
   allowEmptyReject?: boolean
   
