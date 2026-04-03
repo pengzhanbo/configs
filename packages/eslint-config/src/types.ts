@@ -355,7 +355,6 @@ export interface OptionsTailwindCSS extends OptionsOverrides {
 }
 
 export interface OptionsReact extends OptionsOverrides {
-  reactCompiler?: boolean
 }
 
 export interface OptionsConfig extends OptionsComponentExts, OptionsProjectType {
@@ -535,7 +534,6 @@ export interface OptionsConfig extends OptionsComponentExts, OptionsProjectType 
    *
    * Requires installing:
    * - `@eslint-react/eslint-plugin`
-   * - `eslint-plugin-react-hooks`
    * - `eslint-plugin-react-refresh`
    *
    * @default false
