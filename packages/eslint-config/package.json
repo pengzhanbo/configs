@@ -40,7 +40,6 @@
     "eslint": "catalog:peer",
     "eslint-plugin-astro": "catalog:peer",
     "eslint-plugin-format": "catalog:peer",
-    "eslint-plugin-react-hooks": "catalog:peer",
     "eslint-plugin-react-refresh": "catalog:peer",
     "eslint-plugin-solid": "catalog:peer",
     "eslint-plugin-svelte": "catalog:peer",
@@ -82,9 +81,6 @@
       "optional": true
     },
     "eslint-plugin-format": {
-      "optional": true
-    },
-    "eslint-plugin-react-hooks": {
       "optional": true
     },
     "eslint-plugin-react-refresh": {
@@ -166,7 +162,6 @@
     "eslint": "catalog:peer",
     "eslint-plugin-astro": "catalog:peer",
     "eslint-plugin-format": "catalog:peer",
-    "eslint-plugin-react-hooks": "catalog:peer",
     "eslint-plugin-react-refresh": "catalog:peer",
     "eslint-plugin-solid": "catalog:peer",
     "eslint-plugin-svelte": "catalog:peer",

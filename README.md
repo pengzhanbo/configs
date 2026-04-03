@@ -31,7 +31,6 @@
 - [html](https://html-eslint.org/)
 - [vue](https://eslint.vuejs.org)
 - [react](https://github.com/rel1cx/eslint-react)
-  - [react-hooks](https://github.com/facebook/react/tree/main/packages/eslint-plugin-react-hooks)
   - [react-refresh](https://github.com/ArnaudBarre/eslint-plugin-react-refresh#readme)
   - [nextjs](https://github.com/vercel/next.js#readme) - _optional, auto check deps_
 - [solid](https://github.com/solidjs-community/eslint-plugin-solid#readme)
@@ -179,4 +178,4 @@ In `.stylelintrc.json`
 - [prettier](https://prettier.io/)
 - [@antfu/eslint-config](https://github.com/antfu/eslint-config)
 
-<!-- 7.7.2 -->
+<!-- 8.0.0 -->

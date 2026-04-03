@@ -54,7 +54,6 @@
   "dependencies": {
     "@eslint-react/eslint-plugin": "catalog:peer",
     "@pengzhanbo/eslint-config": "workspace:*",
-    "eslint-plugin-react-hooks": "catalog:peer",
     "eslint-plugin-react-refresh": "catalog:peer"
   },
   "devDependencies": {
