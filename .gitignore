@@ -82,3 +82,8 @@ _fixtures
 
 .temp
 .history
+
+# AI
+.trae
+.claude
+!.claude/skills
