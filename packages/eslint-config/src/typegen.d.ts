@@ -760,6 +760,11 @@ export interface RuleOptions {
    */
   'astro/no-exports-from-components'?: Linter.RuleEntry<[]>
   /**
+   * disallow `prerender` export outside of pages/ directory
+   * @see https://ota-meshi.github.io/eslint-plugin-astro/rules/no-prerender-export-outside-pages/
+   */
+  'astro/no-prerender-export-outside-pages'?: Linter.RuleEntry<[]>
+  /**
    * disallow use of `set:html` to prevent XSS attack
    * @see https://ota-meshi.github.io/eslint-plugin-astro/rules/no-set-html-directive/
    */
