@@ -46,7 +46,7 @@
     "tsx": "catalog:dev"
   },
   "simple-git-hooks": {
-    "pre-commit": "pnpm lint-staged"
+    "pre-commit": "pnpm lint-staged --allow-empty"
   },
   "lint-staged": {
     "*": "eslint --fix"
