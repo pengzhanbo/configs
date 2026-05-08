@@ -15,7 +15,7 @@
     "lint": "pnpm -r run stub && eslint .",
     "prepack": "pnpm build",
     "release:publish": "pnpm -r publish",
-    "release": "bumpp package.json packages/*/package.json --commit --push --tag",
+    "release": "bumpp package.json packages/*/package.json --commit \"build: publish v%s\" --push --tag --all",
     "prepare": "simple-git-hooks",
     "test": "vitest"
   },
