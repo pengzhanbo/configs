@@ -12,6 +12,20 @@ trustPolicyExclude:
 packages:
   - packages/*
 
+allowBuilds:
+  '@parcel/watcher': true
+  esbuild: true
+  simple-git-hooks: true
+
+overrides:
+  '@eslint-community/eslint-utils': 'catalog:peer'
+  '@typescript-eslint/types': 'catalog:peer'
+  '@typescript-eslint/utils': 'catalog:peer'
+  baseline-browser-mapping: 'catalog:dev'
+  chokidar: 'catalog:dev'
+  eslint: 'catalog:peer'
+  tsx: 'catalog:dev'
+
 catalogs:
   dev:
     '@angular/core': ^21.2.12
@@ -107,8 +121,3 @@ catalogs:
     stylelint-order: ^8.1.1
     toml-eslint-parser: ^1.0.3
     yaml-eslint-parser: ^2.0.0
-
-allowBuilds:
-  '@parcel/watcher': true
-  esbuild: true
-  simple-git-hooks: true
