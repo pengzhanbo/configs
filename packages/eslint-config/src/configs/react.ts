@@ -90,7 +90,7 @@ export async function react(
       rules: {
         ...pluginReact.configs.recommended.rules,
 
-        'react/prefer-namespace-import': 'error',
+        // 'react/prefer-namespace-import': 'error',
 
         // preconfigured rules from eslint-plugin-react-refresh https://github.com/ArnaudBarre/eslint-plugin-react-refresh/tree/main/src
         'react-refresh/only-export-components': [

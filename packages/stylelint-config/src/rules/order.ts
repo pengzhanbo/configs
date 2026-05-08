@@ -2,6 +2,7 @@ import type { RuleOptions } from '@stylelint-types/stylelint-order'
 import type { Rules } from 'stylelint-define-config'
 
 export const orderRules = {
+
   'declaration-empty-line-before': [
     'always',
     {
@@ -506,4 +507,5 @@ export const orderRules = {
       emptyLineMinimumPropertyThreshold: 5,
     },
   ],
+  'order/custom-properties-alphabetical-order': null,
 } as Partial<RuleOptions & Rules>
