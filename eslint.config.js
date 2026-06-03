@@ -1,6 +1,6 @@
 import eslintConfig from '@pengzhanbo/eslint-config'
 
 export default eslintConfig({
-  ignores: ['fixtures', '_fixtures', 'README.md/**/*.js'],
+  ignores: ['fixtures', '_fixtures', '**/*.md'],
   pnpm: true,
 })

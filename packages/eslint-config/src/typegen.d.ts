@@ -450,12 +450,12 @@ export interface RuleOptions {
    */
   'angular/use-pipe-transform-interface'?: Linter.RuleEntry<[]>
   /**
-   * Having line breaks styles to object, array and named imports
+   * Enforce consistent line breaks for chaining member access
    * @see https://github.com/antfu/eslint-plugin-antfu/blob/main/src/rules/consistent-chaining.md
    */
   'antfu/consistent-chaining'?: Linter.RuleEntry<AntfuConsistentChaining>
   /**
-   * Having line breaks styles to object, array and named imports
+   * Enforce consistent line breaks inside braces and parentheses
    * @see https://github.com/antfu/eslint-plugin-antfu/blob/main/src/rules/consistent-list-newline.md
    */
   'antfu/consistent-list-newline'?: Linter.RuleEntry<AntfuConsistentListNewline>
@@ -481,22 +481,22 @@ export interface RuleOptions {
   'antfu/indent-unindent'?: Linter.RuleEntry<AntfuIndentUnindent>
   /**
    * Prevent importing modules in `dist` folder
-   * @see https://github.com/antfu/eslint-plugin-antfu/blob/main/src/rules/no-import-dist.test.ts
+   * @see https://github.com/antfu/eslint-plugin-antfu/blob/main/src/rules/no-import-dist.md
    */
   'antfu/no-import-dist'?: Linter.RuleEntry<[]>
   /**
    * Prevent importing modules in `node_modules` folder by relative or absolute path
-   * @see https://github.com/antfu/eslint-plugin-antfu/blob/main/src/rules/no-import-node-modules-by-path.test.ts
+   * @see https://github.com/antfu/eslint-plugin-antfu/blob/main/src/rules/no-import-node-modules-by-path.md
    */
   'antfu/no-import-node-modules-by-path'?: Linter.RuleEntry<[]>
   /**
    * Prevent using top-level await
-   * @see https://github.com/antfu/eslint-plugin-antfu/blob/main/src/rules/no-top-level-await.test.ts
+   * @see https://github.com/antfu/eslint-plugin-antfu/blob/main/src/rules/no-top-level-await.md
    */
   'antfu/no-top-level-await'?: Linter.RuleEntry<[]>
   /**
    * Do not use `exports =`
-   * @see https://github.com/antfu/eslint-plugin-antfu/blob/main/src/rules/no-ts-export-equal.test.ts
+   * @see https://github.com/antfu/eslint-plugin-antfu/blob/main/src/rules/no-ts-export-equal.md
    */
   'antfu/no-ts-export-equal'?: Linter.RuleEntry<[]>
   /**
@@ -3716,46 +3716,46 @@ export interface RuleOptions {
   'react/immutability'?: Linter.RuleEntry<[]>
   /**
    * Disallows passing 'children' as a prop.
-   * @see https://eslint-react.xyz/docs/rules/no-children-prop
+   * @see https://eslint-react.xyz/docs/rules/jsx-no-children-prop
    */
   'react/jsx-no-children-prop'?: Linter.RuleEntry<[]>
   /**
    * Disallows passing 'children' as a prop when children are also passed as nested content.
-   * @see https://eslint-react.xyz/docs/rules/no-children-prop-with-children
+   * @see https://eslint-react.xyz/docs/rules/jsx-no-children-prop-with-children
    */
   'react/jsx-no-children-prop-with-children'?: Linter.RuleEntry<[]>
   /**
    * Prevents comment strings from being accidentally inserted into a JSX element's text nodes.
-   * @see https://eslint-react.xyz/docs/rules/no-comment-textnodes
+   * @see https://eslint-react.xyz/docs/rules/jsx-no-comment-textnodes
    */
   'react/jsx-no-comment-textnodes'?: Linter.RuleEntry<[]>
   /**
    * Prevent patterns that cause deoptimization when using the automatic JSX runtime.
-   * @see https://eslint-react.xyz/docs/rules/no-key-after-spread
+   * @see https://eslint-react.xyz/docs/rules/jsx-no-key-after-spread
    */
   'react/jsx-no-key-after-spread'?: Linter.RuleEntry<[]>
   /**
    * Catches `$` before `{expr}` in JSX — typically from template literal `${expr}` being copy-pasted into JSX without removing the `$`. The `$` "leaks" into the rendered output.
-   * @see https://eslint-react.xyz/docs/rules/no-leaked-dollar
+   * @see https://eslint-react.xyz/docs/rules/jsx-no-leaked-dollar
    */
   'react/jsx-no-leaked-dollar'?: Linter.RuleEntry<[]>
   /**
    * Catches `;` at the start of JSX text nodes — typically from accidentally placing a statement-ending `;` inside JSX. The `;` "leaks" into the rendered output.
-   * @see https://eslint-react.xyz/docs/rules/no-leaked-semicolon
+   * @see https://eslint-react.xyz/docs/rules/jsx-no-leaked-semicolon
    */
   'react/jsx-no-leaked-semicolon'?: Linter.RuleEntry<[]>
   /**
    * Disallow JSX namespace syntax, as React does not support them.
-   * @see https://eslint-react.xyz/docs/rules/no-namespace
+   * @see https://eslint-react.xyz/docs/rules/jsx-no-namespace
    */
   'react/jsx-no-namespace'?: Linter.RuleEntry<[]>
   /**
    * Disallows useless fragment elements.
-   * @see https://eslint-react.xyz/docs/rules/no-useless-fragment
+   * @see https://eslint-react.xyz/docs/rules/jsx-no-useless-fragment
    */
   'react/jsx-no-useless-fragment'?: Linter.RuleEntry<ReactJsxNoUselessFragment>
   /**
-   * Enforces the context name to be a valid component name with the suffix 'Context'.
+   * Enforces identifier names assigned from `createContext` calls to be a valid component name with the suffix `Context`.
    * @see https://eslint-react.xyz/docs/rules/naming-convention-context-name
    */
   'react/naming-convention-context-name'?: Linter.RuleEntry<[]>
@@ -3835,7 +3835,7 @@ export interface RuleOptions {
    */
   'react/no-context-provider'?: Linter.RuleEntry<[]>
   /**
-   * Disallows 'createRef' in function components.
+   * Disallows 'createRef' in function components and Hooks.
    * @see https://eslint-react.xyz/docs/rules/no-create-ref
    */
   'react/no-create-ref'?: Linter.RuleEntry<[]>
@@ -3960,7 +3960,7 @@ export interface RuleOptions {
    */
   'react/no-unused-props'?: Linter.RuleEntry<[]>
   /**
-   * Warns about state variables that are defined but never used, or only used in effects.
+   * Warns about state variables that are defined but never used.
    * @see https://eslint-react.xyz/docs/rules/no-unused-state
    */
   'react/no-unused-state'?: Linter.RuleEntry<[]>
@@ -3981,7 +3981,7 @@ export interface RuleOptions {
   'react/refs'?: Linter.RuleEntry<[]>
   /**
    * Validates and transforms React Client/Server Function definitions.
-   * @see https://eslint-react.xyz/docs/rules/function-definition
+   * @see https://eslint-react.xyz/docs/rules/rsc-function-definition
    */
   'react/rsc-function-definition'?: Linter.RuleEntry<[]>
   /**
@@ -4130,7 +4130,7 @@ export interface RuleOptions {
    */
   'react/x-no-context-provider'?: Linter.RuleEntry<[]>
   /**
-   * Disallows 'createRef' in function components.
+   * Disallows 'createRef' in function components and Hooks.
    * @see https://eslint-react.xyz/docs/rules/no-create-ref
    */
   'react/x-no-create-ref'?: Linter.RuleEntry<[]>
@@ -4255,7 +4255,7 @@ export interface RuleOptions {
    */
   'react/x-no-unused-props'?: Linter.RuleEntry<[]>
   /**
-   * Warns about state variables that are defined but never used, or only used in effects.
+   * Warns about state variables that are defined but never used.
    * @see https://eslint-react.xyz/docs/rules/no-unused-state
    */
   'react/x-no-unused-state'?: Linter.RuleEntry<[]>
@@ -5598,6 +5598,11 @@ export interface RuleOptions {
    */
   'svelte/no-navigation-without-resolve'?: Linter.RuleEntry<SvelteNoNavigationWithoutResolve>
   /**
+   * disallow `<style>` elements nested inside other elements or blocks
+   * @see https://sveltejs.github.io/eslint-plugin-svelte/rules/no-nested-style-tag/
+   */
+  'svelte/no-nested-style-tag'?: Linter.RuleEntry<[]>
+  /**
    * disallow use of not function in event handler
    * @see https://sveltejs.github.io/eslint-plugin-svelte/rules/no-not-function-handler/
    */
@@ -5712,6 +5717,11 @@ export interface RuleOptions {
    * @see https://sveltejs.github.io/eslint-plugin-svelte/rules/prefer-const/
    */
   'svelte/prefer-const'?: Linter.RuleEntry<SveltePreferConst>
+  /**
+   * disallow unnecessary `$derived.by()` when `$derived()` is sufficient
+   * @see https://sveltejs.github.io/eslint-plugin-svelte/rules/prefer-derived-over-derived-by/
+   */
+  'svelte/prefer-derived-over-derived-by'?: Linter.RuleEntry<[]>
   /**
    * destructure values from object stores for better change tracking & fewer redraws
    * @see https://sveltejs.github.io/eslint-plugin-svelte/rules/prefer-destructured-store-props/
@@ -8151,7 +8161,7 @@ export interface RuleOptions {
    */
   'vue/jsx-uses-vars'?: Linter.RuleEntry<[]>
   /**
-   * Enforce consistent spacing between keys and values in object literal properties in `<template>`
+   * Enforce consistent spacing between property names and type annotations in types and interfaces in `<template>`
    * @see https://eslint.vuejs.org/rules/key-spacing.html
    */
   'vue/key-spacing'?: Linter.RuleEntry<VueKeySpacing>
@@ -8873,7 +8883,7 @@ export interface RuleOptions {
    */
   'vue/prop-name-casing'?: Linter.RuleEntry<VuePropNameCasing>
   /**
-   * Require quotes around object literal property names in `<template>`
+   * Require quotes around object literal, type literal, interfaces and enums property names in `<template>`
    * @see https://eslint.vuejs.org/rules/quote-props.html
    */
   'vue/quote-props'?: Linter.RuleEntry<VueQuoteProps>
@@ -9398,6 +9408,7 @@ type AngularTemplateConditionalComplexity = []|[{
 // ----- angular-template/cyclomatic-complexity -----
 type AngularTemplateCyclomaticComplexity = []|[{
   maxComplexity?: number
+  variant?: ("classic" | "modified")
 }]
 // ----- angular-template/elements-content -----
 type AngularTemplateElementsContent = []|[{
@@ -21110,6 +21121,7 @@ type VueArrayElementNewline = []|[(_VueArrayElementNewlineBasicConfig | {
   ArrayPattern?: _VueArrayElementNewlineBasicConfig
 })]
 type _VueArrayElementNewlineBasicConfig = (("always" | "never" | "consistent") | {
+  consistent?: boolean
   multiline?: boolean
   minItems?: (number | null)
 })
@@ -21180,9 +21192,14 @@ type VueCommaDangle = []|[(_VueCommaDangleValue | {
   imports?: _VueCommaDangleValueWithIgnore
   exports?: _VueCommaDangleValueWithIgnore
   functions?: _VueCommaDangleValueWithIgnore
+  importAttributes?: _VueCommaDangleValueWithIgnore
+  dynamicImports?: _VueCommaDangleValueWithIgnore
+  enums?: _VueCommaDangleValueWithIgnore
+  generics?: _VueCommaDangleValueWithIgnore
+  tuples?: _VueCommaDangleValueWithIgnore
 })]
 type _VueCommaDangleValue = ("always-multiline" | "always" | "never" | "only-multiline")
-type _VueCommaDangleValueWithIgnore = ("always-multiline" | "always" | "ignore" | "never" | "only-multiline")
+type _VueCommaDangleValueWithIgnore = ("always-multiline" | "always" | "never" | "only-multiline" | "ignore")
 // ----- vue/comma-spacing -----
 type VueCommaSpacing = []|[{
   before?: boolean
@@ -21251,6 +21268,10 @@ type VueFirstAttributeLinebreak = []|[{
 // ----- vue/func-call-spacing -----
 type VueFuncCallSpacing = ([]|["never"] | []|["always"]|["always", {
   allowNewlines?: boolean
+  optionalChain?: {
+    before?: boolean
+    after?: boolean
+  }
 }])
 // ----- vue/html-button-has-type -----
 type VueHtmlButtonHasType = []|[{
@@ -21332,6 +21353,7 @@ type VueKeySpacing = []|[({
   mode?: ("strict" | "minimum")
   beforeColon?: boolean
   afterColon?: boolean
+  ignoredNodes?: ("ObjectExpression" | "ObjectPattern" | "ImportDeclaration" | "ExportNamedDeclaration" | "ExportAllDeclaration" | "TSTypeLiteral" | "TSInterfaceBody" | "ClassBody")[]
 } | {
   singleLine?: {
     mode?: ("strict" | "minimum")
@@ -21373,18 +21395,6 @@ type VueKeywordSpacing = []|[{
   after?: boolean
   overrides?: {
     abstract?: {
-      before?: boolean
-      after?: boolean
-    }
-    as?: {
-      before?: boolean
-      after?: boolean
-    }
-    async?: {
-      before?: boolean
-      after?: boolean
-    }
-    await?: {
       before?: boolean
       after?: boolean
     }
@@ -21480,15 +21490,7 @@ type VueKeywordSpacing = []|[{
       before?: boolean
       after?: boolean
     }
-    from?: {
-      before?: boolean
-      after?: boolean
-    }
     function?: {
-      before?: boolean
-      after?: boolean
-    }
-    get?: {
       before?: boolean
       after?: boolean
     }
@@ -21524,10 +21526,6 @@ type VueKeywordSpacing = []|[{
       before?: boolean
       after?: boolean
     }
-    let?: {
-      before?: boolean
-      after?: boolean
-    }
     long?: {
       before?: boolean
       after?: boolean
@@ -21541,10 +21539,6 @@ type VueKeywordSpacing = []|[{
       after?: boolean
     }
     null?: {
-      before?: boolean
-      after?: boolean
-    }
-    of?: {
       before?: boolean
       after?: boolean
     }
@@ -21565,10 +21559,6 @@ type VueKeywordSpacing = []|[{
       after?: boolean
     }
     return?: {
-      before?: boolean
-      after?: boolean
-    }
-    set?: {
       before?: boolean
       after?: boolean
     }
@@ -21640,7 +21630,63 @@ type VueKeywordSpacing = []|[{
       before?: boolean
       after?: boolean
     }
+    arguments?: {
+      before?: boolean
+      after?: boolean
+    }
+    as?: {
+      before?: boolean
+      after?: boolean
+    }
+    async?: {
+      before?: boolean
+      after?: boolean
+    }
+    await?: {
+      before?: boolean
+      after?: boolean
+    }
+    eval?: {
+      before?: boolean
+      after?: boolean
+    }
+    from?: {
+      before?: boolean
+      after?: boolean
+    }
+    get?: {
+      before?: boolean
+      after?: boolean
+    }
+    let?: {
+      before?: boolean
+      after?: boolean
+    }
+    of?: {
+      before?: boolean
+      after?: boolean
+    }
+    set?: {
+      before?: boolean
+      after?: boolean
+    }
+    type?: {
+      before?: boolean
+      after?: boolean
+    }
+    using?: {
+      before?: boolean
+      after?: boolean
+    }
     yield?: {
+      before?: boolean
+      after?: boolean
+    }
+    accessor?: {
+      before?: boolean
+      after?: boolean
+    }
+    satisfies?: {
       before?: boolean
       after?: boolean
     }
@@ -21772,7 +21818,9 @@ type VueMultilineHtmlElementContentNewline = []|[{
   allowEmptyLines?: boolean
 }]
 // ----- vue/multiline-ternary -----
-type VueMultilineTernary = []|[("always" | "always-multiline" | "never")]
+type VueMultilineTernary = []|[("always" | "always-multiline" | "never")]|[("always" | "always-multiline" | "never"), {
+  ignoreJSX?: boolean
+}]
 // ----- vue/mustache-interpolation-spacing -----
 type VueMustacheInterpolationSpacing = []|[("always" | "never")]
 // ----- vue/new-line-between-multi-line-property -----
@@ -21852,6 +21900,13 @@ type VueNoExtraParens = ([]|["functions"] | []|["all"]|["all", {
   enforceForNewInMemberExpressions?: boolean
   enforceForFunctionPrototypeMethods?: boolean
   allowParensAfterCommentPattern?: string
+  nestedConditionalExpressions?: boolean
+  allowNodesInSpreadElement?: {
+    ConditionalExpression?: boolean
+    LogicalExpression?: boolean
+    AwaitExpression?: boolean
+  }
+  ignoredNodes?: string[]
 }])
 // ----- vue/no-implicit-coercion -----
 type VueNoImplicitCoercion = []|[{
@@ -22119,16 +22174,43 @@ type VueObjectCurlyNewline = []|[((("always" | "never") | {
     minProperties?: number
     consistent?: boolean
   })
+  TSTypeLiteral?: (("always" | "never") | {
+    multiline?: boolean
+    minProperties?: number
+    consistent?: boolean
+  })
+  TSInterfaceBody?: (("always" | "never") | {
+    multiline?: boolean
+    minProperties?: number
+    consistent?: boolean
+  })
+  TSEnumBody?: (("always" | "never") | {
+    multiline?: boolean
+    minProperties?: number
+    consistent?: boolean
+  })
 })]
 // ----- vue/object-curly-spacing -----
 type VueObjectCurlySpacing = []|[("always" | "never")]|[("always" | "never"), {
   arraysInObjects?: boolean
   objectsInObjects?: boolean
+  overrides?: {
+    ObjectPattern?: ("always" | "never")
+    ObjectExpression?: ("always" | "never")
+    ImportDeclaration?: ("always" | "never")
+    ImportAttributes?: ("always" | "never")
+    ExportNamedDeclaration?: ("always" | "never")
+    ExportAllDeclaration?: ("always" | "never")
+    TSMappedType?: ("always" | "never")
+    TSTypeLiteral?: ("always" | "never")
+    TSInterfaceBody?: ("always" | "never")
+    TSEnumBody?: ("always" | "never")
+  }
+  emptyObjects?: ("ignore" | "always" | "never")
 }]
 // ----- vue/object-property-newline -----
 type VueObjectPropertyNewline = []|[{
   allowAllPropertiesOnSameLine?: boolean
-  allowMultiplePropertiesPerLine?: boolean
 }]
 // ----- vue/object-shorthand -----
 type VueObjectShorthand = ([]|[("always" | "methods" | "properties" | "never" | "consistent" | "consistent-as-needed")] | []|[("always" | "methods" | "properties")]|[("always" | "methods" | "properties"), {
@@ -22140,7 +22222,7 @@ type VueObjectShorthand = ([]|[("always" | "methods" | "properties" | "never" | 
   avoidExplicitReturnArrows?: boolean
 }])
 // ----- vue/operator-linebreak -----
-type VueOperatorLinebreak = []|[("after" | "before" | "none" | null)]|[("after" | "before" | "none" | null), {
+type VueOperatorLinebreak = []|[(("after" | "before" | "none") | null)]|[(("after" | "before" | "none") | null), {
   overrides?: {
     [k: string]: ("after" | "before" | "none" | "ignore") | undefined
   }
@@ -22248,6 +22330,7 @@ type VueSpaceInParens = []|[("always" | "never")]|[("always" | "never"), {
 // ----- vue/space-infix-ops -----
 type VueSpaceInfixOps = []|[{
   int32Hint?: boolean
+  ignoreTypes?: boolean
 }]
 // ----- vue/space-unary-ops -----
 type VueSpaceUnaryOps = []|[{
@@ -22525,4 +22608,4 @@ type Yoda = []|[("always" | "never")]|[("always" | "never"), {
   onlyEquality?: boolean
 }]
 // Names of all the configs
-export type ConfigNames = 'config/gitignore' | 'config/ignores' | 'config/javascript/setup' | 'config/javascript/rules' | 'config/eslint-comments/rules' | 'config/node/setup' | 'config/node/rules' | 'config/jsdoc/setup' | 'config/jsdoc/rules' | 'config/imports/rules' | 'config/command/rules' | 'config/perfectionist/setup' | 'config/node/setup' | 'config/node/rules' | 'config/jsdoc/setup' | 'config/jsdoc/rules' | 'config/imports/rules' | 'config/unicorn' | 'config/jsx/setup' | 'config/typescript/setup' | 'config/typescript/parser' | 'config/typescript/type-aware-parser' | 'config/typescript/rules' | 'config/typescript/rules-type-aware' | 'config/typescript/erasable-syntax-only' | 'config/stylistic/rules' | 'config/regexp/rules' | 'config/test/setup' | 'config/test/rules' | 'config/vue/setup' | 'config/vue/rules' | 'config/react/setup' | 'config/react/rules' | 'antfu/react/typescript' | 'config/react/type-aware-rules' | 'config/nextjs/setup' | 'config/nextjs/rules' | 'config/solid/setup' | 'config/solid/rules' | 'config/svelte/setup' | 'config/svelte/rules' | 'config/unocss/rules' | 'config/astro/setup' | 'config/astro/rules' | 'antfu/angular/setup' | 'antfu/angular/rules/ts' | 'antfu/angular/rules/template' | 'config/jsonc/setup' | 'config/jsonc/rules' | 'config/sort/package-json' | 'config/sort/tsconfig-json' | 'config/pnpm/package-json' | 'config/pnpm/pnpm-workspace-yaml' | 'config/pnpm/pnpm-workspace-yaml-sort' | 'config/yaml/setup' | 'config/yaml/rules' | 'config/toml/setup' | 'config/toml/rules' | 'config/markdown/setup' | 'config/markdown/processor' | 'config/markdown/parser' | 'config/markdown/rules' | 'config/markdown/disables/markdown' | 'config/markdown/disables/code' | 'config/formatters/setup' | 'config/formatter/css' | 'config/formatter/scss' | 'config/formatter/less' | 'config/formatter/html' | 'config/formatter/xml' | 'config/formatter/svg' | 'config/formatter/markdown' | 'config/formatter/astro' | 'config/formatter/astro/disables' | 'config/formatter/graphql' | 'config/disables/scripts' | 'config/disables/cli' | 'config/disables/bin' | 'config/disables/dts' | 'config/disables/cjs' | 'config/disables/config-files'
+export type ConfigNames = 'config/gitignore' | 'config/ignores' | 'config/javascript/setup' | 'config/javascript/rules' | 'config/eslint-comments/rules' | 'config/node/setup' | 'config/node/rules' | 'config/jsdoc/setup' | 'config/jsdoc/rules' | 'config/imports/rules' | 'config/command/rules' | 'config/perfectionist/setup' | 'config/node/setup' | 'config/node/rules' | 'config/jsdoc/setup' | 'config/jsdoc/rules' | 'config/imports/rules' | 'config/unicorn' | 'config/jsx/setup' | 'config/typescript/setup' | 'config/typescript/parser' | 'config/typescript/type-aware-parser' | 'config/typescript/rules' | 'config/typescript/rules-type-aware' | 'config/typescript/erasable-syntax-only' | 'config/stylistic/rules' | 'config/regexp/rules' | 'config/test/setup' | 'config/test/rules' | 'config/vue/setup' | 'config/vue/rules' | 'config/react/setup' | 'config/react/rules' | 'config/react/typescript' | 'config/react/type-aware-rules' | 'config/nextjs/setup' | 'config/nextjs/rules' | 'config/solid/setup' | 'config/solid/rules' | 'config/svelte/setup' | 'config/svelte/rules' | 'config/unocss/rules' | 'config/astro/setup' | 'config/astro/rules' | 'antfu/angular/setup' | 'antfu/angular/rules/ts' | 'antfu/angular/rules/template' | 'config/jsonc/setup' | 'config/jsonc/rules' | 'config/sort/package-json' | 'config/sort/tsconfig-json' | 'config/pnpm/package-json' | 'config/pnpm/pnpm-workspace-yaml' | 'config/pnpm/pnpm-workspace-yaml-sort' | 'config/yaml/setup' | 'config/yaml/rules' | 'config/toml/setup' | 'config/toml/rules' | 'config/markdown/setup' | 'config/markdown/processor' | 'config/markdown/parser' | 'config/markdown/rules' | 'config/markdown/disables/code' | 'config/formatters/setup' | 'config/formatter/css' | 'config/formatter/scss' | 'config/formatter/less' | 'config/formatter/html' | 'config/formatter/xml' | 'config/formatter/svg' | 'config/formatter/markdown' | 'config/formatter/astro' | 'config/formatter/astro/disables' | 'config/formatter/graphql' | 'config/disables/scripts' | 'config/disables/cli' | 'config/disables/bin' | 'config/disables/dts' | 'config/disables/cjs' | 'config/disables/config-files'

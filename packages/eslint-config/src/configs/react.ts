@@ -90,8 +90,6 @@ export async function react(
       rules: {
         ...pluginReact.configs.recommended.rules,
 
-        // 'react/prefer-namespace-import': 'error',
-
         // preconfigured rules from eslint-plugin-react-refresh https://github.com/ArnaudBarre/eslint-plugin-react-refresh/tree/main/src
         'react-refresh/only-export-components': [
           'error',
@@ -143,12 +141,11 @@ export async function react(
 
     {
       files: filesTypeAware,
-      name: 'antfu/react/typescript',
+      name: 'config/react/typescript',
       rules: {
         // Disables rules that are already handled by TypeScript
-        'react-dom/no-string-style-prop': 'off',
-        'react-dom/no-unknown-property': 'off',
-        'react/jsx-no-duplicate-props': 'off',
+        'react/dom-no-string-style-prop': 'off',
+        'react/dom-no-unknown-property': 'off',
       },
     },
 
