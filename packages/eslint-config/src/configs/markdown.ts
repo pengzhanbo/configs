@@ -1,6 +1,7 @@
 import type { OptionsComponentExts, OptionsFiles, OptionsMarkdown, TypedFlatConfigItem } from '../types'
 import { mergeProcessors, processorPassThrough } from 'eslint-merge-processors'
-import { GLOB_MARKDOWN, GLOB_MARKDOWN_CODE } from '../globs'
+import { GLOB_MARKDOWN, GLOB_MARKDOWN_CODE, GLOB_MARKDOWN_IN_MARKDOWN } from '../globs'
+
 import { interopDefault } from '../utils'
 
 export async function markdown(
@@ -25,6 +26,7 @@ export async function markdown(
     },
     {
       files,
+      ignores: [GLOB_MARKDOWN_IN_MARKDOWN],
       name: 'config/markdown/processor',
       // `eslint-plugin-markdown` only creates virtual files for code blocks,
       // but not the markdown file itself. We use `eslint-merge-processors` to
@@ -44,6 +46,7 @@ export async function markdown(
       name: 'config/markdown/rules',
       rules: {
         ...markdown.configs.recommended.at(0)?.rules,
+        'markdown/fenced-code-language': 'off',
         // https://github.com/eslint/markdown/issues/294
         'markdown/no-missing-label-refs': 'off',
         ...overridesMarkdown,
@@ -63,7 +66,9 @@ export async function markdown(
       },
       name: 'config/markdown/disables/code',
       rules: {
-        'antfu/no-top-level-await': 'off',
+        'config/no-top-level-await': 'off',
+
+        'e18e/prefer-static-regex': 'off',
 
         'no-alert': 'off',
         'no-console': 'off',
@@ -75,6 +80,7 @@ export async function markdown(
         'no-unused-labels': 'off',
 
         'no-unused-vars': 'off',
+
         'node/prefer-global/process': 'off',
 
         'style/comma-dangle': 'off',
@@ -82,10 +88,10 @@ export async function markdown(
         'style/padding-line-between-statements': 'off',
 
         'ts/consistent-type-imports': 'off',
+        'ts/explicit-function-return-type': 'off',
         'ts/no-namespace': 'off',
         'ts/no-redeclare': 'off',
         'ts/no-require-imports': 'off',
-        'ts/explicit-function-return-type': 'off',
         'ts/no-unused-expressions': 'off',
         'ts/no-unused-vars': 'off',
         'ts/no-use-before-define': 'off',

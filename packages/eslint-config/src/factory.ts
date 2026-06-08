@@ -39,6 +39,7 @@ import {
   yaml,
 } from './configs'
 import { formatters } from './configs/formatters'
+import { GLOB_MARKDOWN } from './globs'
 import { interopDefault, isInEditorEnv } from './utils'
 
 const flatConfigProps = [
@@ -434,6 +435,10 @@ export function eslintFlatConfig(
       ...configs,
       ...userConfigs as any,
     )
+
+  if (options.markdown ?? true) {
+    composer = composer.setDefaultIgnores(prev => [...prev, GLOB_MARKDOWN])
+  }
 
   if (autoRenamePlugins) {
     composer = composer

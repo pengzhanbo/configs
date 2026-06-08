@@ -117,7 +117,7 @@ pnpm add -D stylelint @pengzhanbo/stylelint-config
 ```js
 export default eslintConfig({
   // 禁用 stylistic 格式规则
-  stylistic: false,
+  // stylistic: false,
 
   // 自定义 stylistic 规则
   stylistic: {
@@ -126,7 +126,7 @@ export default eslintConfig({
   },
 
   // 显式启用 TypeScript
-  typescript: true,
+  // typescript: true,
 
   // 启用类型感知规则（需要 tsconfig.json）
   typescript: {
@@ -259,9 +259,9 @@ export default eslintConfig({
 import stylelintConfig from '@pengzhanbo/stylelint-config'
 
 export default stylelintConfig({
-  order: true,      // 属性排序
-  stylistic: true,   // 格式风格
-  scss: true,        // SCSS 支持
+  order: true, // 属性排序
+  stylistic: true, // 格式风格
+  scss: true, // SCSS 支持
 })
 ```
 

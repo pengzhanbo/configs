@@ -17,5 +17,4 @@ export default eslintConfig({
   astro: true,
   solid: true,
   pnpm: true,
-  ignores: ['**/*.md'],
 })
