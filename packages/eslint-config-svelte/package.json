@@ -10,6 +10,9 @@
     "url": "git@github.com:pengzhanbo/configs.git",
     "directory": "packages/eslint-config-svelte"
   },
+  "bugs": {
+    "url": "https://github.com/pengzhanbo/configs/issues"
+  },
   "keywords": [
     "eslint-config",
     "svelte"

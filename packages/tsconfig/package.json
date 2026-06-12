@@ -9,6 +9,9 @@
     "url": "git@github.com:pengzhanbo/configs.git",
     "directory": "packages/tsconfig"
   },
+  "bugs": {
+    "url": "https://github.com/pengzhanbo/configs/issues"
+  },
   "keywords": [
     "tsconfig"
   ],
