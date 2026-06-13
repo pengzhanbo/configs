@@ -2,6 +2,9 @@
   "name": "@pengzhanbo/stylelint-config",
   "type": "module",
   "version": "2.6.1",
+  "bugs": {
+    "url": "https://github.com/pengzhanbo/configs/issues"
+  },
   "author": "pengzhanbo <q942450674@outlook.com> (https://github/pengzhanbo/)",
   "license": "MIT",
   "homepage": "https://github.com/pengzhanbo/configs#readme",
