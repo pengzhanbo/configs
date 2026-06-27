@@ -1,4 +1,6 @@
 import type { OptionsUnicorn, TypedFlatConfigItem } from '../types'
+
+import { GLOB_SRC } from '../globs'
 import { pluginUnicorn } from '../plugins'
 
 export async function unicorn(options: OptionsUnicorn = {}): Promise<TypedFlatConfigItem[]> {
@@ -8,13 +10,17 @@ export async function unicorn(options: OptionsUnicorn = {}): Promise<TypedFlatCo
   } = options
   return [
     {
-      name: 'config/unicorn',
+      name: 'config/unicorn/setup',
       plugins: {
         unicorn: pluginUnicorn,
       },
+    },
+    {
+      files: [GLOB_SRC],
+      name: 'config/unicorn/rules',
       rules: {
         ...(allRecommended
-          ? pluginUnicorn.configs.recommended.rules
+          ? pluginUnicorn.configs.recommended.rules as any
           : {
               'unicorn/consistent-empty-array-spread': 'error',
               'unicorn/error-message': 'error',
@@ -32,7 +38,6 @@ export async function unicorn(options: OptionsUnicorn = {}): Promise<TypedFlatCo
               'unicorn/prefer-type-error': 'error',
               'unicorn/throw-new-error': 'error',
             }),
-
         ...overrides,
       },
     },

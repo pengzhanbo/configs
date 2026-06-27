@@ -6,7 +6,7 @@ import eslintConfig from './dist/index.mjs'
 export default eslintConfig({
   typescript: true,
   unocss: true,
-  tailwindcss: true,
+  tailwindcss: false,
   html: true,
   formatters: true,
   vue: true,
