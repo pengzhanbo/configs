@@ -1,7 +1,7 @@
 import fs from 'node:fs/promises'
 import { join, resolve } from 'node:path'
-import { execa } from 'execa'
-import fg from 'fast-glob'
+import spawn from 'nano-spawn'
+import { glob } from 'tinyglobby'
 import { afterAll, beforeAll, it } from 'vitest'
 
 const FIXTURES = 'fixtures/stylelint'
@@ -19,11 +19,7 @@ it.concurrent('stylelint', async ({ expect }) => {
   const output = resolve(FIXTURES, 'output')
   const target = resolve(_FIXTURES)
 
-  await fs.cp(from, target, {
-    filter: (src) => {
-      return !src.includes('node_modules')
-    },
-  })
+  await fs.cp(from, target, { recursive: true, filter: src => !src.includes('node_modules') })
 
   await fs.writeFile(join(target, 'stylelint.config.js'), `
 // @eslint-disable
@@ -32,13 +28,13 @@ import config from '@pengzhanbo/stylelint-config'
 export default config
   `)
 
-  await execa(
+  await spawn(
     'npx',
     ['stylelint', '**/*.{css,scss,vue}', '--fix'],
     { cwd: target, stdio: 'pipe' },
   )
 
-  const files = await fg('**/*', {
+  const files = await glob('**/*', {
     ignore: [
       'node_modules',
       'stylelint.config.js',
