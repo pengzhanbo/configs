@@ -55,6 +55,7 @@ export async function sortPackageJson(): Promise<TypedFlatConfigItem[]> {
               'activationEvents',
               'contributes',
               'scripts',
+              'scripts-info',
               'peerDependencies',
               'peerDependenciesMeta',
               'dependencies',
