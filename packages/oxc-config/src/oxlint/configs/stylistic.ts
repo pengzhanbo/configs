@@ -4,7 +4,7 @@ export function stylistic(): OxlintConfig {
   return {
     jsPlugins: ['@stylistic/eslint-plugin'],
     rules: {
-      '@stylistic/arrow-parens': ['error', 'as-needed', { requireForBlockBody: true }],
+      '@stylistic/arrow-parens': ['error', 'always'],
       '@stylistic/arrow-spacing': ['error', { after: true, before: true }],
       '@stylistic/block-spacing': ['error', 'always'],
       '@stylistic/brace-style': ['error', '1tbs', { allowSingleLine: true }],
@@ -36,7 +36,7 @@ export function stylistic(): OxlintConfig {
           VariableDeclarator: 1,
         },
       ],
-      '@stylistic/indent-binary-ops': ['error', 2],
+      '@stylistic/indent-binary-ops': 'off',
       '@stylistic/key-spacing': ['error', { afterColon: true, beforeColon: false }],
       '@stylistic/keyword-spacing': ['error', { after: true, before: true }],
       '@stylistic/lines-between-class-members': [

@@ -28,9 +28,9 @@ export function oxlintConfig(
   {
     ignores: ignorePatterns,
     typescript: enableTypescript = true,
-    stylistic: enableStylistic = false,
-    regexp: enableRegexp = false,
-    jsxA11y: enableJsxA11y = false,
+    stylistic: enableStylistic = true,
+    regexp: enableRegexp = true,
+    jsxA11y: enableJsxA11y = true,
     vue: enableVue = false,
     react: enableReact = false,
     ...userConfig
