@@ -1,0 +1,45 @@
+{
+  "name": "@pengzhanbo/oxc-config",
+  "type": "module",
+  "version": "2.7.2",
+  "author": "pengzhanbo <q942450674@outlook.com> (https://github/pengzhanbo/)",
+  "license": "MIT",
+  "homepage": "https://github.com/pengzhanbo/configs#readme",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:pengzhanbo/configs.git",
+    "directory": "packages/oxc-config"
+  },
+  "keywords": [
+    "oxc-config",
+    "oxfmt",
+    "oxlint"
+  ],
+  "exports": {
+    "./oxfmt": "./dist/oxfmt.js",
+    "./oxlint": "./dist/oxlint.js",
+    "./package.json": "./package.json"
+  },
+  "module": "./dist/oxlint.mjs",
+  "types": "./dist/oxlint.d.mts",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "scripts": {
+    "build": "tsdown",
+    "stub": "tsdown"
+  },
+  "peerDependencies": {
+    "oxfmt": "catalog:peer",
+    "oxlint": "catalog:peer",
+    "oxlint-tsgolint": "catalog:peer"
+  },
+  "dependencies": {
+    "@stylistic/eslint-plugin": "catalog:prod",
+    "eslint-plugin-regexp": "catalog:prod"
+  }
+}

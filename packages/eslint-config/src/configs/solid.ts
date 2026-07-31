@@ -71,8 +71,6 @@ export async function solid(
         'solid/no-react-deps': 'error',
         'solid/no-react-specific-props': 'error',
         'solid/no-unknown-namespaces': 'error',
-        // deprecated
-        'solid/prefer-classlist': 'off',
         'solid/prefer-for': 'error',
         // handled by Solid compiler, opt-in style suggestion
         'solid/prefer-show': 'off',

@@ -32,8 +32,8 @@ catalogs:
     '@angular/core': ^22.0.8
     '@eslint/config-inspector': ^3.1.0
     '@types/eslint-plugin-jsx-a11y': ^6.10.1
-    '@types/node': ^26.1.1
-    baseline-browser-mapping: ^2.11.3
+    '@types/node': ^26.1.2
+    baseline-browser-mapping: ^2.11.5
     bumpp: ^12.0.0
     chokidar: ^5.0.0
     eslint-typegen: ^2.3.1
@@ -71,6 +71,9 @@ catalogs:
     eslint-plugin-vue: ^10.10.0
     eslint-plugin-vuejs-accessibility: ^2.5.0
     eslint-processor-vue-blocks: ^2.0.0
+    oxfmt: ^0.61.0
+    oxlint: ^1.76.0
+    oxlint-tsgolint: ^0.25.0
     prettier: ^3.9.6
     prettier-plugin-astro: ^0.14.1
     prettier-plugin-slidev: ^1.0.5
@@ -98,7 +101,7 @@ catalogs:
     eslint-plugin-command: ^3.5.3
     eslint-plugin-erasable-syntax-only: ^0.4.2
     eslint-plugin-import-lite: ^0.6.0
-    eslint-plugin-jsdoc: ^63.3.0
+    eslint-plugin-jsdoc: ^63.3.2
     eslint-plugin-jsonc: ^3.3.0
     eslint-plugin-jsx-a11y: ^6.10.2
     eslint-plugin-n: ^18.2.2
@@ -110,10 +113,10 @@ catalogs:
     eslint-plugin-unicorn: ^72.0.0
     eslint-plugin-unused-imports: ^4.4.1
     eslint-plugin-yml: ^3.6.0
-    globals: ^17.7.0
+    globals: ^17.8.0
     local-pkg: ^1.2.1
     parse-gitignore: ^2.0.0
-    postcss: ^8.5.23
+    postcss: ^8.5.24
     postcss-html: ^1.8.1
     stylelint-config-html: ^1.1.0
     stylelint-config-standard: ^40.0.0
