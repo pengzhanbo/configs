@@ -2,7 +2,7 @@ import type { OxfmtConfig } from 'oxfmt'
 
 export const oxfmtConfig: OxfmtConfig = {
   // 是否将箭头函数的唯一参数用括号括起来
-  arrowParens: 'avoid',
+  arrowParens: 'always',
   // 将多行HTML（HTML、JSX、Vue、Angular）元素的 `>` 放在最后一行的末尾，而不是单独放在下一行（不适用于自闭合元素）
   bracketSameLine: false,
   // 在对象字面量的括号之间添加空格
@@ -14,7 +14,7 @@ export const oxfmtConfig: OxfmtConfig = {
   // 忽略匹配文件, glob 模式
   ignorePatterns: ['dist/', 'coverage/'],
   // 启用 JSDoc 注释格式化。
-  jsdoc: true,
+  jsdoc: false,
   // 在JSX中使用单引号代替双引号
   jsxSingleQuote: false,
   // 如何折行对象字面量，当它们可以放在一行或跨越多行时
@@ -42,17 +42,18 @@ export const oxfmtConfig: OxfmtConfig = {
       'unknown',
       'style',
     ],
-    // 对 `package.json` 的键进行排序
-    sortPackageJson: { sortScripts: false },
-    // 指定每个缩进级别的空格数
-    tabWidth: 2,
-    // 用制表符缩进行，而不是空格。
-    useTabs: false,
-    // 在多行逗号分隔的语法结构中，尽可能打印尾部逗号
-    trailingComma: 'all',
-    // 是否缩进 Vue 文件中 `<script>` 和 `<style>` 标签内的代码。
-    vueIndentScriptAndStyle: false,
+    newlinesBetween: false,
   },
+  // 对 `package.json` 的键进行排序
+  sortPackageJson: { sortScripts: false },
+  // 指定每个缩进级别的空格数
+  tabWidth: 2,
+  // 用制表符缩进行，而不是空格。
+  useTabs: false,
+  // 在多行逗号分隔的语法结构中，尽可能打印尾部逗号
+  trailingComma: 'all',
+  // 是否缩进 Vue 文件中 `<script>` 和 `<style>` 标签内的代码。
+  vueIndentScriptAndStyle: false,
 }
 
 export default oxfmtConfig
