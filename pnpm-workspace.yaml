@@ -33,7 +33,7 @@ catalogs:
     '@eslint/config-inspector': ^3.1.0
     '@types/eslint-plugin-jsx-a11y': ^6.10.1
     '@types/node': ^26.1.2
-    baseline-browser-mapping: ^2.11.7
+    baseline-browser-mapping: ^2.11.8
     bumpp: ^12.1.1
     chokidar: ^5.0.0
     eslint-typegen: ^2.3.1
@@ -54,7 +54,7 @@ catalogs:
     '@angular-eslint/eslint-plugin-template': ^22.1.0
     '@angular-eslint/template-parser': ^22.1.0
     '@eslint-community/eslint-utils': ^4.10.1
-    '@eslint-react/eslint-plugin': ^5.18.0
+    '@eslint-react/eslint-plugin': ^5.18.1
     '@next/eslint-plugin-next': ^16.2.12
     '@prettier/plugin-xml': ^3.4.2
     '@typescript-eslint/types': ^8.65.0
