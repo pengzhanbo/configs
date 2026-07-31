@@ -16,6 +16,7 @@
 | `stylelint-config`      | CSS/SCSS 配置，支持 TailwindCSS |
 | `prettier-config`       | Prettier 配置（已废弃）         |
 | `tsconfig`              | 共享 TypeScript 配置            |
+| `oxc-config`            | `oxlint` 和 `oxfmt` 配置        |
 
 ## Quick Start
 
