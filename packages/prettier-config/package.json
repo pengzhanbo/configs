@@ -14,18 +14,16 @@
     "prettier-config"
   ],
   "exports": {
-    ".": "./dist/index.mjs",
+    ".": "./dist/index.js",
     "./package.json": "./package.json"
   },
-  "main": "./dist/index.mjs",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.mts",
+  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "tsdown src/index.ts --format esm --dts",
-    "stub": "tsdown src/index.ts --format esm"
+    "build": "tsdown src/index.ts --format esm --dts --exports --no-fixed-extension",
+    "stub": "tsdown src/index.ts --format esm --no-fixed-extension"
   },
   "peerDependencies": {
     "prettier": "catalog:peer"

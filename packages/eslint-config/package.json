@@ -14,18 +14,18 @@
     "eslint-config"
   ],
   "exports": {
-    ".": "./dist/index.mjs",
+    ".": "./dist/index.js",
     "./package.json": "./package.json"
   },
-  "types": "./dist/index.d.mts",
+  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "dev": "tsdown src/index.ts --shims --format esm --watch & npx @eslint/config-inspector",
-    "build": "pnpm typegen && tsdown src/index.ts --format esm --dts --exports --shims",
+    "dev": "tsdown --watch & npx @eslint/config-inspector",
+    "build": "pnpm typegen && tsdown",
     "build:inspector": "pnpm build && npx @eslint/config-inspector build",
-    "stub": "tsdown src/index.ts --format esm",
+    "stub": "tsdown --no-minify",
     "typegen": "tsx scripts/typegen.ts"
   },
   "peerDependencies": {

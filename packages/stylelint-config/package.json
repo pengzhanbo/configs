@@ -14,16 +14,16 @@
     "stylelint-config"
   ],
   "exports": {
-    ".": "./dist/index.mjs",
+    ".": "./dist/index.js",
     "./package.json": "./package.json"
   },
-  "types": "./dist/index.d.mts",
+  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "tsdown src/index.ts --format esm --dts --exports",
-    "stub": "tsdown src/index.ts --format esm",
+    "build": "tsdown src/index.ts --format esm --dts --exports --no-fixed-extension",
+    "stub": "tsdown src/index.ts --format esm --no-fixed-extension",
     "lint": "stylelint **/*.{css,scss} -c ./stylelint.config.js"
   },
   "peerDependencies": {
