@@ -9,9 +9,6 @@ catalogs:
     '@angular/core':
       specifier: ^22.1.0
       version: 22.1.0
-    '@eslint/config-inspector':
-      specifier: ^3.1.1
-      version: 3.1.1
     '@types/eslint-plugin-jsx-a11y':
       specifier: ^6.10.1
       version: 6.10.1
@@ -110,18 +107,6 @@ catalogs:
     eslint-processor-vue-blocks:
       specifier: ^2.0.0
       version: 2.0.0
-    oxfmt:
-      specifier: ^0.61.0
-      version: 0.61.0
-    oxlint:
-      specifier: ^1.76.0
-      version: 1.76.0
-    oxlint-tsgolint:
-      specifier: ^7.0.2001
-      version: 7.0.2001
-    prettier:
-      specifier: ^3.9.6
-      version: 3.9.6
     prettier-plugin-astro:
       specifier: ^0.14.1
       version: 0.14.1
@@ -445,7 +430,7 @@ importers:
         version: 5.18.1(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
       '@eslint/config-inspector':
         specifier: catalog:dev
-        version: 3.1.1(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(srvx@0.12.5)(typescript@6.0.3)
+        version: 3.2.0(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(srvx@0.12.5)
       '@next/eslint-plugin-next':
         specifier: catalog:peer
         version: 16.2.12
@@ -1250,8 +1235,8 @@ packages:
     resolution: {integrity: sha512-DObd/KKUsU+FaFv4PLxSRenpXfQWmPXXP3pPZ6/K1PCrMu2vQpMDMuQe/BqYeoLcz8ro0bVDF1RxOJgfVEdhUw==}
     engines: {node: ^20.19.0 || ^22.13.0 || >=24}
 
-  '@eslint/config-inspector@3.1.1':
-    resolution: {integrity: sha512-q315YC60RKDoJHpxDlmSn6kkXw2/Pmw2Je3DDFcK9scmvC6BPDHyR39+0vV3zfrRt6SjjGD4aBYzH4SLshHaJg==}
+  '@eslint/config-inspector@3.2.0':
+    resolution: {integrity: sha512-kylJhcii8eDOiRFPANNUHOyDebBIOt+nqYXt8q6W9FbhYzFJAXjLzJz6KFNzY0WvIyOBKdbSQdwdPNrkMh05tg==}
     engines: {node: ^20.19.0 || ^22.13.0 || >=24}
     hasBin: true
     peerDependencies:
@@ -2220,11 +2205,6 @@ packages:
   '@unocss/rule-utils@66.7.5':
     resolution: {integrity: sha512-/AKHBRF6ZOexE3EDDv8ZEYh40P5e2Eha41IYUbE1wjigW7++ssmvimSTdufJzZvU5DGP++E3B3WEsFPprZMjAg==}
 
-  '@valibot/to-json-schema@1.7.1':
-    resolution: {integrity: sha512-3qkmU6KXWh8GIThEAW3kuRHPQBMjWkKy+Ppz3WkUucx53DTpOa6siMn4xDGSOhlVyMrDaJTCTMLYPZVAIk1P0A==}
-    peerDependencies:
-      valibot: ^1.4.0
-
   '@vitest/eslint-plugin@1.6.26':
     resolution: {integrity: sha512-2eawZk4MZvkEtMZFdScmCE0R1Rti85uRZpmbe9eAv5Q3blDZ5OxlrC9IHlSnxhDCqOO2xKNaD3oufl9BUlI0yA==}
     engines: {node: '>=18'}
@@ -2761,13 +2741,17 @@ packages:
   devalue@5.8.2:
     resolution: {integrity: sha512-DObPPAfdtFbXjxLqK8s2Xk9ZuWz5+ZoFEhC7J76es4GU/rEiXwHTmbImoCdyoCOcBH1UF3+Cz6Z2sYD4hyl5TA==}
 
-  devframe@0.7.16:
-    resolution: {integrity: sha512-U4vqEPgjYfovFEyOAmUlNG5DVGnb6Sx0Tgy9QiQAbtGieC5zTraOBL7GUyXGqdc53SCx/DhFfwjJcebt85T/Bw==}
+  devframe@0.8.0:
+    resolution: {integrity: sha512-kUK/JIYlfb3A4nbIY+cJ/zljyfpCdBzwsR3uY2Y6Tbm6jnNY0w5yLpuDX524XQD7D1Vnmvs8kpC+ILOkCRk5OA==}
+    hasBin: true
     peerDependencies:
-      '@modelcontextprotocol/sdk': ^1.0.0
+      '@modelcontextprotocol/client': ^2.0.0
+      '@modelcontextprotocol/server': ^2.0.0
       cac: ^7.0.0
     peerDependenciesMeta:
-      '@modelcontextprotocol/sdk':
+      '@modelcontextprotocol/client':
+        optional: true
+      '@modelcontextprotocol/server':
         optional: true
       cac:
         optional: true
@@ -4861,14 +4845,6 @@ packages:
   util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
 
-  valibot@1.4.2:
-    resolution: {integrity: sha512-gjdCvJ6d3RyHAneqxMYMW9QMCwYMb3jpOO0IyHZV1bnRHFBHrX3VkIILt5XYR0WhwHiH7Mty8ovuPZ/O3gamrg==}
-    peerDependencies:
-      typescript: '>=5'
-    peerDependenciesMeta:
-      typescript:
-        optional: true
-
   verkit@0.3.0:
     resolution: {integrity: sha512-Njrh4U8UODGajoZ44QS2C/BsoEM9DTI/aCqY5swsizb+/ap0FamvnCMcZAxrR5+aoC0ZqkawEfpC/N2SBc+xeA==}
     engines: {node: '>=18.12.0'}
@@ -5471,19 +5447,19 @@ snapshots:
     dependencies:
       '@eslint/core': 1.2.1
 
-  '@eslint/config-inspector@3.1.1(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(srvx@0.12.5)(typescript@6.0.3)':
+  '@eslint/config-inspector@3.2.0(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(srvx@0.12.5)':
     dependencies:
       ansis: 4.3.1
       cac: 7.0.0
       chokidar: 5.0.0
-      devframe: 0.7.16(cac@7.0.0)(srvx@0.12.5)(typescript@6.0.3)
+      devframe: 0.8.0(cac@7.0.0)(srvx@0.12.5)
       eslint: 10.8.0(jiti@2.7.0)(supports-color@10.2.2)
       jiti: 2.7.0
       tinyglobby: 0.2.17
     transitivePeerDependencies:
-      - '@modelcontextprotocol/sdk'
+      - '@modelcontextprotocol/client'
+      - '@modelcontextprotocol/server'
       - srvx
-      - typescript
 
   '@eslint/core@1.2.1':
     dependencies:
@@ -6178,10 +6154,6 @@ snapshots:
       '@unocss/core': 66.7.5
       magic-string: 0.30.21
 
-  '@valibot/to-json-schema@1.7.1(valibot@1.4.2(typescript@6.0.3))':
-    dependencies:
-      valibot: 1.4.2(typescript@6.0.3)
-
   '@vitest/eslint-plugin@1.6.26(@typescript-eslint/eslint-plugin@8.65.0(@typescript-eslint/parser@8.65.0(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3))(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3))(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)(vitest@4.1.10(@types/node@26.1.2)(vite@8.1.5(@types/node@26.1.2)(esbuild@0.28.1)(jiti@2.7.0)(sass@1.102.0)(tsx@4.23.5)(yaml@2.9.0)))':
     dependencies:
       '@typescript-eslint/scope-manager': 8.65.0
@@ -6669,9 +6641,9 @@ snapshots:
 
   devalue@5.8.2: {}
 
-  devframe@0.7.16(cac@7.0.0)(srvx@0.12.5)(typescript@6.0.3):
+  devframe@0.8.0(cac@7.0.0)(srvx@0.12.5):
     dependencies:
-      '@valibot/to-json-schema': 1.7.1(valibot@1.4.2(typescript@6.0.3))
+      '@standard-schema/spec': 1.1.0
       birpc: 4.0.0
       crossws: 0.4.10(srvx@0.12.5)
       destr: 2.0.5
@@ -6680,12 +6652,10 @@ snapshots:
       nostics: 1.2.0
       pathe: 2.0.3
       ufo: 1.6.4
-      valibot: 1.4.2(typescript@6.0.3)
     optionalDependencies:
       cac: 7.0.0
     transitivePeerDependencies:
       - srvx
-      - typescript
 
   devlop@1.1.0:
     dependencies:
@@ -9302,10 +9272,6 @@ snapshots:
       punycode: 2.3.1
 
   util-deprecate@1.0.2: {}
-
-  valibot@1.4.2(typescript@6.0.3):
-    optionalDependencies:
-      typescript: 6.0.3
 
   verkit@0.3.0: {}
 
