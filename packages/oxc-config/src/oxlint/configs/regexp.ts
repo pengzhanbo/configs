@@ -1,6 +1,10 @@
-import type { OxlintConfig } from 'oxlint'
+import type { DummyRuleMap, OxlintConfig } from 'oxlint'
 
-export function regexp(): OxlintConfig {
+interface RegExpOptions {
+  rules?: DummyRuleMap
+}
+
+export function regexp({ rules }: RegExpOptions = {}): OxlintConfig {
   return {
     jsPlugins: ['eslint-plugin-regexp'],
     rules: {
@@ -64,6 +68,7 @@ export function regexp(): OxlintConfig {
       'regexp/sort-flags': 'error',
       'regexp/strict': 'error',
       'regexp/use-ignore-case': 'error',
+      ...rules,
     },
   }
 }

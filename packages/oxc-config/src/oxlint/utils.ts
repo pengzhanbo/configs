@@ -1,45 +1,60 @@
-import type { OxlintConfig } from 'oxlint'
+import type { DummyRuleMap, OxlintConfig, OxlintOverride } from 'oxlint'
 
-const arrayKeys: (keyof OxlintConfig)[] = [
-  'overrides',
-  'extends',
-  'ignorePatterns',
-  'plugins',
-  'jsPlugins',
+export { defineConfig } from 'oxlint'
+
+export function defineOverride(override: OxlintOverride): OxlintConfig {
+  return {
+    overrides: [override],
+  }
+}
+
+export function defineRules(rules: DummyRuleMap): DummyRuleMap {
+  return rules
+}
+
+export type SplitRules = Record<string, DummyRuleMap>
+
+const ruleNames: string[] = [
+  // builtin
+  'import',
+  // 'jest', // 忽略 jest 规则
+  'jsdoc',
+  'jsx-a11y',
+  // 'nextjs', // 忽略 nextjs 规则
+  'node',
+  'oxc',
+  'promise',
+  'react',
+  'react-perf',
+  'typescript',
+  'unicorn',
+  'vitest',
+  'vue',
+
+  // compat eslint
+  '@stylistic',
+  'regexp',
 ]
-const objectKeys: (keyof OxlintConfig)[] = [
-  'categories',
-  'env',
-  'globals',
-  'options',
-  'rules',
-  'settings',
-]
 
-export function createConfig() {
-  const configList: Record<string, any>[] = []
-  const config: Record<string, any> = {}
+export function splitRules(rules: DummyRuleMap): SplitRules {
+  const result: SplitRules = { core: {}, custom: {} }
 
-  function mergeConfig(newConfig: Record<string, any>) {
-    for (const key of Object.keys(newConfig)) {
-      if (arrayKeys.includes(key as keyof OxlintConfig)) {
-        config[key] ??= []
-        config[key].push(...(newConfig[key] || []))
-      }
-      else if (objectKeys.includes(key as keyof OxlintConfig)) {
-        config[key] = { ...config[key], ...newConfig[key] }
+  for (const [name, rule] of Object.entries(rules)) {
+    const index = name.indexOf('/')
+    if (index === -1) {
+      result.core[name] = rule
+    }
+    else {
+      const key = name.slice(0, index)
+      if (ruleNames.includes(key)) {
+        result[key] ??= {}
+        result[key][name] = rule
       }
       else {
-        config[key] = newConfig[key]
+        result.custom[name] = rule
       }
     }
   }
 
-  return {
-    addConfig: (newConfig: OxlintConfig): void => void configList.push(newConfig),
-    getConfig: (): Record<string, any> => {
-      configList.forEach(config => mergeConfig(config))
-      return config
-    },
-  }
+  return result
 }

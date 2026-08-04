@@ -46,6 +46,8 @@ export const defaultIgnorePatterns: string[] = [
   '**/temp',
   '**/tmp',
   '**/.tmp',
+  '**/.vuepress/.cache',
+  '**/.vuepress/.temp',
   '**/.vitepress/cache',
   '**/.svelte-kit',
   '**/.vercel',
@@ -64,7 +66,7 @@ export const defaultIgnorePatterns: string[] = [
   '**/.*/skills',
 ]
 
-export function ignores(ignorePatterns?: string[]): OxlintConfig {
+export function ignore(ignorePatterns?: string[]): OxlintConfig {
   return {
     ignorePatterns: [...defaultIgnorePatterns, ...(ignorePatterns || [])],
   }

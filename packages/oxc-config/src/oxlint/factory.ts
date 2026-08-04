@@ -1,84 +1,93 @@
 import type { OxlintConfig, OxlintOverride } from 'oxlint'
+import type { Options } from './types'
+import {
+  core,
+  ignore,
+  importRules,
+  jsdoc,
+  jsx,
+  node,
+  oxc,
+  promise,
+  react,
+  regexp,
+  stylistic,
+  test,
+  typescript,
+  unicorn,
+  vue,
+} from './configs'
+import { splitRules } from './utils'
 
-import { basic } from './configs/basic'
-import { ignores } from './configs/ignores'
-import { jsdoc } from './configs/jsdoc'
-import { jsx } from './configs/jsx'
-import { node } from './configs/node'
-import { react } from './configs/react'
-import { regexp } from './configs/regexp'
-import { stylistic } from './configs/stylistic'
-import { test } from './configs/test'
-import { typescript } from './configs/typescript'
-import { unicorn } from './configs/unicorn'
-import { vue } from './configs/vue'
-import { createConfig } from './utils'
-
-export interface Options extends Omit<OxlintConfig, 'ignorePatterns'> {
-  ignores?: string[]
-  typescript?: boolean
-  stylistic?: boolean
-  regexp?: boolean
-  jsxA11y?: boolean
-  vue?: boolean
-  react?: boolean
-}
-
-export function oxlintConfig(
-  {
-    ignores: ignorePatterns,
-    typescript: enableTypescript = true,
-    stylistic: enableStylistic = true,
+export function oxlintConfig(options: Options = {}, ...overrides: OxlintOverride[]): OxlintConfig {
+  const {
+    ignores,
+    ts = true,
+    stylistic: enableStylistic = false,
     regexp: enableRegexp = true,
     jsxA11y: enableJsxA11y = true,
     vue: enableVue = false,
     react: enableReact = false,
+    node: enableNode = true,
+    rules = {},
+    extends: userExtends = [],
+    overrides: userOverrides = [],
     ...userConfig
-  }: Options = {},
-  ...overrides: OxlintOverride[]
-): OxlintConfig {
-  const config = createConfig()
+  } = options
 
-  config.addConfig({
-    options: { typeAware: enableTypescript },
-    categories: { correctness: 'off' },
+  const configs: OxlintConfig[] = []
+  const userRules = splitRules(rules)
+
+  configs.push({
+    options: { typeAware: ts, typeCheck: ts },
+    categories: { correctness: 'error', pedantic: 'warn', perf: 'warn', restriction: 'warn', suspicious: 'warn' },
     env: { builtin: true, es2026: true, browser: true, node: true },
   })
-  config.addConfig(ignores(ignorePatterns))
-  config.addConfig(basic())
-  config.addConfig(jsdoc())
-  config.addConfig(unicorn())
 
-  config.addConfig(node())
+  configs.push(ignore(ignores))
+  configs.push(core({ rules: userRules.core }))
+  configs.push(importRules({ rules: userRules.import }))
+  configs.push(jsdoc({ ts, rules: userRules.jsdoc }))
+  configs.push(unicorn({ rules: userRules.unicorn }))
+  configs.push(oxc({ rules: userRules.oxc }))
+  configs.push(promise({ rules: userRules.promise }))
 
-  if (enableStylistic) {
-    config.addConfig(stylistic())
+  if (enableJsxA11y)
+    configs.push(jsx({ rules: userRules['jsx-a11y'] }))
+
+  if (ts) {
+    configs.push(typescript({ rules: userRules.typescript }))
   }
 
-  if (enableTypescript) {
-    config.addConfig(typescript())
+  if (enableNode) {
+    configs.push(node({
+      files: Array.isArray(enableNode) ? enableNode : undefined,
+      rules: userRules.node,
+    }))
+  }
+
+  if (enableStylistic) {
+    configs.push(stylistic({ rules: userRules.stylistic }))
   }
 
   if (enableRegexp) {
-    config.addConfig(regexp())
-  }
-
-  if (enableJsxA11y) {
-    config.addConfig(jsx())
+    configs.push(regexp({ rules: userRules.regexp }))
   }
 
   if (enableVue) {
-    config.addConfig(vue())
+    configs.push(vue({ rules: userRules.vue }))
   }
 
   if (enableReact) {
-    config.addConfig(react())
+    configs.push(react({ rules: { ...userRules.react, ...userRules['react-perf'] } }))
   }
 
-  config.addConfig(test())
+  configs.push(test({ rules: userRules.vitest }))
 
-  config.addConfig(userConfig)
-  config.addConfig({ overrides })
-
-  return config.getConfig()
+  return {
+    extends: [...configs, ...userExtends],
+    overrides: [...overrides, ...userOverrides],
+    rules: userRules.custom,
+    ...userConfig,
+  }
 }

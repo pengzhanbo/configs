@@ -1,6 +1,10 @@
-import type { OxlintConfig } from 'oxlint'
+import type { DummyRuleMap, OxlintConfig } from 'oxlint'
 
-export function stylistic(): OxlintConfig {
+interface StylisticOptions {
+  rules?: DummyRuleMap
+}
+
+export function stylistic({ rules }: StylisticOptions = {}): OxlintConfig {
   return {
     jsPlugins: ['@stylistic/eslint-plugin'],
     rules: {
@@ -156,6 +160,7 @@ export function stylistic(): OxlintConfig {
       ],
       '@stylistic/exp-list-style': 'error',
       '@stylistic/exp-jsx-props-style': 'error',
+      ...rules,
     },
   }
 }
