@@ -110,18 +110,6 @@ catalogs:
     eslint-processor-vue-blocks:
       specifier: ^2.0.0
       version: 2.0.0
-    oxfmt:
-      specifier: ^0.61.0
-      version: 0.61.0
-    oxlint:
-      specifier: ^1.76.0
-      version: 1.76.0
-    oxlint-tsgolint:
-      specifier: ^7.0.2001
-      version: 7.0.2001
-    prettier:
-      specifier: ^3.9.6
-      version: 3.9.6
     prettier-plugin-astro:
       specifier: ^0.14.1
       version: 0.14.1
@@ -213,9 +201,6 @@ catalogs:
     eslint-plugin-no-only-tests:
       specifier: ^3.4.0
       version: 3.4.0
-    eslint-plugin-perfectionist:
-      specifier: ^5.10.0
-      version: 5.10.0
     eslint-plugin-pnpm:
       specifier: ^1.7.0
       version: 1.7.0
@@ -393,7 +378,7 @@ importers:
         version: 3.4.0
       eslint-plugin-perfectionist:
         specifier: catalog:prod
-        version: 5.10.0(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+        version: 5.10.1(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
       eslint-plugin-pnpm:
         specifier: catalog:prod
         version: 1.7.0(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))
@@ -3016,8 +3001,8 @@ packages:
     resolution: {integrity: sha512-4S3/9Nb7A2tiMcpzEQE9bQSlpeOz6WJkgryBuou/SA8W2x2c8Zf4j0NvTKBjv6qNhF9T79tmkecm/0CHqV0UGg==}
     engines: {node: '>=5.0.0'}
 
-  eslint-plugin-perfectionist@5.10.0:
-    resolution: {integrity: sha512-HiqpDrUDbGrMC6iHQbemgDyHJ0366Vyz/qRWmxQcSAkmG25cXr8BdRgx8yAhOKhEfBXn8Rnf/mTCsV4EqUJSxg==}
+  eslint-plugin-perfectionist@5.10.1:
+    resolution: {integrity: sha512-Kprsp9Us0GqAesYaAIzUViw57xYp5WBqzXrcE0Mtww++E5fexWXYBipMuuD7yvyH4vvpBH0+oJ+OMAmZ0oYXkw==}
     engines: {node: ^20.0.0 || >=22.0.0}
     peerDependencies:
       eslint: ^10.8.0
@@ -7037,7 +7022,7 @@ snapshots:
 
   eslint-plugin-no-only-tests@3.4.0: {}
 
-  eslint-plugin-perfectionist@5.10.0(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3):
+  eslint-plugin-perfectionist@5.10.1(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3):
     dependencies:
       '@typescript-eslint/utils': 8.65.0(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
       eslint: 10.8.0(jiti@2.7.0)(supports-color@10.2.2)
