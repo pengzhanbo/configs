@@ -110,18 +110,6 @@ catalogs:
     eslint-processor-vue-blocks:
       specifier: ^2.0.0
       version: 2.0.0
-    oxfmt:
-      specifier: ^0.61.0
-      version: 0.61.0
-    oxlint:
-      specifier: ^1.76.0
-      version: 1.76.0
-    oxlint-tsgolint:
-      specifier: ^7.0.2001
-      version: 7.0.2001
-    prettier:
-      specifier: ^3.9.6
-      version: 3.9.6
     prettier-plugin-astro:
       specifier: ^0.14.1
       version: 0.14.1
@@ -231,9 +219,6 @@ catalogs:
     eslint-plugin-unused-imports:
       specifier: ^4.4.1
       version: 4.4.1
-    eslint-plugin-yml:
-      specifier: ^3.7.0
-      version: 3.7.0
     globals:
       specifier: ^17.9.0
       version: 17.9.0
@@ -411,7 +396,7 @@ importers:
         version: 4.4.1(@typescript-eslint/eslint-plugin@8.65.0(@typescript-eslint/parser@8.65.0(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3))(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3))(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))
       eslint-plugin-yml:
         specifier: catalog:prod
-        version: 3.7.0(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))
+        version: 3.8.1(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))
       globals:
         specifier: catalog:prod
         version: 17.9.0
@@ -3150,8 +3135,8 @@ packages:
       eslint: ^10.8.0
       globals: '>= 13.12.1'
 
-  eslint-plugin-yml@3.7.0:
-    resolution: {integrity: sha512-cLkVHdBHyRifThJA3ufuEW+imPRO7rHBQXdWgthouY6qEapUw8/0zW6V8NcMEGWzuMykc/ITYl6AuhZLPzI+fw==}
+  eslint-plugin-yml@3.8.1:
+    resolution: {integrity: sha512-E/70psRwxz5EJ8dBtzrFfqSiiInuSytbdtFCjueb/GcKjsWzPBfxfhtQePImMAPjHwMA/VDurO7DJwStDJ4wWg==}
     engines: {node: ^20.19.0 || ^22.13.0 || >=24.0.0}
     peerDependencies:
       eslint: ^10.8.0
@@ -7276,7 +7261,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-plugin-yml@3.7.0(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2)):
+  eslint-plugin-yml@3.8.1(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2)):
     dependencies:
       '@eslint/core': 1.2.1
       '@eslint/plugin-kit': 0.7.2
