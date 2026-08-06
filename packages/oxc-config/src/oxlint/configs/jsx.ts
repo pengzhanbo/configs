@@ -9,7 +9,9 @@ export function jsx({ rules }: JsxA11yOptions = {}): OxlintConfig {
     overrides: [
       {
         plugins: ['jsx-a11y'],
-        files: ['**/*.?([cm])jsx', '**/*.?([cm])tsx'],
+        files: [
+          '**/*.{js,jsx,cjs,mjs,ts,tsx,cts,mts}',
+        ],
         rules: {
           'jsx-a11y/alt-text': 'error',
           'jsx-a11y/anchor-ambiguous-text': 'off',

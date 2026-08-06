@@ -8,13 +8,10 @@ export function test({ rules }: TestOptions = {}): OxlintConfig {
   return {
     overrides: [
       {
-        plugins: ['eslint', 'vitest', 'typescript'],
+        plugins: ['eslint', 'vitest', 'typescript', 'unicorn'],
         files: [
-          '**/__tests__/**/*.?([cm])[jt]s?(x)',
-          '**/*.spec.?([cm])[jt]s?(x)',
-          '**/*.test.?([cm])[jt]s?(x)',
-          '**/*.bench.?([cm])[jt]s?(x)',
-          '**/*.benchmark.?([cm])[jt]s?(x)',
+          '**/__tests__/**/*.{js,ts,jsx,tsx,cjs,mjs,cts,mts}',
+          '**/*.{spec,test,bench,benchmark}.{js,ts,jsx,tsx,cjs,mjs,cts,mts}',
         ],
         rules: {
           'id-length': 'off',
@@ -26,7 +23,16 @@ export function test({ rules }: TestOptions = {}): OxlintConfig {
           'no-undefined': 'off',
           'no-underscore-dangle': 'off',
           'no-unused-expressions': 'off',
+
+          'unicorn/consistent-function-scoping': 'off',
+          'unicorn/no-thenable': 'off',
+
+          'typescript/no-unnecessary-condition': 'off',
+          'typescript/no-unsafe-member-access': 'off',
+          'typescript/ban-ts-comment': 'off',
+          'typescript/require-await': 'off',
           'typescript/explicit-function-return-type': 'off',
+          'typescript/no-unsafe-argument': 'off',
 
           'vitest/consistent-test-it': ['error', { fn: 'it', withinDescribe: 'it' }],
           'vitest/no-identical-title': 'error',

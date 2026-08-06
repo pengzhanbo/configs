@@ -128,7 +128,7 @@ const perfRules = defineRules({
  */
 const restrictionRules = defineRules({
   'class-methods-use-this': 'off',
-  'complexity': ['error', { variant: 'modified' }],
+  'complexity': ['error', { max: 30, variant: 'modified' }],
   'default-case': ['error', { commentPattern: '^no\\sdefault' }],
   'no-alert': 'error',
   'no-bitwise': 'off',
@@ -180,7 +180,7 @@ const restrictionRules = defineRules({
 const styleRules = defineRules({
   'arrow-body-style': ['error', 'as-needed'],
   'capitalized-comments': 'off',
-  'curly': ['warn', 'multi-or-nest', 'consistent'],
+  'curly': ['error', 'all'],
   'default-case-last': 'error',
   'default-param-last': 'error',
   'func-name-matching': 'off',
@@ -189,15 +189,12 @@ const styleRules = defineRules({
   'grouped-accessor-pairs': 'off',
   'guard-for-in': 'off',
   'id-denylist': 'off',
-  'id-length': ['warn', {
-    min: 2,
-    exceptions: ['_', 'a', 'b', 'i', 'j', 'k', 'x', 'y', 'z', 'T', 'P', 'U'],
-  }],
+  'id-length': 'off',
   'id-match': 'off',
   'init-declarations': 'off',
   'logical-assignment-operators': 'off',
-  'max-params': ['warn', { max: 4 }],
-  'max-statements': ['warn', { max: 30 }],
+  'max-params': ['warn', { max: 6 }],
+  'max-statements': 'off',
   'new-cap': ['error', { capIsNew: false, newIsCap: true, properties: true }],
   'no-continue': 'off',
   'no-duplicate-imports': ['error', { allowSeparateTypeImports: true }],

@@ -24,8 +24,8 @@ export function node({ files, rules }: nodeOptions = {}): OxlintConfig {
   const override: OxlintOverride = {
     plugins: ['node'],
     files: [
-      '**/scripts/**/*.?([cm])[jt]s',
-      '**/*.config.?([cm])[jt]s',
+      '**/scripts/**/*.{js,cjs,mjs,ts,cts,mts}',
+      '**/*.config.{js,cjs,mjs,ts,cts,mts}',
     ],
     rules: {
       ...nodeRules,

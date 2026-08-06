@@ -8,6 +8,17 @@ interface JsdocConfig {
 export function jsdoc({ ts, rules }: JsdocConfig = {}): OxlintConfig {
   return {
     plugins: ['jsdoc'],
+    settings: {
+      jsdoc: {
+        tagNamePreference: {
+          category: 'category',
+          typeParam: 'typeParam',
+          module: 'module',
+          remarks: 'remarks',
+          hideCategories: 'hideCategories',
+        },
+      },
+    },
     rules: {
       'jsdoc/check-access': 'warn',
       'jsdoc/check-property-names': 'warn',
