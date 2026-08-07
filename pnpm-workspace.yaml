@@ -32,7 +32,7 @@ catalogs:
     '@types/eslint-plugin-jsx-a11y': ^6.10.1
     '@types/node': ^26.1.2
     baseline-browser-mapping: ^2.11.12
-    bumpp: ^12.1.1
+    bumpp: ^12.2.0
     chokidar: ^5.0.0
     eslint-typegen: ^2.3.1
     nano-spawn: ^2.1.0
@@ -42,7 +42,7 @@ catalogs:
     svelte: ^5.56.8
     tinyglobby: ^0.2.17
     tsdown: ^0.22.14
-    tsx: ^4.23.7
+    tsx: ^4.23.8
     typescript: 6.0.3
     vitest: ^4.1.10
   inline:
