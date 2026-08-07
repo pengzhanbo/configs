@@ -93,12 +93,22 @@ export function importRules({ rules }: importOptions = {}): OxlintConfig {
       ...nurseryRules,
       ...rules,
     },
-    overrides: [{
-      files: ['**/*.cjs', '**/*.mts'],
-      rules: {
-        'import/no-commonjs': 'off',
-        'import/unambiguous': 'off',
+    overrides: [
+      {
+        plugins: ['import'],
+        files: ['**/*.cjs', '**/*.mts'],
+        rules: {
+          'import/no-commonjs': 'off',
+          'import/unambiguous': 'off',
+        },
       },
-    }],
+      {
+        plugins: ['import'],
+        files: ['**/*.d.ts'],
+        rules: {
+          'import/unambiguous': 'off',
+        },
+      },
+    ],
   }
 }

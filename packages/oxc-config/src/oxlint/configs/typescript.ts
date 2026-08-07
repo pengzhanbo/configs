@@ -157,7 +157,7 @@ export function typescript({ rules: userRules }: TypescriptOptions = {}): Oxlint
     overrides: [
       {
         plugins: ['eslint'],
-        files: ['**/*.?([cm])ts?(x)'],
+        files: ['**/*.{ts,tsx,cts,mts}'],
         rules: {
           'constructor-super': 'off',
           'getter-return': 'off',
@@ -192,7 +192,7 @@ export function typescript({ rules: userRules }: TypescriptOptions = {}): Oxlint
       },
       {
         plugins: ['typescript'],
-        files: ['**/*.{js,jsx,cjs,mjs,ts,tsx,cts,mts}'],
+        files: ['**/*.{js,jsx,cjs,mjs}'],
         rules: Object.fromEntries(Object.keys(rules).map(key => [key, 'off'])),
       },
     ],
