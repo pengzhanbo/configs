@@ -24,7 +24,7 @@ const correctnessRules = defineRules({
   'typescript/no-unnecessary-parameter-property-assignment': 'error',
   'typescript/no-unsafe-declaration-merging': 'error',
   'typescript/no-unsafe-unary-minus': 'error',
-  'typescript/no-useless-default-assignment': 'error',
+  'typescript/no-useless-default-assignment': 'off',
   'typescript/no-useless-empty-export': 'error',
   'typescript/no-wrapper-object-types': 'error',
   'typescript/prefer-as-const': 'error',
@@ -40,7 +40,7 @@ const pedanticRules = defineRules({
   'typescript/ban-types': 'off', // deprecated
   'typescript/no-confusing-void-expression': 'off',
   'typescript/no-deprecated': 'warn',
-  'typescript/no-misused-promises': 'error',
+  'typescript/no-misused-promises': 'off',
   'typescript/no-mixed-enums': 'off',
   'typescript/no-unsafe-argument': 'off',
   'typescript/no-unsafe-assignment': 'off',
@@ -65,7 +65,10 @@ const pedanticRules = defineRules({
 })
 
 const restrictionRules = defineRules({
-  'typescript/explicit-function-return-type': 'error',
+  'typescript/explicit-function-return-type': [
+    'error',
+    { allowExpressions: true, allowTypedFunctionExpressions: true },
+  ],
   'typescript/explicit-member-accessibility': ['warn', {
     accessibility: 'no-public',
     overrides: { parameterProperties: 'explicit' },
@@ -135,9 +138,7 @@ const suspiciousRules = defineRules({
 })
 
 const nurseryRules = defineRules({
-  'typescript/no-unnecessary-condition': ['error', {
-    allowConstantLoopConditions: 'always',
-  }],
+  'typescript/no-unnecessary-condition': 'off',
   'typescript/prefer-optional-chain': 'off',
 })
 
