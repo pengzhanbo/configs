@@ -114,7 +114,7 @@ const styleRules = defineRules({
   'unicorn/no-unreadable-array-destructuring': 'off',
   'unicorn/no-useless-collection-argument': 'off',
   'unicorn/no-zero-fractions': 'off',
-  'unicorn/number-literal-case': 'error',
+  'unicorn/number-literal-case': 'off',
   'unicorn/numeric-separators-style': 'off',
   'unicorn/prefer-array-index-of': 'off',
   'unicorn/prefer-bigint-literals': 'off',
