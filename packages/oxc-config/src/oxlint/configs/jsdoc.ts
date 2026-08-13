@@ -42,6 +42,7 @@ export function jsdoc({ ts, rules }: JsdocConfig = {}): OxlintConfig {
       'jsdoc/require-yields': 'warn',
       'jsdoc/require-yields-description': 'warn',
       'jsdoc/require-yields-type': 'warn',
+      'jsdoc/no-blank-blocks': 'warn',
       ...rules,
     },
   }
