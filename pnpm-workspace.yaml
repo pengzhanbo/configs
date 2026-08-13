@@ -27,11 +27,11 @@ overrides:
 
 catalogs:
   dev:
-    '@angular/core': ^22.1.0
+    '@angular/core': ^22.1.1
     '@eslint/config-inspector': ^3.2.0
     '@types/eslint-plugin-jsx-a11y': ^6.10.1
-    '@types/node': ^26.1.2
-    baseline-browser-mapping: ^2.11.12
+    '@types/node': ^26.2.0
+    baseline-browser-mapping: ^2.11.13
     bumpp: ^12.2.0
     chokidar: ^5.0.0
     eslint-typegen: ^2.3.1
@@ -42,7 +42,7 @@ catalogs:
     svelte: ^5.56.8
     tinyglobby: ^0.2.17
     tsdown: ^0.22.14
-    tsx: ^4.23.8
+    tsx: ^4.23.12
     typescript: 6.0.3
     vitest: ^4.1.10
   inline:
@@ -52,25 +52,25 @@ catalogs:
     '@angular-eslint/eslint-plugin-template': ^22.1.0
     '@angular-eslint/template-parser': ^22.1.0
     '@eslint-community/eslint-utils': ^4.10.1
-    '@eslint-react/eslint-plugin': ^5.18.2
+    '@eslint-react/eslint-plugin': ^5.18.4
     '@next/eslint-plugin-next': ^16.3.0
     '@prettier/plugin-xml': ^3.4.2
-    '@typescript-eslint/types': ^8.66.0
-    '@typescript-eslint/utils': ^8.66.0
+    '@typescript-eslint/types': ^8.67.0
+    '@typescript-eslint/utils': ^8.67.0
     '@unocss/eslint-plugin': ^66.7.5
     astro-eslint-parser: ^3.0.0
-    eslint: ^10.8.0
+    eslint: ^10.8.1
     eslint-plugin-astro: ^3.1.0
     eslint-plugin-format: ^2.0.1
-    eslint-plugin-react-refresh: ^0.5.3
+    eslint-plugin-react-refresh: ^0.5.4
     eslint-plugin-solid: ^0.14.5
     eslint-plugin-svelte: ^3.22.0
     eslint-plugin-tailwindcss: ^4.2.0
     eslint-plugin-vue: ^10.10.0
-    eslint-plugin-vuejs-accessibility: ^2.5.0
+    eslint-plugin-vuejs-accessibility: ^2.6.0
     eslint-processor-vue-blocks: ^2.0.0
-    oxfmt: ^0.62.0
-    oxlint: ^1.77.0
+    oxfmt: ^0.63.0
+    oxlint: ^1.78.0
     oxlint-tsgolint: ^7.0.2001
     prettier: ^3.9.6
     prettier-plugin-astro: ^0.14.1
@@ -88,10 +88,10 @@ catalogs:
     '@stylelint-types/stylelint-scss': ^7.0.1
     '@stylelint-types/stylelint-stylistic': ^5.1.0
     '@stylistic/eslint-plugin': ^5.10.0
-    '@stylistic/stylelint-plugin': ^5.2.1
-    '@typescript-eslint/eslint-plugin': ^8.66.0
-    '@typescript-eslint/parser': ^8.66.0
-    '@vitest/eslint-plugin': ^1.6.26
+    '@stylistic/stylelint-plugin': ^5.3.0
+    '@typescript-eslint/eslint-plugin': ^8.67.0
+    '@typescript-eslint/parser': ^8.67.0
+    '@vitest/eslint-plugin': ^1.6.27
     eslint-config-flat-gitignore: ^2.3.0
     eslint-flat-config-utils: ^3.2.0
     eslint-merge-processors: ^2.0.0
@@ -99,10 +99,10 @@ catalogs:
     eslint-plugin-command: ^4.0.0
     eslint-plugin-erasable-syntax-only: ^0.4.2
     eslint-plugin-import-lite: ^0.6.0
-    eslint-plugin-jsdoc: ^63.3.3
+    eslint-plugin-jsdoc: ^64.1.0
     eslint-plugin-jsonc: ^3.4.1
     eslint-plugin-jsx-a11y: ^6.10.2
-    eslint-plugin-n: ^18.2.2
+    eslint-plugin-n: ^18.3.0
     eslint-plugin-no-only-tests: ^3.4.0
     eslint-plugin-perfectionist: ^5.10.1
     eslint-plugin-pnpm: ^1.7.0
@@ -111,10 +111,10 @@ catalogs:
     eslint-plugin-unicorn: ^73.0.0
     eslint-plugin-unused-imports: ^4.4.1
     eslint-plugin-yml: ^3.8.1
-    globals: ^17.9.0
+    globals: ^17.10.0
     local-pkg: ^1.2.1
     parse-gitignore: ^2.0.0
-    postcss: ^8.5.25
+    postcss: ^8.5.26
     postcss-html: ^2.0.0
     stylelint-config-html: ^2.0.0
     stylelint-config-standard: ^40.0.0

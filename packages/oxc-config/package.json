@@ -39,7 +39,6 @@
     "oxlint-tsgolint": "catalog:peer"
   },
   "dependencies": {
-    "@stylistic/eslint-plugin": "catalog:prod",
     "eslint-plugin-regexp": "catalog:prod"
   }
 }
