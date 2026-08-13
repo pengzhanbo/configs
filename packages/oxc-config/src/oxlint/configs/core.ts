@@ -214,6 +214,7 @@ const styleRules = defineRules({
   'no-ternary': 'off',
   'no-useless-computed-key': 'error',
   'object-shorthand': ['error', 'always', { avoidQuotes: true, ignoreConstructors: false }],
+  'one-var': 'off',
   'operator-assignment': 'off',
   'prefer-arrow-callback': ['error', { allowNamedFunctions: false, allowUnboundThis: true }],
   'prefer-const': ['error', { destructuring: 'all', ignoreReadBeforeAssign: true }],
