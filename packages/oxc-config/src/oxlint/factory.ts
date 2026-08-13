@@ -11,7 +11,6 @@ import {
   promise,
   react,
   regexp,
-  stylistic,
   test,
   typescript,
   unicorn,
@@ -23,7 +22,6 @@ export function oxlintConfig(options: Options = {}, ...overrides: OxlintOverride
   const {
     ignores,
     ts = true,
-    stylistic: enableStylistic = false,
     regexp: enableRegexp = true,
     jsxA11y: enableJsxA11y = true,
     vue: enableVue = false,
@@ -64,10 +62,6 @@ export function oxlintConfig(options: Options = {}, ...overrides: OxlintOverride
       files: Array.isArray(enableNode) ? enableNode : undefined,
       rules: userRules.node,
     }))
-  }
-
-  if (enableStylistic) {
-    configs.push(stylistic({ rules: userRules.stylistic }))
   }
 
   if (enableRegexp) {

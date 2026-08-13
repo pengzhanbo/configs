@@ -32,7 +32,7 @@ const ruleNames: string[] = [
   'vue',
 
   // compat eslint
-  '@stylistic',
+  // '@stylistic',  // deprecated
   'regexp',
 ]
 
