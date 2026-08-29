@@ -63,7 +63,7 @@ catalogs:
     eslint-plugin-astro: ^3.1.0
     eslint-plugin-format: ^2.0.1
     eslint-plugin-react-refresh: ^0.5.4
-    eslint-plugin-solid: ^0.14.5
+    eslint-plugin-solid: ^0.17.0
     eslint-plugin-svelte: ^3.22.0
     eslint-plugin-tailwindcss: ^4.2.0
     eslint-plugin-vue: ^10.10.0
