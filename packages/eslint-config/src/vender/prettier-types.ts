@@ -76,7 +76,7 @@ export interface VendoredPrettierOptionsRequired {
   /**
    * Provide ability to support new languages to prettier.
    */
-  plugins: Array<string | any>
+  plugins: Array<string | Record<string, unknown>>
   /**
    * How to handle whitespaces in HTML.
    * @default "css"

@@ -1,10 +1,9 @@
 import type { OptionsFormatters, StylisticConfig, TypedFlatConfigItem } from '../types'
 import type { VendoredPrettierOptions, VendoredPrettierRuleOptions } from '../vender/prettier-types'
+
 import { GLOB_ASTRO, GLOB_ASTRO_TS, GLOB_CSS, GLOB_GRAPHQL, GLOB_HTML, GLOB_LESS, GLOB_MARKDOWN, GLOB_POSTCSS, GLOB_SCSS, GLOB_SVG, GLOB_XML } from '../globs'
 import { ensurePackages, interopDefault, isPackageInScope, parserPlain } from '../utils'
 import { StylisticConfigDefaults } from './stylistic'
-
-const formatPackages = ['eslint-plugin-format']
 
 function mergePrettierOptions(
   options: VendoredPrettierOptions,
@@ -20,30 +19,192 @@ function mergePrettierOptions(
   }
 }
 
+function buildCssConfigs(prettierOptions: VendoredPrettierOptions): TypedFlatConfigItem[] {
+  return ([
+    [[GLOB_CSS, GLOB_POSTCSS], 'css', 'config/formatter/css'],
+    [[GLOB_SCSS], 'scss', 'config/formatter/scss'],
+    [[GLOB_LESS], 'less', 'config/formatter/less'],
+  ] as const).map(([files, parser, name]) => ({
+    files: [...files],
+    languageOptions: {
+      parser: parserPlain,
+    },
+    name,
+    rules: {
+      'format/prettier': [
+        'error',
+        mergePrettierOptions(prettierOptions, { parser }),
+      ],
+    },
+  }))
+}
+
+function buildXmlLikeConfig(
+  prettierOptions: VendoredPrettierOptions,
+  prettierXmlOptions: VendoredPrettierOptions,
+  files: string[],
+  name: string,
+): TypedFlatConfigItem {
+  return {
+    files,
+    languageOptions: {
+      parser: parserPlain,
+    },
+    name,
+    rules: {
+      'format/prettier': [
+        'error',
+        mergePrettierOptions({ ...prettierXmlOptions, ...prettierOptions }, {
+          parser: 'xml',
+          plugins: [
+            '@prettier/plugin-xml',
+          ],
+        }),
+      ],
+    },
+  }
+}
+
+function buildMarkdownConfigs(
+  options: OptionsFormatters,
+  prettierOptions: VendoredPrettierOptions,
+  dprintOptions: Record<string, unknown>,
+): TypedFlatConfigItem[] {
+  const formater = options.markdown === true
+    ? 'prettier'
+    : options.markdown
+
+  const configs: TypedFlatConfigItem[] = [
+    {
+      files: [GLOB_MARKDOWN],
+      ignores: [],
+      languageOptions: {
+        parser: parserPlain,
+      },
+      name: 'config/formatter/markdown',
+      rules: {
+        [`format/${formater}`]: [
+          'error',
+          formater === 'prettier'
+            ? mergePrettierOptions(prettierOptions, {
+                embeddedLanguageFormatting: 'off',
+                parser: 'markdown',
+              })
+            : {
+                ...dprintOptions,
+                language: 'markdown',
+              },
+        ],
+      },
+    },
+  ]
+
+  return configs
+}
+
+function buildAstroConfigs(prettierOptions: VendoredPrettierOptions): TypedFlatConfigItem[] {
+  return [
+    {
+      files: [GLOB_ASTRO],
+      languageOptions: {
+        parser: parserPlain,
+      },
+      name: 'config/formatter/astro',
+      rules: {
+        'format/prettier': [
+          'error',
+          mergePrettierOptions(prettierOptions, {
+            parser: 'astro',
+            plugins: [
+              'prettier-plugin-astro',
+            ],
+          }),
+        ],
+      },
+    },
+    {
+      files: [GLOB_ASTRO, GLOB_ASTRO_TS],
+      name: 'config/formatter/astro/disables',
+      rules: {
+        'style/arrow-parens': 'off',
+        'style/block-spacing': 'off',
+        'style/comma-dangle': 'off',
+        'style/indent': 'off',
+        'style/no-multi-spaces': 'off',
+        'style/quotes': 'off',
+        'style/semi': 'off',
+      },
+    },
+  ]
+}
+
+function resolveFormattersOptions(options: OptionsFormatters | true): OptionsFormatters {
+  if (options !== true)
+    return options
+
+  const isPrettierPluginXmlInScope = isPackageInScope('@prettier/plugin-xml')
+  return {
+    astro: isPackageInScope('prettier-plugin-astro'),
+    css: true,
+    graphql: true,
+    html: true,
+    markdown: true,
+    svg: isPrettierPluginXmlInScope,
+    xml: isPrettierPluginXmlInScope,
+  }
+}
+
+function buildHtmlConfig(prettierOptions: VendoredPrettierOptions): TypedFlatConfigItem {
+  return {
+    files: [GLOB_HTML],
+    languageOptions: {
+      parser: parserPlain,
+    },
+    name: 'config/formatter/html',
+    rules: {
+      'format/prettier': [
+        'error',
+        mergePrettierOptions(prettierOptions, {
+          parser: 'html',
+        }),
+      ],
+    },
+  }
+}
+
+function buildGraphqlConfig(prettierOptions: VendoredPrettierOptions): TypedFlatConfigItem {
+  return {
+    files: [GLOB_GRAPHQL],
+    languageOptions: {
+      parser: parserPlain,
+    },
+    name: 'config/formatter/graphql',
+    rules: {
+      'format/prettier': [
+        'error',
+        mergePrettierOptions(prettierOptions, {
+          parser: 'graphql',
+        }),
+      ],
+    },
+  }
+}
+
+function getFormattersPackagesToEnsure(options: OptionsFormatters): (string | undefined)[] {
+  return [
+    'eslint-plugin-format',
+    options.astro ? 'prettier-plugin-astro' : undefined,
+    (options.xml || options.svg) ? '@prettier/plugin-xml' : undefined,
+  ]
+}
+
 export async function formatters(
-  options: OptionsFormatters | true = {},
+  rawOptions: OptionsFormatters | true = {},
   stylistic: StylisticConfig = {},
 ): Promise<TypedFlatConfigItem[]> {
-  if (options === true) {
-    const isPrettierPluginXmlInScope = isPackageInScope('@prettier/plugin-xml')
-    options = {
-      astro: isPackageInScope('prettier-plugin-astro'),
-      css: true,
-      graphql: true,
-      html: true,
-      markdown: true,
-      svg: isPrettierPluginXmlInScope,
-      xml: isPrettierPluginXmlInScope,
-    }
-  }
+  const options = resolveFormattersOptions(rawOptions)
 
-  if (options.astro)
-    formatPackages.push('prettier-plugin-astro')
-
-  if (options.svg || options.xml)
-    formatPackages.push('@prettier/plugin-xml')
-
-  await ensurePackages(formatPackages)
+  await ensurePackages(getFormattersPackagesToEnsure(options))
 
   const {
     indent,
@@ -80,6 +241,7 @@ export async function formatters(
     useTabs: indent === 'tab',
     // TODO: refine the type of `options.dprintOptions` in the future to avoid this ts comment.
     // @ts-expect-error - `options.dprintOptions` is boolean
+    // oxlint-disable-next-line unicorn/no-useless-fallback-in-spread
     ...options.dprintOptions || {},
   }
 
@@ -87,202 +249,33 @@ export async function formatters(
 
   const configs: TypedFlatConfigItem[] = [
     {
-      name: 'config/formatters/setup',
+      name: 'config/formatter/setup',
       plugins: {
         format: pluginFormat,
       },
     },
   ]
 
-  if (options.css) {
-    configs.push(
-      {
-        files: [GLOB_CSS, GLOB_POSTCSS],
-        languageOptions: {
-          parser: parserPlain,
-        },
-        name: 'config/formatter/css',
-        rules: {
-          'format/prettier': [
-            'error',
-            mergePrettierOptions(prettierOptions, {
-              parser: 'css',
-            }),
-          ],
-        },
-      },
-      {
-        files: [GLOB_SCSS],
-        languageOptions: {
-          parser: parserPlain,
-        },
-        name: 'config/formatter/scss',
-        rules: {
-          'format/prettier': [
-            'error',
-            mergePrettierOptions(prettierOptions, {
-              parser: 'scss',
-            }),
-          ],
-        },
-      },
-      {
-        files: [GLOB_LESS],
-        languageOptions: {
-          parser: parserPlain,
-        },
-        name: 'config/formatter/less',
-        rules: {
-          'format/prettier': [
-            'error',
-            mergePrettierOptions(prettierOptions, {
-              parser: 'less',
-            }),
-          ],
-        },
-      },
-    )
-  }
+  if (options.css)
+    configs.push(...buildCssConfigs(prettierOptions))
 
-  if (options.html) {
-    configs.push({
-      files: [GLOB_HTML],
-      languageOptions: {
-        parser: parserPlain,
-      },
-      name: 'config/formatter/html',
-      rules: {
-        'format/prettier': [
-          'error',
-          mergePrettierOptions(prettierOptions, {
-            parser: 'html',
-          }),
-        ],
-      },
-    })
-  }
+  if (options.html)
+    configs.push(buildHtmlConfig(prettierOptions))
 
-  if (options.xml) {
-    configs.push({
-      files: [GLOB_XML],
-      languageOptions: {
-        parser: parserPlain,
-      },
-      name: 'config/formatter/xml',
-      rules: {
-        'format/prettier': [
-          'error',
-          mergePrettierOptions({ ...prettierXmlOptions, ...prettierOptions }, {
-            parser: 'xml',
-            plugins: [
-              '@prettier/plugin-xml',
-            ],
-          }),
-        ],
-      },
-    })
-  }
-  if (options.svg) {
-    configs.push({
-      files: [GLOB_SVG],
-      languageOptions: {
-        parser: parserPlain,
-      },
-      name: 'config/formatter/svg',
-      rules: {
-        'format/prettier': [
-          'error',
-          mergePrettierOptions({ ...prettierXmlOptions, ...prettierOptions }, {
-            parser: 'xml',
-            plugins: [
-              '@prettier/plugin-xml',
-            ],
-          }),
-        ],
-      },
-    })
-  }
+  if (options.xml)
+    configs.push(buildXmlLikeConfig(prettierOptions, prettierXmlOptions, [GLOB_XML], 'config/formatter/xml'))
 
-  if (options.markdown) {
-    const formater = options.markdown === true
-      ? 'prettier'
-      : options.markdown
+  if (options.svg)
+    configs.push(buildXmlLikeConfig(prettierOptions, prettierXmlOptions, [GLOB_SVG], 'config/formatter/svg'))
 
-    configs.push({
-      files: [GLOB_MARKDOWN],
-      languageOptions: {
-        parser: parserPlain,
-      },
-      name: 'config/formatter/markdown',
-      rules: {
-        [`format/${formater}`]: [
-          'error',
-          formater === 'prettier'
-            ? mergePrettierOptions(prettierOptions, {
-                embeddedLanguageFormatting: 'off',
-                parser: 'markdown',
-              })
-            : {
-                ...dprintOptions,
-                language: 'markdown',
-              },
-        ],
-      },
-    })
-  }
+  if (options.markdown)
+    configs.push(...buildMarkdownConfigs(options, prettierOptions, dprintOptions))
 
-  if (options.astro) {
-    configs.push({
-      files: [GLOB_ASTRO],
-      languageOptions: {
-        parser: parserPlain,
-      },
-      name: 'config/formatter/astro',
-      rules: {
-        'format/prettier': [
-          'error',
-          mergePrettierOptions(prettierOptions, {
-            parser: 'astro',
-            plugins: [
-              'prettier-plugin-astro',
-            ],
-          }),
-        ],
-      },
-    })
+  if (options.astro)
+    configs.push(...buildAstroConfigs(prettierOptions))
 
-    configs.push({
-      files: [GLOB_ASTRO, GLOB_ASTRO_TS],
-      name: 'config/formatter/astro/disables',
-      rules: {
-        'style/arrow-parens': 'off',
-        'style/block-spacing': 'off',
-        'style/comma-dangle': 'off',
-        'style/indent': 'off',
-        'style/no-multi-spaces': 'off',
-        'style/quotes': 'off',
-        'style/semi': 'off',
-      },
-    })
-  }
-
-  if (options.graphql) {
-    configs.push({
-      files: [GLOB_GRAPHQL],
-      languageOptions: {
-        parser: parserPlain,
-      },
-      name: 'config/formatter/graphql',
-      rules: {
-        'format/prettier': [
-          'error',
-          mergePrettierOptions(prettierOptions, {
-            parser: 'graphql',
-          }),
-        ],
-      },
-    })
-  }
+  if (options.graphql)
+    configs.push(buildGraphqlConfig(prettierOptions))
 
   return configs
 }

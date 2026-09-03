@@ -3551,6 +3551,11 @@ export interface RuleOptions {
    */
   'pnpm/json-valid-catalog'?: Linter.RuleEntry<PnpmJsonValidCatalog>
   /**
+   * Require blank lines around multi-line entries in `pnpm-workspace.yaml`, and disallow them between single-line entries
+   * @see https://github.com/antfu/pnpm-workspace-utils/tree/main/packages/eslint-plugin-pnpm/src/rules/yaml/yaml-blank-lines.test.ts
+   */
+  'pnpm/yaml-blank-lines'?: Linter.RuleEntry<[]>
+  /**
    * Enforce settings in `pnpm-workspace.yaml`
    * @see https://github.com/antfu/pnpm-workspace-utils/tree/main/packages/eslint-plugin-pnpm/src/rules/yaml/yaml-enforce-settings.test.ts
    */
@@ -11636,6 +11641,8 @@ type JsdocNoUnnecessaryTypeAssertion = []|[{
   
   checkLiteralConstAssertions?: boolean
   
+  enableFixer?: boolean
+  
   treatAnyAsRedundant?: boolean
   
   typesToIgnore?: string[]
@@ -16011,12 +16018,6 @@ type PerfectionistSortImports = {
     sortBy?: ("specifier" | "path")
   })[]
   newlinesBetween?: ("ignore" | number)
-  tsconfig?: {
-    
-    rootDir: string
-    
-    filename?: string
-  }
   
   maxLineLength?: number
   
@@ -16076,6 +16077,12 @@ type PerfectionistSortImports = {
     
     flags?: string
   } | string))
+  tsconfig?: {
+    
+    rootDir: string
+    
+    filename?: string
+  }
 }[]
 // ----- perfectionist/sort-interfaces -----
 type PerfectionistSortInterfaces = {
@@ -17045,6 +17052,8 @@ type PerfectionistSortModules = []|[{
   })[]
   newlinesBetween?: ("ignore" | number)
   
+  additionalModuleBlockTypes?: string[]
+  
   useExperimentalDependencyDetection?: boolean
   newlinesBetweenOverloadSignatures?: ("ignore" | number)
   
@@ -17086,6 +17095,12 @@ type PerfectionistSortModules = []|[{
   })
   
   partitionByNewLine?: boolean
+  tsconfig?: {
+    
+    rootDir: string
+    
+    filename?: string
+  }
 }]
 // ----- perfectionist/sort-named-exports -----
 type PerfectionistSortNamedExports = {
@@ -17958,6 +17973,18 @@ type PerfectionistSortObjects = {
   
   useExperimentalDependencyDetection?: boolean
   
+  ignoreCallbackDependenciesPatterns?: (({
+    
+    pattern: string
+    
+    flags?: string
+  } | string)[] | ({
+    
+    pattern: string
+    
+    flags?: string
+  } | string))
+  
   partitionByComment?: (boolean | (({
     
     pattern: string
@@ -18515,6 +18542,18 @@ type PerfectionistSortVariableDeclarations = {
   }
   
   useExperimentalDependencyDetection?: boolean
+  
+  ignoreCallbackDependenciesPatterns?: (({
+    
+    pattern: string
+    
+    flags?: string
+  } | string)[] | ({
+    
+    pattern: string
+    
+    flags?: string
+  } | string))
   
   partitionByComment?: (boolean | (({
     
@@ -21460,7 +21499,10 @@ type TsNoMeaninglessVoidOperator = []|[{
 // ----- ts/no-misused-promises -----
 type TsNoMisusedPromises = []|[{
   
-  checksConditionals?: boolean
+  checksConditionals?: (boolean | {
+    
+    flagUnions?: ("all" | "strict" | "none")
+  })
   
   checksSpreads?: boolean
   
@@ -24283,4 +24325,4 @@ type Yoda = []|[("always" | "never")]|[("always" | "never"), {
   onlyEquality?: boolean
 }]
 // Names of all the configs
-export type ConfigNames = 'config/gitignore' | 'config/ignores' | 'config/javascript/setup' | 'config/javascript/rules' | 'config/eslint-comments/rules' | 'config/node/setup' | 'config/node/rules' | 'config/jsdoc/setup' | 'config/jsdoc/rules' | 'config/imports/rules' | 'config/command/rules' | 'config/perfectionist/setup' | 'config/node/setup' | 'config/node/rules' | 'config/jsdoc/setup' | 'config/jsdoc/rules' | 'config/imports/rules' | 'config/unicorn/setup' | 'config/unicorn/rules' | 'config/jsx/setup' | 'config/typescript/setup' | 'config/typescript/parser' | 'config/typescript/type-aware-parser' | 'config/typescript/rules' | 'config/typescript/rules-type-aware' | 'config/typescript/erasable-syntax-only' | 'config/stylistic/rules' | 'config/regexp/rules' | 'config/test/setup' | 'config/test/rules' | 'config/vue/setup' | 'config/vue/rules' | 'config/react/setup' | 'config/react/rules' | 'config/react/typescript' | 'config/react/type-aware-rules' | 'config/nextjs/setup' | 'config/nextjs/rules' | 'config/solid/setup' | 'config/solid/rules' | 'config/svelte/setup' | 'config/svelte/rules' | 'config/unocss/rules' | 'config/astro/setup' | 'config/astro/rules' | 'antfu/angular/setup' | 'antfu/angular/rules/ts' | 'antfu/angular/rules/template' | 'config/jsonc/setup' | 'config/jsonc/rules' | 'config/sort/package-json' | 'config/sort/tsconfig-json' | 'config/pnpm/package-json' | 'config/pnpm/pnpm-workspace-yaml' | 'config/pnpm/pnpm-workspace-yaml-sort' | 'config/yaml/setup' | 'config/yaml/rules' | 'config/toml/setup' | 'config/toml/rules' | 'config/markdown/setup' | 'config/markdown/processor' | 'config/markdown/parser' | 'config/markdown/rules' | 'config/markdown/disables/code' | 'config/formatters/setup' | 'config/formatter/css' | 'config/formatter/scss' | 'config/formatter/less' | 'config/formatter/html' | 'config/formatter/xml' | 'config/formatter/svg' | 'config/formatter/markdown' | 'config/formatter/astro' | 'config/formatter/astro/disables' | 'config/formatter/graphql' | 'config/disables/scripts' | 'config/disables/cli' | 'config/disables/bin' | 'config/disables/dts' | 'config/disables/cjs' | 'config/disables/config-files'
+export type ConfigNames = 'config/gitignore' | 'config/ignores' | 'config/javascript/setup' | 'config/javascript/rules' | 'config/eslint-comments/rules' | 'config/node/setup' | 'config/node/rules' | 'config/jsdoc/setup' | 'config/jsdoc/rules' | 'config/imports/rules' | 'config/command/rules' | 'config/perfectionist/setup' | 'config/node/setup' | 'config/node/rules' | 'config/jsdoc/setup' | 'config/jsdoc/rules' | 'config/imports/rules' | 'config/unicorn/setup' | 'config/unicorn/rules' | 'config/jsx/setup' | 'config/typescript/setup' | 'config/typescript/parser' | 'config/typescript/type-aware-parser' | 'config/typescript/rules' | 'config/typescript/rules-type-aware' | 'config/typescript/erasable-syntax-only' | 'config/stylistic/rules' | 'config/regexp/rules' | 'config/test/setup' | 'config/test/rules' | 'config/vue/setup' | 'config/vue/rules' | 'config/react/setup' | 'config/react/rules' | 'config/react/typescript' | 'config/react/type-aware-rules' | 'config/nextjs/setup' | 'config/nextjs/rules' | 'config/solid/setup' | 'config/solid/rules' | 'config/svelte/setup' | 'config/svelte/rules' | 'config/unocss/rules' | 'config/astro/setup' | 'config/astro/rules' | 'antfu/angular/setup' | 'antfu/angular/rules/ts' | 'antfu/angular/rules/template' | 'config/jsonc/setup' | 'config/jsonc/rules' | 'config/sort/package-json' | 'config/sort/tsconfig-json' | 'config/pnpm/package-json' | 'config/pnpm/pnpm-workspace-yaml' | 'config/pnpm/pnpm-workspace-yaml-stylistic' | 'config/pnpm/pnpm-workspace-yaml-sort' | 'config/yaml/setup' | 'config/yaml/rules' | 'config/toml/setup' | 'config/toml/rules' | 'config/markdown/setup' | 'config/markdown/processor' | 'config/markdown/parser' | 'config/markdown/rules' | 'config/markdown/disables/code' | 'config/formatter/setup' | 'config/formatter/css' | 'config/formatter/scss' | 'config/formatter/less' | 'config/formatter/html' | 'config/formatter/xml' | 'config/formatter/svg' | 'config/formatter/markdown' | 'config/formatter/astro' | 'config/formatter/astro/disables' | 'config/formatter/graphql' | 'config/disables/scripts' | 'config/disables/cli' | 'config/disables/bin' | 'config/disables/dts' | 'config/disables/cjs' | 'config/disables/config-files'

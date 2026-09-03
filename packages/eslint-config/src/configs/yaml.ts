@@ -59,6 +59,7 @@ export async function yaml(
               'yaml/flow-sequence-bracket-spacing': 'error',
               'yaml/indent': ['error', typeof indent === 'number' ? indent : 2],
               'yaml/key-spacing': 'error',
+              'yaml/no-multiple-empty-lines': ['error', { max: 1, maxBOF: 0, maxEOF: 0 }],
               'yaml/no-tab-indent': 'error',
               'yaml/quotes': ['error', { avoidEscape: true, prefer: quotes === 'backtick' ? 'single' : quotes }],
               'yaml/spaced-comment': 'error',
