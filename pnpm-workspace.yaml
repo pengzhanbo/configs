@@ -44,7 +44,7 @@ catalogs:
     simple-git-hooks: ^2.14.0
     svelte: ^5.57.0
     tinyglobby: ^0.2.17
-    tsdown: ^0.22.14
+    tsdown: ^0.23.0
     tsx: ^4.23.13
     typescript: 6.0.3
     vitest: ^4.1.11
