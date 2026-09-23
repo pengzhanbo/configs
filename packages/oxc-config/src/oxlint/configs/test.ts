@@ -111,6 +111,14 @@ export function test({ rules }: TestOptions = {}): OxlintConfig {
           ...rules,
         },
       },
+      {
+        // Benchmarks measure performance instead of asserting / 基准测试只测量性能，不做断言
+        files: ['**/*.{bench,benchmark}.{js,ts,jsx,tsx,cjs,mjs,cts,mts}'],
+        plugins: ['vitest'],
+        rules: {
+          'vitest/expect-expect': 'off',
+        },
+      },
     ],
   }
 }

@@ -1,5 +1,3 @@
-import type { OxlintConfig } from 'oxlint'
-
 export const defaultIgnorePatterns: string[] = [
   '**/logs',
   '**/*.log',
@@ -66,8 +64,6 @@ export const defaultIgnorePatterns: string[] = [
   '**/.*/skills',
 ]
 
-export function ignore(ignorePatterns?: string[]): OxlintConfig {
-  return {
-    ignorePatterns: [...defaultIgnorePatterns, ...(ignorePatterns || [])],
-  }
+export function ignore(ignorePatterns?: string[]): string[] {
+  return [...defaultIgnorePatterns, ...(ignorePatterns || [])]
 }

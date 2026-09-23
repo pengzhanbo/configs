@@ -30,19 +30,15 @@ export function oxlintConfig(options: Options = {}, ...overrides: OxlintOverride
     rules = {},
     extends: userExtends = [],
     overrides: userOverrides = [],
+    options: userOptions = {},
+    categories: userCategories = {},
+    env: userEnv = {},
     ...userConfig
   } = options
 
   const configs: OxlintConfig[] = []
   const userRules = splitRules(rules)
 
-  configs.push({
-    options: { typeAware: ts, typeCheck: ts },
-    categories: { correctness: 'error', pedantic: 'warn', perf: 'warn', restriction: 'warn', suspicious: 'warn' },
-    env: { builtin: true, es2026: true, browser: true, node: true },
-  })
-
-  configs.push(ignore(ignores))
   configs.push(core({ rules: userRules.core }))
   configs.push(importRules({ rules: userRules.import }))
   configs.push(jsdoc({ ts, rules: userRules.jsdoc }))
@@ -79,9 +75,36 @@ export function oxlintConfig(options: Options = {}, ...overrides: OxlintOverride
   configs.push(test({ rules: userRules.vitest }))
 
   return {
-    extends: [...configs, ...userExtends],
-    overrides: [...overrides, ...userOverrides],
+    extends: [
+      ...configs,
+      ...userExtends,
+    ],
+    overrides: [
+      ...overrides,
+      ...userOverrides,
+    ],
     rules: userRules.custom,
+    ignorePatterns: ignore(ignores),
+    options: {
+      typeAware: ts,
+      typeCheck: ts,
+      ...userOptions,
+    },
+    categories: {
+      correctness: 'error',
+      pedantic: 'warn',
+      perf: 'warn',
+      restriction: 'warn',
+      suspicious: 'warn',
+      ...userCategories,
+    },
+    env: {
+      builtin: true,
+      es2026: true,
+      browser: true,
+      node: true,
+      ...userEnv,
+    },
     ...userConfig,
   }
 }
