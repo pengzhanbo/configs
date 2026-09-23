@@ -110,18 +110,6 @@ catalogs:
     eslint-processor-vue-blocks:
       specifier: ^2.0.0
       version: 2.0.0
-    oxfmt:
-      specifier: ^0.66.0
-      version: 0.66.0
-    oxlint:
-      specifier: ^1.81.0
-      version: 1.81.0
-    oxlint-tsgolint:
-      specifier: ^7.0.2001
-      version: 7.0.2001
-    prettier:
-      specifier: ^3.9.6
-      version: 3.9.6
     prettier-plugin-astro:
       specifier: ^0.14.1
       version: 0.14.1
@@ -220,8 +208,8 @@ catalogs:
       specifier: ^1.9.1
       version: 1.9.1
     eslint-plugin-regexp:
-      specifier: ^3.2.0
-      version: 3.2.0
+      specifier: ^3.3.1
+      version: 3.3.1
     eslint-plugin-toml:
       specifier: ^1.5.0
       version: 1.5.0
@@ -399,7 +387,7 @@ importers:
         version: 1.9.1(eslint@10.9.1(jiti@2.7.0)(supports-color@10.2.2))
       eslint-plugin-regexp:
         specifier: catalog:prod
-        version: 3.2.0(eslint@10.9.1(jiti@2.7.0)(supports-color@10.2.2))
+        version: 3.3.1(eslint@10.9.1(jiti@2.7.0)(supports-color@10.2.2))
       eslint-plugin-toml:
         specifier: catalog:prod
         version: 1.5.0(eslint@10.9.1(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)
@@ -694,7 +682,7 @@ importers:
     dependencies:
       eslint-plugin-regexp:
         specifier: catalog:prod
-        version: 3.2.0(eslint@10.9.1(jiti@2.7.0)(supports-color@10.2.2))
+        version: 3.3.1(eslint@10.9.1(jiti@2.7.0)(supports-color@10.2.2))
       oxfmt:
         specifier: catalog:peer
         version: 0.66.0(svelte@5.57.0(@typescript-eslint/types@8.69.0))
@@ -3107,8 +3095,8 @@ packages:
       eslint: ^10.9.1
       typescript: '*'
 
-  eslint-plugin-regexp@3.2.0:
-    resolution: {integrity: sha512-4yq47CnLxyfHFKJEo5kvNaiJ0aDtBxSJWk4M2LiamplUXdWxdlzDYqImb/ZVCp+2BqkQjBAmw4Xc07Q8SXVDZg==}
+  eslint-plugin-regexp@3.3.1:
+    resolution: {integrity: sha512-58bGUci/AaWAo1ETj6Lsnmy6QXwnSyVONRA805828nnqp7vrTwdaQMc02vtowmYB3A5OB3SLr3r5HgmfxX4dLg==}
     engines: {node: ^20.19.0 || ^22.13.0 || >=24}
     peerDependencies:
       eslint: ^10.9.1
@@ -7275,7 +7263,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-plugin-regexp@3.2.0(eslint@10.9.1(jiti@2.7.0)(supports-color@10.2.2)):
+  eslint-plugin-regexp@3.3.1(eslint@10.9.1(jiti@2.7.0)(supports-color@10.2.2)):
     dependencies:
       '@eslint-community/eslint-utils': 4.10.1(eslint@10.9.1(jiti@2.7.0)(supports-color@10.2.2))
       '@eslint-community/regexpp': 4.12.2
