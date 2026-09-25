@@ -373,7 +373,7 @@ catalogs:
       version: 3.4.0
     eslint-plugin-perfectionist:
       specifier: ^5.11.1
-      version: 5.11.1
+      version: 5.12.0
     eslint-plugin-pnpm:
       specifier: ^1.9.1
       version: 1.9.1
@@ -551,7 +551,7 @@ importers:
         version: 3.4.0
       eslint-plugin-perfectionist:
         specifier: catalog:prod
-        version: 5.11.1(eslint@10.11.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+        version: 5.12.0(eslint@10.11.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
       eslint-plugin-pnpm:
         specifier: catalog:prod
         version: 1.9.1(eslint@10.11.0(jiti@2.7.0)(supports-color@10.2.2))
@@ -3359,8 +3359,8 @@ packages:
     resolution: {integrity: sha512-4S3/9Nb7A2tiMcpzEQE9bQSlpeOz6WJkgryBuou/SA8W2x2c8Zf4j0NvTKBjv6qNhF9T79tmkecm/0CHqV0UGg==}
     engines: {node: '>=5.0.0'}
 
-  eslint-plugin-perfectionist@5.11.1:
-    resolution: {integrity: sha512-xloHScnOpin9Jy3CegfzoBeY33ASk0spLyM2sJs0LyNHQjv9m0osUD2PYNT7NrJieZbUR2Ebn4A5Q0+0dOcv+A==}
+  eslint-plugin-perfectionist@5.12.0:
+    resolution: {integrity: sha512-1S1Vgb9b3AIxlJoVMbGKB5PwOCtA0PTvDIiGhIoT9CzZa5aZ6BhgGywIj3ONJ5vrH7gTDjgsLgJ1gPUbDI6UUQ==}
     engines: {node: ^20.0.0 || >=22.0.0}
     peerDependencies:
       eslint: ^10.11.0
@@ -5938,116 +5938,97 @@ snapshots:
   '@oxfmt/binding-android-arm-eabi@0.35.0':
     optional: true
 
-  '@oxfmt/binding-android-arm-eabi@0.70.0':
-    optional: true
+  '@oxfmt/binding-android-arm-eabi@0.70.0': {}
 
   '@oxfmt/binding-android-arm64@0.35.0':
     optional: true
 
-  '@oxfmt/binding-android-arm64@0.70.0':
-    optional: true
+  '@oxfmt/binding-android-arm64@0.70.0': {}
 
   '@oxfmt/binding-darwin-arm64@0.35.0':
     optional: true
 
-  '@oxfmt/binding-darwin-arm64@0.70.0':
-    optional: true
+  '@oxfmt/binding-darwin-arm64@0.70.0': {}
 
   '@oxfmt/binding-darwin-x64@0.35.0':
     optional: true
 
-  '@oxfmt/binding-darwin-x64@0.70.0':
-    optional: true
+  '@oxfmt/binding-darwin-x64@0.70.0': {}
 
   '@oxfmt/binding-freebsd-x64@0.35.0':
     optional: true
 
-  '@oxfmt/binding-freebsd-x64@0.70.0':
-    optional: true
+  '@oxfmt/binding-freebsd-x64@0.70.0': {}
 
   '@oxfmt/binding-linux-arm-gnueabihf@0.35.0':
     optional: true
 
-  '@oxfmt/binding-linux-arm-gnueabihf@0.70.0':
-    optional: true
+  '@oxfmt/binding-linux-arm-gnueabihf@0.70.0': {}
 
   '@oxfmt/binding-linux-arm-musleabihf@0.35.0':
     optional: true
 
-  '@oxfmt/binding-linux-arm-musleabihf@0.70.0':
-    optional: true
+  '@oxfmt/binding-linux-arm-musleabihf@0.70.0': {}
 
   '@oxfmt/binding-linux-arm64-gnu@0.35.0':
     optional: true
 
-  '@oxfmt/binding-linux-arm64-gnu@0.70.0':
-    optional: true
+  '@oxfmt/binding-linux-arm64-gnu@0.70.0': {}
 
   '@oxfmt/binding-linux-arm64-musl@0.35.0':
     optional: true
 
-  '@oxfmt/binding-linux-arm64-musl@0.70.0':
-    optional: true
+  '@oxfmt/binding-linux-arm64-musl@0.70.0': {}
 
   '@oxfmt/binding-linux-ppc64-gnu@0.35.0':
     optional: true
 
-  '@oxfmt/binding-linux-ppc64-gnu@0.70.0':
-    optional: true
+  '@oxfmt/binding-linux-ppc64-gnu@0.70.0': {}
 
   '@oxfmt/binding-linux-riscv64-gnu@0.35.0':
     optional: true
 
-  '@oxfmt/binding-linux-riscv64-gnu@0.70.0':
-    optional: true
+  '@oxfmt/binding-linux-riscv64-gnu@0.70.0': {}
 
   '@oxfmt/binding-linux-riscv64-musl@0.35.0':
     optional: true
 
-  '@oxfmt/binding-linux-riscv64-musl@0.70.0':
-    optional: true
+  '@oxfmt/binding-linux-riscv64-musl@0.70.0': {}
 
   '@oxfmt/binding-linux-s390x-gnu@0.35.0':
     optional: true
 
-  '@oxfmt/binding-linux-s390x-gnu@0.70.0':
-    optional: true
+  '@oxfmt/binding-linux-s390x-gnu@0.70.0': {}
 
   '@oxfmt/binding-linux-x64-gnu@0.35.0':
     optional: true
 
-  '@oxfmt/binding-linux-x64-gnu@0.70.0':
-    optional: true
+  '@oxfmt/binding-linux-x64-gnu@0.70.0': {}
 
   '@oxfmt/binding-linux-x64-musl@0.35.0':
     optional: true
 
-  '@oxfmt/binding-linux-x64-musl@0.70.0':
-    optional: true
+  '@oxfmt/binding-linux-x64-musl@0.70.0': {}
 
   '@oxfmt/binding-openharmony-arm64@0.35.0':
     optional: true
 
-  '@oxfmt/binding-openharmony-arm64@0.70.0':
-    optional: true
+  '@oxfmt/binding-openharmony-arm64@0.70.0': {}
 
   '@oxfmt/binding-win32-arm64-msvc@0.35.0':
     optional: true
 
-  '@oxfmt/binding-win32-arm64-msvc@0.70.0':
-    optional: true
+  '@oxfmt/binding-win32-arm64-msvc@0.70.0': {}
 
   '@oxfmt/binding-win32-ia32-msvc@0.35.0':
     optional: true
 
-  '@oxfmt/binding-win32-ia32-msvc@0.70.0':
-    optional: true
+  '@oxfmt/binding-win32-ia32-msvc@0.70.0': {}
 
   '@oxfmt/binding-win32-x64-msvc@0.35.0':
     optional: true
 
-  '@oxfmt/binding-win32-x64-msvc@0.70.0':
-    optional: true
+  '@oxfmt/binding-win32-x64-msvc@0.70.0': {}
 
   '@oxlint-tsgolint/darwin-arm64@7.0.2002':
     optional: true
@@ -6070,116 +6051,97 @@ snapshots:
   '@oxlint/binding-android-arm-eabi@1.83.0':
     optional: true
 
-  '@oxlint/binding-android-arm-eabi@1.85.0':
-    optional: true
+  '@oxlint/binding-android-arm-eabi@1.85.0': {}
 
   '@oxlint/binding-android-arm64@1.83.0':
     optional: true
 
-  '@oxlint/binding-android-arm64@1.85.0':
-    optional: true
+  '@oxlint/binding-android-arm64@1.85.0': {}
 
   '@oxlint/binding-darwin-arm64@1.83.0':
     optional: true
 
-  '@oxlint/binding-darwin-arm64@1.85.0':
-    optional: true
+  '@oxlint/binding-darwin-arm64@1.85.0': {}
 
   '@oxlint/binding-darwin-x64@1.83.0':
     optional: true
 
-  '@oxlint/binding-darwin-x64@1.85.0':
-    optional: true
+  '@oxlint/binding-darwin-x64@1.85.0': {}
 
   '@oxlint/binding-freebsd-x64@1.83.0':
     optional: true
 
-  '@oxlint/binding-freebsd-x64@1.85.0':
-    optional: true
+  '@oxlint/binding-freebsd-x64@1.85.0': {}
 
   '@oxlint/binding-linux-arm-gnueabihf@1.83.0':
     optional: true
 
-  '@oxlint/binding-linux-arm-gnueabihf@1.85.0':
-    optional: true
+  '@oxlint/binding-linux-arm-gnueabihf@1.85.0': {}
 
   '@oxlint/binding-linux-arm-musleabihf@1.83.0':
     optional: true
 
-  '@oxlint/binding-linux-arm-musleabihf@1.85.0':
-    optional: true
+  '@oxlint/binding-linux-arm-musleabihf@1.85.0': {}
 
   '@oxlint/binding-linux-arm64-gnu@1.83.0':
     optional: true
 
-  '@oxlint/binding-linux-arm64-gnu@1.85.0':
-    optional: true
+  '@oxlint/binding-linux-arm64-gnu@1.85.0': {}
 
   '@oxlint/binding-linux-arm64-musl@1.83.0':
     optional: true
 
-  '@oxlint/binding-linux-arm64-musl@1.85.0':
-    optional: true
+  '@oxlint/binding-linux-arm64-musl@1.85.0': {}
 
   '@oxlint/binding-linux-ppc64-gnu@1.83.0':
     optional: true
 
-  '@oxlint/binding-linux-ppc64-gnu@1.85.0':
-    optional: true
+  '@oxlint/binding-linux-ppc64-gnu@1.85.0': {}
 
   '@oxlint/binding-linux-riscv64-gnu@1.83.0':
     optional: true
 
-  '@oxlint/binding-linux-riscv64-gnu@1.85.0':
-    optional: true
+  '@oxlint/binding-linux-riscv64-gnu@1.85.0': {}
 
   '@oxlint/binding-linux-riscv64-musl@1.83.0':
     optional: true
 
-  '@oxlint/binding-linux-riscv64-musl@1.85.0':
-    optional: true
+  '@oxlint/binding-linux-riscv64-musl@1.85.0': {}
 
   '@oxlint/binding-linux-s390x-gnu@1.83.0':
     optional: true
 
-  '@oxlint/binding-linux-s390x-gnu@1.85.0':
-    optional: true
+  '@oxlint/binding-linux-s390x-gnu@1.85.0': {}
 
   '@oxlint/binding-linux-x64-gnu@1.83.0':
     optional: true
 
-  '@oxlint/binding-linux-x64-gnu@1.85.0':
-    optional: true
+  '@oxlint/binding-linux-x64-gnu@1.85.0': {}
 
   '@oxlint/binding-linux-x64-musl@1.83.0':
     optional: true
 
-  '@oxlint/binding-linux-x64-musl@1.85.0':
-    optional: true
+  '@oxlint/binding-linux-x64-musl@1.85.0': {}
 
   '@oxlint/binding-openharmony-arm64@1.83.0':
     optional: true
 
-  '@oxlint/binding-openharmony-arm64@1.85.0':
-    optional: true
+  '@oxlint/binding-openharmony-arm64@1.85.0': {}
 
   '@oxlint/binding-win32-arm64-msvc@1.83.0':
     optional: true
 
-  '@oxlint/binding-win32-arm64-msvc@1.85.0':
-    optional: true
+  '@oxlint/binding-win32-arm64-msvc@1.85.0': {}
 
   '@oxlint/binding-win32-ia32-msvc@1.83.0':
     optional: true
 
-  '@oxlint/binding-win32-ia32-msvc@1.85.0':
-    optional: true
+  '@oxlint/binding-win32-ia32-msvc@1.85.0': {}
 
   '@oxlint/binding-win32-x64-msvc@1.83.0':
     optional: true
 
-  '@oxlint/binding-win32-x64-msvc@1.85.0':
-    optional: true
+  '@oxlint/binding-win32-x64-msvc@1.85.0': {}
 
   '@parcel/watcher-android-arm64@2.6.0':
     optional: true
@@ -6444,7 +6406,7 @@ snapshots:
 
   '@typescript-eslint/project-service@8.70.0(supports-color@10.2.2)(typescript@6.0.3)':
     dependencies:
-      '@typescript-eslint/tsconfig-utils': 8.70.0(typescript@6.0.3)
+      '@typescript-eslint/tsconfig-utils': 8.70.1(typescript@6.0.3)
       '@typescript-eslint/types': 8.70.1
       debug: 4.4.3(supports-color@10.2.2)
       typescript: 6.0.3
@@ -6555,65 +6517,45 @@ snapshots:
       '@typescript-eslint/types': 8.70.1
       eslint-visitor-keys: 5.0.1
 
-  '@typescript/typescript-aix-ppc64@7.0.2':
-    optional: true
+  '@typescript/typescript-aix-ppc64@7.0.2': {}
 
-  '@typescript/typescript-darwin-arm64@7.0.2':
-    optional: true
+  '@typescript/typescript-darwin-arm64@7.0.2': {}
 
-  '@typescript/typescript-darwin-x64@7.0.2':
-    optional: true
+  '@typescript/typescript-darwin-x64@7.0.2': {}
 
-  '@typescript/typescript-freebsd-arm64@7.0.2':
-    optional: true
+  '@typescript/typescript-freebsd-arm64@7.0.2': {}
 
-  '@typescript/typescript-freebsd-x64@7.0.2':
-    optional: true
+  '@typescript/typescript-freebsd-x64@7.0.2': {}
 
-  '@typescript/typescript-linux-arm64@7.0.2':
-    optional: true
+  '@typescript/typescript-linux-arm64@7.0.2': {}
 
-  '@typescript/typescript-linux-arm@7.0.2':
-    optional: true
+  '@typescript/typescript-linux-arm@7.0.2': {}
 
-  '@typescript/typescript-linux-loong64@7.0.2':
-    optional: true
+  '@typescript/typescript-linux-loong64@7.0.2': {}
 
-  '@typescript/typescript-linux-mips64el@7.0.2':
-    optional: true
+  '@typescript/typescript-linux-mips64el@7.0.2': {}
 
-  '@typescript/typescript-linux-ppc64@7.0.2':
-    optional: true
+  '@typescript/typescript-linux-ppc64@7.0.2': {}
 
-  '@typescript/typescript-linux-riscv64@7.0.2':
-    optional: true
+  '@typescript/typescript-linux-riscv64@7.0.2': {}
 
-  '@typescript/typescript-linux-s390x@7.0.2':
-    optional: true
+  '@typescript/typescript-linux-s390x@7.0.2': {}
 
-  '@typescript/typescript-linux-x64@7.0.2':
-    optional: true
+  '@typescript/typescript-linux-x64@7.0.2': {}
 
-  '@typescript/typescript-netbsd-arm64@7.0.2':
-    optional: true
+  '@typescript/typescript-netbsd-arm64@7.0.2': {}
 
-  '@typescript/typescript-netbsd-x64@7.0.2':
-    optional: true
+  '@typescript/typescript-netbsd-x64@7.0.2': {}
 
-  '@typescript/typescript-openbsd-arm64@7.0.2':
-    optional: true
+  '@typescript/typescript-openbsd-arm64@7.0.2': {}
 
-  '@typescript/typescript-openbsd-x64@7.0.2':
-    optional: true
+  '@typescript/typescript-openbsd-x64@7.0.2': {}
 
-  '@typescript/typescript-sunos-x64@7.0.2':
-    optional: true
+  '@typescript/typescript-sunos-x64@7.0.2': {}
 
-  '@typescript/typescript-win32-arm64@7.0.2':
-    optional: true
+  '@typescript/typescript-win32-arm64@7.0.2': {}
 
-  '@typescript/typescript-win32-x64@7.0.2':
-    optional: true
+  '@typescript/typescript-win32-x64@7.0.2': {}
 
   '@unocss/config@66.10.5':
     dependencies:
@@ -7486,8 +7428,9 @@ snapshots:
 
   eslint-plugin-no-only-tests@3.4.0: {}
 
-  eslint-plugin-perfectionist@5.11.1(eslint@10.11.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3):
+  eslint-plugin-perfectionist@5.12.0(eslint@10.11.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3):
     dependencies:
+      '@typescript-eslint/types': 8.70.1
       '@typescript-eslint/utils': 8.70.1(eslint@10.11.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
       eslint: 10.11.0(jiti@2.7.0)(supports-color@10.2.2)
       natural-orderby: 5.0.0
