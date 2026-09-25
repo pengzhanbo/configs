@@ -190,7 +190,7 @@ catalogs:
       version: 1.0.2
     sass:
       specifier: ^1.104.1
-      version: 1.104.1
+      version: 1.105.0
     simple-git-hooks:
       specifier: ^2.14.0
       version: 2.14.0
@@ -464,7 +464,7 @@ importers:
         version: 1.0.2
       sass:
         specifier: catalog:dev
-        version: 1.104.1
+        version: 1.105.0
       simple-git-hooks:
         specifier: catalog:dev
         version: 2.14.0
@@ -485,7 +485,7 @@ importers:
         version: 6.0.3
       vitest:
         specifier: catalog:dev
-        version: 5.0.1(@types/node@26.6.2)(vite@8.3.0(@types/node@26.6.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.104.1)(tsx@4.23.15)(yaml@2.9.1))
+        version: 5.0.1(@types/node@26.6.2)(vite@8.3.0(@types/node@26.6.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.105.0)(tsx@4.23.15)(yaml@2.9.1))
 
   packages/eslint-config:
     dependencies:
@@ -512,7 +512,7 @@ importers:
         version: 8.70.1(eslint@10.11.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
       '@vitest/eslint-plugin':
         specifier: catalog:prod
-        version: 1.6.27(@typescript-eslint/eslint-plugin@8.70.1(@typescript-eslint/parser@8.70.1(eslint@10.11.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3))(eslint@10.11.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3))(eslint@10.11.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)(vitest@5.0.1(@types/node@26.6.2)(vite@8.3.0(@types/node@26.6.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.104.1)(tsx@4.23.15)(yaml@2.9.1)))
+        version: 1.6.27(@typescript-eslint/eslint-plugin@8.70.1(@typescript-eslint/parser@8.70.1(eslint@10.11.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3))(eslint@10.11.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3))(eslint@10.11.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)(vitest@5.0.1(@types/node@26.6.2)(vite@8.3.0(@types/node@26.6.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.105.0)(tsx@4.23.15)(yaml@2.9.1)))
       eslint-config-flat-gitignore:
         specifier: catalog:prod
         version: 2.4.0(eslint@10.11.0(jiti@2.7.0)(supports-color@10.2.2))
@@ -4772,8 +4772,8 @@ packages:
     resolution: {integrity: sha512-Nf4eMGE2O5vnJG7KPCRyksWS9gVKSYoUWtPeMXRRxwZSPVQhSGtL602xVYS65LvMkHmkvKa7xpauF0+/5pPwrg==}
     hasBin: true
 
-  sass@1.104.1:
-    resolution: {integrity: sha512-yDA+1aIG3EHgN4V/BvuhCvu61FF6hEd4e+9DxikUm9U0CAGuvdIZ/UYy7qbOxjhbbWQraoyLlMuzdRGOSV5Bmw==}
+  sass@1.105.0:
+    resolution: {integrity: sha512-4EjSuRTyG8M4yRXXY1PT9OUV5zz23xBxJkbIAprohKHqf6HOU4MCpE3U3vAC+iO1gxobBjESNbcj8rYAQZWnyA==}
     engines: {node: '>=20.19.0'}
     hasBin: true
 
@@ -5938,116 +5938,97 @@ snapshots:
   '@oxfmt/binding-android-arm-eabi@0.35.0':
     optional: true
 
-  '@oxfmt/binding-android-arm-eabi@0.70.0':
-    optional: true
+  '@oxfmt/binding-android-arm-eabi@0.70.0': {}
 
   '@oxfmt/binding-android-arm64@0.35.0':
     optional: true
 
-  '@oxfmt/binding-android-arm64@0.70.0':
-    optional: true
+  '@oxfmt/binding-android-arm64@0.70.0': {}
 
   '@oxfmt/binding-darwin-arm64@0.35.0':
     optional: true
 
-  '@oxfmt/binding-darwin-arm64@0.70.0':
-    optional: true
+  '@oxfmt/binding-darwin-arm64@0.70.0': {}
 
   '@oxfmt/binding-darwin-x64@0.35.0':
     optional: true
 
-  '@oxfmt/binding-darwin-x64@0.70.0':
-    optional: true
+  '@oxfmt/binding-darwin-x64@0.70.0': {}
 
   '@oxfmt/binding-freebsd-x64@0.35.0':
     optional: true
 
-  '@oxfmt/binding-freebsd-x64@0.70.0':
-    optional: true
+  '@oxfmt/binding-freebsd-x64@0.70.0': {}
 
   '@oxfmt/binding-linux-arm-gnueabihf@0.35.0':
     optional: true
 
-  '@oxfmt/binding-linux-arm-gnueabihf@0.70.0':
-    optional: true
+  '@oxfmt/binding-linux-arm-gnueabihf@0.70.0': {}
 
   '@oxfmt/binding-linux-arm-musleabihf@0.35.0':
     optional: true
 
-  '@oxfmt/binding-linux-arm-musleabihf@0.70.0':
-    optional: true
+  '@oxfmt/binding-linux-arm-musleabihf@0.70.0': {}
 
   '@oxfmt/binding-linux-arm64-gnu@0.35.0':
     optional: true
 
-  '@oxfmt/binding-linux-arm64-gnu@0.70.0':
-    optional: true
+  '@oxfmt/binding-linux-arm64-gnu@0.70.0': {}
 
   '@oxfmt/binding-linux-arm64-musl@0.35.0':
     optional: true
 
-  '@oxfmt/binding-linux-arm64-musl@0.70.0':
-    optional: true
+  '@oxfmt/binding-linux-arm64-musl@0.70.0': {}
 
   '@oxfmt/binding-linux-ppc64-gnu@0.35.0':
     optional: true
 
-  '@oxfmt/binding-linux-ppc64-gnu@0.70.0':
-    optional: true
+  '@oxfmt/binding-linux-ppc64-gnu@0.70.0': {}
 
   '@oxfmt/binding-linux-riscv64-gnu@0.35.0':
     optional: true
 
-  '@oxfmt/binding-linux-riscv64-gnu@0.70.0':
-    optional: true
+  '@oxfmt/binding-linux-riscv64-gnu@0.70.0': {}
 
   '@oxfmt/binding-linux-riscv64-musl@0.35.0':
     optional: true
 
-  '@oxfmt/binding-linux-riscv64-musl@0.70.0':
-    optional: true
+  '@oxfmt/binding-linux-riscv64-musl@0.70.0': {}
 
   '@oxfmt/binding-linux-s390x-gnu@0.35.0':
     optional: true
 
-  '@oxfmt/binding-linux-s390x-gnu@0.70.0':
-    optional: true
+  '@oxfmt/binding-linux-s390x-gnu@0.70.0': {}
 
   '@oxfmt/binding-linux-x64-gnu@0.35.0':
     optional: true
 
-  '@oxfmt/binding-linux-x64-gnu@0.70.0':
-    optional: true
+  '@oxfmt/binding-linux-x64-gnu@0.70.0': {}
 
   '@oxfmt/binding-linux-x64-musl@0.35.0':
     optional: true
 
-  '@oxfmt/binding-linux-x64-musl@0.70.0':
-    optional: true
+  '@oxfmt/binding-linux-x64-musl@0.70.0': {}
 
   '@oxfmt/binding-openharmony-arm64@0.35.0':
     optional: true
 
-  '@oxfmt/binding-openharmony-arm64@0.70.0':
-    optional: true
+  '@oxfmt/binding-openharmony-arm64@0.70.0': {}
 
   '@oxfmt/binding-win32-arm64-msvc@0.35.0':
     optional: true
 
-  '@oxfmt/binding-win32-arm64-msvc@0.70.0':
-    optional: true
+  '@oxfmt/binding-win32-arm64-msvc@0.70.0': {}
 
   '@oxfmt/binding-win32-ia32-msvc@0.35.0':
     optional: true
 
-  '@oxfmt/binding-win32-ia32-msvc@0.70.0':
-    optional: true
+  '@oxfmt/binding-win32-ia32-msvc@0.70.0': {}
 
   '@oxfmt/binding-win32-x64-msvc@0.35.0':
     optional: true
 
-  '@oxfmt/binding-win32-x64-msvc@0.70.0':
-    optional: true
+  '@oxfmt/binding-win32-x64-msvc@0.70.0': {}
 
   '@oxlint-tsgolint/darwin-arm64@7.0.2002':
     optional: true
@@ -6070,116 +6051,97 @@ snapshots:
   '@oxlint/binding-android-arm-eabi@1.83.0':
     optional: true
 
-  '@oxlint/binding-android-arm-eabi@1.85.0':
-    optional: true
+  '@oxlint/binding-android-arm-eabi@1.85.0': {}
 
   '@oxlint/binding-android-arm64@1.83.0':
     optional: true
 
-  '@oxlint/binding-android-arm64@1.85.0':
-    optional: true
+  '@oxlint/binding-android-arm64@1.85.0': {}
 
   '@oxlint/binding-darwin-arm64@1.83.0':
     optional: true
 
-  '@oxlint/binding-darwin-arm64@1.85.0':
-    optional: true
+  '@oxlint/binding-darwin-arm64@1.85.0': {}
 
   '@oxlint/binding-darwin-x64@1.83.0':
     optional: true
 
-  '@oxlint/binding-darwin-x64@1.85.0':
-    optional: true
+  '@oxlint/binding-darwin-x64@1.85.0': {}
 
   '@oxlint/binding-freebsd-x64@1.83.0':
     optional: true
 
-  '@oxlint/binding-freebsd-x64@1.85.0':
-    optional: true
+  '@oxlint/binding-freebsd-x64@1.85.0': {}
 
   '@oxlint/binding-linux-arm-gnueabihf@1.83.0':
     optional: true
 
-  '@oxlint/binding-linux-arm-gnueabihf@1.85.0':
-    optional: true
+  '@oxlint/binding-linux-arm-gnueabihf@1.85.0': {}
 
   '@oxlint/binding-linux-arm-musleabihf@1.83.0':
     optional: true
 
-  '@oxlint/binding-linux-arm-musleabihf@1.85.0':
-    optional: true
+  '@oxlint/binding-linux-arm-musleabihf@1.85.0': {}
 
   '@oxlint/binding-linux-arm64-gnu@1.83.0':
     optional: true
 
-  '@oxlint/binding-linux-arm64-gnu@1.85.0':
-    optional: true
+  '@oxlint/binding-linux-arm64-gnu@1.85.0': {}
 
   '@oxlint/binding-linux-arm64-musl@1.83.0':
     optional: true
 
-  '@oxlint/binding-linux-arm64-musl@1.85.0':
-    optional: true
+  '@oxlint/binding-linux-arm64-musl@1.85.0': {}
 
   '@oxlint/binding-linux-ppc64-gnu@1.83.0':
     optional: true
 
-  '@oxlint/binding-linux-ppc64-gnu@1.85.0':
-    optional: true
+  '@oxlint/binding-linux-ppc64-gnu@1.85.0': {}
 
   '@oxlint/binding-linux-riscv64-gnu@1.83.0':
     optional: true
 
-  '@oxlint/binding-linux-riscv64-gnu@1.85.0':
-    optional: true
+  '@oxlint/binding-linux-riscv64-gnu@1.85.0': {}
 
   '@oxlint/binding-linux-riscv64-musl@1.83.0':
     optional: true
 
-  '@oxlint/binding-linux-riscv64-musl@1.85.0':
-    optional: true
+  '@oxlint/binding-linux-riscv64-musl@1.85.0': {}
 
   '@oxlint/binding-linux-s390x-gnu@1.83.0':
     optional: true
 
-  '@oxlint/binding-linux-s390x-gnu@1.85.0':
-    optional: true
+  '@oxlint/binding-linux-s390x-gnu@1.85.0': {}
 
   '@oxlint/binding-linux-x64-gnu@1.83.0':
     optional: true
 
-  '@oxlint/binding-linux-x64-gnu@1.85.0':
-    optional: true
+  '@oxlint/binding-linux-x64-gnu@1.85.0': {}
 
   '@oxlint/binding-linux-x64-musl@1.83.0':
     optional: true
 
-  '@oxlint/binding-linux-x64-musl@1.85.0':
-    optional: true
+  '@oxlint/binding-linux-x64-musl@1.85.0': {}
 
   '@oxlint/binding-openharmony-arm64@1.83.0':
     optional: true
 
-  '@oxlint/binding-openharmony-arm64@1.85.0':
-    optional: true
+  '@oxlint/binding-openharmony-arm64@1.85.0': {}
 
   '@oxlint/binding-win32-arm64-msvc@1.83.0':
     optional: true
 
-  '@oxlint/binding-win32-arm64-msvc@1.85.0':
-    optional: true
+  '@oxlint/binding-win32-arm64-msvc@1.85.0': {}
 
   '@oxlint/binding-win32-ia32-msvc@1.83.0':
     optional: true
 
-  '@oxlint/binding-win32-ia32-msvc@1.85.0':
-    optional: true
+  '@oxlint/binding-win32-ia32-msvc@1.85.0': {}
 
   '@oxlint/binding-win32-x64-msvc@1.83.0':
     optional: true
 
-  '@oxlint/binding-win32-x64-msvc@1.85.0':
-    optional: true
+  '@oxlint/binding-win32-x64-msvc@1.85.0': {}
 
   '@parcel/watcher-android-arm64@2.6.0':
     optional: true
@@ -6444,7 +6406,7 @@ snapshots:
 
   '@typescript-eslint/project-service@8.70.0(supports-color@10.2.2)(typescript@6.0.3)':
     dependencies:
-      '@typescript-eslint/tsconfig-utils': 8.70.0(typescript@6.0.3)
+      '@typescript-eslint/tsconfig-utils': 8.70.1(typescript@6.0.3)
       '@typescript-eslint/types': 8.70.1
       debug: 4.4.3(supports-color@10.2.2)
       typescript: 6.0.3
@@ -6555,65 +6517,45 @@ snapshots:
       '@typescript-eslint/types': 8.70.1
       eslint-visitor-keys: 5.0.1
 
-  '@typescript/typescript-aix-ppc64@7.0.2':
-    optional: true
+  '@typescript/typescript-aix-ppc64@7.0.2': {}
 
-  '@typescript/typescript-darwin-arm64@7.0.2':
-    optional: true
+  '@typescript/typescript-darwin-arm64@7.0.2': {}
 
-  '@typescript/typescript-darwin-x64@7.0.2':
-    optional: true
+  '@typescript/typescript-darwin-x64@7.0.2': {}
 
-  '@typescript/typescript-freebsd-arm64@7.0.2':
-    optional: true
+  '@typescript/typescript-freebsd-arm64@7.0.2': {}
 
-  '@typescript/typescript-freebsd-x64@7.0.2':
-    optional: true
+  '@typescript/typescript-freebsd-x64@7.0.2': {}
 
-  '@typescript/typescript-linux-arm64@7.0.2':
-    optional: true
+  '@typescript/typescript-linux-arm64@7.0.2': {}
 
-  '@typescript/typescript-linux-arm@7.0.2':
-    optional: true
+  '@typescript/typescript-linux-arm@7.0.2': {}
 
-  '@typescript/typescript-linux-loong64@7.0.2':
-    optional: true
+  '@typescript/typescript-linux-loong64@7.0.2': {}
 
-  '@typescript/typescript-linux-mips64el@7.0.2':
-    optional: true
+  '@typescript/typescript-linux-mips64el@7.0.2': {}
 
-  '@typescript/typescript-linux-ppc64@7.0.2':
-    optional: true
+  '@typescript/typescript-linux-ppc64@7.0.2': {}
 
-  '@typescript/typescript-linux-riscv64@7.0.2':
-    optional: true
+  '@typescript/typescript-linux-riscv64@7.0.2': {}
 
-  '@typescript/typescript-linux-s390x@7.0.2':
-    optional: true
+  '@typescript/typescript-linux-s390x@7.0.2': {}
 
-  '@typescript/typescript-linux-x64@7.0.2':
-    optional: true
+  '@typescript/typescript-linux-x64@7.0.2': {}
 
-  '@typescript/typescript-netbsd-arm64@7.0.2':
-    optional: true
+  '@typescript/typescript-netbsd-arm64@7.0.2': {}
 
-  '@typescript/typescript-netbsd-x64@7.0.2':
-    optional: true
+  '@typescript/typescript-netbsd-x64@7.0.2': {}
 
-  '@typescript/typescript-openbsd-arm64@7.0.2':
-    optional: true
+  '@typescript/typescript-openbsd-arm64@7.0.2': {}
 
-  '@typescript/typescript-openbsd-x64@7.0.2':
-    optional: true
+  '@typescript/typescript-openbsd-x64@7.0.2': {}
 
-  '@typescript/typescript-sunos-x64@7.0.2':
-    optional: true
+  '@typescript/typescript-sunos-x64@7.0.2': {}
 
-  '@typescript/typescript-win32-arm64@7.0.2':
-    optional: true
+  '@typescript/typescript-win32-arm64@7.0.2': {}
 
-  '@typescript/typescript-win32-x64@7.0.2':
-    optional: true
+  '@typescript/typescript-win32-x64@7.0.2': {}
 
   '@unocss/config@66.10.5':
     dependencies:
@@ -6642,7 +6584,7 @@ snapshots:
       '@unocss/core': 66.10.5
       magic-string: 1.4.1
 
-  '@vitest/eslint-plugin@1.6.27(@typescript-eslint/eslint-plugin@8.70.1(@typescript-eslint/parser@8.70.1(eslint@10.11.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3))(eslint@10.11.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3))(eslint@10.11.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)(vitest@5.0.1(@types/node@26.6.2)(vite@8.3.0(@types/node@26.6.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.104.1)(tsx@4.23.15)(yaml@2.9.1)))':
+  '@vitest/eslint-plugin@1.6.27(@typescript-eslint/eslint-plugin@8.70.1(@typescript-eslint/parser@8.70.1(eslint@10.11.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3))(eslint@10.11.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3))(eslint@10.11.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)(vitest@5.0.1(@types/node@26.6.2)(vite@8.3.0(@types/node@26.6.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.105.0)(tsx@4.23.15)(yaml@2.9.1)))':
     dependencies:
       '@typescript-eslint/scope-manager': 8.70.0
       '@typescript-eslint/utils': 8.70.1(eslint@10.11.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
@@ -6650,18 +6592,18 @@ snapshots:
     optionalDependencies:
       '@typescript-eslint/eslint-plugin': 8.70.1(@typescript-eslint/parser@8.70.1(eslint@10.11.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3))(eslint@10.11.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
       typescript: 6.0.3
-      vitest: 5.0.1(@types/node@26.6.2)(vite@8.3.0(@types/node@26.6.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.104.1)(tsx@4.23.15)(yaml@2.9.1))
+      vitest: 5.0.1(@types/node@26.6.2)(vite@8.3.0(@types/node@26.6.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.105.0)(tsx@4.23.15)(yaml@2.9.1))
     transitivePeerDependencies:
       - supports-color
 
-  '@vitest/mocker@5.0.1(vite@8.3.0(@types/node@26.6.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.104.1)(tsx@4.23.15)(yaml@2.9.1))':
+  '@vitest/mocker@5.0.1(vite@8.3.0(@types/node@26.6.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.105.0)(tsx@4.23.15)(yaml@2.9.1))':
     dependencies:
       '@jridgewell/trace-mapping': 0.3.31
       '@vitest/spy': 5.0.1
       estree-walker: 3.0.3
       magic-string: 1.4.1
     optionalDependencies:
-      vite: 8.3.0(@types/node@26.6.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.104.1)(tsx@4.23.15)(yaml@2.9.1)
+      vite: 8.3.0(@types/node@26.6.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.105.0)(tsx@4.23.15)(yaml@2.9.1)
 
   '@vitest/spy@5.0.1': {}
 
@@ -9229,7 +9171,7 @@ snapshots:
     dependencies:
       suf-log: 2.5.3
 
-  sass@1.104.1:
+  sass@1.105.0:
     dependencies:
       chokidar: 5.0.0
       immutable: 5.1.9
@@ -9759,7 +9701,7 @@ snapshots:
 
   verkit@0.4.1: {}
 
-  vite@8.3.0(@types/node@26.6.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.104.1)(tsx@4.23.15)(yaml@2.9.1):
+  vite@8.3.0(@types/node@26.6.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.105.0)(tsx@4.23.15)(yaml@2.9.1):
     dependencies:
       lightningcss: 1.33.0
       picomatch: 4.0.7
@@ -9771,14 +9713,14 @@ snapshots:
       esbuild: 0.28.2
       fsevents: 2.3.3
       jiti: 2.7.0
-      sass: 1.104.1
+      sass: 1.105.0
       tsx: 4.23.15
       yaml: 2.9.1
 
-  vitest@5.0.1(@types/node@26.6.2)(vite@8.3.0(@types/node@26.6.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.104.1)(tsx@4.23.15)(yaml@2.9.1)):
+  vitest@5.0.1(@types/node@26.6.2)(vite@8.3.0(@types/node@26.6.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.105.0)(tsx@4.23.15)(yaml@2.9.1)):
     dependencies:
       '@types/chai': 5.2.3
-      '@vitest/mocker': 5.0.1(vite@8.3.0(@types/node@26.6.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.104.1)(tsx@4.23.15)(yaml@2.9.1))
+      '@vitest/mocker': 5.0.1(vite@8.3.0(@types/node@26.6.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.105.0)(tsx@4.23.15)(yaml@2.9.1))
       chai: 6.2.2
       es-module-lexer: 2.3.2
       expect-type: 1.4.0
@@ -9789,7 +9731,7 @@ snapshots:
       tinybench: 6.1.4
       tinyexec: 1.3.0
       tinyglobby: 0.2.17
-      vite: 8.3.0(@types/node@26.6.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.104.1)(tsx@4.23.15)(yaml@2.9.1)
+      vite: 8.3.0(@types/node@26.6.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.105.0)(tsx@4.23.15)(yaml@2.9.1)
       why-is-node-running: 2.3.0
     optionalDependencies:
       '@types/node': 26.6.2
