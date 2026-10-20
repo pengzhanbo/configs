@@ -135,6 +135,7 @@ const suspiciousRules = defineRules({
   'typescript/no-unnecessary-type-parameters': 'off',
   'typescript/no-unsafe-enum-comparison': 'off',
   'typescript/no-unsafe-type-assertion': 'off',
+  'typescript/no-generated-empty-object-type': 'off',
 })
 
 const nurseryRules = defineRules({
