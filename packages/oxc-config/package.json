@@ -31,7 +31,8 @@
   },
   "scripts": {
     "build": "tsdown",
-    "stub": "tsdown"
+    "stub": "tsdown",
+    "check": "tsx scripts/oxlint-rules-check.ts"
   },
   "peerDependencies": {
     "oxfmt": "catalog:peer",
