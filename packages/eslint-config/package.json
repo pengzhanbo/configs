@@ -22,9 +22,9 @@
     "dist"
   ],
   "scripts": {
-    "dev": "tsdown --watch & npx @eslint/config-inspector",
+    "dev": "tsdown --watch & npx @eslint/config-inspector --config inspector-eslint.config.js",
     "build": "pnpm typegen && tsdown",
-    "build:inspector": "pnpm build && npx @eslint/config-inspector build",
+    "build:inspector": "pnpm build && npx @eslint/config-inspector build --config inspector-eslint.config.js",
     "stub": "tsdown --no-minify",
     "typegen": "tsx scripts/typegen.ts"
   },
