@@ -14,9 +14,7 @@ import { core, importRules, jsdoc, jsx, node, oxc, promise, react, test, typescr
 const SOURCE_RULES = `https://raw.githubusercontent.com/oxc-project/website/refs/heads/main/.vitepress/data/rules.json`
 
 const ignoreScopes: string[] = [
-  // 当前对于 react 相关规则的配置还不够完善，暂时先忽略
-  'react',
-  'react_perf',
+  // 对以下框架特定规则暂无使用场景，直接忽略
   'nextjs',
   // 以下规则不适用，直接忽略
   'jest',
@@ -83,9 +81,10 @@ function diff(sourceRules: SourceRule[], localRules: Record<string, string>) {
     if (ignoreScopes.includes(rule.scope)) {
       continue
     }
-    if (!localRules[`${rule.scope}/${rule.value}`]) {
-      results[rule.scope] ??= []
-      results[rule.scope].push(rule)
+    const scope = rule.scope.replaceAll('_', '-')
+    if (!localRules[`${scope}/${rule.value}`]) {
+      results[scope] ??= []
+      results[scope].push(rule)
     }
   }
   return results
@@ -113,11 +112,12 @@ async function main() {
   const localRules = getLocalRules()
   const results = diff(sourceRules, localRules)
   for (const [scope, rules] of Object.entries(results)) {
-    console.log(`scope: ${scope} (${rules.length}) rules not found`)
+    console.log(`scope: ${scope} (${rules.length})`)
     for (const rule of rules) {
       console.log(`    ${createClickableLink(rule.value, rule.docs_url)}${
         pad(' ', 48 - rule.value.length)}  |  ${pad(rule.category, 12)}  |  ${rule.version}`)
     }
+    console.log('')
     console.log('')
   }
 }
