@@ -34,13 +34,13 @@ catalogs:
     '@eslint/config-inspector': ^3.5.0
     '@types/eslint-plugin-jsx-a11y': ^6.10.1
     '@types/node': ^26.6.5
-    baseline-browser-mapping: ^2.11.29
+    baseline-browser-mapping: ^2.11.30
     bumpp: ^12.3.0
-    chokidar: ^5.0.0
+    chokidar: ^6.0.0
     eslint-typegen: ^2.3.1
     nano-spawn: ^2.1.0
     nano-staged: ^1.0.2
-    sass: ^1.105.2
+    sass: ^1.106.0
     simple-git-hooks: ^2.14.0
     svelte: ^5.57.2
     tinyglobby: ^0.2.17
@@ -55,11 +55,11 @@ catalogs:
     '@angular-eslint/eslint-plugin-template': ^22.6.0
     '@angular-eslint/template-parser': ^22.6.0
     '@eslint-community/eslint-utils': ^4.10.1
-    '@eslint-react/eslint-plugin': ^5.28.2
+    '@eslint-react/eslint-plugin': ^5.28.4
     '@next/eslint-plugin-next': ^16.4.2
     '@prettier/plugin-xml': ^3.4.2
-    '@typescript-eslint/types': ^8.71.2
-    '@typescript-eslint/utils': ^8.71.2
+    '@typescript-eslint/types': ^8.72.0
+    '@typescript-eslint/utils': ^8.72.0
     '@unocss/eslint-plugin': ^66.11.0
     astro-eslint-parser: ^3.2.0
     eslint: ^10.13.0
@@ -72,8 +72,8 @@ catalogs:
     eslint-plugin-vue: ^10.11.1
     eslint-plugin-vuejs-accessibility: ^2.6.2
     eslint-processor-vue-blocks: ^2.0.0
-    oxfmt: ^0.73.0
-    oxlint: ^1.88.0
+    oxfmt: ^0.74.0
+    oxlint: ^1.89.0
     oxlint-tsgolint: ^7.0.2004
     prettier: ^3.9.10
     prettier-plugin-astro: ^1.1.1
@@ -92,8 +92,8 @@ catalogs:
     '@stylelint-types/stylelint-stylistic': ^5.3.0
     '@stylistic/eslint-plugin': ^5.10.0
     '@stylistic/stylelint-plugin': ^5.3.1
-    '@typescript-eslint/eslint-plugin': ^8.71.2
-    '@typescript-eslint/parser': ^8.71.2
+    '@typescript-eslint/eslint-plugin': ^8.72.0
+    '@typescript-eslint/parser': ^8.72.0
     '@vitest/eslint-plugin': ^1.6.27
     eslint-config-flat-gitignore: ^2.4.0
     eslint-flat-config-utils: ^3.2.0
@@ -102,12 +102,12 @@ catalogs:
     eslint-plugin-command: ^4.0.0
     eslint-plugin-erasable-syntax-only: ^0.7.2
     eslint-plugin-import-lite: ^0.6.0
-    eslint-plugin-jsdoc: ^65.3.15
+    eslint-plugin-jsdoc: ^65.4.0
     eslint-plugin-jsonc: ^3.4.2
     eslint-plugin-jsx-a11y: ^6.10.2
     eslint-plugin-n: ^18.5.0
     eslint-plugin-no-only-tests: ^3.4.0
-    eslint-plugin-perfectionist: ^5.12.1
+    eslint-plugin-perfectionist: ^5.13.0
     eslint-plugin-pnpm: ^1.9.1
     eslint-plugin-regexp: ^3.3.1
     eslint-plugin-toml: ^1.5.0
