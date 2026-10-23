@@ -1,17 +1,17 @@
 /**
  * 检查 oxlint 规则是否完整
  *
- * 通过比对本地规则和源规则，检查是否有缺失的规则
+ * 从本地安装的 oxlint 的 `configuration_schema.json` 中读取全部规则，
+ * 与本地配置中的规则进行比对，检查是否有缺失的规则。
  */
 
 import type { OxlintConfig } from 'oxlint'
 import fs from 'node:fs'
+import { createRequire } from 'node:module'
 import path from 'node:path'
-import process from 'node:process'
-import { parseArgs } from 'node:util'
 import { core, importRules, jsdoc, jsx, node, oxc, promise, react, test, typescript, unicorn, vue } from '../src/oxlint/configs'
 
-const SOURCE_RULES = `https://raw.githubusercontent.com/oxc-project/website/refs/heads/main/.vitepress/data/rules.json`
+const require = createRequire(import.meta.url)
 
 const ignoreScopes: string[] = [
   // 对以下框架特定规则暂无使用场景，直接忽略
@@ -20,27 +20,38 @@ const ignoreScopes: string[] = [
   'jest',
 ]
 
+interface OxlintSchema {
+  definitions: {
+    DummyRuleMap: {
+      properties: Record<string, unknown>
+    }
+  }
+}
+
 interface SourceRule {
   scope: string
   value: string
-  category: string
-  version: string
-  type_aware: boolean
-  fix: string | boolean
-  default: boolean
   docs_url: string
 }
 
-const tempFile = path.resolve(import.meta.dirname, './.temp/rules.json')
+function resolveSchemaFile(): string {
+  // `oxlint/package.json` 在 exports 中导出，可据此定位同一包内的 schema 文件
+  return path.join(path.dirname(require.resolve('oxlint/package.json')), 'configuration_schema.json')
+}
 
-async function getSourceRules(refresh = false): Promise<SourceRule[]> {
-  if (fs.existsSync(tempFile) && !refresh) {
-    return JSON.parse(fs.readFileSync(tempFile, 'utf-8'))
-  }
-  const response = await fetch(SOURCE_RULES)
-  const data = await response.json()
-  fs.writeFileSync(tempFile, JSON.stringify(data))
-  return data as SourceRule[]
+function getSourceRules(): SourceRule[] {
+  const schema: OxlintSchema = JSON.parse(fs.readFileSync(resolveSchemaFile(), 'utf-8'))
+  return Object.keys(schema.definitions.DummyRuleMap.properties).map((name) => {
+    const index = name.indexOf('/')
+    const scope = index === -1 ? 'eslint' : name.slice(0, index)
+    const value = index === -1 ? name : name.slice(index + 1)
+
+    return {
+      scope,
+      value,
+      docs_url: `https://oxc.rs/docs/guide/usage/linter/rules/${scope}/${value}.html`,
+    }
+  })
 }
 
 function patternRules(config: OxlintConfig): Record<string, string> {
@@ -95,31 +106,23 @@ function createClickableLink(text: string, url: string): string {
   return `\x1B]8;;${url}\x07${text}\x1B]8;;\x07`
 }
 
-function pad(text: string, length: number): string {
-  return text.padEnd(length, ' ')
-}
-
-async function main() {
-  const { values } = parseArgs({
-    argv: process.argv.slice(2),
-    options: { refresh: { type: 'boolean', default: false } },
-  })
-
-  const refresh = values.refresh
-
-  console.log('Checking rules...', refresh ? 'with refresh' : '')
-  const sourceRules = await getSourceRules(refresh)
+function main() {
+  console.log('Checking rules...')
+  const sourceRules = getSourceRules()
   const localRules = getLocalRules()
   const results = diff(sourceRules, localRules)
+
   for (const [scope, rules] of Object.entries(results)) {
     console.log(`scope: ${scope} (${rules.length})`)
     for (const rule of rules) {
-      console.log(`    ${createClickableLink(rule.value, rule.docs_url)}${
-        pad(' ', 48 - rule.value.length)}  |  ${pad(rule.category, 12)}  |  ${rule.version}`)
+      console.log(`    ${createClickableLink(rule.value, rule.docs_url)}`)
     }
     console.log('')
-    console.log('')
+  }
+
+  if (Object.keys(results).length === 0) {
+    console.log('All rules are covered.')
   }
 }
 
-main().catch(console.error)
+main()
