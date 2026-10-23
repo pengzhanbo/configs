@@ -18,7 +18,7 @@ export function vue({ rules }: VueOptions = {}): OxlintConfig {
       'vue/no-deprecated-model-definition': 'error',
       'vue/no-deprecated-props-default-this': 'error',
       'vue/no-deprecated-vue-config-keycodes': 'error',
-      'vue/no-dupe-keys': 'off',
+      'vue/no-dupe-keys': 'error',
       'vue/no-export-in-script-setup': 'error',
       'vue/no-expose-after-await': 'error',
       'vue/no-lifecycle-after-await': 'error',
@@ -56,5 +56,14 @@ export function vue({ rules }: VueOptions = {}): OxlintConfig {
       'vue/require-typed-ref': 'off',
       ...rules,
     },
+    overrides: [
+      {
+        plugins: ['import'],
+        files: ['**/*.vue'],
+        rules: {
+          'import/unambiguous': 'off',
+        },
+      },
+    ],
   }
 }

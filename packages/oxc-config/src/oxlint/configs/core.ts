@@ -231,7 +231,7 @@ const styleRules = defineRules({
   'prefer-template': 'error',
   'sort-imports': 'off',
   'sort-keys': 'off',
-  'vars-on-top': 'error',
+  'vars-on-top': 'off',
   'yoda': ['error', 'never'],
 })
 
@@ -263,7 +263,7 @@ const suspiciousRules = defineRules({
  */
 const nurseryRules = defineRules({
   'no-restricted-exports': 'off',
-  'no-undef': 'off',
+  'no-undef': 'error',
   'no-unreachable-loop': 'off',
   'no-useless-assignment': 'off',
 })

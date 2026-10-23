@@ -26,7 +26,7 @@ export function react({ rules }: ReactOptions = {}): OxlintConfig {
       'react/checked-requires-onchange-or-readonly': 'off',
       'react/display-name': 'error',
       'react/error-boundaries': 'error',
-      'react/exhaustive-effect-dependencies': 'error',
+      'react/exhaustive-effect-dependencies': 'off', // duplicate with `exhaustive-deps`
       'react/forbid-component-props': 'off',
       'react/forbid-dom-props': 'off',
       'react/forbid-elements': 'off',
@@ -34,7 +34,7 @@ export function react({ rules }: ReactOptions = {}): OxlintConfig {
       'react/function-component-definition': 'off',
       'react/globals': 'off',
       'react/hook-use-state': 'off',
-      'react/hooks': 'error',
+      'react/hooks': 'off', // duplicate with `rules-of-hooks`
       'react/iframe-missing-sandbox': 'off',
       'react/immutability': 'off',
       'react/incompatible-library': 'off',

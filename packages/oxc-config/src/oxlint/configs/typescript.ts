@@ -144,19 +144,33 @@ const nurseryRules = defineRules({
 })
 
 export function typescript({ rules: userRules }: TypescriptOptions = {}): OxlintConfig {
-  const rules: DummyRuleMap = {
+  const tsRules: DummyRuleMap = {
     ...correctnessRules,
     ...pedanticRules,
     ...restrictionRules,
     ...styleRule,
     ...suspiciousRules,
     ...nurseryRules,
-    ...userRules,
   }
   return {
-    plugins: ['typescript'],
-    rules,
+    plugins: ['typescript', 'eslint'],
+    rules: {
+      ...tsRules,
+
+      'no-implied-eval': 'off', // duplicate with `typescript/no-implied-eval`
+      'no-throw-literal': 'off', // duplicate with `typescript/only-throw-error`
+      'prefer-promise-reject-errors': 'off', // duplicate with `typescript/prefer-promise-reject-errors`
+
+      ...userRules,
+    },
     overrides: [
+      {
+        plugins: ['typescript'],
+        files: ['**/*.cts'],
+        rules: {
+          'typescript/no-require-imports': 'off',
+        },
+      },
       {
         plugins: ['eslint'],
         files: ['**/*.{ts,tsx,cts,mts}'],
@@ -184,8 +198,6 @@ export function typescript({ rules: userRules }: TypescriptOptions = {}): Oxlint
             'error',
             { allowShortCircuit: true, allowTaggedTemplates: true, allowTernary: true },
           ],
-          'no-unused-vars': 'off',
-          'no-useless-constructor': 'off',
           'no-use-before-define': [
             'error',
             { classes: false, functions: false, variables: true },
@@ -195,7 +207,7 @@ export function typescript({ rules: userRules }: TypescriptOptions = {}): Oxlint
       {
         plugins: ['typescript'],
         files: ['**/*.{js,jsx,cjs,mjs}'],
-        rules: Object.fromEntries(Object.keys(rules).map(key => [key, 'off'])),
+        rules: Object.fromEntries(Object.keys(tsRules).map(key => [key, 'off'])),
       },
     ],
   }

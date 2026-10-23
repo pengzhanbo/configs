@@ -83,7 +83,7 @@ const nurseryRules = defineRules({
 
 export function importRules({ rules }: importOptions = {}): OxlintConfig {
   return {
-    plugins: ['import'],
+    plugins: ['import', 'eslint'],
     rules: {
       ...correctnessRules,
       ...pedanticRules,
@@ -91,12 +91,15 @@ export function importRules({ rules }: importOptions = {}): OxlintConfig {
       ...styleRules,
       ...suspiciousRules,
       ...nurseryRules,
+
+      'no-duplicate-imports': 'off', // duplicate with `import/no-duplicates`
+
       ...rules,
     },
     overrides: [
       {
         plugins: ['import'],
-        files: ['**/*.cjs', '**/*.mts'],
+        files: ['**/*.cjs', '**/*.cts'],
         rules: {
           'import/no-commonjs': 'off',
           'import/unambiguous': 'off',
