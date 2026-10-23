@@ -1,12 +1,6 @@
-import type { DummyRuleMap, OxlintConfig, OxlintOverride } from 'oxlint'
+import type { DummyRuleMap } from 'oxlint'
 
 export { defineConfig } from 'oxlint'
-
-export function defineOverride(override: OxlintOverride): OxlintConfig {
-  return {
-    overrides: [override],
-  }
-}
 
 export function defineRules(rules: DummyRuleMap): DummyRuleMap {
   return rules
@@ -32,7 +26,6 @@ const ruleNames: string[] = [
   'vue',
 
   // compat eslint
-  // '@stylistic',  // deprecated
   'regexp',
 ]
 

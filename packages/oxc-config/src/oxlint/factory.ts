@@ -23,10 +23,15 @@ export function oxlintConfig(options: Options = {}, ...overrides: OxlintOverride
     ignores,
     ts = true,
     regexp: enableRegexp = true,
-    jsxA11y: enableJsxA11y = true,
+    jsxA11y: enableJsxA11y = false,
+    import: enableImport = true,
+    jsdoc: enableJsdoc = true,
+    unicorn: enableUnicorn = true,
+    test: enableTest = true,
+    promise: enablePromise = true,
     vue: enableVue = false,
     react: enableReact = false,
-    node: enableNode = true,
+    node: enableNode = false,
     rules = {},
     extends: userExtends = [],
     overrides: userOverrides = [],
@@ -40,11 +45,19 @@ export function oxlintConfig(options: Options = {}, ...overrides: OxlintOverride
   const userRules = splitRules(rules)
 
   configs.push(core({ rules: userRules.core }))
-  configs.push(importRules({ rules: userRules.import }))
-  configs.push(jsdoc({ ts, rules: userRules.jsdoc }))
-  configs.push(unicorn({ rules: userRules.unicorn }))
   configs.push(oxc({ rules: userRules.oxc }))
-  configs.push(promise({ rules: userRules.promise }))
+
+  if (enableImport)
+    configs.push(importRules({ rules: userRules.import }))
+
+  if (enableJsdoc)
+    configs.push(jsdoc({ ts, rules: userRules.jsdoc }))
+
+  if (enableUnicorn)
+    configs.push(unicorn({ rules: userRules.unicorn }))
+
+  if (enablePromise)
+    configs.push(promise({ rules: userRules.promise }))
 
   if (enableJsxA11y)
     configs.push(jsx({ rules: userRules['jsx-a11y'] }))
@@ -72,7 +85,8 @@ export function oxlintConfig(options: Options = {}, ...overrides: OxlintOverride
     configs.push(react({ rules: { ...userRules.react, ...userRules['react-perf'] } }))
   }
 
-  configs.push(test({ rules: userRules.vitest }))
+  if (enableTest)
+    configs.push(test({ rules: userRules.vitest }))
 
   return {
     extends: [
@@ -90,19 +104,10 @@ export function oxlintConfig(options: Options = {}, ...overrides: OxlintOverride
       typeCheck: ts,
       ...userOptions,
     },
-    categories: {
-      correctness: 'error',
-      pedantic: 'warn',
-      perf: 'warn',
-      restriction: 'warn',
-      suspicious: 'warn',
-      ...userCategories,
-    },
+    categories: userCategories,
     env: {
       builtin: true,
       es2026: true,
-      browser: true,
-      node: true,
       ...userEnv,
     },
     ...userConfig,
