@@ -34,17 +34,17 @@ catalogs:
     '@eslint/config-inspector': ^3.5.0
     '@types/eslint-plugin-jsx-a11y': ^6.10.1
     '@types/node': ^26.6.5
-    baseline-browser-mapping: ^2.11.30
+    baseline-browser-mapping: ^2.11.33
     bumpp: ^12.3.0
     chokidar: ^6.0.0
     eslint-typegen: ^2.3.1
     nano-spawn: ^2.1.0
     nano-staged: ^1.0.2
-    sass: ^1.106.0
+    sass: ^1.106.1
     simple-git-hooks: ^2.14.0
     svelte: ^5.57.2
     tinyglobby: ^0.2.17
-    tsdown: ^0.23.1
+    tsdown: ^0.23.2
     tsx: ^4.23.15
     typescript: 6.0.3
     vitest: ^5.0.5
@@ -55,8 +55,8 @@ catalogs:
     '@angular-eslint/eslint-plugin-template': ^22.6.0
     '@angular-eslint/template-parser': ^22.6.0
     '@eslint-community/eslint-utils': ^4.10.1
-    '@eslint-react/eslint-plugin': ^5.28.4
-    '@next/eslint-plugin-next': ^16.4.2
+    '@eslint-react/eslint-plugin': ^5.28.8
+    '@next/eslint-plugin-next': ^16.4.3
     '@prettier/plugin-xml': ^3.4.2
     '@typescript-eslint/types': ^8.72.0
     '@typescript-eslint/utils': ^8.72.0
@@ -70,16 +70,16 @@ catalogs:
     eslint-plugin-svelte: ^3.23.1
     eslint-plugin-tailwindcss: ^4.4.0
     eslint-plugin-vue: ^10.11.1
-    eslint-plugin-vuejs-accessibility: ^2.6.2
+    eslint-plugin-vuejs-accessibility: ^2.6.3
     eslint-processor-vue-blocks: ^2.0.0
     oxfmt: ^0.74.0
     oxlint: ^1.89.0
-    oxlint-tsgolint: ^7.0.2004
+    oxlint-tsgolint: ^7.0.2005
     prettier: ^3.9.10
-    prettier-plugin-astro: ^1.1.1
+    prettier-plugin-astro: ^1.1.2
     prettier-plugin-slidev: ^1.0.5
     stylelint: ^17.16.0
-    svelte-eslint-parser: ^1.9.0
+    svelte-eslint-parser: ^1.10.0
     vue-eslint-parser: ^10.4.1
   prod:
     '@antfu/install-pkg': ^2.1.0
@@ -94,15 +94,15 @@ catalogs:
     '@stylistic/stylelint-plugin': ^5.3.1
     '@typescript-eslint/eslint-plugin': ^8.72.0
     '@typescript-eslint/parser': ^8.72.0
-    '@vitest/eslint-plugin': ^1.6.27
+    '@vitest/eslint-plugin': ^1.6.28
     eslint-config-flat-gitignore: ^2.4.0
     eslint-flat-config-utils: ^3.2.0
     eslint-merge-processors: ^2.0.0
-    eslint-plugin-antfu: ^3.2.3
+    eslint-plugin-antfu: ^3.3.1
     eslint-plugin-command: ^4.0.0
     eslint-plugin-erasable-syntax-only: ^0.7.2
     eslint-plugin-import-lite: ^0.6.0
-    eslint-plugin-jsdoc: ^65.4.0
+    eslint-plugin-jsdoc: ^65.4.2
     eslint-plugin-jsonc: ^3.4.2
     eslint-plugin-jsx-a11y: ^6.10.2
     eslint-plugin-n: ^18.5.0
@@ -111,7 +111,7 @@ catalogs:
     eslint-plugin-pnpm: ^1.9.1
     eslint-plugin-regexp: ^3.3.1
     eslint-plugin-toml: ^1.5.0
-    eslint-plugin-unicorn: ^78.0.0
+    eslint-plugin-unicorn: ^79.0.0
     eslint-plugin-unused-imports: ^4.4.1
     eslint-plugin-yml: ^3.9.0
     globals: ^17.13.0
