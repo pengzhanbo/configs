@@ -67,10 +67,18 @@ export function oxlintConfig(options: Options = {}, ...overrides: OxlintOverride
   }
 
   if (enableNode) {
-    configs.push(node({
-      files: Array.isArray(enableNode) ? enableNode : undefined,
-      rules: userRules.node,
-    }))
+    if (!Array.isArray(enableNode) && typeof enableNode === 'object' && enableNode != null) {
+      configs.push(node({
+        ...enableNode,
+        rules: { ...userRules.node, ...enableNode.rules },
+      }))
+    }
+    else {
+      configs.push(node({
+        files: Array.isArray(enableNode) ? enableNode : undefined,
+        rules: userRules.node,
+      }))
+    }
   }
 
   if (enableRegexp) {
@@ -89,27 +97,13 @@ export function oxlintConfig(options: Options = {}, ...overrides: OxlintOverride
     configs.push(test({ rules: userRules.vitest }))
 
   return {
-    extends: [
-      ...configs,
-      ...userExtends,
-    ],
-    overrides: [
-      ...overrides,
-      ...userOverrides,
-    ],
+    extends: [...configs, ...userExtends],
+    overrides: [...overrides, ...userOverrides],
     rules: userRules.custom,
     ignorePatterns: ignore(ignores),
-    options: {
-      typeAware: ts,
-      typeCheck: ts,
-      ...userOptions,
-    },
+    options: userOptions,
     categories: userCategories,
-    env: {
-      builtin: true,
-      es2026: true,
-      ...userEnv,
-    },
+    env: { builtin: true, es2026: true, ...userEnv },
     ...userConfig,
   }
 }

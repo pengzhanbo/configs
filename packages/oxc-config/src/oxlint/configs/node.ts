@@ -1,10 +1,5 @@
-import type { DummyRuleMap, OxlintConfig, OxlintOverride } from 'oxlint'
+import type { OxlintConfig, OxlintOverride } from 'oxlint'
 import { defineRules } from '../utils'
-
-interface nodeOptions {
-  files?: string[]
-  rules?: DummyRuleMap
-}
 
 const nodeRules = defineRules({
   'node/callback-return': 'off',
@@ -20,9 +15,10 @@ const nodeRules = defineRules({
   'node/no-top-level-await': ['warn', { ignoreBin: true }],
 })
 
-export function node({ files, rules }: nodeOptions = {}): OxlintConfig {
+export function node({ files, rules, env, ...options }: Partial<OxlintOverride> = {}): OxlintConfig {
   const override: OxlintOverride = {
     plugins: ['node'],
+    env: { node: true },
     files: [
       '**/scripts/**/*.{js,cjs,mjs,ts,cts,mts}',
       '**/*.config.{js,cjs,mjs,ts,cts,mts}',
@@ -40,13 +36,17 @@ export function node({ files, rules }: nodeOptions = {}): OxlintConfig {
       overrides: [{
         plugins: ['node'],
         files,
+        env: { node: true, ...env },
         rules: { ...nodeRules, ...rules },
+        ...options,
       }, override],
     }
   }
   return {
     plugins: ['node'],
+    env: { node: true, ...env },
     rules: { ...nodeRules, ...rules },
+    ...options,
     overrides: [override],
   }
 }

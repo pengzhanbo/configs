@@ -1,4 +1,4 @@
-import type { OxlintConfig } from 'oxlint'
+import type { OxlintConfig, OxlintOverride } from 'oxlint'
 
 export interface Options extends Omit<OxlintConfig, 'ignorePatterns'> {
   ignores?: string[]
@@ -12,5 +12,5 @@ export interface Options extends Omit<OxlintConfig, 'ignorePatterns'> {
   promise?: boolean
   vue?: boolean
   react?: boolean
-  node?: boolean | string[]
+  node?: boolean | string[] | OxlintOverride
 }
