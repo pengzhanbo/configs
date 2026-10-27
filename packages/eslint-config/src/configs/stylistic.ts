@@ -61,6 +61,7 @@ export async function stylistic(
             },
 
         'antfu/consistent-chaining': 'error',
+        'antfu/consistent-list-newline': 'error',
         ...(lessOpinionated
           ? {
               curly: ['error', 'all'],
@@ -68,6 +69,7 @@ export async function stylistic(
           : {
               'antfu/curly': 'error',
               'antfu/if-newline': 'error',
+              'antfu/reasonable-newline': 'off',
               'antfu/top-level-function': 'error',
             }
         ),
