@@ -50,7 +50,7 @@ export function react({ rules }: ReactOptions = {}): OxlintConfig {
       'react/jsx-props-no-spread-multi': 'error',
       'react/jsx-props-no-spreading': 'off',
       'react/memo-dependencies': 'error',
-      'react/no-array-index-key': 'warn',
+      'react/no-array-index-key': 'off',
       'react/no-children-prop': 'error',
       'react/no-clone-element': 'warn',
       'react/no-danger-with-children': 'error',
@@ -75,13 +75,7 @@ export function react({ rules }: ReactOptions = {}): OxlintConfig {
       'react/no-unsafe': 'error',
       'react/no-unstable-nested-components': 'error',
       'react/no-will-update-set-state': 'error',
-      'react/only-export-components': [
-        'error',
-        {
-          allowConstantExport: true,
-          allowExportNames: [],
-        },
-      ],
+      'react/only-export-components': 'off',
       'react/prefer-es6-class': 'off',
       'react/prefer-function-component': 'off',
       'react/preserve-manual-memoization': 'error',
