@@ -133,6 +133,7 @@ const suspiciousRules = defineRules({
   'typescript/no-unnecessary-type-constraint': 'error',
   'typescript/no-unnecessary-type-conversion': 'off',
   'typescript/no-unnecessary-type-parameters': 'off',
+  'typescript/no-unsafe-enum-assignment': 'error',
   'typescript/no-unsafe-enum-comparison': 'off',
   'typescript/no-unsafe-type-assertion': 'off',
   'typescript/no-generated-empty-object-type': 'off',
