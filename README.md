@@ -363,4 +363,4 @@ pnpm test
 - [prettier](https://prettier.io/)
 - [@antfu/eslint-config](https://github.com/antfu/eslint-config)
 
-<!--9.0.0-->
+<!--10.0.0-->
