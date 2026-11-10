@@ -44,7 +44,7 @@ function stylelintConfig(
   config.overrides = config.overrides ?? []
   config.rules = {
     ...normalRules,
-    ...(config.rules || {}),
+    ...config.rules,
   }
 
   if (order) {
