@@ -9,8 +9,9 @@ export function test({ rules }: TestOptions = {}): OxlintConfig {
     overrides: [
       {
         plugins: ['eslint', 'vitest', 'typescript', 'unicorn'],
+        env: { vitest: true, node: true },
         files: [
-          '**/__tests__/**/*.{js,ts,jsx,tsx,cjs,mjs,cts,mts}',
+          '**/{__tests__,__test__,test,tests}/**/*.{js,ts,jsx,tsx,cjs,mjs,cts,mts}',
           '**/*.{spec,test,bench,benchmark}.{js,ts,jsx,tsx,cjs,mjs,cts,mts}',
         ],
         rules: {
