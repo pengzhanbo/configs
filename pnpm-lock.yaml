@@ -231,7 +231,7 @@ catalogs:
       version: 5.28.8
     '@next/eslint-plugin-next':
       specifier: ^16.4.5
-      version: 16.4.5
+      version: 16.4.6
     '@prettier/plugin-xml':
       specifier: ^3.4.2
       version: 3.4.2
@@ -606,7 +606,7 @@ importers:
         version: 3.5.0(crossws@0.4.12(srvx@1.0.5))(eslint@10.14.0(jiti@2.7.0)(supports-color@10.2.2))(srvx@1.0.5)
       '@next/eslint-plugin-next':
         specifier: catalog:peer
-        version: 16.4.5(eslint@10.14.0(jiti@2.7.0)(supports-color@10.2.2))
+        version: 16.4.6(eslint@10.14.0(jiti@2.7.0)(supports-color@10.2.2))
       '@prettier/plugin-xml':
         specifier: catalog:peer
         version: 3.4.2(prettier@3.9.10)
@@ -747,7 +747,7 @@ importers:
     devDependencies:
       '@next/eslint-plugin-next':
         specifier: catalog:peer
-        version: 16.4.5(eslint@10.14.0(jiti@2.7.0)(supports-color@10.2.2))
+        version: 16.4.6(eslint@10.14.0(jiti@2.7.0)(supports-color@10.2.2))
       '@unocss/eslint-plugin':
         specifier: catalog:peer
         version: 66.12.0(eslint@10.14.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
@@ -1643,8 +1643,8 @@ packages:
       '@emnapi/core': ^1.7.1 || 2.0.0-beta.2
       '@emnapi/runtime': ^1.7.1 || 2.0.0-beta.2
 
-  '@next/eslint-plugin-next@16.4.5':
-    resolution: {integrity: sha512-dNmc4y4En/34tWxaBFF2tG/R9GeiRwVPf7v8Az/Pqk8FcT4Uv0ePmrZKvWBL2nFy1QprPgJW+6XjfyV6jbRV3Q==}
+  '@next/eslint-plugin-next@16.4.6':
+    resolution: {integrity: sha512-HdqERVOafOD8JaUSAkwf9aSu/1rsHlkN8C5GcXYBH3C/z1MxBhZFxB5rz/xqMMRiIj7r9tIv8OCLQ9JWUxCvWA==}
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -5822,7 +5822,7 @@ snapshots:
       '@tybys/wasm-util': 0.10.4
     optional: true
 
-  '@next/eslint-plugin-next@16.4.5(eslint@10.14.0(jiti@2.7.0)(supports-color@10.2.2))':
+  '@next/eslint-plugin-next@16.4.6(eslint@10.14.0(jiti@2.7.0)(supports-color@10.2.2))':
     dependencies:
       '@eslint-community/eslint-utils': 4.10.1(eslint@10.14.0(jiti@2.7.0)(supports-color@10.2.2))
       fast-glob: 3.3.1
