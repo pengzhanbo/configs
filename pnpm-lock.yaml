@@ -313,7 +313,7 @@ catalogs:
       version: 3.12.0
     '@stylelint-types/stylelint-order':
       specifier: ^8.1.1
-      version: 8.1.1
+      version: 8.1.3
     '@stylelint-types/stylelint-scss':
       specifier: ^7.0.1
       version: 7.0.1
@@ -876,7 +876,7 @@ importers:
         version: 3.12.0
       '@stylelint-types/stylelint-order':
         specifier: catalog:prod
-        version: 8.1.1(stylelint-define-config@18.0.0(stylelint@18.0.0))(stylelint@18.0.0)
+        version: 8.1.3(stylelint-define-config@18.0.0(stylelint@18.0.0))(stylelint@18.0.0)
       '@stylelint-types/stylelint-scss':
         specifier: catalog:prod
         version: 7.0.1(stylelint-define-config@18.0.0(stylelint@18.0.0))(stylelint@18.0.0)
@@ -2376,12 +2376,12 @@ packages:
     resolution: {integrity: sha512-X67V4cCgM0Sz50bP8GbVzmiL8DHC2IXvdKcsN7DlxHyf+/T4d9GveeGukwha5Fx3MuYeGZWKag7TFL2ZY4w54A==}
     engines: {node: '>=18.0.0'}
 
-  '@stylelint-types/stylelint-order@8.1.1':
-    resolution: {integrity: sha512-jc9elOvmn2UoL+wzzWtHmezhAZPOJn6hWQ9Prct+FOxzY9XafssQEOUcs4T4DJ2RA+rxk9GockujWjbGtqj4FA==}
-    engines: {node: '>=20.19.0', npm: '>=9.0.0', pnpm: '>=9.0.0'}
+  '@stylelint-types/stylelint-order@8.1.3':
+    resolution: {integrity: sha512-PMwAop1nz1Tc8OIbBRBpUbgjcbX40rIXZFs3dDhJ9BrfFJpUyg8I4i+VCbro3Lk/AMtgiv8RXBN3rKJ06sKI7g==}
+    engines: {node: '>=20.19.0', npm: '>=9.0.0', pnpm: '>=10.0.0'}
     peerDependencies:
-      stylelint: '>=17'
-      stylelint-define-config: '>=17'
+      stylelint: ^18.0.0
+      stylelint-define-config: ^18.0.0
     peerDependenciesMeta:
       stylelint:
         optional: true
@@ -6216,7 +6216,7 @@ snapshots:
 
   '@slidev/types@0.47.5': {}
 
-  '@stylelint-types/stylelint-order@8.1.1(stylelint-define-config@18.0.0(stylelint@18.0.0))(stylelint@18.0.0)':
+  '@stylelint-types/stylelint-order@8.1.3(stylelint-define-config@18.0.0(stylelint@18.0.0))(stylelint@18.0.0)':
     dependencies:
       stylelint-define-config: 18.0.0(stylelint@18.0.0)
     optionalDependencies:
