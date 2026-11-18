@@ -169,8 +169,7 @@ const restrictionRules = defineRules({
   'no-var': 'error',
   'no-void': 'off',
   'unicode-bom': ['error', 'never'],
-},
-)
+})
 
 /**
  * 样式规则
