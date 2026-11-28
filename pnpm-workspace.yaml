@@ -1,11 +1,6 @@
 ignoreWorkspaceRootCheck: true
 catalogMode: prefer
-
 minimumReleaseAgeExcludePrune: true
-minimumReleaseAgeExclude:
-  - '@stylelint-types/stylelint-order@8.1.4'
-  - '@stylelint-types/stylelint-scss@7.5.0'
-  - '@stylelint-types/stylelint-stylistic@6.0.1'
 
 trustPolicy: no-downgrade
 trustPolicyExclude:
@@ -35,11 +30,11 @@ allowBuilds:
 
 catalogs:
   dev:
-    '@angular/core': ^22.2.6
+    '@angular/core': ^22.3.0
     '@eslint/config-inspector': ^3.5.0
     '@types/eslint-plugin-jsx-a11y': ^6.10.1
-    '@types/node': ^26.6.6
-    baseline-browser-mapping: ^2.11.38
+    '@types/node': ^26.6.11
+    baseline-browser-mapping: ^2.11.40
     bumpp: ^12.3.0
     chokidar: ^6.0.0
     eslint-typegen: ^2.3.2
@@ -47,44 +42,44 @@ catalogs:
     nano-staged: ^1.0.2
     sass: ^1.108.2
     simple-git-hooks: ^2.14.0
-    svelte: ^5.57.3
+    svelte: ^5.59.2
     tinyglobby: ^0.2.17
     tsdown: ^0.23.7
     tsx: ^4.23.15
     typescript: 6.0.3
-    vitest: ^5.1.0
+    vitest: ^5.1.2
   inline:
     find-up-simple: ^1.0.1
   peer:
-    '@angular-eslint/eslint-plugin': ^22.7.0
-    '@angular-eslint/eslint-plugin-template': ^22.7.0
-    '@angular-eslint/template-parser': ^22.7.0
+    '@angular-eslint/eslint-plugin': ^22.8.0
+    '@angular-eslint/eslint-plugin-template': ^22.8.0
+    '@angular-eslint/template-parser': ^22.8.0
     '@eslint-community/eslint-utils': ^4.10.1
-    '@eslint-react/eslint-plugin': ^5.30.4
+    '@eslint-react/eslint-plugin': ^5.30.6
     '@next/eslint-plugin-next': ^16.4.6
     '@prettier/plugin-xml': ^3.4.2
-    '@typescript-eslint/types': ^8.73.0
-    '@typescript-eslint/utils': ^8.73.0
+    '@typescript-eslint/types': ^8.74.0
+    '@typescript-eslint/utils': ^8.74.0
     '@unocss/eslint-plugin': ^66.13.0
     astro-eslint-parser: ^3.2.0
     eslint: ^10.15.0
-    eslint-plugin-astro: ^3.2.1
+    eslint-plugin-astro: ^3.2.2
     eslint-plugin-format: ^2.0.1
     eslint-plugin-react-refresh: ^0.5.8
-    eslint-plugin-solid: ^0.19.0
+    eslint-plugin-solid: ^0.20.1
     eslint-plugin-svelte: ^3.24.1
     eslint-plugin-tailwindcss: ^4.4.0
     eslint-plugin-vue: ^10.12.1
     eslint-plugin-vuejs-accessibility: ^2.6.3
     eslint-processor-vue-blocks: ^2.0.0
-    oxfmt: ^0.79.0
-    oxlint: ^1.94.0
-    oxlint-tsgolint: ^7.0.2007
+    oxfmt: ^0.80.0
+    oxlint: ^1.95.0
+    oxlint-tsgolint: ^7.0.2009
     prettier: ^3.10.1
     prettier-plugin-astro: ^1.1.2
     prettier-plugin-slidev: ^1.0.5
-    stylelint: ^18.0.0
-    svelte-eslint-parser: ^1.10.1
+    stylelint: ^18.1.0
+    svelte-eslint-parser: ^1.12.0
     vue-eslint-parser: ^10.4.2
   prod:
     '@antfu/install-pkg': ^2.1.0
@@ -97,20 +92,20 @@ catalogs:
     '@stylelint-types/stylelint-stylistic': ^6.0.1
     '@stylistic/eslint-plugin': ^6.0.1
     '@stylistic/stylelint-plugin': ^6.0.1
-    '@typescript-eslint/eslint-plugin': ^8.73.0
-    '@typescript-eslint/parser': ^8.73.0
+    '@typescript-eslint/eslint-plugin': ^8.74.0
+    '@typescript-eslint/parser': ^8.74.0
     '@vitest/eslint-plugin': ^1.6.28
     eslint-config-flat-gitignore: ^2.4.0
     eslint-flat-config-utils: ^3.2.0
     eslint-merge-processors: ^2.0.0
     eslint-plugin-antfu: ^3.3.1
     eslint-plugin-command: ^4.0.0
-    eslint-plugin-erasable-syntax-only: ^0.7.2
+    eslint-plugin-erasable-syntax-only: ^0.7.3
     eslint-plugin-import-lite: ^0.6.0
-    eslint-plugin-jsdoc: ^65.4.10
+    eslint-plugin-jsdoc: ^65.5.7
     eslint-plugin-jsonc: ^3.4.2
     eslint-plugin-jsx-a11y: ^6.10.2
-    eslint-plugin-n: ^18.5.0
+    eslint-plugin-n: ^18.6.0
     eslint-plugin-no-only-tests: ^3.4.0
     eslint-plugin-perfectionist: ^5.14.0
     eslint-plugin-pnpm: ^1.9.1
@@ -125,9 +120,9 @@ catalogs:
     postcss: ^8.5.33
     postcss-html: ^2.0.1
     stylelint-config-html: ^2.0.0
-    stylelint-config-standard: ^41.0.0
+    stylelint-config-standard: ^41.1.0
     stylelint-config-standard-scss: ^18.0.0
     stylelint-define-config: ^18.0.0
-    stylelint-order: ^8.1.3
+    stylelint-order: ^9.0.0
     toml-eslint-parser: ^1.0.3
     yaml-eslint-parser: ^2.1.0
